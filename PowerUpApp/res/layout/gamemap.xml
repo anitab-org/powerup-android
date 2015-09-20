@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/map" >
+
+    <Button
+        android:id="@+id/ContinueButtonMapGameBegins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/continue_button_map_margin_right"
+        android:text="@string/enter" />
+
+    <Button
+        android:id="@+id/HouseButton"
+        android:layout_width="@dimen/map_click_width"
+        android:layout_height="@dimen/map_click_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/house_button_margin_left"
+        android:layout_marginTop="@dimen/house_button_margin_top"
+        android:alpha="0.00"
+        android:text="@string/house" />
+
+    <Button
+        android:id="@+id/HospitalButton"
+        android:layout_width="@dimen/map_click_width"
+        android:layout_height="@dimen/map_click_height"
+        android:layout_alignBaseline="@+id/HouseButton"
+        android:layout_alignBottom="@id/HouseButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/hospital_button_margin_right"
+        android:alpha="0.00"
+        android:text="@string/hospital" />
+
+    <Button
+        android:id="@+id/BoyfriendButton"
+        android:layout_width="@dimen/map_click_width"
+        android:layout_height="@dimen/map_click_height"
+        android:layout_above="@id/ContinueButtonMapGameBegins"
+        android:layout_alignLeft="@id/HouseButton"
+        android:layout_alignStart="@id/HouseButton"
+        android:alpha="0.00"
+        android:text="@string/boyfriend" />
+
+    <Button
+        android:id="@+id/SchoolButton"
+        android:layout_width="@dimen/map_click_width"
+        android:layout_height="@dimen/map_click_height"
+        android:layout_alignBottom="@id/BoyfriendButton"
+        android:layout_alignRight="@id/ContinueButtonMapGameBegins"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/school_button_margin_bottom"
+        android:alpha="0.00"
+        android:text="@string/school" />
+
+</RelativeLayout>

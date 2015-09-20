@@ -1,0 +1,55 @@
+1,1,Maybe another time.,3,2
+2,1,Sure,2,1
+3,2,Can we talk about this?,$,2
+4,2,Sure,4,1
+5,4,Do you have condoms?,5,3
+6,4,Let’s head inside,$,0
+7,4,I’m feeling weird. Can we talk about this?,$,2
+8,5,Let’s go to the store and buy some.,6,4
+9,5,I am not feeling comfortable about this.,7,4
+10,5,"Nevermind let’s just have sex.",$,0
+11,7,I really think we should find a condom,6,3
+12,7,I changed my mind. I wanna go home.,$,3
+13,6,"Ok I am going home",$,4
+14,6,Ok fine. Let’s have sex,$,0
+15,3,Returns Home,$,0
+16,8,Maybe another time.,3,2
+17,8,Sure,2,1
+18,9,Can we talk about this?,$,2
+19,9,Sure,4,1
+20,11,Do you have condoms?,5,3
+21,11,Let’s head inside,$,0
+22,11,I’m feeling weird. Can we talk about this?,$,2
+23,12,Let’s go to the store and buy some.,6,4
+24,12,I am not feeling comfortable about this.,7,4
+25,12,"Nevermind let’s just have sex.",$,0
+26,14,I really think we should find a condom,6,3
+27,14,I changed my mind. I wanna go home.,$,3
+28,13,"Ok I am going home",$,4
+29,13,Ok fine. Let’s have sex,$,0
+30,10,Returns Home,$,0
+31,15,Maybe another time.,3,2
+32,15,Sure,2,1
+33,16,Can we talk about this?,$,2
+34,16,Sure,4,1
+35,18,Do you have condoms?,5,3
+36,18,Let’s head inside,$,0
+37,18,I’m feeling weird. Can we talk about this?,$,2
+38,19,Let’s go to the store and buy some.,6,4
+39,19,I am not feeling comfortable about this.,7,4
+40,19,"Nevermind let’s just have sex.",$,0
+41,21,I really think we should find a condom,6,3
+42,21,I changed my mind. I wanna go home.,$,3
+43,20,"Ok I am going home",$,4
+44,20,Ok fine. Let’s have sex,$,0
+45,17,Returns Home,$,0
+46,29,"Friend X" you never returned my ipod from last summer...,30,1
+47,30,Fine whatever. Here it is.,31,2
+48,30,I don't know man. I begged my mom for this last Christmas. This is my baby.,32,3
+49,30,ABSOLUTELY not. You are a terrible person and I never want to see you again.,33,1
+50,32,Uh... okay. I guess.,31,2
+51,32,I just can't do it. I'm sorry. I'd love to help with anything else.,34,1
+52,32,Never. I would never trust anyone like you.,33,0
+53,33,Whatever!,$,1
+54,34,Yo! See you soon,$,1
+55,31,Hehe.. be careful,$,1

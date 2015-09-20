@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <TextView
+        android:id="@+id/completed_scene_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/completed_scene_margin_right"
+        android:layout_marginTop="@dimen/completed_scene_margin_top"
+        android:ems="10"
+        android:text="@string/completed_scene"
+        android:textColor="@color/black"
+        android:textSize="@dimen/game_text_size" />
+
+    <Button
+        android:id="@+id/ContinueButtonMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@id/completed_scene_textView"
+        android:layout_marginBottom="@dimen/completed_scene_map_margin_bottom"
+        android:layout_marginRight="@dimen/completed_scene_map_margin_right"
+        android:text="@string/map" />
+
+    <Button
+        android:id="@+id/store_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/ContinueButtonMap"
+        android:layout_alignBottom="@id/ContinueButtonMap"
+        android:layout_alignLeft="@id/completed_scene_textView"
+        android:text="@string/store" />
+
+</RelativeLayout>
