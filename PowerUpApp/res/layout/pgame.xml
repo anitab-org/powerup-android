@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="fill"
+    tools:context="com.example.powerup.Game" >
+
+    <TextView
+        android:id="@+id/scenarioNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/redoButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/game_text_size" />
+
+    <ListView
+        android:id="@+id/mainListView"
+        android:layout_width="@dimen/main_list_view_width"
+        android:layout_height="@dimen/main_list_view_height"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/askerImageView"
+        android:background="@android:color/white"
+        android:backgroundTint="@color/abc_secondary_text_material_dark"
+        android:clickable="true" >
+    </ListView>
+
+    <Button
+        android:id="@+id/continueButtonGoesToMap"
+        android:layout_width="@dimen/continue_button_map_width"
+        android:layout_height="@dimen/continue_button_map_height"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home" />
+
+    <Button
+        android:id="@id/redoButton"
+        android:layout_width="@dimen/redo_button_width"
+        android:layout_height="@dimen/redo_button_height"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/continueButtonGoesToMap"
+        android:background="@drawable/replay" />
+
+    <ImageView
+        android:id="@id/askerImageView"
+        android:layout_width="@dimen/asker_image_view_width"
+        android:layout_height="@dimen/asker_image_view_height"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/scenarioNameEditText"
+        android:src="@drawable/marco" />
+
+    <ImageView
+        android:id="@+id/powerBarView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/power_bar_view_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/clothing_room_all" />
+
+    <TextView
+        android:id="@+id/questionView"
+        android:layout_width="@dimen/question_view_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/askerImageView"
+        android:layout_marginTop="@dimen/question_view_margin_top"
+        android:background="@android:color/white"
+        android:backgroundTint="@color/abc_secondary_text_material_dark"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/game_text_size" />
+
+    <ImageView
+        android:id="@+id/avatarView"
+        android:layout_width="@dimen/avatar_view_width"
+        android:layout_height="@dimen/avatar_view_height"
+        android:layout_above="@id/powerBarView"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/character_design" />
+
+</RelativeLayout>

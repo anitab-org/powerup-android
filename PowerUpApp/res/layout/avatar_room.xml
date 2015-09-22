@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+
+    <ImageView
+        android:id="@+id/eyes"
+        android:layout_width="@dimen/avatar_room_width"
+        android:layout_height="@dimen/avatar_room_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/eyes_margin_left"
+        android:layout_marginTop="@dimen/eyes_margin_top"
+        android:src="@drawable/eye1" />
+
+    <ImageView
+        android:id="@+id/hair"
+        android:layout_width="@dimen/avatar_room_width"
+        android:layout_height="@dimen/avatar_room_height"
+        android:layout_alignTop="@id/eyes"
+        android:layout_marginLeft="@dimen/hair_margin_left"
+        android:layout_toRightOf="@id/eyes"
+        android:src="@drawable/hair1" />
+
+    <ImageView
+        android:id="@+id/face"
+        android:layout_width="@dimen/avatar_room_width"
+        android:layout_height="@dimen/avatar_room_height"
+        android:layout_alignLeft="@id/hair"
+        android:layout_centerVertical="true"
+        android:src="@drawable/face1" />
+
+    <ImageView
+        android:id="@+id/clothes"
+        android:layout_width="@dimen/avatar_room_width"
+        android:layout_height="@dimen/avatar_room_height"
+        android:layout_alignTop="@id/face"
+        android:layout_toLeftOf="@id/hair"
+        android:src="@drawable/cloth1" />
+
+    <ImageButton
+        android:id="@+id/faceRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/face"
+        android:layout_below="@id/face"
+        android:layout_marginTop="@dimen/face_right_margin_top"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/clotheRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/clothes"
+        android:layout_alignTop="@id/faceRight"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/hairRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/face"
+        android:layout_below="@id/hair"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/clotheLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/clotheRight"
+        android:layout_toLeftOf="@id/clotheRight"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/hairLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/hairRight"
+        android:layout_toLeftOf="@id/hairRight"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/eyeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/clothes"
+        android:layout_alignLeft="@id/clotheLeft"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/newUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/clothes"
+        android:layout_toLeftOf="@id/hair"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <ImageButton
+        android:id="@+id/faceLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/faceRight"
+        android:layout_toLeftOf="@id/faceRight"
+        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+
+    <Button
+        android:id="@+id/continueButtonAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/face"
+        android:layout_below="@id/faceRight"
+        android:layout_marginTop="@dimen/continue_button_avatar_margin_top"
+        android:background="@drawable/endingscreen6" />
+
+</RelativeLayout>
