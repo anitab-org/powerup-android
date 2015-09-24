@@ -1,4 +1,0 @@
-INDEX VERSION 1.127+/home/chetna/PowerUp1/PowerUp/Android/.metadata/.plugins/org.eclipse.jdt.core
-3899808475.index
-1603224976.index
-2217645265.index
