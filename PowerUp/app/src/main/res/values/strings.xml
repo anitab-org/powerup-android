@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PowerUpApp</string>
+    <string name="app_name">Power Up</string>
     <string name="action_settings">Settings</string>
     <string name="house">House</string>
     <string name="boyfriend">Boyfriend</string>
