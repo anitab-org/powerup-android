@@ -173,6 +173,7 @@ public class AvatarRoom extends Activity {
 		continueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				getmDbHandler().open();
 				getmDbHandler().setAvatarEye(eye);
 				getmDbHandler().setAvatarFace(face);
 				getmDbHandler().setAvatarHair(hair);
