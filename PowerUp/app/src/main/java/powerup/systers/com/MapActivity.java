@@ -21,14 +21,6 @@ public class MapActivity extends Activity {
 		getmDbHandler().open();
 		setContentView(R.layout.gamemap);
 
-		Button continueButton = (Button) findViewById(R.id.ContinueButtonMapGameBegins);
-		continueButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent myIntent = new Intent(MapActivity.this, Game.class);
-				startActivityForResult(myIntent, 0);
-			}
-		});
 		Button house = (Button) findViewById(R.id.HouseButton);
 		house.setOnClickListener(onClickListener);
 
