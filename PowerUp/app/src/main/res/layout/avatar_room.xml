@@ -47,7 +47,7 @@
         android:layout_alignRight="@id/face"
         android:layout_below="@id/face"
         android:layout_marginTop="@dimen/face_right_margin_top"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
 
     <ImageButton
         android:id="@+id/clotheRight"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/clothes"
         android:layout_alignTop="@id/faceRight"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
 
     <ImageButton
         android:id="@+id/hairRight"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/face"
         android:layout_below="@id/hair"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
 
     <ImageButton
         android:id="@+id/clotheLeft"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/clotheRight"
         android:layout_toLeftOf="@id/clotheRight"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
 
     <ImageButton
         android:id="@+id/hairLeft"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/hairRight"
         android:layout_toLeftOf="@id/hairRight"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
 
     <ImageButton
         android:id="@+id/eyeLeft"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/clothes"
         android:layout_alignLeft="@id/clotheLeft"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
 
     <ImageButton
         android:id="@+id/newUserButton"
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/clothes"
         android:layout_toLeftOf="@id/hair"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
 
     <ImageButton
         android:id="@+id/faceLeft"
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/faceRight"
         android:layout_toLeftOf="@id/faceRight"
-        android:src="@drawable/abc_ic_go_search_api_mtrl_alpha" />
+        android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
 
     <Button
         android:id="@+id/continueButtonAvatar"
