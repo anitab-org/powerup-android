@@ -27,3 +27,11 @@ and self-esteem by navigating the life of their avatar!
 ## Documentation of PowerUp (Android)
 Here's the link to the official documentation:
 [Visit Documentation!](http://chetnagsocpowerupandroid.blogspot.in/2015/05/database-design.html)
+
+##Coding Guidelines
+1. Don't use magic numbers or hard-coded strings. Put them in dimens.xml or strings.xml
+1. Class names should be in CamelCase. Name activities with names including Activity so it's easier to know what they are.
+1. Include spaces between parameters when you call a method for example: `Intent(MainActivity.this, GameActivity.class)`.
+1. Give relevant names to buttons and other resources. 
+1. Use `@id` instead of `@+id` when referring to resources that have been already created in xml files.
+
