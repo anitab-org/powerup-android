@@ -81,7 +81,7 @@ public class AvatarActivity extends Activity {
                     edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
                     edit.commit();
                 }
-                Intent myIntent = new Intent(AvatarActivity.this, Game.class);
+                Intent myIntent = new Intent(AvatarActivity.this, MapActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});
