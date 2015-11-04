@@ -17,5 +17,6 @@
     <string name="enter">Continue..</string>
     <string name="back_to_map">Back to Map</string>
     <string name="replay">Replay</string>
+    <string name="pref_previously_started">pref_previously_started</string>
 
 </resources>

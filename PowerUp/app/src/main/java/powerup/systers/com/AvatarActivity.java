@@ -2,7 +2,9 @@ package powerup.systers.com;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -72,7 +74,14 @@ public class AvatarActivity extends Activity {
 		continueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent myIntent = new Intent(AvatarActivity.this, Game.class);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarActivity.this);
+                boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+                if (!previouslyStarted) {
+                    SharedPreferences.Editor edit = prefs.edit();
+                    edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+                    edit.commit();
+                }
+                Intent myIntent = new Intent(AvatarActivity.this, Game.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});
