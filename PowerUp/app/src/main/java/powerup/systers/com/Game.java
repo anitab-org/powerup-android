@@ -189,6 +189,7 @@ public class Game extends Activity {
 		if (scene.getCompleted() == 1) {
 			if (scene.getNextScenarioID() == -1) {
 				Intent myIntent = new Intent(Game.this, GameOver.class);
+				finish();
 				startActivityForResult(myIntent, 0);
 			} else {
 				SessionHistory.currSessionID = scene.getNextScenarioID();
