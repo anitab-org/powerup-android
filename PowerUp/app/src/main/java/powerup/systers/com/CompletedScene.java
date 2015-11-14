@@ -19,6 +19,7 @@ public class CompletedScene extends Activity {
 			public void onClick(View v) {
 				Intent myIntent = new Intent(CompletedScene.this,
 						MapActivity.class);
+				finish();
 				startActivityForResult(myIntent, 0);
 			}
 		});
