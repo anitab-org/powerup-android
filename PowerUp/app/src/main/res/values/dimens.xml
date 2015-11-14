@@ -58,5 +58,6 @@
     <dimen name="question_view_width">200dp</dimen>
     <dimen name="redo_button_width">30dp</dimen>
     <dimen name="redo_button_height">30dp</dimen>
+    <dimen name="avatar_margin_top">50dp</dimen>
 
 </resources>

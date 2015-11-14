@@ -6,11 +6,14 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import powerup.systers.com.datamodel.Answer;
@@ -30,6 +33,10 @@ public class Game extends Activity {
 	private Button replay;
 	private Button goToMap;
 	private ArrayAdapter<String> listAdapter;
+	private ImageView eyeImageView;
+	private ImageView hairImageView;
+	private ImageView clothImageView;
+	private ImageView faceImageView;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -47,59 +54,58 @@ public class Game extends Activity {
 		answers = new ArrayList<>();
 		goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
 		replay = (Button) findViewById(R.id.redoButton);
-		
-		/* Code for putting the avatar. Good Luck! GSoC-2016!"
-		eyeView = (ImageView) findViewById(R.id.eyeImageView);
-		faceView = (ImageView) findViewById(R.id.faceImageView);
-		hairView = (ImageView) findViewById(R.id.hairImageView);
-		clothView = (ImageView) findViewById(R.id.clothImageView);
-		
+
+		eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
+		faceImageView = (ImageView) findViewById(R.id.faceImageView);
+		hairImageView = (ImageView) findViewById(R.id.hairImageView);
+		clothImageView = (ImageView) findViewById(R.id.clothImageView);
+
 		String eyeImageName = "eye";
 		eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();;
 		R.drawable ourRID = new R.drawable();
 		java.lang.reflect.Field photoNameField;
 		try {
 			photoNameField = ourRID.getClass().getField(eyeImageName);
-			eyeView.setImageResource(photoNameField.getInt(ourRID));
+			eyeImageView.setImageResource(photoNameField.getInt(ourRID));
 		} catch (NoSuchFieldException | IllegalAccessException
 				| IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String faceImageName = "face";
 		faceImageName = faceImageName + getmDbHandler().getAvatarFace();;
 		try {
 			photoNameField = ourRID.getClass().getField(faceImageName);
-			faceView.setImageResource(photoNameField.getInt(ourRID));
+			faceImageView.setImageResource(photoNameField.getInt(ourRID));
 		} catch (NoSuchFieldException | IllegalAccessException
 				| IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String clothImageName = "cloth";
 		clothImageName = clothImageName + getmDbHandler().getAvatarCloth();;
 		try {
 			photoNameField = ourRID.getClass().getField(clothImageName);
-			clothView.setImageResource(photoNameField.getInt(ourRID));
+			clothImageView.setImageResource(photoNameField.getInt(ourRID));
 		} catch (NoSuchFieldException | IllegalAccessException
 				| IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String hairImageName = "hair";
 		hairImageName = hairImageName + getmDbHandler().getAvatarHair();;
 		try {
 			photoNameField = ourRID.getClass().getField(hairImageName);
-			hairView.setImageResource(photoNameField.getInt(ourRID));
+			hairImageView.setImageResource(photoNameField.getInt(ourRID));
 		} catch (NoSuchFieldException | IllegalAccessException
 				| IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
-		
+		}
+
 		// Update Scene
 		updateScenario();
 		if (scene.getReplayed() == 1) {

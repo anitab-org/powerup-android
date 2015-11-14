@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:gravity="fill"
-    tools:context="com.example.powerup.Game" >
+    tools:context="com.example.powerup.Game">
 
     <TextView
         android:id="@+id/scenarioNameEditText"
@@ -29,8 +29,7 @@
         android:layout_below="@+id/askerImageView"
         android:background="@android:color/white"
         android:backgroundTint="@color/abc_secondary_text_material_dark"
-        android:clickable="true" >
-    </ListView>
+        android:clickable="true"/>
 
     <Button
         android:id="@+id/continueButtonGoesToMap"
@@ -77,12 +76,46 @@
         android:textColor="@android:color/black"
         android:textSize="@dimen/game_text_size" />
 
-    <ImageView
-        android:id="@+id/avatarView"
-        android:layout_width="@dimen/avatar_view_width"
-        android:layout_height="@dimen/avatar_view_height"
+    <RelativeLayout
+        android:layout_width="@dimen/asker_image_view_width"
+        android:layout_height="@dimen/asker_image_view_height"
         android:layout_above="@id/powerBarView"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/character_design" />
+        android:layout_below="@id/questionView"
+        android:layout_marginTop="@dimen/avatar_margin_top">
 
+        <ImageView
+            android:id="@+id/faceImageView"
+            android:layout_width="@dimen/face_view_width"
+            android:layout_height="@dimen/face_view_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/face_view_margin_top"
+            android:src="@drawable/face1" />
+
+        <ImageView
+            android:id="@+id/eyeImageView"
+            android:layout_width="@dimen/eye_view_width"
+            android:layout_height="@dimen/eye_view_height"
+            android:layout_alignBottom="@id/faceImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/eye_view_margin_bottom"
+            android:src="@drawable/eye1" />
+
+        <ImageView
+            android:id="@+id/hairImageView"
+            android:layout_width="@dimen/hair_view_width"
+            android:layout_height="@dimen/hair_view_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/hair1" />
+
+        <ImageView
+            android:id="@+id/clothImageView"
+            android:layout_width="@dimen/cloth_view_width"
+            android:layout_height="@dimen/cloth_view_height"
+            android:layout_alignTop="@id/eyeImageView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cloth1" />
+
+    </RelativeLayout>
 </RelativeLayout>
