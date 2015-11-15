@@ -10,6 +10,31 @@ and self-esteem by navigating the life of their avatar!
 1. Clone the repo to your desktop `git clone git@github.com:your_name/powerup-android.git`
 1. Open the project with Android Studio 
 
+## Configure remotes
+When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:
+
+1. Open terminal or git bash in your local repository and type:
+
+   `git remote add upstream https://github.com/systers/powerup-android.git`
+  
+1. Run `git remote -v` to check the status, you should see something like the following:
+
+  > origin    https://github.com/YOUR_USERNAME/powerup-android.git (fetch)
+  
+  > origin    https://github.com/YOUR_USERNAME/powerup-android.git (push)
+  
+  > upstream  https://github.com/systers/powerup-android.git (fetch)
+  
+  > upstream  https://github.com/systers/powerup-android.git (push)
+
+1. To update your local copy with remote changes, run the following:
+
+   `git fetch upstream`
+
+   `git merge master/upstream`
+
+   This will give you an exact copy of the current remote, make sure you don't have any local changes.
+
 ## Contributing and developing a feature
 1. Make sure you are in the master branch `git checkout master`
 1. Sync your copy `git pull`
