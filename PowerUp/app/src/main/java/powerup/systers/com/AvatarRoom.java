@@ -25,10 +25,13 @@ public class AvatarRoom extends Activity {
 	private Integer face = 1;
 	private Integer cloth = 1;
 
+	public static Activity avatarRoomInstance;
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setmDbHandler(new DatabaseHandler(this));
 		getmDbHandler().open();
+		avatarRoomInstance = this;
 		setContentView(R.layout.avatar_room);
 		eyeView = (ImageView) findViewById(R.id.eyes);
 		faceView = (ImageView) findViewById(R.id.face);
