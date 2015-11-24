@@ -82,6 +82,8 @@ public class AvatarActivity extends Activity {
                     edit.commit();
                 }
                 Intent myIntent = new Intent(AvatarActivity.this, MapActivity.class);
+				AvatarRoom.avatarRoomInstance.finish();
+				finish();
 				startActivityForResult(myIntent, 0);
 			}
 		});
