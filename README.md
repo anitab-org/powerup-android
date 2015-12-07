@@ -31,7 +31,7 @@ When a repository is cloned, it has a default remote called `origin` that points
 
    `git fetch upstream`
 
-   `git merge master/upstream`
+   `git merge upstream/master`
 
    This will give you an exact copy of the current remote, make sure you don't have any local changes.
 
