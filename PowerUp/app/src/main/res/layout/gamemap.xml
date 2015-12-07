@@ -6,45 +6,44 @@
 
     <Button
         android:id="@+id/HouseButton"
-        android:layout_width="@dimen/map_click_width"
-        android:layout_height="@dimen/map_click_height"
+        android:layout_width="@dimen/map_house_click_width"
+        android:layout_height="@dimen/map_house_click_height"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="@dimen/house_button_margin_left"
         android:layout_marginTop="@dimen/house_button_margin_top"
-        android:alpha="0.00"
+        android:alpha="@dimen/map_alpha"
         android:text="@string/house" />
 
     <Button
         android:id="@+id/HospitalButton"
-        android:layout_width="@dimen/map_click_width"
-        android:layout_height="@dimen/map_click_height"
-        android:layout_alignBaseline="@id/HouseButton"
-        android:layout_alignBottom="@id/HouseButton"
+        android:layout_width="@dimen/map_hospital_click_width"
+        android:layout_height="@dimen/map_hospital_click_height"
+        android:layout_alignTop="@id/HouseButton"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/hospital_button_margin_right"
-        android:alpha="0.00"
+        android:alpha="@dimen/map_alpha"
         android:text="@string/hospital" />
 
     <Button
         android:id="@+id/SchoolButton"
-        android:layout_width="@dimen/map_click_width"
-        android:layout_height="@dimen/map_click_height"
+        android:layout_width="@dimen/map_school_click_width"
+        android:layout_height="@dimen/map_school_click_height"
         android:layout_alignLeft="@id/HospitalButton"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@id/HospitalButton"
         android:layout_marginBottom="@dimen/school_button_margin_bottom"
-        android:alpha="0.00"
+        android:alpha="@dimen/map_alpha"
         android:text="@string/school" />
 
     <Button
         android:id="@+id/BoyfriendButton"
-        android:layout_width="@dimen/map_click_width"
-        android:layout_height="@dimen/map_click_height"
-        android:layout_alignLeft="@id/HouseButton"
-        android:layout_alignStart="@id/HouseButton"
-        android:layout_alignTop="@id/SchoolButton"
-        android:alpha="0.00"
+        android:layout_width="@dimen/map_boyfriend_click_width"
+        android:layout_height="@dimen/map_boyfriend_click_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/boyfriend_button_margin_left"
+        android:layout_marginBottom="@dimen/boyfriend_button_margin_bottom"
+        android:alpha="@dimen/map_alpha"
         android:text="@string/boyfriend" />
 
 </RelativeLayout>
