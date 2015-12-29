@@ -16,5 +16,12 @@
     <dimen name="map_school_click_width">250dp</dimen>
     <dimen name="map_boyfriend_click_height">200dp</dimen>
     <dimen name="map_boyfriend_click_width">175dp</dimen>
+    <dimen name="start_button_width">400dp</dimen>
+    <dimen name="start_button_height">120dp</dimen>
+    <dimen name="new_user_button_width">400dp</dimen>
+    <dimen name="new_user_button_height">120dp</dimen>
+    <dimen name="about_button_width">400dp</dimen>
+    <dimen name="about_button_height">70dp</dimen>
+    <dimen name="powerup_size">100sp</dimen>
 
 </resources>
