@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 
-public class AvatarRoom extends Activity {
+public class AvatarRoomActivity extends Activity {
 
 	private DatabaseHandler mDbHandler;
 
@@ -181,7 +181,7 @@ public class AvatarRoom extends Activity {
 				getmDbHandler().setAvatarFace(face);
 				getmDbHandler().setAvatarHair(hair);
 				getmDbHandler().setAvatarCloth(cloth);
-				Intent myIntent = new Intent(AvatarRoom.this, AvatarActivity.class);
+				Intent myIntent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});

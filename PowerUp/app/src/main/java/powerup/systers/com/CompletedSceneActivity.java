@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CompletedScene extends Activity {
+public class CompletedSceneActivity extends Activity {
 
 	/** Called when the activity is first created. */
 	@Override
@@ -17,7 +17,7 @@ public class CompletedScene extends Activity {
 		backToMap.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent myIntent = new Intent(CompletedScene.this,
+				Intent myIntent = new Intent(CompletedSceneActivity.this,
 						MapActivity.class);
 				finish();
 				startActivityForResult(myIntent, 0);
