@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="powerup.systers.com.MainActivity"
+            android:name=".StartActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,11 +18,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="powerup.systers.com.Game"
+            android:name=".GameActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="powerup.systers.com.AvatarRoom"
+            android:name=".AvatarRoomActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -35,11 +35,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="powerup.systers.com.CompletedScene"
+            android:name=".CompletedSceneActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="powerup.systers.com.GameOver"
+            android:name=".GameOverActivity"
             android:label="@string/app_name" >
         </activity>
 

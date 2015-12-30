@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class MainActivity extends Activity {
+public class StartActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +17,14 @@ public class MainActivity extends Activity {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
 		if (!previouslyStarted) {
-			startActivity(new Intent(MainActivity.this, AvatarRoom.class));
+			startActivity(new Intent(StartActivity.this, AvatarRoomActivity.class));
 		}
 		ImageButton new_user = (ImageButton) findViewById(R.id.newUserButtonFirstPage);
 		new_user.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent myIntent = new Intent(MainActivity.this,
-						AvatarRoom.class);
+				Intent myIntent = new Intent(StartActivity.this,
+						AvatarRoomActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 		start.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent myIntent = new Intent(MainActivity.this, MapActivity.class);
+				Intent myIntent = new Intent(StartActivity.this, MapActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});

@@ -6,9 +6,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +21,7 @@ import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 
 @SuppressLint("NewApi")
-public class Game extends Activity {
+public class GameActivity extends Activity {
 
 	private DatabaseHandler mDbHandler;
 	private List<Answer> answers;
@@ -33,12 +31,7 @@ public class Game extends Activity {
 	private Button replay;
 	private Button goToMap;
 	private ArrayAdapter<String> listAdapter;
-	private ImageView eyeImageView;
-	private ImageView hairImageView;
-	private ImageView clothImageView;
-	private ImageView faceImageView;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,13 +48,13 @@ public class Game extends Activity {
 		goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
 		replay = (Button) findViewById(R.id.redoButton);
 
-		eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
-		faceImageView = (ImageView) findViewById(R.id.faceImageView);
-		hairImageView = (ImageView) findViewById(R.id.hairImageView);
-		clothImageView = (ImageView) findViewById(R.id.clothImageView);
+		ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
+		ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
+		ImageView hairImageView = (ImageView) findViewById(R.id.hairImageView);
+		ImageView clothImageView = (ImageView) findViewById(R.id.clothImageView);
 
 		String eyeImageName = "eye";
-		eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();;
+		eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
 		R.drawable ourRID = new R.drawable();
 		java.lang.reflect.Field photoNameField;
 		try {
@@ -74,7 +67,7 @@ public class Game extends Activity {
 		}
 
 		String faceImageName = "face";
-		faceImageName = faceImageName + getmDbHandler().getAvatarFace();;
+		faceImageName = faceImageName + getmDbHandler().getAvatarFace();
 		try {
 			photoNameField = ourRID.getClass().getField(faceImageName);
 			faceImageView.setImageResource(photoNameField.getInt(ourRID));
@@ -85,7 +78,7 @@ public class Game extends Activity {
 		}
 
 		String clothImageName = "cloth";
-		clothImageName = clothImageName + getmDbHandler().getAvatarCloth();;
+		clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
 		try {
 			photoNameField = ourRID.getClass().getField(clothImageName);
 			clothImageView.setImageResource(photoNameField.getInt(ourRID));
@@ -96,7 +89,7 @@ public class Game extends Activity {
 		}
 
 		String hairImageName = "hair";
-		hairImageName = hairImageName + getmDbHandler().getAvatarHair();;
+		hairImageName = hairImageName + getmDbHandler().getAvatarHair();
 		try {
 			photoNameField = ourRID.getClass().getField(hairImageName);
 			hairImageView.setImageResource(photoNameField.getInt(ourRID));
@@ -164,7 +157,7 @@ public class Game extends Activity {
 					// Scenario.
 					SessionHistory.totalPoints -= SessionHistory.currScenePoints;
 					goToMap.setClickable(false);
-					Intent myIntent = new Intent(Game.this, MapActivity.class);
+					Intent myIntent = new Intent(GameActivity.this, MapActivity.class);
 					startActivityForResult(myIntent, 0);
 					getmDbHandler()
 							.setReplayedScenario(scene.getScenarioName());
@@ -177,12 +170,12 @@ public class Game extends Activity {
 			replay.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					// Incase the user move back to map in between a running
+					// In case the user moves back to map in between a running
 					// Scenario.
 
 					SessionHistory.totalPoints -= SessionHistory.currScenePoints;
 					replay.setClickable(false);
-					Intent myIntent = new Intent(Game.this, Game.class);
+					Intent myIntent = new Intent(GameActivity.this, GameActivity.class);
 					startActivityForResult(myIntent, 0);
 					getmDbHandler()
 							.setReplayedScenario(scene.getScenarioName());
@@ -194,7 +187,7 @@ public class Game extends Activity {
 		// If completed check if it is last scene
 		if (scene.getCompleted() == 1) {
 			if (scene.getNextScenarioID() == -1) {
-				Intent myIntent = new Intent(Game.this, GameOver.class);
+				Intent myIntent = new Intent(GameActivity.this, GameOverActivity.class);
 				finish();
 				startActivityForResult(myIntent, 0);
 			} else {
