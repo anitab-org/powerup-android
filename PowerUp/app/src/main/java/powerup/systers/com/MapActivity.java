@@ -40,10 +40,10 @@ public class MapActivity extends Activity {
 		public void onClick(View v) {
 			Button b = (Button) v;
 			if (getmDbHandler().setSessionId(b.getText().toString())) {
-				Intent myIntent = new Intent(MapActivity.this, Game.class);
+				Intent myIntent = new Intent(MapActivity.this, GameActivity.class);
 				startActivityForResult(myIntent, 0);
 			} else {
-				Intent myIntent = new Intent(MapActivity.this, CompletedScene.class);
+				Intent myIntent = new Intent(MapActivity.this, CompletedSceneActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		}

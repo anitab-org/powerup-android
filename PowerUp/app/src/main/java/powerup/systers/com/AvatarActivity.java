@@ -79,10 +79,10 @@ public class AvatarActivity extends Activity {
                 if (!previouslyStarted) {
                     SharedPreferences.Editor edit = prefs.edit();
                     edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
-                    edit.commit();
+                    edit.apply();
                 }
                 Intent myIntent = new Intent(AvatarActivity.this, MapActivity.class);
-				AvatarRoom.avatarRoomInstance.finish();
+				AvatarRoomActivity.avatarRoomInstance.finish();
 				finish();
 				startActivityForResult(myIntent, 0);
 			}

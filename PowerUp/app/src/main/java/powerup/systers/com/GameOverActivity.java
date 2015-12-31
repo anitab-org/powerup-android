@@ -3,7 +3,7 @@ package powerup.systers.com;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class GameOver extends Activity {
+public class GameOverActivity extends Activity {
 
 	/** Called when the activity is first created. */
 	@Override
