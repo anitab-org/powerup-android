@@ -25,8 +25,8 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/powerup_icon_width"
+        android:layout_height="@dimen/powerup_icon_height"
         android:src="@drawable/ic_launcher" />
 
     <ImageButton
