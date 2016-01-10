@@ -25,5 +25,11 @@
     <dimen name="new_user_button_width">150dp</dimen>
     <dimen name="new_user_button_height">40dp</dimen>
     <dimen name="powerup_size">50sp</dimen>
+    <dimen name="power_bar_height">15dp</dimen>
+    <dimen name="power_bar_width">100dp</dimen>
+    <dimen name="power_bar_radius_padding">2dp</dimen>
+    <dimen name="power_bar_radius">5dp</dimen>
+    <dimen name="power_bar_margin_right">5dp</dimen>
+    <dimen name="power_bar_margin_top">30dp</dimen>
 
 </resources>
