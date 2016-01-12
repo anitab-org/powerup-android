@@ -23,5 +23,9 @@
     <dimen name="about_button_width">300dp</dimen>
     <dimen name="about_button_height">80dp</dimen>
     <dimen name="powerup_size">70sp</dimen>
+    <dimen name="avatar_room_margin">100dp</dimen>
+    <dimen name="avatar_room_width">150dp</dimen>
+    <dimen name="avatar_room_height">150dp</dimen>
+    <dimen name="avatar_room_continue_button">150dp</dimen>
 
 </resources>

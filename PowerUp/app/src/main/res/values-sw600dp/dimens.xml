@@ -26,5 +26,11 @@
     <dimen name="powerup_icon_height">120dp</dimen>
     <dimen name="powerup_icon_width">200dp</dimen>
     <dimen name="powerup_width">350dp</dimen>
+    <dimen name="avatar_room_margin">100dp</dimen>
+    <dimen name="avatar_room_margin_one">-40dp</dimen>
+    <dimen name="avatar_room_margin_two">60dp</dimen>
+    <dimen name="avatar_room_width">120dp</dimen>
+    <dimen name="avatar_room_height">120dp</dimen>
+    <dimen name="avatar_room_continue_button_land">80dp</dimen>
 
 </resources>

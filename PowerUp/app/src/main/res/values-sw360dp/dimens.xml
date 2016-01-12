@@ -1,0 +1,11 @@
+<resources>
+    <!-- Default screen margins for 5" landscape, per the Android Design guidelines. -->
+
+    <dimen name="avatar_room_margin">60dp</dimen>
+    <dimen name="avatar_room_margin_one">-40dp</dimen>
+    <dimen name="avatar_room_margin_two">50dp</dimen>
+    <dimen name="avatar_room_width">90dp</dimen>
+    <dimen name="avatar_room_height">90dp</dimen>
+    <dimen name="avatar_room_continue_button_land">40dp</dimen>
+
+</resources>

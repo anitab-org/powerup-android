@@ -37,7 +37,7 @@ public class AvatarRoomActivity extends Activity {
 		faceView = (ImageView) findViewById(R.id.face);
 		clothView = (ImageView) findViewById(R.id.clothes);
 		ImageButton eyeLeft = (ImageButton) findViewById(R.id.eyeLeft);
-		ImageButton eyeRight = (ImageButton) findViewById(R.id.newUserButton);
+		ImageButton eyeRight = (ImageButton) findViewById(R.id.eyeRight);
 		ImageButton faceLeft = (ImageButton) findViewById(R.id.faceLeft);
 		ImageButton faceRight = (ImageButton) findViewById(R.id.faceRight);
 		ImageButton clothLeft = (ImageButton) findViewById(R.id.clotheLeft);

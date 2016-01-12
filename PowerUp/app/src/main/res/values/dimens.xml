@@ -68,4 +68,7 @@
     <dimen name="redo_button_height">30dp</dimen>
     <dimen name="avatar_margin_top">50dp</dimen>
     <item name="map_alpha" type="dimen" format="float">0.00</item>
+    <dimen name="avatar_room_margin">50dp</dimen>
+    <dimen name="avatar_room_continue_button">50dp</dimen>
+
 </resources>

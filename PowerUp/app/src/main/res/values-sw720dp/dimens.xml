@@ -1,6 +1,6 @@
 <resources>
 
-    <!-- Default screen margins for 10" Tablet in landscape mode, per the Android Design guidelines. -->
+    <!-- Default screen margins for 9" and 10" Tablet in landscape mode, per the Android Design guidelines. -->
 
     <dimen name="house_button_margin_left">40dp</dimen>
     <dimen name="house_button_margin_top">40dp</dimen>
@@ -26,5 +26,11 @@
     <dimen name="powerup_icon_height">180dp</dimen>
     <dimen name="powerup_icon_width">300dp</dimen>
     <dimen name="powerup_width">350dp</dimen>
+    <dimen name="avatar_room_margin">150dp</dimen>
+    <dimen name="avatar_room_margin_one">-30dp</dimen>
+    <dimen name="avatar_room_margin_two">80dp</dimen>
+    <dimen name="avatar_room_width">150dp</dimen>
+    <dimen name="avatar_room_height">150dp</dimen>
+    <dimen name="avatar_room_continue_button_land">100dp</dimen>
 
 </resources>
