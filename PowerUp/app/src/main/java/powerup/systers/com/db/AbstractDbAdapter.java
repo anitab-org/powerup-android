@@ -1,15 +1,15 @@
 package powerup.systers.com.db;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public abstract class AbstractDbAdapter {
 
@@ -35,21 +35,21 @@ public abstract class AbstractDbAdapter {
 
 		public void insertAvatar(SQLiteDatabase db) {
 			ContentValues values = new ContentValues();
-			values.put("ID", 1);
-			values.put("Face", 1);
-			values.put("Clothes", 1);
-			values.put("Hair", 1);
-			values.put("Eyes", 1);
-			db.insert("Avatar", null, values);
+			values.put(PowerUpContract.AvatarEntry.COLUMN_ID, 1);
+			values.put(PowerUpContract.AvatarEntry.COLUMN_FACE, 1);
+			values.put(PowerUpContract.AvatarEntry.COLUMN_CLOTHES, 1);
+			values.put(PowerUpContract.AvatarEntry.COLUMN_HAIR, 1);
+			values.put(PowerUpContract.AvatarEntry.COLUMN_EYES, 1);
+			db.insert(PowerUpContract.AvatarEntry.TABLE_NAME, null, values);
 		}
 
 		public void insertDBQuestion(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
 			// if (rowData.length == 3) {
-			values.put("QID", rowData[0]);
-			values.put("ScenarioID", rowData[1]);
-			values.put("QDes", rowData[2]);
-			db.insert("Question", null, values);
+			values.put(PowerUpContract.QuestionEntry.COLUMN_QUESTION_ID, rowData[0]);
+			values.put(PowerUpContract.QuestionEntry.COLUMN_SCENARIO_ID, rowData[1]);
+			values.put(PowerUpContract.QuestionEntry.COLUMN_QUESTION_DESCRIPTION, rowData[2]);
+			db.insert(PowerUpContract.QuestionEntry.TABLE_NAME, null, values);
 			/*
 			 * } else { throw new
 			 * Error("Incorrect Question CSV Format! Use QID," +
@@ -60,12 +60,12 @@ public abstract class AbstractDbAdapter {
 		public void insertDBAnswer(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
 			if (rowData.length == 5) {
-				values.put("AID", rowData[0]);
-				values.put("QID", rowData[1]);
-				values.put("ADes", rowData[2]);
-				values.put("NextID", rowData[3]);
-				values.put("Points", rowData[4]);
-				db.insert("Answer", null, values);
+				values.put(PowerUpContract.AnswerEntry.COLUMN_ANSWER_ID, rowData[0]);
+				values.put(PowerUpContract.AnswerEntry.COLUMN_QUESTION_ID, rowData[1]);
+				values.put(PowerUpContract.AnswerEntry.COLUMN_ANSWER_DESCRIPTION, rowData[2]);
+				values.put(PowerUpContract.AnswerEntry.COLUMN_NEXT_ID, rowData[3]);
+				values.put(PowerUpContract.AnswerEntry.COLUMN_POINTS, rowData[4]);
+				db.insert(PowerUpContract.AnswerEntry.TABLE_NAME, null, values);
 			} else {
 				throw new Error(
 						"Incorrect Answer CSV Format! Use AID, QID, ADes,"
@@ -77,16 +77,16 @@ public abstract class AbstractDbAdapter {
 		public void insertDBScenario(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
 			if (rowData.length == 7) {
-				values.put("ID", rowData[0]);
-				values.put("ScenarioName", rowData[1]);
-				values.put("Timestamp", rowData[2]);
-				values.put("Asker", rowData[3]);
-				values.put("Avatar", rowData[4]);
-				values.put("FirstQID", rowData[5]);
-				values.put("Completed", 0);
-				values.put("NextScenarioID", rowData[6]);
-				values.put("Replayed", 0);
-				db.insert("Scenario", null, values);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_ID, rowData[0]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_SCENARIO_NAME, rowData[1]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_TIMESTAMP, rowData[2]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_ASKER, rowData[3]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_AVATAR, rowData[4]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_FIRST_QUESTION_ID, rowData[5]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_COMPLETED, 0);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_NEXT_SCENARIO_ID, rowData[6]);
+				values.put(PowerUpContract.ScenarioEntry.COLUMN_REPLAYED, 0);
+				db.insert(PowerUpContract.ScenarioEntry.TABLE_NAME, null, values);
 			} else {
 				throw new Error("Incorrect Scenario CSV Format! Use ID,"
 						+ "ScenarioName, Timestamp, Asker, Avatar, FirstQID,"
@@ -133,20 +133,46 @@ public abstract class AbstractDbAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 
-			String CREATE_QUESTION_TABLE = "CREATE TABLE Question(QID INTEGER"
-					+ "PRIMARY KEY , ScenarioID INTEGER, QDes TEXT)";
-			String CREATE_ANSWER_TABLE = "CREATE TABLE Answer(AID INTEGER PRIMARY"
-					+ "KEY, QID INTEGER, ADes TEXT, NextID INTEGER, Points INTEGER"
-					+ ")";
-			String CREATE_SCENARIO_TABLE = "CREATE TABLE Scenario(ID INTEGER"
-					+ "PRIMARY KEY, ScenarioName TEXT, Timestamp TEXT,"
-					+ "Asker TEXT, Avatar INTEGER, FirstQID INTEGER, Completed"
-					+ " INTEGER, NextScenarioID INTEGER, Replayed INTEGER)";
-			String CREATE_POINT_TABLE = "CREATE TABLE Point(Strength INTEGER,"
-					+ "Invisibility INTEGER, Healing INTEGER, Telepathy INTEGER"
-					+ ")";
-			String CREATE_AVATAR_TABLE = " CREATE TABLE Avatar(ID INTEGER, Face"
-					+ " INTEGER, Clothes INTEGER, Hair INTEGER, Eyes INTEGER)";
+			String CREATE_QUESTION_TABLE = "CREATE TABLE " + PowerUpContract.QuestionEntry.TABLE_NAME + "(" +
+					PowerUpContract.QuestionEntry.COLUMN_QUESTION_ID + " INTEGER PRIMARY KEY ," +
+					PowerUpContract.QuestionEntry.COLUMN_SCENARIO_ID + " INTEGER," +
+					PowerUpContract.QuestionEntry.COLUMN_QUESTION_DESCRIPTION + " TEXT" +
+					")";
+
+			String CREATE_ANSWER_TABLE = "CREATE TABLE " + PowerUpContract.AnswerEntry.TABLE_NAME + "(" +
+					PowerUpContract.AnswerEntry.COLUMN_ANSWER_ID + " INTEGER PRIMARY KEY," +
+					PowerUpContract.AnswerEntry.COLUMN_QUESTION_ID + " INTEGER," +
+					PowerUpContract.AnswerEntry.COLUMN_ANSWER_DESCRIPTION + " TEXT, " +
+					PowerUpContract.AnswerEntry.COLUMN_NEXT_ID + " INTEGER, " +
+					PowerUpContract.AnswerEntry.COLUMN_POINTS + " INTEGER" +
+					")";
+
+			String CREATE_SCENARIO_TABLE = "CREATE TABLE " + PowerUpContract.ScenarioEntry.TABLE_NAME + "(" +
+					PowerUpContract.ScenarioEntry.COLUMN_ID + " INTEGER PRIMARY KEY, " +
+					PowerUpContract.ScenarioEntry.COLUMN_SCENARIO_NAME + " TEXT, " +
+					PowerUpContract.ScenarioEntry.COLUMN_TIMESTAMP + " TEXT," +
+					PowerUpContract.ScenarioEntry.COLUMN_ASKER + " TEXT, " +
+					PowerUpContract.ScenarioEntry.COLUMN_AVATAR + " INTEGER, " +
+					PowerUpContract.ScenarioEntry.COLUMN_FIRST_QUESTION_ID + " INTEGER, " +
+					PowerUpContract.ScenarioEntry.COLUMN_COMPLETED + " INTEGER, " +
+					PowerUpContract.ScenarioEntry.COLUMN_NEXT_SCENARIO_ID + " INTEGER, " +
+					PowerUpContract.ScenarioEntry.COLUMN_REPLAYED + " INTEGER" +
+					")";
+
+			String CREATE_POINT_TABLE = "CREATE TABLE " + PowerUpContract.PointEntry.TABLE_NAME + "(" +
+					PowerUpContract.PointEntry.COLUMN_STRENGTH + " INTEGER," +
+					PowerUpContract.PointEntry.COLUMN_INVISIBILITY + " INTEGER, " +
+					PowerUpContract.PointEntry.COLUMN_HEALING + " INTEGER, " +
+					PowerUpContract.PointEntry.COLUMN_TELEPATHY + " INTEGER" +
+					")";
+
+			String CREATE_AVATAR_TABLE = " CREATE TABLE " + PowerUpContract.AvatarEntry.TABLE_NAME + "(" +
+					PowerUpContract.AvatarEntry.COLUMN_ID + " INTEGER, " +
+					PowerUpContract.AvatarEntry.COLUMN_FACE + " INTEGER, " +
+					PowerUpContract.AvatarEntry.COLUMN_CLOTHES + " INTEGER, " +
+					PowerUpContract.AvatarEntry.COLUMN_HAIR + " INTEGER, " +
+					PowerUpContract.AvatarEntry.COLUMN_EYES + " INTEGER" +
+					")";
 
 			db.execSQL(CREATE_QUESTION_TABLE);
 			db.execSQL(CREATE_ANSWER_TABLE);
@@ -165,9 +191,9 @@ public abstract class AbstractDbAdapter {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-			db.execSQL("DROP TABLE IF EXISTS Question");
-			db.execSQL("DROP TABLE IF EXISTS Answer");
-			db.execSQL("DROP TABLE IF EXISTS Scenario");
+			db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.QuestionEntry.TABLE_NAME);
+			db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.AnswerEntry.TABLE_NAME);
+			db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.ScenarioEntry.TABLE_NAME);
 			onCreate(db);
 		}
 	}

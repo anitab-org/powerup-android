@@ -19,7 +19,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public boolean gameOver() {
-		String selectQuery = "SELECT  * FROM Scenario WHERE Completed = 0";
+		String selectQuery = "SELECT  * FROM " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.ScenarioEntry.COLUMN_COMPLETED + " = 0";
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
 			return false;
@@ -29,7 +30,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public void getAllAnswer(List<Answer> answers, Integer qId) {
-		String selectQuery = "SELECT  * FROM Answer WHERE QID = " + qId;
+		String selectQuery = "SELECT  * FROM " + PowerUpContract.AnswerEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.AnswerEntry.COLUMN_QUESTION_ID + " = " + qId;
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		answers.clear();
 		if (cursor.moveToFirst()) {
@@ -47,7 +49,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public Question getCurrentQuestion() {
-		String selectQuery = "SELECT  * FROM Question WHERE QID = "
+		String selectQuery = "SELECT  * FROM " + PowerUpContract.QuestionEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.QuestionEntry.COLUMN_QUESTION_ID + " = "
 				+ SessionHistory.currQID;
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
@@ -62,7 +65,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public Scenario getScenario() {
-		String selectQuery = "SELECT  * FROM Scenario WHERE ID = "
+		String selectQuery = "SELECT  * FROM " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.ScenarioEntry.COLUMN_ID + " = "
 				+ SessionHistory.currSessionID;
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
@@ -83,7 +87,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public boolean setSessionId(CharSequence ScenarioName) {
-		String selectQuery = "SELECT  * FROM Scenario WHERE ScenarioName = "
+		String selectQuery = "SELECT  * FROM " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.ScenarioEntry.COLUMN_SCENARIO_NAME + " = "
 				+ "\"" + ScenarioName + "\"";
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
@@ -101,42 +106,52 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public void setCompletedScenario(CharSequence ScenarioName) {
-		String updateQuery = "UPDATE  Scenario SET Completed=1 WHERE"
-				+ " ScenarioName = " + "\"" + ScenarioName + "\"";
+		String updateQuery = "UPDATE  " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+				" SET " + PowerUpContract.ScenarioEntry.COLUMN_COMPLETED + "=1" +
+				" WHERE " + PowerUpContract.ScenarioEntry.COLUMN_SCENARIO_NAME + " = " +
+				"\"" + ScenarioName + "\"";
 		mDb.execSQL(updateQuery);
 	}
 
 	public void setReplayedScenario(CharSequence ScenarioName) {
-		String updateQuery = "UPDATE  Scenario SET Replayed=1 WHERE"
-				+ " ScenarioName = " + "\"" + ScenarioName + "\"";
+		String updateQuery = "UPDATE  " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+				" SET " + PowerUpContract.ScenarioEntry.COLUMN_REPLAYED + "=1" +
+				" WHERE " + PowerUpContract.ScenarioEntry.COLUMN_SCENARIO_NAME + " = " +
+				"\"" + ScenarioName + "\"";
 		mDb.execSQL(updateQuery);
 	}
 
 	public void setAvatarEye(Integer eye) {
-		String query = "UPDATE Avatar SET Eyes = " + eye + " WHERE" + " ID = 1";
+		String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" SET " + PowerUpContract.AvatarEntry.COLUMN_EYES + " = " + eye +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		mDb.execSQL(query);
 	}
 
 	public void setAvatarFace(Integer face) {
-		String query = "UPDATE Avatar SET Face = " + face + " WHERE"
-				+ " ID = 1";
+		String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" SET " + PowerUpContract.AvatarEntry.COLUMN_FACE + " = " + face +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		mDb.execSQL(query);
 	}
 
 	public void setAvatarCloth(Integer cloth) {
-		String query = "UPDATE Avatar SET Clothes = " + cloth + " WHERE"
-				+ " ID = 1";
+		String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" SET " + PowerUpContract.AvatarEntry.COLUMN_CLOTHES + " = " + cloth +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		mDb.execSQL(query);
 	}
 
 	public void setAvatarHair(Integer hair) {
-		String query = "UPDATE Avatar SET Hair = " + hair + " WHERE"
-				+ " ID = 1";
+		String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" SET " + PowerUpContract.AvatarEntry.COLUMN_HAIR + " = " + hair +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		mDb.execSQL(query);
 	}
 
 	public Integer getAvatarFace() {
-		String query = "Select * from Avatar WHERE ID = 1";
+		String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		Cursor cursor = mDb.rawQuery(query, null);
 		if (cursor.moveToFirst()) {
 			return cursor.getInt(1);
@@ -146,7 +161,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public int getAvatarEye() {
-		String query = "Select * from Avatar WHERE ID = 1";
+		String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		Cursor cursor = mDb.rawQuery(query, null);
 		if (cursor.moveToFirst()) {
 			return cursor.getInt(4);
@@ -156,7 +172,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public int getAvatarCloth() {
-		String query = "Select * from Avatar WHERE ID = 1";
+		String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		Cursor cursor = mDb.rawQuery(query, null);
 		if (cursor.moveToFirst()) {
 			return cursor.getInt(2);
@@ -166,7 +183,8 @@ public class DatabaseHandler extends AbstractDbAdapter {
 	}
 
 	public int getAvatarHair() {
-		String query = "Select * from Avatar WHERE ID = 1";
+		String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
 		Cursor cursor = mDb.rawQuery(query, null);
 		if (cursor.moveToFirst()) {
 			return cursor.getInt(3);
