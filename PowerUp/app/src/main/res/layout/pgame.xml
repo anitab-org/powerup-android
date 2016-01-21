@@ -41,7 +41,7 @@
         android:background="@drawable/home" />
 
     <Button
-        android:id="@id/redoButton"
+        android:id="@+id/redoButton"
         android:layout_width="@dimen/redo_button_width"
         android:layout_height="@dimen/redo_button_height"
         android:layout_alignParentTop="true"
@@ -49,7 +49,7 @@
         android:background="@drawable/replay" />
 
     <ImageView
-        android:id="@id/askerImageView"
+        android:id="@+id/askerImageView"
         android:layout_width="@dimen/asker_image_view_width"
         android:layout_height="@dimen/asker_image_view_height"
         android:layout_alignParentRight="true"
