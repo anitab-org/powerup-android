@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="max_progress">100</integer>
+    <integer name="half_progress">50</integer>
+</resources>

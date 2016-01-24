@@ -23,6 +23,13 @@
     <dimen name="about_button_width">380dp</dimen>
     <dimen name="about_button_height">100dp</dimen>
     <dimen name="powerup_size">100sp</dimen>
+    <dimen name="power_bar_height">25dp</dimen>
+    <dimen name="power_bar_width">150dp</dimen>
+    <dimen name="power_bar_radius_padding">2dp</dimen>
+    <dimen name="power_bar_radius">5dp</dimen>
+    <dimen name="power_bar_margin_right">15dp</dimen>
+    <dimen name="power_bar_margin_top">50dp</dimen>
+    <dimen name="power_bar_view_height">130dp</dimen>
     <dimen name="avatar_room_margin">150dp</dimen>
     <dimen name="avatar_room_width">170dp</dimen>
     <dimen name="avatar_room_height">170dp</dimen>
