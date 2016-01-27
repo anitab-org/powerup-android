@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_left_white_18dp"
-        android:layout_below="@+id/eyes"
+        android:layout_below="@id/eyes"
         android:layout_alignLeft="@id/eyes"
         android:layout_alignStart="@id/eyes" />
 
@@ -56,9 +56,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_right_white_18dp"
-        android:layout_below="@+id/eyes"
-        android:layout_alignRight="@+id/eyes"
-        android:layout_alignEnd="@+id/eyes" />
+        android:layout_below="@id/eyes"
+        android:layout_alignRight="@id/eyes"
+        android:layout_alignEnd="@id/eyes" />
 
 
     <ImageButton
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_left_white_18dp"
-        android:layout_below="@+id/hair"
+        android:layout_below="@id/hair"
         android:layout_alignLeft="@id/hair"
         android:layout_alignStart="@id/hair"
         />
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_right_white_18dp"
-        android:layout_below="@+id/hair"
+        android:layout_below="@id/hair"
         android:layout_alignRight="@id/hair"
         android:layout_alignEnd="@id/hair" />
 
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_left_white_18dp"
-        android:layout_below="@+id/face"
+        android:layout_below="@id/face"
         android:layout_alignLeft="@id/face"
         android:layout_alignStart="@id/face"
         />
