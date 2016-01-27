@@ -1,6 +1,6 @@
 <resources>
 
-    <!-- Default screen margins for 10" Tablet in portrait mode, per the Android Design guidelines. -->
+    <!-- Default screen margins for 9" and 10" Tablet in portrait mode, per the Android Design guidelines. -->
 
     <dimen name="house_button_margin_left">40dp</dimen>
     <dimen name="house_button_margin_top">40dp</dimen>
@@ -30,5 +30,9 @@
     <dimen name="power_bar_margin_right">15dp</dimen>
     <dimen name="power_bar_margin_top">50dp</dimen>
     <dimen name="power_bar_view_height">130dp</dimen>
+    <dimen name="avatar_room_margin">150dp</dimen>
+    <dimen name="avatar_room_width">170dp</dimen>
+    <dimen name="avatar_room_height">170dp</dimen>
+    <dimen name="avatar_room_continue_button">120dp</dimen>
 
 </resources>

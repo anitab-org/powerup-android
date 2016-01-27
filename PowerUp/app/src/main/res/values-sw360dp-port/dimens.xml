@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins for Nexus 5, per the Android Design guidelines. -->
+
+    <dimen name="avatar_room_margin">60dp</dimen>
+    <dimen name="avatar_room_width">90dp</dimen>
+    <dimen name="avatar_room_height">90dp</dimen>
+    <dimen name="avatar_room_continue_button">100dp</dimen>
+
+</resources>
