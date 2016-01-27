@@ -75,10 +75,10 @@ public class AvatarActivity extends Activity {
 			@Override
 			public void onClick(View v) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarActivity.this);
-                boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
-                if (!previouslyStarted) {
+                boolean hasPreviouslyStarted = prefs.getBoolean(getString(R.string.preferences_has_previously_started), false);
+                if (!hasPreviouslyStarted) {
                     SharedPreferences.Editor edit = prefs.edit();
-                    edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+                    edit.putBoolean(getString(R.string.preferences_has_previously_started), Boolean.TRUE);
                     edit.apply();
                 }
                 Intent myIntent = new Intent(AvatarActivity.this, MapActivity.class);
