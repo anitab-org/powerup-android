@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:background="@android:color/white"
         android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
-        android:ems="10"
+        android:ems="@integer/text_view_ems"
         android:textColor="@android:color/black"
         android:textSize="@dimen/game_text_size" />
 
@@ -134,7 +134,7 @@
         android:layout_alignTop="@id/askerImageView"
         android:layout_marginTop="@dimen/question_view_margin_top"
         android:background="@android:color/white"
-        android:ems="10"
+        android:ems="@integer/text_view_ems"
         android:textColor="@android:color/black"
         android:textSize="@dimen/game_text_size" />
 
