@@ -2,4 +2,5 @@
 <resources>
     <integer name="max_progress">100</integer>
     <integer name="half_progress">50</integer>
+    <integer name="text_view_ems">10</integer>
 </resources>
