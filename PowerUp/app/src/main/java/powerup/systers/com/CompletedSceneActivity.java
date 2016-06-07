@@ -23,6 +23,14 @@ public class CompletedSceneActivity extends Activity {
 				startActivityForResult(myIntent, 0);
 			}
 		});
+        Button storeButton = (Button) findViewById(R.id.store_button);
+        storeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompletedSceneActivity.this, DressingRoomActivity.class);
+                startActivity(intent);
+            }
+        });
 	}
 	
 }

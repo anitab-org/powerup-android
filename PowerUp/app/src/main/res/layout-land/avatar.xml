@@ -9,10 +9,9 @@
         android:id="@+id/faceView"
         android:layout_width="@dimen/face_view_width"
         android:layout_height="@dimen/face_view_height"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/face_view_margin_top"
-        android:src="@drawable/face1" />
+        android:layout_marginTop="@dimen/avatar_face_view_land_margin_top"
+        android:src="@drawable/face1"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/eyeView"
@@ -28,7 +27,8 @@
         android:layout_width="@dimen/hair_view_width"
         android:layout_height="@dimen/hair_view_height"
         android:src="@drawable/hair1"
-        android:layout_marginTop="@dimen/hair_view_margin_top"
+        android:layout_marginTop="@dimen/avatar_hair_view_land_margin_top"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <ImageView
@@ -36,29 +36,29 @@
         android:layout_width="@dimen/cloth_view_width"
         android:layout_height="@dimen/cloth_view_height"
         android:src="@drawable/cloth1"
-        android:layout_alignTop="@+id/eyeView"
-        android:layout_alignLeft="@+id/continueButton"
-        android:layout_alignStart="@+id/continueButton" />
+        android:layout_marginTop="@dimen/avatar_cloth_view_land_margin_top"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@id/hairView"
-        android:layout_marginBottom="@dimen/continue_margin_bottom"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/endingscreen6"
+        android:layout_marginRight="@dimen/avatar_margin"
+        android:layout_below="@+id/faceView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/avatar"
-        android:id="@+id/finalAvatarTextView"
-        android:layout_marginTop="@dimen/final_avatar_text_view_margin_top"
+        android:text="@string/avatar_land"
         android:textSize="@dimen/final_avatar_text_view_text_size"
-        android:gravity="center"
         android:textColor="@color/powerup_black"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/finalAvatarTextViewLand"
+        android:layout_marginTop="@dimen/avatar_margin"
+        android:layout_marginLeft="@dimen/avatar_margin"
+         />
 
 </RelativeLayout>

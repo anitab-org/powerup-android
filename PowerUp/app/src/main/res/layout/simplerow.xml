@@ -3,7 +3,7 @@
     android:id="@+id/rowTextView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:padding="@dimen/simple_row_text_view_padding"
     android:textSize="@dimen/game_text_size"
     android:textColor="@android:color/black">
 
