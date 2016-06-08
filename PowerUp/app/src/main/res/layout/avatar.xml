@@ -27,8 +27,8 @@
         android:id="@+id/hairView"
         android:layout_width="@dimen/hair_view_width"
         android:layout_height="@dimen/hair_view_height"
-        android:src="@drawable/hair1"
-        android:layout_marginTop="@dimen/hair_view_margin_top"
+        android:src="@drawable/hair2"
+        android:layout_marginTop="180dp"
         android:layout_centerHorizontal="true" />
 
     <ImageView
@@ -37,8 +37,7 @@
         android:layout_height="@dimen/cloth_view_height"
         android:src="@drawable/cloth1"
         android:layout_alignTop="@+id/eyeView"
-        android:layout_alignLeft="@+id/continueButton"
-        android:layout_alignStart="@+id/continueButton" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/continueButton"

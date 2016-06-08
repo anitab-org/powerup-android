@@ -28,6 +28,8 @@ public class SelectFeaturesActivity extends AppCompatActivity {
         final ImageView imageViewSelectFeature = (ImageView) findViewById(R.id.imageViewSelectFeature);
         if(value.equalsIgnoreCase("cloth"))
             imageViewSelectFeature.setImageDrawable(getResources().getDrawable(R.drawable.cloth1));
+        else if(value.equalsIgnoreCase("accessory"))
+            imageViewSelectFeature.setImageDrawable(getResources().getDrawable(R.drawable.accessory1));
 
         left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,25 @@ public class SelectFeaturesActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                else if(value.equalsIgnoreCase("accessory")){
+                    accessory = (accessory - 1) % SessionHistory.accessoryTotalNo;
+                    if (accessory == 0) {
+                        accessory = SessionHistory.hairTotalNo;
+                    }
+
+                    String accessoryImageName = "accessory";
+                    accessoryImageName = accessoryImageName + accessory.toString();
+                    R.drawable ourRID = new R.drawable();
+                    java.lang.reflect.Field photoNameField;
+                    try {
+                        photoNameField = ourRID.getClass().getField(accessoryImageName);
+                        imageViewSelectFeature.setImageResource(photoNameField.getInt(ourRID));
+                    } catch (NoSuchFieldException | IllegalAccessException
+                            | IllegalArgumentException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
             }
         });
 
@@ -101,6 +122,22 @@ public class SelectFeaturesActivity extends AppCompatActivity {
                     java.lang.reflect.Field photoNameField;
                     try {
                         photoNameField = ourRID.getClass().getField(hairImageName);
+                        imageViewSelectFeature.setImageResource(photoNameField.getInt(ourRID));
+                    } catch (NoSuchFieldException | IllegalAccessException
+                            | IllegalArgumentException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                else if(value.equalsIgnoreCase("accessory")){
+                    accessory = (accessory + SessionHistory.accessoryTotalNo)
+                            % SessionHistory.accessoryTotalNo + 1;
+                    String accessoryImageName = "accessory";
+                    accessoryImageName = accessoryImageName + accessory.toString();
+                    R.drawable ourRID = new R.drawable();
+                    java.lang.reflect.Field photoNameField;
+                    try {
+                        photoNameField = ourRID.getClass().getField(accessoryImageName);
                         imageViewSelectFeature.setImageResource(photoNameField.getInt(ourRID));
                     } catch (NoSuchFieldException | IllegalAccessException
                             | IllegalArgumentException e) {

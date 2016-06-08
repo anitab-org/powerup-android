@@ -59,6 +59,6 @@
         android:id="@+id/finalAvatarTextViewLand"
         android:layout_marginTop="@dimen/avatar_margin"
         android:layout_marginLeft="@dimen/avatar_margin"
-         />
+        />
 
 </RelativeLayout>
