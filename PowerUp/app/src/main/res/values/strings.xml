@@ -18,5 +18,7 @@
     <string name="back_to_map">Back to Map</string>
     <string name="replay">Replay</string>
     <string name="preferences_has_previously_started">has_previously_started</string>
-
+    <string name="avatar">"Here is your final Avatar!\nPress continue to start\n your journey.."</string>
+    <string name="avatar_land">"Here is your final Avatar! Press continue to start\n your journey.."</string>
+    <string name="select_feature_coins">"  10 coins  "</string>
 </resources>

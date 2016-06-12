@@ -151,7 +151,7 @@
             android:layout_height="@dimen/face_view_height"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/face_view_margin_top"
+            android:layout_marginTop="@dimen/pgame_face_image_view_margin_top"
             android:src="@drawable/face1" />
 
         <ImageView
@@ -175,9 +175,9 @@
             android:id="@+id/clothImageView"
             android:layout_width="@dimen/cloth_view_width"
             android:layout_height="@dimen/cloth_view_height"
-            android:layout_alignTop="@id/eyeImageView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cloth1" />
+            android:src="@drawable/cloth1"
+            android:layout_alignTop="@+id/eyeImageView"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>
