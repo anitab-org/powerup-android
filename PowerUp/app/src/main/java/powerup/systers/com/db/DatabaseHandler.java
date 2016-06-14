@@ -3,6 +3,7 @@ package powerup.systers.com.db;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import java.util.List;
 
@@ -149,6 +150,35 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		mDb.execSQL(query);
 	}
 
+    public void setHealing(Integer healing){
+        String query = "UPDATE " + PowerUpContract.PointEntry.TABLE_NAME +
+                " SET " + PowerUpContract.PointEntry.COLUMN_HEALING + " = " + healing +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+        Log.i("heal",getHealing()+" ");
+    }
+
+    public void setInvisibility(Integer invisibility){
+        String query = "UPDATE " + PowerUpContract.PointEntry.TABLE_NAME +
+                " SET " + PowerUpContract.PointEntry.COLUMN_INVISIBILITY + " = " + invisibility +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
+    public void setTelepathy(Integer telepathy){
+        String query = "UPDATE " + PowerUpContract.PointEntry.TABLE_NAME +
+                " SET " + PowerUpContract.PointEntry.COLUMN_TELEPATHY + " = " + telepathy +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
+    public void setStrength(Integer strength){
+        String query = "UPDATE " + PowerUpContract.PointEntry.TABLE_NAME +
+                " SET " + PowerUpContract.PointEntry.COLUMN_STRENGTH + " = " + strength +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
 	public Integer getAvatarFace() {
 		String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
 				" WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
@@ -191,6 +221,49 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		}
 		cursor.close();
 		return 1;
-
 	}
+
+    public int getHealing(){
+        String query = "Select * from " + PowerUpContract.PointEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(3);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public int getStrength(){
+        String query = "Select * from " + PowerUpContract.PointEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(1);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public int getTelepathy(){
+        String query = "Select * from " + PowerUpContract.PointEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(4);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public int getInvisibility(){
+        String query = "Select * from " + PowerUpContract.PointEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(2);
+        }
+        cursor.close();
+        return 1;
+    }
 }

@@ -10,17 +10,19 @@
 
     <TextView
         android:id="@+id/scenarioNameEditText"
+        android:hint="@string/pgame_scenario_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/redoButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
         android:ems="@integer/text_view_ems"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/game_text_size" />
+        android:textSize="@dimen/game_text_size"
+        />
 
     <ListView
         android:id="@+id/mainListView"
@@ -68,7 +70,7 @@
             android:background="@drawable/power_status_bar"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
-        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
             android:id="@+id/powerbarHealing"
             android:layout_width="@dimen/power_bar_width"
             android:layout_height="@dimen/power_bar_height"
@@ -82,7 +84,7 @@
             app:rcProgress = "@integer/half_progress"
             app:rcMax="@integer/max_progress"
             android:layout_alignParentTop="true" />
-        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
             android:layout_width="@dimen/power_bar_width"
             android:id="@+id/powerbarStrength"
             android:layout_height="@dimen/power_bar_height"
@@ -96,7 +98,7 @@
             app:rcMax="@integer/max_progress"
             app:rcProgress = "@integer/half_progress"
             android:layout_below="@id/powerbarHealing" />
-        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
             android:layout_width="@dimen/power_bar_width"
             android:id="@+id/powerbarTelepathy"
             android:layout_height="@dimen/power_bar_height"
@@ -110,7 +112,7 @@
             android:layout_toLeftOf="@id/powerbarHealing"
             android:layout_toStartOf="@id/powerbarHealing"
             app:rcProgress = "@integer/half_progress" />
-        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
             android:layout_width="@dimen/power_bar_width"
             android:id="@+id/powerbarInvisibility"
             android:layout_height="@dimen/power_bar_height"
@@ -128,12 +130,14 @@
 
     <TextView
         android:id="@+id/questionView"
+        android:hint="Question"
+        android:layout_marginLeft="20dp"
         android:layout_width="@dimen/question_view_width"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@id/askerImageView"
         android:layout_marginTop="@dimen/question_view_margin_top"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:ems="@integer/text_view_ems"
         android:textColor="@android:color/black"
         android:textSize="@dimen/game_text_size" />
@@ -167,9 +171,10 @@
             android:id="@+id/hairImageView"
             android:layout_width="@dimen/hair_view_width"
             android:layout_height="@dimen/hair_view_height"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hair1" />
+            android:src="@drawable/hair1"
+            android:layout_alignTop="@+id/faceImageView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ImageView
             android:id="@+id/clothImageView"

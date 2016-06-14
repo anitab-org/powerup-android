@@ -21,4 +21,5 @@
     <string name="avatar">"Here is your final Avatar!\nPress continue to start\n your journey.."</string>
     <string name="avatar_land">"Here is your final Avatar! Press continue to start\n your journey.."</string>
     <string name="select_feature_coins">"  10 coins  "</string>
+    <string name="pgame_scenario_hint">"Scenario Name"</string>
 </resources>

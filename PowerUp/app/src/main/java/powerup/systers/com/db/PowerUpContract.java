@@ -74,6 +74,8 @@ public class PowerUpContract {
 
     public static final class PointEntry implements BaseColumns {
 
+        public static final String COLUMN_ID = "PID";
+
         public static final String TABLE_NAME = "Point";
 
         public static final String COLUMN_STRENGTH = "Strength";
