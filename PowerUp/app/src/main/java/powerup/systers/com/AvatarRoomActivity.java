@@ -4,11 +4,12 @@ package powerup.systers.com;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
+import java.util.Random;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 
@@ -228,7 +229,24 @@ public class AvatarRoomActivity extends Activity {
 				getmDbHandler().setAvatarFace(face);
 				getmDbHandler().setAvatarHair(hair);
 				getmDbHandler().setAvatarCloth(cloth);
-				Intent myIntent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
+                Random r = new Random();
+                Integer healing = r.nextInt(101 - 1) + 1;
+                getmDbHandler().setHealing(healing);
+
+                r = new Random();
+                Integer strength = r.nextInt(101 - 1) + 1;
+                getmDbHandler().setStrength(strength);
+
+                r = new Random();
+                Integer invisibility = r.nextInt(101 - 1) + 1;
+                getmDbHandler().setInvisibility(invisibility);
+
+                r = new Random();
+                Integer telepathy = r.nextInt(101 - 1) + 1;
+                getmDbHandler().setTelepathy(telepathy);
+                Log.i("Powers", mDbHandler.getHealing() + " " + mDbHandler.getInvisibility() +
+                        " " + mDbHandler.getStrength());
+                Intent myIntent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});

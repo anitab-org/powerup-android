@@ -2,7 +2,6 @@ package powerup.systers.com;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
@@ -135,6 +135,22 @@ public class GameActivity extends Activity {
 						}
 					}
 				});
+        IconRoundCornerProgressBar powerBarHealing = (IconRoundCornerProgressBar) findViewById(R.id.powerbarHealing);
+        powerBarHealing.setIconImageResource(R.drawable.icon_healing);
+        powerBarHealing.setIconBackgroundColor(R.color.powerup_purple_light);
+        powerBarHealing.setProgress(mDbHandler.getHealing());
+
+        IconRoundCornerProgressBar powerbarInvisibility = (IconRoundCornerProgressBar) findViewById(R.id.powerbarInvisibility);
+        powerbarInvisibility.setIconImageResource(R.drawable.icon_invisibility);
+        powerbarInvisibility.setProgress(mDbHandler.getInvisibility());
+
+        IconRoundCornerProgressBar powerbarStrength = (IconRoundCornerProgressBar) findViewById(R.id.powerbarStrength);
+        powerbarStrength.setIconImageResource(R.drawable.icon_strength);
+        powerbarStrength.setProgress(mDbHandler.getStrength());
+
+        IconRoundCornerProgressBar powerbarTelepathy = (IconRoundCornerProgressBar) findViewById(R.id.powerbarTelepathy);
+        powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
+        powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
 	}
 
 	private void updatePoints(int position) {

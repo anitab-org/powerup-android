@@ -43,6 +43,16 @@ public abstract class AbstractDbAdapter {
 			db.insert(PowerUpContract.AvatarEntry.TABLE_NAME, null, values);
 		}
 
+        public void insertPoints(SQLiteDatabase db) {
+            ContentValues values = new ContentValues();
+            values.put(PowerUpContract.PointEntry.COLUMN_ID, 1);
+            values.put(PowerUpContract.PointEntry.COLUMN_HEALING, 1);
+            values.put(PowerUpContract.PointEntry.COLUMN_INVISIBILITY, 1);
+            values.put(PowerUpContract.PointEntry.COLUMN_STRENGTH, 1);
+            values.put(PowerUpContract.PointEntry.COLUMN_TELEPATHY, 1);
+            db.insert(PowerUpContract.PointEntry.TABLE_NAME, null, values);
+        }
+
 		public void insertDBQuestion(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
 			// if (rowData.length == 3) {
@@ -160,6 +170,7 @@ public abstract class AbstractDbAdapter {
 					")";
 
 			String CREATE_POINT_TABLE = "CREATE TABLE " + PowerUpContract.PointEntry.TABLE_NAME + "(" +
+					PowerUpContract.PointEntry.COLUMN_ID + " INTEGER, " +
 					PowerUpContract.PointEntry.COLUMN_STRENGTH + " INTEGER," +
 					PowerUpContract.PointEntry.COLUMN_INVISIBILITY + " INTEGER, " +
 					PowerUpContract.PointEntry.COLUMN_HEALING + " INTEGER, " +
@@ -187,6 +198,7 @@ public abstract class AbstractDbAdapter {
 				e.printStackTrace();
 			}
 			insertAvatar(db);
+            insertPoints(db);
 		}
 
 		@Override
