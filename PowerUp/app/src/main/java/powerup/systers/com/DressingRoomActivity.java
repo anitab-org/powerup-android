@@ -25,7 +25,7 @@ public class DressingRoomActivity extends AppCompatActivity {
         ImageView faceView = (ImageView) findViewById(R.id.faceView);
         ImageView hairView = (ImageView) findViewById(R.id.hairView);
         ImageView clothView = (ImageView) findViewById(R.id.clothView);
-        String eyeImageName = String.valueOf(R.string.eye);
+        String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -38,7 +38,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String faceImageName = String.valueOf(R.string.face);
+        String faceImageName = getResources().getString(R.string.face);
         faceImageName = faceImageName + getmDbHandler().getAvatarFace();
         try {
             photoNameField = ourRID.getClass().getField(faceImageName);
@@ -49,7 +49,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String clothImageName = String.valueOf(R.string.cloth);
+        String clothImageName = getResources().getString(R.string.cloth);
         clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
         try {
             photoNameField = ourRID.getClass().getField(clothImageName);
@@ -60,7 +60,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String hairImageName = String.valueOf(R.string.hair);
+        String hairImageName = getResources().getString(R.string.hair);
         hairImageName = hairImageName + getmDbHandler().getAvatarHair();
         try {
             photoNameField = ourRID.getClass().getField(hairImageName);
@@ -96,7 +96,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DressingRoomActivity.this, SelectFeaturesActivity.class);
-                intent.putExtra(String.valueOf(R.string.feature), String.valueOf(R.string.cloth));
+                intent.putExtra(getResources().getString(R.string.feature), getResources().getString(R.string.cloth));
                 startActivity(intent);
             }
         });
@@ -105,7 +105,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DressingRoomActivity.this, SelectFeaturesActivity.class);
-                intent.putExtra(String.valueOf(R.string.feature), String.valueOf(R.string.hair));
+                intent.putExtra(getResources().getString(R.string.feature), getResources().getString(R.string.hair));
                 startActivity(intent);
             }
         });
@@ -114,7 +114,7 @@ public class DressingRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DressingRoomActivity.this, SelectFeaturesActivity.class);
-                intent.putExtra(String.valueOf(R.string.feature), String.valueOf(R.string.accessory));
+                intent.putExtra(getResources().getString(R.string.feature), getResources().getString(R.string.accessory));
                 startActivity(intent);
             }
         });

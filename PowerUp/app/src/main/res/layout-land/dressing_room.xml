@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/curtains"
-    android:orientation="vertical">
+    android:background="@drawable/curtains">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/karmaImageView"
         android:layout_toEndOf="@+id/karmaImageView"
-        android:layout_toRightOf="@+id/karmaImageView">
-
+        >
         <ImageView
             android:id="@+id/faceView"
             android:layout_width="@dimen/face_view_width"
@@ -33,145 +33,143 @@
             android:id="@+id/hairView"
             android:layout_width="@dimen/hair_view_width"
             android:layout_height="@dimen/hair_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hair2" />
+            android:src="@drawable/hair2"
+            android:layout_centerHorizontal="true" />
 
         <ImageView
             android:id="@+id/clothView"
             android:layout_width="@dimen/cloth_view_width"
             android:layout_height="@dimen/cloth_view_height"
+            android:src="@drawable/cloth1"
             android:layout_alignTop="@+id/eyeView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cloth1" />
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/karmaImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/karma" />
+        android:id="@+id/karmaImageView"
+        android:src="@drawable/karma"
+        android:layout_alignParentTop="true" />
+
 
     <ImageView
-        android:id="@+id/ageImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/ageImageView"
+        android:src="@drawable/age"
         android:layout_alignBottom="@+id/health_text_ImageView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/age" />
+        android:layout_alignParentStart="true" />
 
     <ImageView
+        android:layout_width="@dimen/dressing_room_variants_width"
+        android:layout_height="@dimen/dressing_room_variants_height"
         android:id="@+id/clothesImageView"
-        android:layout_width="@dimen/dressing_room_variants_width"
-        android:layout_height="@dimen/dressing_room_variants_height"
+        android:src="@drawable/clothes_text"
         android:layout_alignLeft="@+id/accessoriesImageView"
-        android:layout_alignStart="@+id/accessoriesImageView"
-        android:src="@drawable/clothes_text" />
+        android:layout_alignStart="@+id/accessoriesImageView" />
 
     <ImageView
+        android:layout_width="@dimen/dressing_room_variants_width"
+        android:layout_height="@dimen/dressing_room_variants_height"
+        android:layout_marginTop="@dimen/dressing_room_variants_margin_land"
         android:id="@+id/hairImageView"
-        android:layout_width="@dimen/dressing_room_variants_width"
-        android:layout_height="@dimen/dressing_room_variants_height"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:src="@drawable/hair_text"
         android:layout_below="@+id/clothesImageView"
-        android:layout_marginTop="@dimen/dressing_room_variants_margin_land"
-        android:src="@drawable/hair_text" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:id="@+id/accessoriesImageView"
         android:layout_width="@dimen/dressing_room_variants_width"
         android:layout_height="@dimen/dressing_room_variants_height"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/hairImageView"
         android:layout_marginTop="@dimen/dressing_room_variants_margin_land"
-        android:src="@drawable/accessories" />
+        android:id="@+id/accessoriesImageView"
+        android:src="@drawable/accessories"
+        android:layout_below="@+id/hairImageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
 
     <ImageView
-        android:id="@+id/health_text_ImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/health_text_ImageView"
+        android:src="@drawable/health_power_text"
         android:layout_above="@+id/power_bar"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/health_power_text" />
+        android:layout_alignParentEnd="true" />
 
     <RelativeLayout
         android:id="@+id/power_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/power_bar_view_height"
         android:layout_alignParentBottom="true">
-
         <ImageView
             android:id="@+id/powerBarView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/power_bar_view_height"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
+            android:background="@drawable/power_status_bar"
             android:layout_alignParentRight="true"
-            android:background="@drawable/power_status_bar" />
-
+            android:layout_alignParentEnd="true" />
         <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
             android:id="@+id/powerbarHealing"
             android:layout_width="@dimen/power_bar_width"
             android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
             android:layout_marginRight="@dimen/power_bar_margin_right"
+            app:rcRadius="@dimen/power_bar_radius"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/power_bar_margin_top"
             app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
             app:rcProgressColor="@color/powerup_purple_light"
-            app:rcRadius="@dimen/power_bar_radius" />
-
+            app:rcProgress = "@integer/half_progress"
+            app:rcMax="@integer/max_progress"
+            android:layout_alignParentTop="true" />
         <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarStrength"
             android:layout_width="@dimen/power_bar_width"
+            android:id="@+id/powerbarStrength"
             android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/powerbarHealing"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcRadius="@dimen/power_bar_radius"
             android:layout_marginRight="@dimen/power_bar_margin_right"
             android:layout_marginTop="@dimen/power_bar_margin_right"
+            android:layout_alignParentRight="true"
             app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
             app:rcProgressColor="@color/powerup_pink"
-            app:rcRadius="@dimen/power_bar_radius" />
-
+            app:rcMax="@integer/max_progress"
+            app:rcProgress = "@integer/half_progress"
+            android:layout_below="@id/powerbarHealing" />
         <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarTelepathy"
             android:layout_width="@dimen/power_bar_width"
+            android:id="@+id/powerbarTelepathy"
             android:layout_height="@dimen/power_bar_height"
-            android:layout_alignTop="@id/powerbarHealing"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcRadius="@dimen/power_bar_radius"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcProgressColor="@color/powerup_blue_green"
             android:layout_marginRight="@dimen/power_bar_margin_right"
+            app:rcMax="@integer/max_progress"
+            android:layout_alignTop="@id/powerbarHealing"
             android:layout_toLeftOf="@id/powerbarHealing"
             android:layout_toStartOf="@id/powerbarHealing"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_blue_green"
-            app:rcRadius="@dimen/power_bar_radius" />
-
+            app:rcProgress = "@integer/half_progress" />
         <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarInvisibility"
             android:layout_width="@dimen/power_bar_width"
+            android:id="@+id/powerbarInvisibility"
             android:layout_height="@dimen/power_bar_height"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcRadius="@dimen/power_bar_radius"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcProgressColor="@color/powerup_yellow"
+            app:rcMax="@integer/max_progress"
+            android:layout_alignTop="@id/powerbarStrength"
             android:layout_alignLeft="@id/powerbarTelepathy"
             android:layout_alignStart="@id/powerbarTelepathy"
-            android:layout_alignTop="@id/powerbarStrength"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_yellow"
-            app:rcRadius="@dimen/power_bar_radius" />
+            app:rcProgress = "@integer/half_progress" />
 
     </RelativeLayout>
 </RelativeLayout>

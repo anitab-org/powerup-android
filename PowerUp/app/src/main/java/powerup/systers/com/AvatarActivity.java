@@ -20,14 +20,14 @@ public class AvatarActivity extends Activity {
         setContentView(R.layout.avatar);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
-        fromActivity = getIntent().getExtras().getInt(String.valueOf(R.string.from_activity));
+        fromActivity = getIntent().getExtras().getInt(getResources().getString(R.string.from_activity));
         ImageView eyeView = (ImageView) findViewById(R.id.eyeView);
         ImageView faceView = (ImageView) findViewById(R.id.faceView);
         ImageView hairView = (ImageView) findViewById(R.id.hairView);
         ImageView clothView = (ImageView) findViewById(R.id.clothView);
         Button continueButton = (Button) findViewById(R.id.continueButton);
         Button backButton = (Button) findViewById(R.id.backButton);
-        String eyeImageName = String.valueOf(R.string.eye);
+        String eyeImageName =getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -40,7 +40,7 @@ public class AvatarActivity extends Activity {
             e.printStackTrace();
         }
 
-        String faceImageName = String.valueOf(R.string.face);
+        String faceImageName = getResources().getString(R.string.face);
         faceImageName = faceImageName + getmDbHandler().getAvatarFace();
         try {
             photoNameField = ourRID.getClass().getField(faceImageName);
@@ -51,7 +51,7 @@ public class AvatarActivity extends Activity {
             e.printStackTrace();
         }
 
-        String clothImageName = String.valueOf(R.string.cloth);
+        String clothImageName = getResources().getString(R.string.cloth);
         clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
         try {
             photoNameField = ourRID.getClass().getField(clothImageName);
@@ -62,7 +62,7 @@ public class AvatarActivity extends Activity {
             e.printStackTrace();
         }
 
-        String hairImageName = String.valueOf(R.string.hair);
+        String hairImageName = getResources().getString(R.string.hair);
         hairImageName = hairImageName + getmDbHandler().getAvatarHair();
         try {
             photoNameField = ourRID.getClass().getField(hairImageName);
