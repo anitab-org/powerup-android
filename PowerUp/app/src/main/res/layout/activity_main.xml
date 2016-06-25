@@ -9,19 +9,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.powerup.MainActivity" >
+    tools:context="com.example.powerup.MainActivity">
 
     <TextView
         android:id="@+id/powerupTextView"
         android:layout_width="@dimen/powerup_width"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/powerup"
         android:textAlignment="center"
         android:textSize="@dimen/powerup_size"
-        android:typeface="serif"
-        android:layout_gravity="center_horizontal" />
+        android:typeface="serif" />
 
     <ImageView
         android:id="@+id/imageView1"

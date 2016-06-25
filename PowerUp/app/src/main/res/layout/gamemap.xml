@@ -19,8 +19,8 @@
         android:id="@+id/HospitalButton"
         android:layout_width="@dimen/map_hospital_click_width"
         android:layout_height="@dimen/map_hospital_click_height"
-        android:layout_alignTop="@id/HouseButton"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/HouseButton"
         android:layout_marginRight="@dimen/hospital_button_margin_right"
         android:alpha="@dimen/map_alpha"
         android:text="@string/hospital" />
@@ -41,9 +41,18 @@
         android:layout_width="@dimen/map_boyfriend_click_width"
         android:layout_height="@dimen/map_boyfriend_click_height"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/boyfriend_button_margin_left"
         android:layout_marginBottom="@dimen/boyfriend_button_margin_bottom"
+        android:layout_marginLeft="@dimen/boyfriend_button_margin_left"
         android:alpha="@dimen/map_alpha"
         android:text="@string/boyfriend" />
+
+    <Button
+        android:id="@+id/storeButton"
+        android:layout_width="@dimen/store_width"
+        android:layout_height="@dimen/store_height"
+        android:layout_alignTop="@+id/HouseButton"
+        android:layout_centerHorizontal="true"
+        android:alpha="@dimen/map_alpha"
+        android:text="@string/store" />
 
 </RelativeLayout>

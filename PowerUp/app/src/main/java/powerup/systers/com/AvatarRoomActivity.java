@@ -15,220 +15,217 @@ import powerup.systers.com.db.DatabaseHandler;
 
 public class AvatarRoomActivity extends Activity {
 
-	private DatabaseHandler mDbHandler;
+    public static Activity avatarRoomInstance;
+    private DatabaseHandler mDbHandler;
+    private ImageView eyeView;
+    private ImageView faceView;
+    private ImageView clothView;
+    private ImageView hairView;
+    private Integer eye = 1;
+    private Integer hair = 1;
+    private Integer face = 1;
+    private Integer cloth = 1;
 
-	private ImageView eyeView;
-	private ImageView faceView;
-	private ImageView clothView;
-	private ImageView hairView;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setmDbHandler(new DatabaseHandler(this));
+        getmDbHandler().open();
+        avatarRoomInstance = this;
+        setContentView(R.layout.avatar_room);
+        eyeView = (ImageView) findViewById(R.id.eyes);
+        faceView = (ImageView) findViewById(R.id.face);
+        clothView = (ImageView) findViewById(R.id.clothes);
+        hairView = (ImageView) findViewById(R.id.hair);
+        ImageButton eyeLeft = (ImageButton) findViewById(R.id.eyeLeft);
+        ImageButton eyeRight = (ImageButton) findViewById(R.id.eyeRight);
+        ImageButton faceLeft = (ImageButton) findViewById(R.id.faceLeft);
+        ImageButton faceRight = (ImageButton) findViewById(R.id.faceRight);
+        ImageButton clothLeft = (ImageButton) findViewById(R.id.clotheLeft);
+        ImageButton clothRight = (ImageButton) findViewById(R.id.clotheRight);
+        ImageButton hairLeft = (ImageButton) findViewById(R.id.hairLeft);
+        ImageButton hairRight = (ImageButton) findViewById(R.id.hairRight);
+        Button continueButton = (Button) findViewById(R.id.continueButtonAvatar);
 
-	private Integer eye = 1;
-	private Integer hair = 1;
-	private Integer face = 1;
-	private Integer cloth = 1;
+        eyeLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eye = (eye - 1) % SessionHistory.eyesTotalNo;
+                if (eye == 0) {
+                    eye = SessionHistory.eyesTotalNo;
+                }
 
-	public static Activity avatarRoomInstance;
+                String eyeImageName = String.valueOf(R.string.eye);
+                eyeImageName = eyeImageName + eye.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(eyeImageName);
+                    eyeView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setmDbHandler(new DatabaseHandler(this));
-		getmDbHandler().open();
-		avatarRoomInstance = this;
-		setContentView(R.layout.avatar_room);
-		eyeView = (ImageView) findViewById(R.id.eyes);
-		faceView = (ImageView) findViewById(R.id.face);
-		clothView = (ImageView) findViewById(R.id.clothes);
-		hairView = (ImageView) findViewById(R.id.hair);
-		ImageButton eyeLeft = (ImageButton) findViewById(R.id.eyeLeft);
-		ImageButton eyeRight = (ImageButton) findViewById(R.id.eyeRight);
-		ImageButton faceLeft = (ImageButton) findViewById(R.id.faceLeft);
-		ImageButton faceRight = (ImageButton) findViewById(R.id.faceRight);
-		ImageButton clothLeft = (ImageButton) findViewById(R.id.clotheLeft);
-		ImageButton clothRight = (ImageButton) findViewById(R.id.clotheRight);
-		ImageButton hairLeft = (ImageButton) findViewById(R.id.hairLeft);
-		ImageButton hairRight = (ImageButton) findViewById(R.id.hairRight);
-		Button continueButton = (Button) findViewById(R.id.continueButtonAvatar);
+        eyeRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eye = (eye + SessionHistory.eyesTotalNo)
+                        % SessionHistory.eyesTotalNo + 1;
+                String eyeImageName = String.valueOf(R.string.eye);
+                eyeImageName = eyeImageName + eye.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(eyeImageName);
+                    eyeView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		eyeLeft.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				eye = (eye - 1) % SessionHistory.eyesTotalNo;
-				if (eye == 0) {
-					eye = SessionHistory.eyesTotalNo;
-				}
+        faceLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                face = (face - 1) % SessionHistory.faceTotalNo;
+                if (face == 0) {
+                    face = SessionHistory.faceTotalNo;
+                }
 
-				String eyeImageName = "eye";
-				eyeImageName = eyeImageName + eye.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(eyeImageName);
-					eyeView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+                String faceImageName = String.valueOf(R.string.face);
+                faceImageName = faceImageName + face.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(faceImageName);
+                    faceView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		eyeRight.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				eye = (eye + SessionHistory.eyesTotalNo)
-						% SessionHistory.eyesTotalNo + 1;
-				String eyeImageName = "eye";
-				eyeImageName = eyeImageName + eye.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(eyeImageName);
-					eyeView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+        faceRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                face = (face + SessionHistory.faceTotalNo)
+                        % SessionHistory.faceTotalNo + 1;
+                String faceImageName = String.valueOf(R.string.face);
+                faceImageName = faceImageName + face.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(faceImageName);
+                    faceView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		faceLeft.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				face = (face - 1) % SessionHistory.faceTotalNo;
-				if (face == 0) {
-					face = SessionHistory.faceTotalNo;
-				}
+        clothLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cloth = (cloth - 1) % SessionHistory.clothTotalNo;
+                if (cloth == 0) {
+                    cloth = SessionHistory.clothTotalNo;
+                }
 
-				String faceImageName = "face";
-				faceImageName = faceImageName + face.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(faceImageName);
-					faceView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+                String clothImageName = String.valueOf(R.string.cloth);
+                clothImageName = clothImageName + cloth.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(clothImageName);
+                    clothView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		faceRight.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				face = (face + SessionHistory.faceTotalNo)
-						% SessionHistory.faceTotalNo + 1;
-				String faceImageName = "face";
-				faceImageName = faceImageName + face.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(faceImageName);
-					faceView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+        clothRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cloth = (cloth + SessionHistory.clothTotalNo)
+                        % SessionHistory.clothTotalNo + 1;
+                String clothImageName = String.valueOf(R.string.cloth);
+                clothImageName = clothImageName + cloth.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(clothImageName);
+                    clothView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		clothLeft.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				cloth = (cloth - 1) % SessionHistory.clothTotalNo;
-				if (cloth == 0) {
-					cloth = SessionHistory.clothTotalNo;
-				}
+        hairLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hair = (hair - 1) % SessionHistory.hairTotalNo;
+                if (hair == 0) {
+                    hair = SessionHistory.hairTotalNo;
+                }
 
-				String clothImageName = "cloth";
-				clothImageName = clothImageName + cloth.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(clothImageName);
-					clothView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+                String hairImageName = String.valueOf(R.string.hair);
+                hairImageName = hairImageName + hair.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(hairImageName);
+                    hairView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		clothRight.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				cloth = (cloth + SessionHistory.clothTotalNo)
-						% SessionHistory.clothTotalNo + 1;
-				String clothImageName = "cloth";
-				clothImageName = clothImageName + cloth.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(clothImageName);
-					clothView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+        hairRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hair = (hair + SessionHistory.hairTotalNo)
+                        % SessionHistory.hairTotalNo + 1;
+                String hairImageName = String.valueOf(R.string.hair);
+                hairImageName = hairImageName + hair.toString();
+                R.drawable ourRID = new R.drawable();
+                java.lang.reflect.Field photoNameField;
+                try {
+                    photoNameField = ourRID.getClass().getField(hairImageName);
+                    hairView.setImageResource(photoNameField.getInt(ourRID));
+                } catch (NoSuchFieldException | IllegalAccessException
+                        | IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
 
-		hairLeft.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				hair = (hair - 1) % SessionHistory.hairTotalNo;
-				if (hair == 0) {
-					hair = SessionHistory.hairTotalNo;
-				}
-
-				String hairImageName = "hair";
-				hairImageName = hairImageName + hair.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(hairImageName);
-					hairView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-
-		hairRight.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				hair = (hair + SessionHistory.hairTotalNo)
-						% SessionHistory.hairTotalNo + 1;
-				String hairImageName = "hair";
-				hairImageName = hairImageName + hair.toString();
-				R.drawable ourRID = new R.drawable();
-				java.lang.reflect.Field photoNameField;
-				try {
-					photoNameField = ourRID.getClass().getField(hairImageName);
-					hairView.setImageResource(photoNameField.getInt(ourRID));
-				} catch (NoSuchFieldException | IllegalAccessException
-						| IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-
-		continueButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				getmDbHandler().open();
-				getmDbHandler().setAvatarEye(eye);
-				getmDbHandler().setAvatarFace(face);
-				getmDbHandler().setAvatarHair(hair);
-				getmDbHandler().setAvatarCloth(cloth);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getmDbHandler().open();
+                getmDbHandler().setAvatarEye(eye);
+                getmDbHandler().setAvatarFace(face);
+                getmDbHandler().setAvatarHair(hair);
+                getmDbHandler().setAvatarCloth(cloth);
                 Random r = new Random();
                 Integer healing = r.nextInt(101 - 1) + 1;
                 getmDbHandler().setHealing(healing);
@@ -247,17 +244,18 @@ public class AvatarRoomActivity extends Activity {
                 Log.i("Powers", mDbHandler.getHealing() + " " + mDbHandler.getInvisibility() +
                         " " + mDbHandler.getStrength());
                 Intent myIntent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
-				startActivityForResult(myIntent, 0);
-			}
-		});
-		getmDbHandler().close();
-	}
+                myIntent.putExtra(String.valueOf(R.string.from_activity), 1);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+        getmDbHandler().close();
+    }
 
-	public DatabaseHandler getmDbHandler() {
-		return mDbHandler;
-	}
+    public DatabaseHandler getmDbHandler() {
+        return mDbHandler;
+    }
 
-	public void setmDbHandler(DatabaseHandler mDbHandler) {
-		this.mDbHandler = mDbHandler;
-	}
+    public void setmDbHandler(DatabaseHandler mDbHandler) {
+        this.mDbHandler = mDbHandler;
+    }
 }
