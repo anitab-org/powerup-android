@@ -53,6 +53,15 @@ public class MapActivity extends Activity {
             }
         });
 
+        Button homeButton = (Button) findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(MapActivity.this, StartActivity.class));
+            }
+        });
+
     }
 
     public DatabaseHandler getmDbHandler() {
