@@ -30,7 +30,7 @@ public class SelectFeaturesActivity extends AppCompatActivity {
         String s = getResources().getString(R.string.feature);
         final String value = getIntent().getExtras().getString(getResources().getString(R.string.feature));
         TextView tv = (TextView) findViewById(R.id.textViewSelectFeature);
-        tv.setText(R.string.select_feature_title + value);
+        tv.setText(getResources().getString(R.string.select_feature_title) + value);
         ImageButton left = (ImageButton) findViewById(R.id.leftSelectFeature);
         ImageButton right = (ImageButton) findViewById(R.id.rightSelectFeature);
         Button continueButton = (Button) findViewById(R.id.continueButton);

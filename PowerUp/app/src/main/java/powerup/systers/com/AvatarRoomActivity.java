@@ -21,6 +21,10 @@ public class AvatarRoomActivity extends Activity {
     private ImageView faceView;
     private ImageView clothView;
     private ImageView hairView;
+    private ImageView eyeAvatar;
+    private ImageView faceAvatar;
+    private ImageView clothAvatar;
+    private ImageView hairAvatar;
     private Integer eye = 1;
     private Integer hair = 1;
     private Integer face = 1;
@@ -36,6 +40,10 @@ public class AvatarRoomActivity extends Activity {
         faceView = (ImageView) findViewById(R.id.face);
         clothView = (ImageView) findViewById(R.id.clothes);
         hairView = (ImageView) findViewById(R.id.hair);
+        eyeAvatar = (ImageView) findViewById(R.id.eyeView);
+        hairAvatar = (ImageView) findViewById(R.id.hairView);
+        faceAvatar = (ImageView) findViewById(R.id.faceView);
+        clothAvatar = (ImageView) findViewById(R.id.clothView);
         ImageButton eyeLeft = (ImageButton) findViewById(R.id.eyeLeft);
         ImageButton eyeRight = (ImageButton) findViewById(R.id.eyeRight);
         ImageButton faceLeft = (ImageButton) findViewById(R.id.faceLeft);
@@ -61,6 +69,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(eyeImageName);
                     eyeView.setImageResource(photoNameField.getInt(ourRID));
+                    eyeAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -81,6 +90,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(eyeImageName);
                     eyeView.setImageResource(photoNameField.getInt(ourRID));
+                    eyeAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -104,6 +114,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(faceImageName);
                     faceView.setImageResource(photoNameField.getInt(ourRID));
+                    faceAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -124,6 +135,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(faceImageName);
                     faceView.setImageResource(photoNameField.getInt(ourRID));
+                    faceAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -147,6 +159,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(clothImageName);
                     clothView.setImageResource(photoNameField.getInt(ourRID));
+                    clothAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -167,6 +180,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(clothImageName);
                     clothView.setImageResource(photoNameField.getInt(ourRID));
+                    clothAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -190,6 +204,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(hairImageName);
                     hairView.setImageResource(photoNameField.getInt(ourRID));
+                    hairAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
@@ -210,6 +225,7 @@ public class AvatarRoomActivity extends Activity {
                 try {
                     photoNameField = ourRID.getClass().getField(hairImageName);
                     hairView.setImageResource(photoNameField.getInt(ourRID));
+                    hairAvatar.setImageResource(photoNameField.getInt(ourRID));
                 } catch (NoSuchFieldException | IllegalAccessException
                         | IllegalArgumentException e) {
                     // TODO Auto-generated catch block
