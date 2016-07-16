@@ -1,74 +1,413 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/curtains"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="powerup.systers.com.SelectFeaturesActivity">
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageViewSelectFeature"
-        android:layout_width="@dimen/select_feature_image_view"
-        android:layout_height="@dimen/select_feature_image_view"
-        android:layout_below="@+id/textViewSelectFeature"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/select_feature_image_view_margin"
-        android:src="@drawable/hair1" />
-
-    <ImageButton
-        android:id="@+id/leftSelectFeature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageViewSelectFeature"
-        android:layout_alignStart="@+id/imageViewSelectFeature"
-        android:layout_below="@+id/imageViewSelectFeature"
-        android:layout_marginTop="@dimen/select_feature_image_view_margin"
-        android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
-
-    <ImageButton
-        android:id="@+id/rightSelectFeature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageViewSelectFeature"
-        android:layout_alignRight="@+id/imageViewSelectFeature"
-        android:layout_below="@+id/imageViewSelectFeature"
-        android:layout_marginTop="@dimen/select_feature_image_view_margin"
-        android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
-
-    <TextView
-        android:id="@+id/textViewSelectFeature"
+        android:id="@+id/karmaImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/select_feature_image_view_margin"
-        android:layout_marginTop="@dimen/select_feature_image_view_margin"
-        android:hint="@string/select_feature"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:src="@drawable/karma" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ageImageView"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/faceView"
+            android:layout_width="@dimen/face_view_width"
+            android:layout_height="@dimen/face_view_height"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/face1" />
+
+        <ImageView
+            android:id="@+id/eyeView"
+            android:layout_width="@dimen/eye_view_width"
+            android:layout_height="@dimen/eye_view_height"
+            android:layout_alignBottom="@id/faceView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/eye_view_margin_bottom"
+            android:src="@drawable/eye1" />
+
+        <ImageView
+            android:id="@+id/hairView"
+            android:layout_width="@dimen/hair_view_width"
+            android:layout_height="@dimen/hair_view_height"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/hair2" />
+
+        <ImageView
+            android:id="@+id/clothView"
+            android:layout_width="@dimen/cloth_view_width"
+            android:layout_height="@dimen/cloth_view_height"
+            android:layout_alignTop="@+id/eyeView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cloth1" />
+
+        <ImageView
+            android:id="@+id/bagView"
+            android:layout_width="@dimen/select_feature_bag_view_width"
+            android:layout_height="@dimen/select_feature_bag_view_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/eyeView" />
+
+        <ImageView
+            android:id="@+id/glassesView"
+            android:layout_width="@dimen/select_feature_glasses_view_width"
+            android:layout_height="@dimen/select_feature_glasses_view_height"
+            android:layout_alignBottom="@+id/eyeView"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/hatView"
+            android:layout_width="@dimen/select_feature_hat_view_width"
+            android:layout_height="@dimen/select_feature_hat_view_height"
+            android:layout_above="@+id/eyeView"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/necklaceView"
+            android:layout_width="@dimen/select_feature_necklace_view_width"
+            android:layout_height="@dimen/select_feature_necklace_view_height"
+            android:layout_above="@+id/bagView"
+            android:layout_alignEnd="@+id/clothView"
+            android:layout_alignRight="@+id/clothView" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/ageImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/power_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/age" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/relativeLayout2"
+        android:layout_toEndOf="@+id/relativeLayout2"
+        android:layout_toRightOf="@+id/relativeLayout2"
+        android:background="@drawable/round_rect_green_shape"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textViewSelectFeature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/feature"
+            android:textAllCaps="true"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/final_avatar_text_view_text_size" />
+
+        <ImageView
+            android:id="@+id/imageViewSelectFeature"
+            android:layout_width="@dimen/select_feature_image_view"
+            android:layout_height="@dimen/select_feature_image_view"
+            android:src="@drawable/hair1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftSelectFeature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+            <ImageButton
+                android:id="@+id/rightSelectFeature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayouthandbag"
+        android:layout_width="@dimen/select_feature_linear_layout_width"
+        android:layout_height="@dimen/select_feature_linear_layout_height"
+        android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
+        android:layout_toEndOf="@+id/relativeLayout2"
+        android:layout_toRightOf="@+id/relativeLayout2"
+        android:background="@drawable/round_rect_green_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bag"
+            android:textAllCaps="true"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/final_avatar_text_view_text_size" />
+
+        <ImageView
+            android:id="@+id/imageViewhandbag"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/select_feature_image_height"
+            android:src="@drawable/bag1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftHandbag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+            <ImageButton
+                android:id="@+id/rightHandbag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutGlasses"
+        android:layout_width="@dimen/select_feature_linear_layout_width"
+        android:layout_height="@dimen/select_feature_linear_layout_height"
+        android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_left"
+        android:layout_alignTop="@+id/linearLayouthandbag"
+        android:layout_toRightOf="@+id/linearLayouthandbag"
+        android:background="@drawable/round_rect_green_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/glasses"
+            android:textAllCaps="true"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/final_avatar_text_view_text_size" />
+
+        <ImageView
+            android:id="@+id/imageViewGlasses"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/glasses1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftGlasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+            <ImageButton
+                android:id="@+id/rightGlasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutHat"
+        android:layout_width="@dimen/select_feature_linear_layout_width"
+        android:layout_height="@dimen/select_feature_linear_layout_height"
+        android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
+        android:layout_alignLeft="@+id/linearLayouthandbag"
+        android:layout_below="@+id/linearLayouthandbag"
+        android:background="@drawable/round_rect_green_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/hat"
+            android:textAllCaps="true"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/final_avatar_text_view_text_size"/>
+
+        <ImageView
+            android:id="@+id/imageViewHat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/select_feature_image_height"
+            android:src="@drawable/hat1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftHat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+            <ImageButton
+                android:id="@+id/rightHat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutNecklace"
+        android:layout_width="@dimen/select_feature_linear_layout_width"
+        android:layout_height="@dimen/select_feature_linear_layout_height"
+        android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
+        android:layout_alignLeft="@+id/linearLayoutGlasses"
+        android:layout_below="@+id/linearLayoutGlasses"
+        android:background="@drawable/round_rect_green_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/necklace"
+            android:textAllCaps="true"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/text_view_necklace" />
+
+        <ImageView
+            android:id="@+id/imageViewNecklace"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/select_feature_image_height"
+            android:src="@drawable/necklace1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftNecklace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+            <ImageButton
+                android:id="@+id/rightNecklace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/power_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/power_bar_view_height"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/powerBarView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/power_bar_view_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/power_status_bar" />
+
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+            android:id="@+id/powerbarHealing"
+            android:layout_width="@dimen/power_bar_width"
+            android:layout_height="@dimen/power_bar_height"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/power_bar_margin_right"
+            android:layout_marginTop="@dimen/power_bar_margin_top"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcMax="@integer/max_progress"
+            app:rcProgress="@integer/half_progress"
+            app:rcProgressColor="@color/powerup_purple_light"
+            app:rcRadius="@dimen/power_bar_radius" />
+
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+            android:id="@+id/powerbarStrength"
+            android:layout_width="@dimen/power_bar_width"
+            android:layout_height="@dimen/power_bar_height"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/powerbarHealing"
+            android:layout_marginRight="@dimen/power_bar_margin_right"
+            android:layout_marginTop="@dimen/power_bar_margin_right"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcMax="@integer/max_progress"
+            app:rcProgress="@integer/half_progress"
+            app:rcProgressColor="@color/powerup_pink"
+            app:rcRadius="@dimen/power_bar_radius" />
+
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+            android:id="@+id/powerbarTelepathy"
+            android:layout_width="@dimen/power_bar_width"
+            android:layout_height="@dimen/power_bar_height"
+            android:layout_alignTop="@id/powerbarHealing"
+            android:layout_marginRight="@dimen/power_bar_margin_right"
+            android:layout_toLeftOf="@id/powerbarHealing"
+            android:layout_toStartOf="@id/powerbarHealing"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcMax="@integer/max_progress"
+            app:rcProgress="@integer/half_progress"
+            app:rcProgressColor="@color/powerup_blue_green"
+            app:rcRadius="@dimen/power_bar_radius" />
+
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+            android:id="@+id/powerbarInvisibility"
+            android:layout_width="@dimen/power_bar_width"
+            android:layout_height="@dimen/power_bar_height"
+            android:layout_alignLeft="@id/powerbarTelepathy"
+            android:layout_alignStart="@id/powerbarTelepathy"
+            android:layout_alignTop="@id/powerbarStrength"
+            app:rcBackgroundColor="@android:color/black"
+            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
+            app:rcMax="@integer/max_progress"
+            app:rcProgress="@integer/half_progress"
+            app:rcProgressColor="@color/powerup_yellow"
+            app:rcRadius="@dimen/power_bar_radius" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/power_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/endingscreen6" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="@dimen/select_feature_coin_width"
-        android:layout_height="@dimen/select_feature_coin_height"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/back_background"
-        android:gravity="center"
-        android:text="@string/select_feature_coins"
-        android:textColor="@color/powerup_black"
-        android:textSize="@dimen/final_avatar_text_view_text_size" />
 </RelativeLayout>

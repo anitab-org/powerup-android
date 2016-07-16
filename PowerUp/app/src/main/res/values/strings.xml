@@ -30,6 +30,10 @@
     <string name="cloth">"cloth"</string>
     <string name="face">"face"</string>
     <string name="accessory">"accessory"</string>
+    <string name="bag">"bag"</string>
+    <string name="hat">"hat"</string>
+    <string name="necklace">"necklace"</string>
+    <string name="glasses">"glasses"</string>
     <string name="feature">"feature"</string>
     <string name="select_feature_title">"Choose your "</string>
     <string name="avatar_room_eye">"EYES"</string>
