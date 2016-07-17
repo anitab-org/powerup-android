@@ -86,5 +86,49 @@ public class PowerUpContract {
 
         public static final String COLUMN_TELEPATHY = "Telepathy";
 
+        public static final String COLUMN_USER_POINTS ="UserPoints";
+
+    }
+
+    public static final class ClothesEntry implements BaseColumns {
+
+        public static final String COLUMN_ID = "CID";
+
+        public static final String TABLE_NAME = "Clothes";
+
+        public static final String COLUMN_CLOTH_NAME = "Name";
+
+        public static final String COLUMN_POINTS = "Points";
+
+        public static final String COLUMN_PURCHASED = "Purchased";
+
+    }
+
+    public static final class HairEntry implements BaseColumns {
+
+        public static final String COLUMN_ID = "HID";
+
+        public static final String TABLE_NAME = "Hair";
+
+        public static final String COLUMN_HAIR_NAME = "Name";
+
+        public static final String COLUMN_POINTS = "Points";
+
+        public static final String COLUMN_PURCHASED = "Purchased";
+
+    }
+
+    public static final class AccessoryEntry implements BaseColumns {
+
+        public static final String COLUMN_ID = "AID";
+
+        public static final String TABLE_NAME = "Accessories";
+
+        public static final String COLUMN_ACCESSORY_NAME = "Name";
+
+        public static final String COLUMN_POINTS = "Points";
+
+        public static final String COLUMN_PURCHASED = "Purchased";
+
     }
 }

@@ -94,8 +94,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/select_feature_linear_layout_width_hair"
+        android:layout_height="@dimen/select_feature_linear_layout_height_hair"
         android:layout_alignTop="@+id/relativeLayout2"
         android:layout_toEndOf="@+id/relativeLayout2"
         android:layout_toRightOf="@+id/relativeLayout2"
@@ -116,9 +116,16 @@
 
         <ImageView
             android:id="@+id/imageViewSelectFeature"
-            android:layout_width="@dimen/select_feature_image_view"
-            android:layout_height="@dimen/select_feature_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/select_feature_image_view_height"
             android:src="@drawable/hair1" />
+
+        <TextView
+            android:id="@+id/tvSelectFeaturePoints"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_view_necklace"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -166,6 +173,13 @@
             android:layout_height="@dimen/select_feature_image_height"
             android:src="@drawable/bag1" />
 
+        <TextView
+            android:id="@+id/tvHandbagPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_view_necklace"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -209,8 +223,15 @@
         <ImageView
             android:id="@+id/imageViewGlasses"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/select_feature_image_height"
             android:src="@drawable/glasses1" />
+
+        <TextView
+            android:id="@+id/tvGlassesPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_view_necklace"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -258,6 +279,13 @@
             android:layout_height="@dimen/select_feature_image_height"
             android:src="@drawable/hat1" />
 
+        <TextView
+            android:id="@+id/tvHatPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_view_necklace"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -303,6 +331,13 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/select_feature_image_height"
             android:src="@drawable/necklace1" />
+
+        <TextView
+            android:id="@+id/tvNecklacePoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_view_necklace"/>
 
         <LinearLayout
             android:layout_width="match_parent"
