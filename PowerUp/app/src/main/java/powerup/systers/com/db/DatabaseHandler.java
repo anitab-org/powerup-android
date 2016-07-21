@@ -266,4 +266,44 @@ public class DatabaseHandler extends AbstractDbAdapter {
                 " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
         mDb.execSQL(query);
     }
+
+    public int getPointsClothes(int id) {
+        String query = "Select * from " + PowerUpContract.ClothesEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.ClothesEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(2);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public int getPointsHair(int id) {
+        String query = "Select * from " + PowerUpContract.HairEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if(cursor == null){
+            Log.i("HairDB", "null");
+        }
+        else if(cursor.isClosed()){
+            Log.i("HairDB", "Closed");
+        }
+
+        else if (cursor.moveToFirst()) {
+            return cursor.getInt(2);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public int getPointsAccessories(int id) {
+        String query = "Select * from " + PowerUpContract.AccessoryEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AccessoryEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(2);
+        }
+        cursor.close();
+        return 1;
+    }
 }

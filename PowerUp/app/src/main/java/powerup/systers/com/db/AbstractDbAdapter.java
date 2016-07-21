@@ -64,6 +64,7 @@ public abstract class AbstractDbAdapter {
             values.put(PowerUpContract.PointEntry.COLUMN_INVISIBILITY, 1);
             values.put(PowerUpContract.PointEntry.COLUMN_STRENGTH, 1);
             values.put(PowerUpContract.PointEntry.COLUMN_TELEPATHY, 1);
+            values.put(PowerUpContract.PointEntry.COLUMN_USER_POINTS, 0);
             db.insert(PowerUpContract.PointEntry.TABLE_NAME, null, values);
         }
 
@@ -118,6 +119,51 @@ public abstract class AbstractDbAdapter {
             }
         }
 
+        public void insertDBClothes(SQLiteDatabase db, String[] rowData){
+            ContentValues values = new ContentValues();
+            if(rowData.length == 3){
+                values.put(PowerUpContract.ClothesEntry.COLUMN_ID, rowData[0]);
+                values.put(PowerUpContract.ClothesEntry.COLUMN_CLOTH_NAME, rowData[1]);
+                values.put(PowerUpContract.ClothesEntry.COLUMN_POINTS, rowData[2]);
+                values.put(PowerUpContract.ClothesEntry.COLUMN_PURCHASED, 0);
+                db.insert(PowerUpContract.ClothesEntry.TABLE_NAME, null, values);
+            }
+            else{
+                throw new Error("Incorrect Clothes CSV Format! Use ID,"
+                        + "ClothName, Points" + rowData.toString());
+            }
+        }
+
+        public void insertDBHair(SQLiteDatabase db, String[] rowData){
+            ContentValues values = new ContentValues();
+            if(rowData.length == 3){
+                values.put(PowerUpContract.HairEntry.COLUMN_ID, rowData[0]);
+                values.put(PowerUpContract.HairEntry.COLUMN_HAIR_NAME, rowData[1]);
+                values.put(PowerUpContract.HairEntry.COLUMN_POINTS, rowData[2]);
+                values.put(PowerUpContract.HairEntry.COLUMN_PURCHASED, 0);
+                db.insert(PowerUpContract.HairEntry.TABLE_NAME, null, values);
+            }
+            else{
+                throw new Error("Incorrect Hair CSV Format! Use ID,"
+                        + "HairName, Points" + rowData.toString());
+            }
+        }
+
+        public void insertDBAccessories(SQLiteDatabase db, String[] rowData){
+            ContentValues values = new ContentValues();
+            if(rowData.length == 3){
+                values.put(PowerUpContract.AccessoryEntry.COLUMN_ID, rowData[0]);
+                values.put(PowerUpContract.AccessoryEntry.COLUMN_ACCESSORY_NAME, rowData[1]);
+                values.put(PowerUpContract.AccessoryEntry.COLUMN_POINTS, rowData[2]);
+                values.put(PowerUpContract.AccessoryEntry.COLUMN_PURCHASED, 0);
+                db.insert(PowerUpContract.AccessoryEntry.TABLE_NAME, null, values);
+            }
+            else{
+                throw new Error("Incorrect Accessory CSV Format! Use ID,"
+                        + "AccessoryName, Points" + rowData.toString());
+            }
+        }
+
         public void readCSVQuestion(SQLiteDatabase db, String filename)
                 throws IOException {
             in = new BufferedReader(new InputStreamReader(
@@ -150,6 +196,36 @@ public abstract class AbstractDbAdapter {
             while ((reader = in.readLine()) != null) {
                 String[] RowData = reader.split(",");
                 insertDBScenario(db, RowData);
+            }
+            in.close();
+        }
+
+        public void readCSVClothes(SQLiteDatabase db, String filename) throws IOException{
+            in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
+            String reader;
+            while((reader = in.readLine()) != null){
+                String[] RowData = reader.split(",");
+                insertDBClothes(db, RowData);
+            }
+            in.close();
+        }
+
+        public void readCSVHair(SQLiteDatabase db, String filename) throws IOException{
+            in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
+            String reader;
+            while((reader = in.readLine()) != null){
+                String[] RowData = reader.split(",");
+                insertDBHair(db, RowData);
+            }
+            in.close();
+        }
+
+        public void readCSVAccessories(SQLiteDatabase db, String filename) throws IOException{
+            in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
+            String reader;
+            while((reader = in.readLine()) != null){
+                String[] RowData = reader.split(",");
+                insertDBAccessories(db, RowData);
             }
             in.close();
         }
@@ -189,6 +265,7 @@ public abstract class AbstractDbAdapter {
                     PowerUpContract.PointEntry.COLUMN_INVISIBILITY + " INTEGER, " +
                     PowerUpContract.PointEntry.COLUMN_HEALING + " INTEGER, " +
                     PowerUpContract.PointEntry.COLUMN_TELEPATHY + " INTEGER" +
+                    PowerUpContract.PointEntry.COLUMN_USER_POINTS + " INTEGER" +
                     ")";
 
             String CREATE_AVATAR_TABLE = " CREATE TABLE " + PowerUpContract.AvatarEntry.TABLE_NAME + "(" +
@@ -199,15 +276,42 @@ public abstract class AbstractDbAdapter {
                     PowerUpContract.AvatarEntry.COLUMN_EYES + " INTEGER" +
                     ")";
 
+            String CREATE_CLOTHES_TABLE = " CREATE TABLE " + PowerUpContract.ClothesEntry.TABLE_NAME + "(" +
+                    PowerUpContract.ClothesEntry.COLUMN_ID + " INTEGER, " +
+                    PowerUpContract.ClothesEntry.COLUMN_CLOTH_NAME + " TEXT, " +
+                    PowerUpContract.ClothesEntry.COLUMN_POINTS + " INTEGER, " +
+                    PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " INTEGER " +
+                    ")";
+
+            String CREATE_HAIR_TABLE = " CREATE TABLE " + PowerUpContract.HairEntry.TABLE_NAME + "(" +
+                    PowerUpContract.HairEntry.COLUMN_ID + " INTEGER, " +
+                    PowerUpContract.HairEntry.COLUMN_HAIR_NAME + " TEXT, " +
+                    PowerUpContract.HairEntry.COLUMN_POINTS + " INTEGER, " +
+                    PowerUpContract.HairEntry.COLUMN_PURCHASED + " INTEGER " +
+                    ")";
+
+            String CREATE_ACCESSORY_TABLE = " CREATE TABLE " + PowerUpContract.AccessoryEntry.TABLE_NAME + "(" +
+                    PowerUpContract.AccessoryEntry.COLUMN_ID + " INTEGER, " +
+                    PowerUpContract.AccessoryEntry.COLUMN_ACCESSORY_NAME + " TEXT, " +
+                    PowerUpContract.AccessoryEntry.COLUMN_POINTS + " INTEGER, " +
+                    PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " INTEGER " +
+                    ")";
+
             db.execSQL(CREATE_QUESTION_TABLE);
             db.execSQL(CREATE_ANSWER_TABLE);
             db.execSQL(CREATE_SCENARIO_TABLE);
             db.execSQL(CREATE_POINT_TABLE);
             db.execSQL(CREATE_AVATAR_TABLE);
+            db.execSQL(CREATE_CLOTHES_TABLE);
+            db.execSQL(CREATE_HAIR_TABLE);
+            db.execSQL(CREATE_ACCESSORY_TABLE);
             try {
                 readCSVQuestion(db, "Question.csv");
                 readCSVAnswer(db, "Answer.csv");
                 readCSVScenario(db, "Scenario.csv");
+                readCSVClothes(db, "Clothes.csv");
+                readCSVHair(db, "Hair.csv");
+                readCSVAccessories(db, "Accessories.csv");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -220,6 +324,7 @@ public abstract class AbstractDbAdapter {
             db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.QuestionEntry.TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.AnswerEntry.TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.ScenarioEntry.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + PowerUpContract.PointEntry.TABLE_NAME);
             onCreate(db);
         }
     }
