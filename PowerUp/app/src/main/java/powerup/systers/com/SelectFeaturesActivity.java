@@ -157,7 +157,6 @@ public class SelectFeaturesActivity extends AppCompatActivity {
             right.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     cloth = (cloth + SessionHistory.clothTotalNo)
                             % SessionHistory.clothTotalNo + 1;
                     Integer isPurchased = mDbHandler.getPurchasedClothes(cloth);
@@ -198,7 +197,6 @@ public class SelectFeaturesActivity extends AppCompatActivity {
             left.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     hair = (hair - 1) % SessionHistory.hairTotalNo;
                     if (hair == 0) {
                         hair = SessionHistory.hairTotalNo;
@@ -285,7 +283,6 @@ public class SelectFeaturesActivity extends AppCompatActivity {
                     + SessionHistory.bagTotalNo + SessionHistory.glassesTotalNo)));
             tvNecklacePoints.setText(String.valueOf(getmDbHandler().getPointsAccessories(accessory
                     + SessionHistory.bagTotalNo + SessionHistory.glassesTotalNo + SessionHistory.hatTotalNo)));
-
             leftHandbag.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
