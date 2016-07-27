@@ -282,14 +282,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
         String query = "Select * from " + PowerUpContract.HairEntry.TABLE_NAME +
                 " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
         Cursor cursor = mDb.rawQuery(query, null);
-        if(cursor == null){
-            Log.i("HairDB", "null");
-        }
-        else if(cursor.isClosed()){
-            Log.i("HairDB", "Closed");
-        }
-
-        else if (cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             return cursor.getInt(2);
         }
         cursor.close();
@@ -306,4 +299,59 @@ public class DatabaseHandler extends AbstractDbAdapter {
         cursor.close();
         return 1;
     }
+
+    public int getPurchasedClothes(int id) {
+        String query = "Select * from " + PowerUpContract.ClothesEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.ClothesEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(3);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public void setPurchasedClothes(int id) {
+        String query = "UPDATE " + PowerUpContract.ClothesEntry.TABLE_NAME +
+                " SET " + PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " = 1"  +
+                " WHERE " + PowerUpContract.ClothesEntry.COLUMN_ID + " = " + id;
+        mDb.execSQL(query);
+    }
+
+    public int getPurchasedHair(int id) {
+        String query = "Select * from " + PowerUpContract.HairEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(3);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public void setPurchasedHair(int id) {
+        String query = "UPDATE " + PowerUpContract.HairEntry.TABLE_NAME +
+                " SET " + PowerUpContract.HairEntry.COLUMN_PURCHASED + " = 1"  +
+                " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
+        mDb.execSQL(query);
+    }
+
+    public int getPurchasedAccessories(int id) {
+        String query = "Select * from " + PowerUpContract.AccessoryEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AccessoryEntry.COLUMN_ID + " = " + id;
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(3);
+        }
+        cursor.close();
+        return 1;
+    }
+
+    public void setPurchasedAccessories(int id) {
+        String query = "UPDATE " + PowerUpContract.AccessoryEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 1"  +
+                " WHERE " + PowerUpContract.AccessoryEntry.COLUMN_ID + " = " + id;
+        mDb.execSQL(query);
+    }
+
 }

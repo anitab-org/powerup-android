@@ -99,7 +99,7 @@
         android:layout_alignTop="@+id/relativeLayout2"
         android:layout_toEndOf="@+id/relativeLayout2"
         android:layout_toRightOf="@+id/relativeLayout2"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_yellow_shape"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -114,11 +114,26 @@
             android:textColor="@color/powerup_black"
             android:textSize="@dimen/final_avatar_text_view_text_size" />
 
-        <ImageView
-            android:id="@+id/imageViewSelectFeature"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/select_feature_image_view_height"
-            android:src="@drawable/hair1" />
+            >
+            <ImageView
+                android:id="@+id/imageViewSelectFeature"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/hair1" />
+            <TextView
+                android:id="@+id/tvPaidSelectFeature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin"
+                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/select_feature_tv_paid_size"
+                android:rotation="@integer/text_view_rotation"
+                />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvSelectFeaturePoints"
@@ -167,11 +182,27 @@
             android:textColor="@color/powerup_black"
             android:textSize="@dimen/final_avatar_text_view_text_size" />
 
-        <ImageView
-            android:id="@+id/imageViewhandbag"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height"
-            android:src="@drawable/bag1" />
+            android:layout_height="@dimen/select_feature_image_height">
+            <ImageView
+                android:id="@+id/imageViewhandbag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bag1"
+                />
+
+            <TextView
+                android:id="@+id/tvPaidHandbag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                android:rotation="@integer/text_view_rotation"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/select_feature_tv_paid_size_small" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvHandbagPoints"
@@ -207,7 +238,7 @@
         android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_left"
         android:layout_alignTop="@+id/linearLayouthandbag"
         android:layout_toRightOf="@+id/linearLayouthandbag"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_blue_shape"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -220,11 +251,26 @@
             android:textColor="@color/powerup_black"
             android:textSize="@dimen/final_avatar_text_view_text_size" />
 
-        <ImageView
-            android:id="@+id/imageViewGlasses"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height"
-            android:src="@drawable/glasses1" />
+            android:layout_height="@dimen/select_feature_image_height">
+            <ImageView
+                android:id="@+id/imageViewGlasses"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_feature_image_height"
+                android:src="@drawable/glasses1" />
+
+            <TextView
+                android:id="@+id/tvPaidGlasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/select_feature_tv_paid_size_small"
+                android:rotation="@integer/text_view_rotation"
+                />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvGlassesPoints"
@@ -260,7 +306,7 @@
         android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
         android:layout_alignLeft="@+id/linearLayouthandbag"
         android:layout_below="@+id/linearLayouthandbag"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_pink_shape"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -272,12 +318,25 @@
             android:textAllCaps="true"
             android:textColor="@color/powerup_black"
             android:textSize="@dimen/final_avatar_text_view_text_size"/>
-
-        <ImageView
-            android:id="@+id/imageViewHat"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height"
-            android:src="@drawable/hat1" />
+            android:layout_height="@dimen/select_feature_image_height">
+            <ImageView
+                android:id="@+id/imageViewHat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_feature_image_height"
+                android:src="@drawable/hat1" />
+            <TextView
+                android:id="@+id/tvPaidHat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/select_feature_tv_paid_size_small"
+                android:rotation="@integer/text_view_rotation"
+                />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvHatPoints"
@@ -313,7 +372,7 @@
         android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
         android:layout_alignLeft="@+id/linearLayoutGlasses"
         android:layout_below="@+id/linearLayoutGlasses"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_purple_shape"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -325,12 +384,27 @@
             android:textAllCaps="true"
             android:textColor="@color/powerup_black"
             android:textSize="@dimen/text_view_necklace" />
-
-        <ImageView
-            android:id="@+id/imageViewNecklace"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height"
-            android:src="@drawable/necklace1" />
+            android:layout_height="@dimen/select_feature_image_height">
+            <ImageView
+                android:id="@+id/imageViewNecklace"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_feature_image_height"
+                android:src="@drawable/necklace1" />
+            <TextView
+                android:id="@+id/tvPaidNecklace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/select_feature_tv_paid_size_small"
+                android:rotation="@integer/text_view_rotation"
+                />
+        </RelativeLayout>
+
+
 
         <TextView
             android:id="@+id/tvNecklacePoints"
