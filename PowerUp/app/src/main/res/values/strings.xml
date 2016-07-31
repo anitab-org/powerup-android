@@ -40,4 +40,7 @@
     <string name="avatar_room_hair">"HAIR"</string>
     <string name="avatar_room_face">"FACE"</string>
     <string name="avatar_room_cloth">"CLOTHES"</string>
+    <string name="paid_feature">"***Paid***"</string>
+    <string name="paid_feature_small">"**Paid**"</string>
+    <string name="empty">""</string>
 </resources>

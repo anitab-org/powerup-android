@@ -132,4 +132,11 @@
     <dimen name="linear_layout_margin_left">10dp</dimen>
     <dimen name="select_feature_linear_layout_width_hair">160dp</dimen>
     <dimen name="select_feature_linear_layout_height_hair">200dp</dimen>
+    <dimen name="select_feature_tv_paid_top_margin">50dp</dimen>
+    <dimen name="select_feature_tv_paid_left_margin">20dp</dimen>
+    <dimen name="select_feature_tv_paid_size">30sp</dimen>
+    <dimen name="select_feature_tv_paid_top_margin_small">30dp</dimen>
+    <dimen name="select_feature_tv_paid_left_margin_small">10dp</dimen>
+    <dimen name="select_feature_tv_paid_size_small">21sp</dimen>
+
 </resources>
