@@ -194,6 +194,34 @@ public class DatabaseHandler extends AbstractDbAdapter {
         mDb.execSQL(query);
     }
 
+    public void setAvatarBag(Integer bag) {
+        String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AvatarEntry.COLUMN_BAG + " = " + bag +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
+    public void setAvatarGlasses(Integer glasses) {
+        String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AvatarEntry.COLUMN_GLASSES + " = " + glasses +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
+    public void setAvatarHat(Integer hat) {
+        String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AvatarEntry.COLUMN_HAT + " = " + hat +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
+    public void setAvatarNecklace(Integer necklace) {
+        String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AvatarEntry.COLUMN_NECKLACE + " = " + necklace +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        mDb.execSQL(query);
+    }
+
     public int getHealing() {
         String query = "Select * from " + PowerUpContract.PointEntry.TABLE_NAME +
                 " WHERE " + PowerUpContract.PointEntry.COLUMN_ID + " = 1";
