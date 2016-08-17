@@ -44,7 +44,8 @@ public class SelectFeaturesActivity extends AppCompatActivity {
         LinearLayout linearLayoutGlasses = (LinearLayout) findViewById(R.id.linearLayoutGlasses);
         LinearLayout linearLayoutHat = (LinearLayout) findViewById(R.id.linearLayoutHat);
         LinearLayout linearLayoutNecklace = (LinearLayout) findViewById(R.id.linearLayoutNecklace);
-
+        TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
+        karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
         ImageView eyeView = (ImageView) findViewById(R.id.eyeView);
         ImageView faceView = (ImageView) findViewById(R.id.faceView);
         final ImageView hairView = (ImageView) findViewById(R.id.hairView);
