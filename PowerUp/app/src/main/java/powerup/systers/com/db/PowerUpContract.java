@@ -42,6 +42,14 @@ public class PowerUpContract {
 
         public static final String COLUMN_EYES = "Eyes";
 
+        public static final String COLUMN_BAG = "Bag";
+
+        public static final String COLUMN_GLASSES = "Glasses";
+
+        public static final String COLUMN_HAT = "Hat";
+
+        public static final String COLUMN_NECKLACE = "Necklace";
+
     }
 
     public static final class QuestionEntry implements BaseColumns {
