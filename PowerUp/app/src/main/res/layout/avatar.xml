@@ -39,38 +39,6 @@
         android:layout_alignTop="@+id/eyeView"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:id="@+id/bagView"
-        android:layout_width="@dimen/select_feature_bag_view_width"
-        android:layout_height="@dimen/select_feature_bag_view_height"
-        android:layout_below="@+id/glassesView"
-        android:layout_alignLeft="@+id/hairView"
-        android:layout_alignStart="@+id/hairView" />
-
-    <ImageView
-        android:id="@+id/glassesView"
-        android:layout_width="@dimen/select_feature_glasses_view_width"
-        android:layout_height="@dimen/select_feature_glasses_view_height"
-        android:layout_alignBottom="@+id/eyeView"
-        android:layout_centerHorizontal="true"
-        />
-
-    <ImageView
-        android:id="@+id/hatView"
-        android:layout_width="@dimen/select_feature_hat_view_width"
-        android:layout_height="@dimen/select_feature_hat_view_height"
-        android:layout_above="@+id/eyeView"
-        android:layout_centerHorizontal="true"
-        />
-
-    <ImageView
-        android:id="@+id/necklaceView"
-        android:layout_width="@dimen/select_feature_necklace_view_width"
-        android:layout_height="@dimen/select_feature_necklace_view_height"
-        android:layout_alignBottom="@+id/faceView"
-        android:layout_alignLeft="@+id/clothView"
-        android:layout_alignStart="@+id/clothView" />
-
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
