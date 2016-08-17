@@ -4,9 +4,7 @@ package powerup.systers.com.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
-
 import java.util.List;
-
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
@@ -341,7 +339,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedClothes(int id) {
         String query = "UPDATE " + PowerUpContract.ClothesEntry.TABLE_NAME +
-                " SET " + PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.ClothesEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
     }
@@ -359,7 +357,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedHair(int id) {
         String query = "UPDATE " + PowerUpContract.HairEntry.TABLE_NAME +
-                " SET " + PowerUpContract.HairEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.HairEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
     }
@@ -377,9 +375,56 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedAccessories(int id) {
         String query = "UPDATE " + PowerUpContract.AccessoryEntry.TABLE_NAME +
-                " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.AccessoryEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
+    }
+
+    public int getAvatarNeckalce() {
+        String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(8);
+        }
+        cursor.close();
+        return 0;
+    }
+
+
+    public int getAvatarHat() {
+        String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(7);
+        }
+        cursor.close();
+        return 0;
+    }
+
+
+    public int getAvatarGlasses() {
+        String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(6);
+        }
+        cursor.close();
+        return 0;
+    }
+
+
+    public int getAvatarBag() {
+        String query = "Select * from " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
+        Cursor cursor = mDb.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(5);
+        }
+        cursor.close();
+        return 0;
     }
 
 }
