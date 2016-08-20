@@ -6,7 +6,6 @@ import android.content.res.AssetManager;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -80,7 +79,7 @@ public abstract class AbstractDbAdapter {
             values.put(PowerUpContract.QuestionEntry.COLUMN_QUESTION_DESCRIPTION, rowData[2]);
             db.insert(PowerUpContract.QuestionEntry.TABLE_NAME, null, values);
             /*
-			 * } else { throw new
+             * } else { throw new
 			 * Error("Incorrect Question CSV Format! Use QID," +
 			 * "ScenarioID, QDes at line: " + rowData.toString()); }
 			 */
@@ -123,46 +122,43 @@ public abstract class AbstractDbAdapter {
             }
         }
 
-        public void insertDBClothes(SQLiteDatabase db, String[] rowData){
+        public void insertDBClothes(SQLiteDatabase db, String[] rowData) {
             ContentValues values = new ContentValues();
-            if(rowData.length == 3){
+            if (rowData.length == 3) {
                 values.put(PowerUpContract.ClothesEntry.COLUMN_ID, rowData[0]);
                 values.put(PowerUpContract.ClothesEntry.COLUMN_CLOTH_NAME, rowData[1]);
                 values.put(PowerUpContract.ClothesEntry.COLUMN_POINTS, rowData[2]);
                 values.put(PowerUpContract.ClothesEntry.COLUMN_PURCHASED, 0);
                 db.insert(PowerUpContract.ClothesEntry.TABLE_NAME, null, values);
-            }
-            else{
+            } else {
                 throw new Error("Incorrect Clothes CSV Format! Use ID,"
                         + "ClothName, Points" + rowData.toString());
             }
         }
 
-        public void insertDBHair(SQLiteDatabase db, String[] rowData){
+        public void insertDBHair(SQLiteDatabase db, String[] rowData) {
             ContentValues values = new ContentValues();
-            if(rowData.length == 3){
+            if (rowData.length == 3) {
                 values.put(PowerUpContract.HairEntry.COLUMN_ID, rowData[0]);
                 values.put(PowerUpContract.HairEntry.COLUMN_HAIR_NAME, rowData[1]);
                 values.put(PowerUpContract.HairEntry.COLUMN_POINTS, rowData[2]);
                 values.put(PowerUpContract.HairEntry.COLUMN_PURCHASED, 0);
                 db.insert(PowerUpContract.HairEntry.TABLE_NAME, null, values);
-            }
-            else{
+            } else {
                 throw new Error("Incorrect Hair CSV Format! Use ID,"
                         + "HairName, Points" + rowData.toString());
             }
         }
 
-        public void insertDBAccessories(SQLiteDatabase db, String[] rowData){
+        public void insertDBAccessories(SQLiteDatabase db, String[] rowData) {
             ContentValues values = new ContentValues();
-            if(rowData.length == 3){
+            if (rowData.length == 3) {
                 values.put(PowerUpContract.AccessoryEntry.COLUMN_ID, rowData[0]);
                 values.put(PowerUpContract.AccessoryEntry.COLUMN_ACCESSORY_NAME, rowData[1]);
                 values.put(PowerUpContract.AccessoryEntry.COLUMN_POINTS, rowData[2]);
                 values.put(PowerUpContract.AccessoryEntry.COLUMN_PURCHASED, 0);
                 db.insert(PowerUpContract.AccessoryEntry.TABLE_NAME, null, values);
-            }
-            else{
+            } else {
                 throw new Error("Incorrect Accessory CSV Format! Use ID,"
                         + "AccessoryName, Points" + rowData.toString());
             }
@@ -204,30 +200,30 @@ public abstract class AbstractDbAdapter {
             in.close();
         }
 
-        public void readCSVClothes(SQLiteDatabase db, String filename) throws IOException{
+        public void readCSVClothes(SQLiteDatabase db, String filename) throws IOException {
             in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
             String reader;
-            while((reader = in.readLine()) != null){
+            while ((reader = in.readLine()) != null) {
                 String[] RowData = reader.split(",");
                 insertDBClothes(db, RowData);
             }
             in.close();
         }
 
-        public void readCSVHair(SQLiteDatabase db, String filename) throws IOException{
+        public void readCSVHair(SQLiteDatabase db, String filename) throws IOException {
             in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
             String reader;
-            while((reader = in.readLine()) != null){
+            while ((reader = in.readLine()) != null) {
                 String[] RowData = reader.split(",");
                 insertDBHair(db, RowData);
             }
             in.close();
         }
 
-        public void readCSVAccessories(SQLiteDatabase db, String filename) throws IOException{
+        public void readCSVAccessories(SQLiteDatabase db, String filename) throws IOException {
             in = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
             String reader;
-            while((reader = in.readLine()) != null){
+            while ((reader = in.readLine()) != null) {
                 String[] RowData = reader.split(",");
                 insertDBAccessories(db, RowData);
             }

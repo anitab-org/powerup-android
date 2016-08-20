@@ -23,9 +23,11 @@ import powerup.systers.com.db.DatabaseHandler;
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
 
+    public static Activity gameActivityInstance;
     private DatabaseHandler mDbHandler;
     private List<Answer> answers;
     private Scenario scene;
+    private Scenario prevScene;
     private TextView questionTextView;
     private TextView scenarioNameTextView;
     private Button replay;
@@ -38,6 +40,7 @@ public class GameActivity extends Activity {
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
+        gameActivityInstance = this;
         // Find the ListView resource.
         ListView mainListView = (ListView) findViewById(R.id.mainListView);
         questionTextView = (TextView) findViewById(R.id.questionView);
@@ -103,7 +106,6 @@ public class GameActivity extends Activity {
             goToMap.setAlpha((float) 0.0);
             replay.setAlpha((float) 0.0);
         }
-
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter(listAdapter);
         mainListView
@@ -127,7 +129,7 @@ public class GameActivity extends Activity {
                             }
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(
-                                    scene.getScenarioName());
+                                    scene.getId());
                             SessionHistory.currScenePoints = 0;
                             updateScenario();
                         }
@@ -159,6 +161,10 @@ public class GameActivity extends Activity {
     }
 
     private void updateScenario() {
+        if (ScenarioOverActivity.scenarioActivityDone == 1)
+            ScenarioOverActivity.scenarioOverActivityInstance.finish();
+        if (scene != null)
+            prevScene = getmDbHandler().getScenarioFromID(scene.getId());
         scene = getmDbHandler().getScenario();
         // Replay a scenario
         if (scene.getReplayed() == 0) {
@@ -201,14 +207,16 @@ public class GameActivity extends Activity {
             });
         }
         // If completed check if it is last scene
-        if (scene.getCompleted() == 1) {
+        if (prevScene != null && prevScene.getCompleted() == 1) {
             if (scene.getNextScenarioID() == -1) {
                 Intent myIntent = new Intent(GameActivity.this, GameOverActivity.class);
                 finish();
                 startActivityForResult(myIntent, 0);
             } else {
                 SessionHistory.currSessionID = scene.getNextScenarioID();
-                updateScenario();
+                Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
+                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
+                startActivity(intent);
             }
         }
         SessionHistory.currQID = scene.getFirstQuestionID();

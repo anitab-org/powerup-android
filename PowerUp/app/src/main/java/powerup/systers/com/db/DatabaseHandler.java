@@ -1,12 +1,9 @@
 package powerup.systers.com.db;
 
-
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
-
 import java.util.List;
-
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
@@ -104,6 +101,43 @@ public class DatabaseHandler extends AbstractDbAdapter {
         cursor.close();
         // Scenario not Found
         return false;
+    }
+
+    public void setCompletedScenario(int id) {
+        String updateQuery = "UPDATE  " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+                " SET " + PowerUpContract.ScenarioEntry.COLUMN_COMPLETED + "=1" +
+                " WHERE " + PowerUpContract.ScenarioEntry.COLUMN_ID + " = " + id;
+        mDb.execSQL(updateQuery);
+        String selectQuery = "SELECT  * FROM " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.ScenarioEntry.COLUMN_ID + " = "
+                + id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            Log.i("Completed : ", String.valueOf(cursor.getInt(6)));
+        }
+        cursor.close();
+    }
+
+    public Scenario getScenarioFromID(int id) {
+        String selectQuery = "SELECT  * FROM " + PowerUpContract.ScenarioEntry.TABLE_NAME +
+                " WHERE " + PowerUpContract.ScenarioEntry.COLUMN_ID + " = "
+                + id;
+        Cursor cursor = mDb.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            Scenario scene = new Scenario();
+            scene.setId(cursor.getInt(0));
+            scene.setScenarioName(cursor.getString(1));
+            scene.setTimestamp(cursor.getString(2));
+            scene.setAsker(cursor.getString(3));
+            scene.setAvatar(cursor.getInt(4));
+            scene.setFirstQuestionID(cursor.getInt(5));
+            scene.setCompleted(cursor.getInt(6));
+            scene.setNextScenarioID(cursor.getInt(7));
+            scene.setReplayed(cursor.getInt(8));
+            return scene;
+        }
+        cursor.close();
+        return null;
     }
 
     public void setCompletedScenario(CharSequence ScenarioName) {
@@ -341,7 +375,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedClothes(int id) {
         String query = "UPDATE " + PowerUpContract.ClothesEntry.TABLE_NAME +
-                " SET " + PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.ClothesEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.ClothesEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
     }
@@ -359,7 +393,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedHair(int id) {
         String query = "UPDATE " + PowerUpContract.HairEntry.TABLE_NAME +
-                " SET " + PowerUpContract.HairEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.HairEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.HairEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
     }
@@ -377,7 +411,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 
     public void setPurchasedAccessories(int id) {
         String query = "UPDATE " + PowerUpContract.AccessoryEntry.TABLE_NAME +
-                " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 1"  +
+                " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 1" +
                 " WHERE " + PowerUpContract.AccessoryEntry.COLUMN_ID + " = " + id;
         mDb.execSQL(query);
     }

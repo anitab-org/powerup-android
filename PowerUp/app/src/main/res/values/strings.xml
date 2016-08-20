@@ -43,5 +43,6 @@
     <string name="paid_feature">"***Paid***"</string>
     <string name="paid_feature_small">"**Paid**"</string>
     <string name="empty">""</string>
+    <string name="scene">"Scene"</string>
     <string name="points_check">"Not enough points"</string>
 </resources>

@@ -44,6 +44,9 @@
         <activity
             android:name=".SelectFeaturesActivity"
             android:label="@string/app_name"/>
+        <activity
+            android:name=".ScenarioOverActivity"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>
