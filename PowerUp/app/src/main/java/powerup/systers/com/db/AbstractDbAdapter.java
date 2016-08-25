@@ -14,7 +14,7 @@ public abstract class AbstractDbAdapter {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     // Database Name
     private static final String DATABASE_NAME = "PowerUpDB";
     protected static SQLiteDatabase mDb;
@@ -264,7 +264,7 @@ public abstract class AbstractDbAdapter {
                     PowerUpContract.PointEntry.COLUMN_STRENGTH + " INTEGER," +
                     PowerUpContract.PointEntry.COLUMN_INVISIBILITY + " INTEGER, " +
                     PowerUpContract.PointEntry.COLUMN_HEALING + " INTEGER, " +
-                    PowerUpContract.PointEntry.COLUMN_TELEPATHY + " INTEGER" +
+                    PowerUpContract.PointEntry.COLUMN_TELEPATHY + " INTEGER, " +
                     PowerUpContract.PointEntry.COLUMN_USER_POINTS + " INTEGER" +
                     ")";
 
@@ -273,7 +273,7 @@ public abstract class AbstractDbAdapter {
                     PowerUpContract.AvatarEntry.COLUMN_FACE + " INTEGER, " +
                     PowerUpContract.AvatarEntry.COLUMN_CLOTHES + " INTEGER, " +
                     PowerUpContract.AvatarEntry.COLUMN_HAIR + " INTEGER, " +
-                    PowerUpContract.AvatarEntry.COLUMN_EYES + " INTEGER" +
+                    PowerUpContract.AvatarEntry.COLUMN_EYES + " INTEGER, " +
                     PowerUpContract.AvatarEntry.COLUMN_HAT + " INTEGER, " +
                     PowerUpContract.AvatarEntry.COLUMN_BAG + " INTEGER, " +
                     PowerUpContract.AvatarEntry.COLUMN_GLASSES + " INTEGER, " +

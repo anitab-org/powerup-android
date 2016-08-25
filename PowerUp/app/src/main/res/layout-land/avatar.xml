@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/faceView"
         android:layout_width="@dimen/face_view_width"
         android:layout_height="@dimen/face_view_height"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
-        android:src="@drawable/face1"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/face1" />
 
     <ImageView
         android:id="@+id/eyeView"
@@ -26,49 +26,79 @@
         android:id="@+id/hairView"
         android:layout_width="@dimen/hair_view_width"
         android:layout_height="@dimen/hair_view_height"
-        android:src="@drawable/hair1"
         android:layout_alignTop="@+id/faceView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/hair1" />
 
     <ImageView
         android:id="@+id/clothView"
         android:layout_width="@dimen/cloth_view_width"
         android:layout_height="@dimen/cloth_view_height"
-        android:src="@drawable/cloth1"
-        android:layout_marginTop="@dimen/avatar_cloth_view_land_margin_top"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/avatar_cloth_view_land_margin_top"
+        android:src="@drawable/cloth1" />
+
+    <ImageView
+        android:id="@+id/bagView"
+        android:layout_width="@dimen/select_feature_bag_view_width"
+        android:layout_height="@dimen/select_feature_bag_view_height"
+        android:layout_alignLeft="@+id/hairView"
+        android:layout_alignStart="@+id/hairView"
+        android:layout_below="@+id/glassesView" />
+
+    <ImageView
+        android:id="@+id/glassesView"
+        android:layout_width="@dimen/select_feature_glasses_view_width"
+        android:layout_height="@dimen/select_feature_glasses_view_height"
+        android:layout_alignBottom="@+id/eyeView"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/hatView"
+        android:layout_width="@dimen/select_feature_hat_view_width"
+        android:layout_height="@dimen/select_feature_hat_view_height"
+        android:layout_alignLeft="@+id/faceView"
+        android:layout_alignStart="@+id/faceView"
+        android:layout_below="@+id/finalAvatarTextViewLand" />
+
+    <ImageView
+        android:id="@+id/necklaceView"
+        android:layout_width="@dimen/select_feature_necklace_view_width"
+        android:layout_height="@dimen/select_feature_necklace_view_height"
+        android:layout_alignBottom="@+id/faceView"
+        android:layout_alignLeft="@+id/clothView"
+        android:layout_alignStart="@+id/clothView" />
 
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/endingscreen6"
         android:layout_alignTop="@+id/backButton"
+        android:layout_toEndOf="@+id/hairView"
         android:layout_toRightOf="@+id/hairView"
-        android:layout_toEndOf="@+id/hairView" />
+        android:background="@drawable/endingscreen6" />
 
     <TextView
+        android:id="@+id/finalAvatarTextViewLand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/avatar_land"
-        android:textSize="@dimen/final_avatar_text_view_text_size"
-        android:textColor="@color/powerup_black"
-        android:id="@+id/finalAvatarTextViewLand"
-        android:layout_marginTop="@dimen/avatar_margin"
         android:layout_marginLeft="@dimen/avatar_margin"
-        />
+        android:layout_marginTop="@dimen/avatar_margin"
+        android:text="@string/avatar_land"
+        android:textColor="@color/powerup_black"
+        android:textSize="@dimen/final_avatar_text_view_text_size" />
 
     <Button
+        android:id="@+id/backButton"
         android:layout_width="@dimen/back_button_width"
         android:layout_height="@dimen/back_button_height"
-        android:text="@string/back_button"
-        android:textAllCaps="false"
-        android:textSize="@dimen/back_button_textsize"
-        android:id="@+id/backButton"
-        android:background="@drawable/back_background"
         android:layout_below="@+id/hairView"
         android:layout_toLeftOf="@+id/hairView"
-        android:layout_toStartOf="@+id/hairView" />
+        android:layout_toStartOf="@+id/hairView"
+        android:background="@drawable/back_background"
+        android:text="@string/back_button"
+        android:textAllCaps="false"
+        android:textSize="@dimen/back_button_textsize" />
 
 </RelativeLayout>
