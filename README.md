@@ -8,8 +8,7 @@ and self-esteem by navigating the life of their avatar!
 1. Go to [the project repo](https://github.com/systers/powerup-android/) and fork it by clicking "Fork" 
 1. If you are working on Windows, download [Git Bash for Windows](https://git-for-windows.github.io/) to get a full Unix bash with Git functionality
 1. Clone the repo to your desktop `git clone https://github.com/YOUR_USERNAME/powerup-android.git`
-1. Initialize Git. 
-   'git init'
+1. Initialize Git. `git init`
 1. Open the project with Android Studio 
 
 ## Configure remotes
