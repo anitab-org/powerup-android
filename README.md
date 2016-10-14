@@ -14,9 +14,13 @@ and self-esteem by navigating the life of their avatar!
 ## Configure remotes
 When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:
 
-1. Open terminal or git bash in your local repository and type:
+1. Open terminal or git bash in your local repository and set up the origin:
 
-   `git remote add upstream https://github.com/systers/powerup-android.git`
+   `git remote add origin https://github.com/systers/powerup-android.git`
+
+1. Open terminal or git bash in your local repository and set the upstream:
+
+   `git remote add upstream https://github.com/YOUR_USERNAME/powerup-android.git`
   
 1. Run `git remote -v` to check the status, you should see something like the following:
 
