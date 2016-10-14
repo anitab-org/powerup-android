@@ -16,11 +16,11 @@ When a repository is cloned, it has a default remote called `origin` that points
 
 1. Open terminal or git bash in your local repository and set up the origin:
 
-   `git remote add origin https://github.com/systers/powerup-android.git`
+   `git remote add origin https://github.com/YOUR_USERNAME/powerup-android.git`
 
-1. Open terminal or git bash in your local repository and set the upstream:
+1. Set the `upstream`:
 
-   `git remote add upstream https://github.com/YOUR_USERNAME/powerup-android.git`
+   `git remote add upstream https://github.com/systers/powerup-android.git`
   
 1. Run `git remote -v` to check the status, you should see something like the following:
 
