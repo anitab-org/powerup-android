@@ -7,13 +7,18 @@ and self-esteem by navigating the life of their avatar!
 1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS
 1. Go to [the project repo](https://github.com/systers/powerup-android/) and fork it by clicking "Fork" 
 1. If you are working on Windows, download [Git Bash for Windows](https://git-for-windows.github.io/) to get a full Unix bash with Git functionality
-1. Clone the repo to your desktop `git clone git@github.com:your_name/powerup-android.git`
+1. Clone the repo to your desktop `git clone https://github.com/YOUR_USERNAME/powerup-android.git`
+1. Initialize Git. `git init`
 1. Open the project with Android Studio 
 
 ## Configure remotes
 When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:
 
-1. Open terminal or git bash in your local repository and type:
+1. Open terminal or git bash in your local repository and set up the origin:
+
+   `git remote add origin https://github.com/YOUR_USERNAME/powerup-android.git`
+
+1. Set the `upstream`:
 
    `git remote add upstream https://github.com/systers/powerup-android.git`
   
