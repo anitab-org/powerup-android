@@ -242,6 +242,16 @@ public class AvatarRoomActivity extends Activity {
                 getmDbHandler().setAvatarFace(face);
                 getmDbHandler().setAvatarHair(hair);
                 getmDbHandler().setAvatarCloth(cloth);
+                getmDbHandler().setAvatarBag(0);
+                getmDbHandler().setAvatarGlasses(0);
+                getmDbHandler().setAvatarHat(0);
+                getmDbHandler().setAvatarNecklace(0);
+                getmDbHandler().updateComplete();//set all the complete fields back to 0
+                getmDbHandler().updateReplayed();//set all the replayed fields back to 0
+                SessionHistory.totalPoints=0;    //reset the points stored
+                SessionHistory.currSessionID=1;
+                SessionHistory.currScenePoints=0;
+                getmDbHandler().resetPurchase();
                 Random r = new Random();
                 Integer healing = r.nextInt(101 - 1) + 1;
                 getmDbHandler().setHealing(healing);
