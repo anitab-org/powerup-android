@@ -59,6 +59,7 @@ public class GameActivity extends Activity {
         answers = new ArrayList<>();
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
         replay = (Button) findViewById(R.id.redoButton);
+        SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
         ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
         ImageView hairImageView = (ImageView) findViewById(R.id.hairImageView);
@@ -125,8 +126,8 @@ public class GameActivity extends Activity {
                             updatePoints(position);
                             updateQA();
                         } else {
-                            SessionHistory.currSessionID = scene
-                                    .getNextScenarioID();
+                            SessionHistory.prevSessionID = scene.getId();
+                            SessionHistory.currSessionID = scene.getNextScenarioID();
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 1;
@@ -134,7 +135,6 @@ public class GameActivity extends Activity {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(
                                     scene.getId());
-                            SessionHistory.currScenePoints = 0;
                             updateScenario();
                         }
                     }

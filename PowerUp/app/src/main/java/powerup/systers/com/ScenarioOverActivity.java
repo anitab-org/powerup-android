@@ -118,6 +118,22 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
         });
+
+        replayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionHistory.currSessionID = SessionHistory.prevSessionID;
+                SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+                SessionHistory.currScenePoints = 0;
+                scenarioActivityDone = 0;
+                DatabaseHandler dbHandler = new DatabaseHandler(ScenarioOverActivity.this);
+                dbHandler.resetCompleted(SessionHistory.currSessionID);
+                dbHandler.resetReplayed(SessionHistory.currSessionID);
+                GameActivity.gameActivityInstance.finish();
+                scenarioOverActivityInstance.finish();
+                startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
+            }
+        });
     }
 
     /**
