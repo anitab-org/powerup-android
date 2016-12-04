@@ -58,7 +58,7 @@ public class MapActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(MapActivity.this, StartActivity.class));
+                
             }
         });
 
