@@ -1,3 +1,8 @@
+/** 
+* @desc presents the user with a dialogue scenario and updates the scenario 
+* with more questions and answers as needed. Also updates power/health bars.
+*/
+
 package powerup.systers.com;
 
 import android.annotation.SuppressLint;
@@ -63,7 +68,6 @@ public class GameActivity extends Activity {
             eyeImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -74,7 +78,6 @@ public class GameActivity extends Activity {
             faceImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -85,7 +88,6 @@ public class GameActivity extends Activity {
             clothImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -96,7 +98,6 @@ public class GameActivity extends Activity {
             hairImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -135,6 +136,7 @@ public class GameActivity extends Activity {
                         }
                     }
                 });
+        
         IconRoundCornerProgressBar powerBarHealing = (IconRoundCornerProgressBar) findViewById(R.id.powerbarHealing);
         powerBarHealing.setIconImageResource(R.drawable.icon_healing);
         powerBarHealing.setIconBackgroundColor(R.color.powerup_purple_light);
@@ -152,14 +154,22 @@ public class GameActivity extends Activity {
         powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
         powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
     }
-
+    
+    /** 
+    * Add karma points to the session. 
+    * @param position the current question user is on
+    */
     private void updatePoints(int position) {
         // Update the Scene Points
         SessionHistory.currScenePoints += answers.get(position).getPoints();
         // Update Total Points
         SessionHistory.totalPoints += answers.get(position).getPoints();
     }
-
+    
+    /** 
+    * Finish, replay, or go to another scenario as needed. Updates the 
+    * question and answer if the last scenario has not yet been reached.
+    */ 
     private void updateScenario() {
         if (ScenarioOverActivity.scenarioActivityDone == 1)
             ScenarioOverActivity.scenarioOverActivityInstance.finish();
@@ -169,7 +179,7 @@ public class GameActivity extends Activity {
         // Replay a scenario
         if (scene.getReplayed() == 0) {
             // goToMap Mechanics
-            goToMap.setAlpha((float) 1.0);
+             goToMap.setAlpha((float) 1.0);
             goToMap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -223,9 +233,11 @@ public class GameActivity extends Activity {
         scenarioNameTextView.setText(scene.getScenarioName());
         updateQA();
     }
-
+    
+    /** 
+    * Replace the current scenario with another question/answer.
+    */
     private void updateQA() {
-
         listAdapter.clear();
         getmDbHandler().getAllAnswer(answers, SessionHistory.currQID);
         for (Answer ans : answers) {

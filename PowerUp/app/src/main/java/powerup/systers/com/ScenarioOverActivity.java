@@ -1,3 +1,9 @@
+/** 
+* @desc finishes dialogue situation when the “continue” or “back” button is pressed. 
+* Brings user to ending screen displaying current progress of power/health
+* bars and karma points.
+*/
+
 package powerup.systers.com;
 
 import android.app.Activity;
@@ -52,7 +58,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
             eyeImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -63,7 +68,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
             faceImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -74,7 +78,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
             clothImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -85,7 +88,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
             hairImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -105,6 +107,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
         IconRoundCornerProgressBar powerbarTelepathy = (IconRoundCornerProgressBar) findViewById(R.id.powerbarTelepathy);
         powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
         powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
+        
         scenarioTextView.setText("Current Scene: " + getIntent().getExtras().getString(String.valueOf(R.string.scene)));
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
         continueButton.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +119,9 @@ public class ScenarioOverActivity extends AppCompatActivity {
         });
     }
 
+    /**
+    * If the "back" button is pressed, the current situation closes itself.
+    */
     @Override
     public void onBackPressed() {
         super.onBackPressed();

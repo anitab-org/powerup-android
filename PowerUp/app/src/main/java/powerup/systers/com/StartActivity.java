@@ -1,3 +1,9 @@
+/** 
+* @desc brings user to map if previous session is being opened. Otherwise,
+* a new user will be brought to the “Avatar Room” to customize avatar 
+* upon starting the app.
+*/
+
 package powerup.systers.com;
 
 import android.app.Activity;

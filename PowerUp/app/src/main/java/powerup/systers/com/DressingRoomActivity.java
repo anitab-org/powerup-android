@@ -1,3 +1,7 @@
+/** 
+* @desc displays avatar features in dressing room and updates power/health bars.
+*/
+
 package powerup.systers.com;
 
 import android.app.Activity;
@@ -38,7 +42,6 @@ public class DressingRoomActivity extends AppCompatActivity {
             eyeView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -49,7 +52,6 @@ public class DressingRoomActivity extends AppCompatActivity {
             faceView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -60,7 +62,6 @@ public class DressingRoomActivity extends AppCompatActivity {
             clothView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -71,7 +72,6 @@ public class DressingRoomActivity extends AppCompatActivity {
             hairView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

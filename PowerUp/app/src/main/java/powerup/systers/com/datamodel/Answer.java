@@ -1,3 +1,9 @@
+/**
+* @desc this class holds getter and setter methods for each question/answer pair
+* each answer has a specific point value
+* examples include setAnswerID() and getPoints()
+*/
+
 package powerup.systers.com.datamodel;
 
 public class Answer {

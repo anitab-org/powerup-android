@@ -1,3 +1,8 @@
+/** 
+* @desc allows user to purchase/change clothes using the current session's total points 
+* (karma) and sets progress of power and health bars. 
+*/
+
 package powerup.systers.com;
 
 import android.app.Activity;
@@ -125,6 +130,7 @@ public class SelectFeaturesActivity extends AppCompatActivity {
             final TextView tvPoints = (TextView) findViewById(R.id.tvSelectFeaturePoints);
             tvPoints.setText(String.valueOf(getmDbHandler().getPointsClothes(cloth)));
             tv.setText(R.string.cloth);
+            // Left and right buttons allow user to scroll through clothing options
             ImageButton left = (ImageButton) findViewById(R.id.leftSelectFeature);
             ImageButton right = (ImageButton) findViewById(R.id.rightSelectFeature);
             left.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +138,7 @@ public class SelectFeaturesActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     cloth = (cloth - 1) % SessionHistory.clothTotalNo;
                     if (cloth == 0) {
+                        // Go back to the last cloth
                         cloth = SessionHistory.clothTotalNo;
                     }
                     imageViewSelectFeature.setAlpha((float) 1);
