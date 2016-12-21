@@ -55,7 +55,7 @@ When a repository is cloned, it has a default remote called `origin` that points
 1. You will need to add a message on the pull request notifying your changes to your reviewer
 
 ## Contributing Guidelines 
-[Click](https://github.com/systers/powerup-android/wiki/How-to-Contribute)
+[Click](https://github.com/systers/powerup-android/wiki/How-to-Contribute) here to find the contributing guidelines for the project and follow them before sending a contribution.
 
 ## Documentation of PowerUp (Android)
 Here's the link to the official documentation:
