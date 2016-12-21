@@ -54,6 +54,9 @@ When a repository is cloned, it has a default remote called `origin` that points
 1. If you are requested to make changes, edit your commit using `git commit --amend`, push again and the pull request will edit automatically
 1. You will need to add a message on the pull request notifying your changes to your reviewer
 
+## Contributing Guidelines 
+[Click](https://github.com/systers/powerup-android/wiki/How-to-Contribute)
+
 ## Documentation of PowerUp (Android)
 Here's the link to the official documentation:
 [Visit Documentation!](http://chetnagsocpowerupandroid.blogspot.in/2015/05/database-design.html)
@@ -64,4 +67,3 @@ Here's the link to the official documentation:
 1. Include spaces between parameters when you call a method for example: `Intent(MainActivity.this, GameActivity.class)`.
 1. Give relevant names to buttons and other resources. 
 1. Use `@id` instead of `@+id` when referring to resources that have been already created in xml files.
-
