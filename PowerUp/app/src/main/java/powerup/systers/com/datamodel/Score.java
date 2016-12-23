@@ -1,7 +1,7 @@
 /**
-* @desc this class holds getter and setter methods for user's score in power/health bars
-* examples include setHealing() and getInvisibility()
-*/
+ * @desc this class holds getter and setter methods for user's score in power/health bars
+ * examples include setHealing() and getInvisibility()
+ */
 
 package powerup.systers.com.datamodel;
 

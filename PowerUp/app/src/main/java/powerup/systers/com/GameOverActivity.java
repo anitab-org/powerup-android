@@ -1,7 +1,7 @@
-/** 
-* @desc finishes the game and shows a screen telling the user that the game
-* has completed.
-*/
+/**
+ * @desc finishes the game and shows a screen telling the user that the game
+ * has completed.
+ */
 
 package powerup.systers.com;
 

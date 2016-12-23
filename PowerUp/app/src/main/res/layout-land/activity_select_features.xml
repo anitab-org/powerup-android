@@ -142,8 +142,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="points"
-            android:textSize="18sp" />
+            android:text="@string/points"
+            android:textSize="@dimen/select_feature_textsize" />
 
 
         <LinearLayout

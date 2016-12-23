@@ -45,4 +45,7 @@
     <string name="empty">""</string>
     <string name="scene">"Scene"</string>
     <string name="points_check">"Not enough points"</string>
+    <string name="scenario_description">Scenario description</string>
+    <string name="points">points</string>
+    <string name="question">Question</string>
 </resources>

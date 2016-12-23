@@ -1,7 +1,7 @@
-/** 
-* @desc sets up the “Avatar Room” for user to customize avatar features. 
-* Allows user to scroll through different face/hair/clothing options.
-*/
+/**
+ * @desc sets up the “Avatar Room” for user to customize avatar features.
+ * Allows user to scroll through different face/hair/clothing options.
+ */
 
 package powerup.systers.com;
 
@@ -66,7 +66,6 @@ public class AvatarRoomActivity extends Activity {
                 if (eye == 0) {
                     eye = SessionHistory.eyesTotalNo;
                 }
-
                 String eyeImageName = getResources().getString(R.string.eye);
                 eyeImageName = eyeImageName + eye.toString();
                 R.drawable ourRID = new R.drawable();
@@ -109,7 +108,6 @@ public class AvatarRoomActivity extends Activity {
                 if (face == 0) {
                     face = SessionHistory.faceTotalNo;
                 }
-
                 String faceImageName = getResources().getString(R.string.face);
                 faceImageName = faceImageName + face.toString();
                 R.drawable ourRID = new R.drawable();
@@ -152,7 +150,6 @@ public class AvatarRoomActivity extends Activity {
                 if (cloth == 0) {
                     cloth = SessionHistory.clothTotalNo;
                 }
-
                 String clothImageName = getResources().getString(R.string.cloth);
                 clothImageName = clothImageName + cloth.toString();
                 R.drawable ourRID = new R.drawable();
@@ -195,7 +192,6 @@ public class AvatarRoomActivity extends Activity {
                 if (hair == 0) {
                     hair = SessionHistory.hairTotalNo;
                 }
-
                 String hairImageName = getResources().getString(R.string.hair);
                 hairImageName = hairImageName + hair.toString();
                 R.drawable ourRID = new R.drawable();
@@ -245,30 +241,30 @@ public class AvatarRoomActivity extends Activity {
                 getmDbHandler().setAvatarNecklace(0);
                 getmDbHandler().updateComplete();//set all the complete fields back to 0
                 getmDbHandler().updateReplayed();//set all the replayed fields back to 0
-                SessionHistory.totalPoints=0;    //reset the points stored
-                SessionHistory.currSessionID=1;
-                SessionHistory.currScenePoints=0;
+                SessionHistory.totalPoints = 0;    //reset the points stored
+                SessionHistory.currSessionID = 1;
+                SessionHistory.currScenePoints = 0;
                 getmDbHandler().resetPurchase();
-                Random r = new Random();
-                Integer healing = r.nextInt(101 - 1) + 1;
+                Random random = new Random();
+                Integer healing = random.nextInt(101 - 1) + 1;
                 getmDbHandler().setHealing(healing);
 
-                r = new Random();
-                Integer strength = r.nextInt(101 - 1) + 1;
+                random = new Random();
+                Integer strength = random.nextInt(101 - 1) + 1;
                 getmDbHandler().setStrength(strength);
 
-                r = new Random();
-                Integer invisibility = r.nextInt(101 - 1) + 1;
+                random = new Random();
+                Integer invisibility = random.nextInt(101 - 1) + 1;
                 getmDbHandler().setInvisibility(invisibility);
 
-                r = new Random();
-                Integer telepathy = r.nextInt(101 - 1) + 1;
+                random = new Random();
+                Integer telepathy = random.nextInt(101 - 1) + 1;
                 getmDbHandler().setTelepathy(telepathy);
                 Log.i("Powers", mDbHandler.getHealing() + " " + mDbHandler.getInvisibility() +
                         " " + mDbHandler.getStrength());
-                Intent myIntent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
-                myIntent.putExtra(getResources().getString(R.string.from_activity), 1);
-                startActivityForResult(myIntent, 0);
+                Intent intent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
+                intent.putExtra(getResources().getString(R.string.from_activity), 1);
+                startActivityForResult(intent, 0);
             }
         });
         getmDbHandler().close();

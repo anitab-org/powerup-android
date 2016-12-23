@@ -1,7 +1,7 @@
-/** 
-* @desc presents the user with a dialogue scenario and updates the scenario 
-* with more questions and answers as needed. Also updates power/health bars.
-*/
+/**
+ * @desc presents the user with a dialogue scenario and updates the scenario
+ * with more questions and answers as needed. Also updates power/health bars.
+ */
 
 package powerup.systers.com;
 
@@ -67,8 +67,8 @@ public class GameActivity extends Activity {
             photoNameField = ourRID.getClass().getField(eyeImageName);
             eyeImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException e) {
-            e.printStackTrace();
+                | IllegalArgumentException error) {
+            error.printStackTrace();
         }
 
         String faceImageName = getResources().getString(R.string.face);
@@ -77,8 +77,8 @@ public class GameActivity extends Activity {
             photoNameField = ourRID.getClass().getField(faceImageName);
             faceImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException e) {
-            e.printStackTrace();
+                | IllegalArgumentException error) {
+            error.printStackTrace();
         }
 
         String clothImageName = getResources().getString(R.string.cloth);
@@ -87,8 +87,8 @@ public class GameActivity extends Activity {
             photoNameField = ourRID.getClass().getField(clothImageName);
             clothImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException e) {
-            e.printStackTrace();
+                | IllegalArgumentException error) {
+            error.printStackTrace();
         }
 
         String hairImageName = getResources().getString(R.string.hair);
@@ -97,8 +97,8 @@ public class GameActivity extends Activity {
             photoNameField = ourRID.getClass().getField(hairImageName);
             hairImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException e) {
-            e.printStackTrace();
+                | IllegalArgumentException error) {
+            error.printStackTrace();
         }
 
         // Update Scene
@@ -120,7 +120,6 @@ public class GameActivity extends Activity {
                                     .getNextQuestionID();
                             updatePoints(position);
                             updateQA();
-
                         } else {
                             SessionHistory.currSessionID = scene
                                     .getNextScenarioID();
@@ -136,7 +135,7 @@ public class GameActivity extends Activity {
                         }
                     }
                 });
-        
+
         IconRoundCornerProgressBar powerBarHealing = (IconRoundCornerProgressBar) findViewById(R.id.powerbarHealing);
         powerBarHealing.setIconImageResource(R.drawable.icon_healing);
         powerBarHealing.setIconBackgroundColor(R.color.powerup_purple_light);
@@ -154,22 +153,22 @@ public class GameActivity extends Activity {
         powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
         powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
     }
-    
-    /** 
-    * Add karma points to the session. 
-    * @param position the current question user is on
-    */
+
+    /**
+     * Add karma points to the session.
+     * @param position the current question user is on
+     */
     private void updatePoints(int position) {
         // Update the Scene Points
         SessionHistory.currScenePoints += answers.get(position).getPoints();
         // Update Total Points
         SessionHistory.totalPoints += answers.get(position).getPoints();
     }
-    
-    /** 
-    * Finish, replay, or go to another scenario as needed. Updates the 
-    * question and answer if the last scenario has not yet been reached.
-    */ 
+
+    /**
+     * Finish, replay, or go to another scenario as needed. Updates the
+     * question and answer if the last scenario has not yet been reached.
+     */
     private void updateScenario() {
         if (ScenarioOverActivity.scenarioActivityDone == 1)
             ScenarioOverActivity.scenarioOverActivityInstance.finish();
@@ -179,7 +178,7 @@ public class GameActivity extends Activity {
         // Replay a scenario
         if (scene.getReplayed() == 0) {
             // goToMap Mechanics
-             goToMap.setAlpha((float) 1.0);
+            goToMap.setAlpha((float) 1.0);
             goToMap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -187,9 +186,9 @@ public class GameActivity extends Activity {
                     // Scenario.
                     SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                     goToMap.setClickable(false);
-                    Intent myIntent = new Intent(GameActivity.this, MapActivity.class);
-                    myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivityForResult(myIntent, 0);
+                    Intent intent = new Intent(GameActivity.this, MapActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivityForResult(intent, 0);
                     getmDbHandler()
                             .setReplayedScenario(scene.getScenarioName());
                     goToMap.setAlpha((float) 0.0);
@@ -206,9 +205,9 @@ public class GameActivity extends Activity {
 
                     SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                     replay.setClickable(false);
-                    Intent myIntent = new Intent(GameActivity.this, GameActivity.class);
-                    myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivityForResult(myIntent, 0);
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivityForResult(intent, 0);
                     getmDbHandler()
                             .setReplayedScenario(scene.getScenarioName());
                     goToMap.setAlpha((float) 0.0);
@@ -219,9 +218,9 @@ public class GameActivity extends Activity {
         // If completed check if it is last scene
         if (prevScene != null && prevScene.getCompleted() == 1) {
             if (scene.getNextScenarioID() == -1) {
-                Intent myIntent = new Intent(GameActivity.this, GameOverActivity.class);
+                Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
                 finish();
-                startActivityForResult(myIntent, 0);
+                startActivityForResult(intent, 0);
             } else {
                 SessionHistory.currSessionID = scene.getNextScenarioID();
                 Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
@@ -233,10 +232,10 @@ public class GameActivity extends Activity {
         scenarioNameTextView.setText(scene.getScenarioName());
         updateQA();
     }
-    
-    /** 
-    * Replace the current scenario with another question/answer.
-    */
+
+    /**
+     * Replace the current scenario with another question/answer.
+     */
     private void updateQA() {
         listAdapter.clear();
         getmDbHandler().getAllAnswer(answers, SessionHistory.currQID);

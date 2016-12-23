@@ -1,7 +1,7 @@
 /**
-* @desc displays avatar features, sets hasPreviouslyStarted to true, and 
-* returns the user to map after clicking “continue”. 
-*/
+ * @desc displays avatar features, sets hasPreviouslyStarted to true, and
+ * returns the user to map after clicking “continue”.
+ */
 
 package powerup.systers.com;
 
@@ -34,10 +34,9 @@ public class AvatarActivity extends Activity {
         ImageView glassesView = (ImageView) findViewById(R.id.glassesView);
         ImageView hatView = (ImageView) findViewById(R.id.hatView);
         ImageView necklaceView = (ImageView) findViewById(R.id.necklaceView);
-
         Button continueButton = (Button) findViewById(R.id.continueButton);
         Button backButton = (Button) findViewById(R.id.backButton);
-        String eyeImageName =getResources().getString(R.string.eye);
+        String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -79,7 +78,7 @@ public class AvatarActivity extends Activity {
             e.printStackTrace();
         }
 
-        if(getmDbHandler().getAvatarBag()!= 0){
+        if (getmDbHandler().getAvatarBag() != 0) {
             String bagImageName = getResources().getString(R.string.bag);
             bagImageName = bagImageName + getmDbHandler().getAvatarBag();
             try {
@@ -91,7 +90,7 @@ public class AvatarActivity extends Activity {
             }
         }
 
-        if(getmDbHandler().getAvatarGlasses()!= 0){
+        if (getmDbHandler().getAvatarGlasses() != 0) {
             String glassesImageName = getResources().getString(R.string.glasses);
             glassesImageName = glassesImageName + getmDbHandler().getAvatarGlasses();
             try {
@@ -103,7 +102,7 @@ public class AvatarActivity extends Activity {
             }
         }
 
-        if(getmDbHandler().getAvatarHat()!= 0){
+        if (getmDbHandler().getAvatarHat() != 0) {
             String hatImageName = getResources().getString(R.string.hat);
             hatImageName = hatImageName + getmDbHandler().getAvatarHat();
             try {
@@ -115,7 +114,7 @@ public class AvatarActivity extends Activity {
             }
         }
 
-        if(getmDbHandler().getAvatarNeckalce()!= 0){
+        if (getmDbHandler().getAvatarNeckalce() != 0) {
             String necklaceImageName = getResources().getString(R.string.necklace);
             necklaceImageName = necklaceImageName + getmDbHandler().getAvatarNeckalce();
             try {
