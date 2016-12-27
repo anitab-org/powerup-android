@@ -12,6 +12,8 @@
         android:layout_height="@dimen/completed_game_height"
         android:text="@string/completed_game"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/game_text_size" />
+        android:textSize="@dimen/game_text_size"
+        android:layout_marginLeft="@dimen/complete_activity_margin_left"
+        android:layout_marginBottom="@dimen/complete_activity_margin_bottom"/>
 
 </LinearLayout>
