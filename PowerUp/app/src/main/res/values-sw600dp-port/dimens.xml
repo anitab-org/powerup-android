@@ -33,5 +33,7 @@
     <dimen name="avatar_room_width">150dp</dimen>
     <dimen name="avatar_room_height">150dp</dimen>
     <dimen name="avatar_room_continue_button">150dp</dimen>
+    <dimen name="about_top_bottom_padding">150dp</dimen>
+
 
 </resources>

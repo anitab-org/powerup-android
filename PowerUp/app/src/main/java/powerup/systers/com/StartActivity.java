@@ -46,6 +46,14 @@ public class StartActivity extends Activity {
             }
         });
 
+        ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutButtonMain);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StartActivity.this, AboutActivity.class));
+            }
+        });
+
     }
 
     @Override

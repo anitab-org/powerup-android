@@ -152,5 +152,13 @@
     <dimen name="gamemap_homeButton_width">50dp</dimen>
     <dimen name="gamemap_homeButton_height">70dp</dimen>
     <dimen name="pgame_quesitionView_marginLeft">20dp</dimen>
+    <dimen name="about_text_size_title">40sp</dimen>
+    <dimen name="about_text_size_section_title">20dp</dimen>
+    <dimen name="about_text_size_section_content">16sp</dimen>
+    <dimen name="about_side_padding">40dp</dimen>
+    <dimen name="about_top_bottom_padding">50dp</dimen>
+    <dimen name="about_section_title_top_margin">15dp</dimen>
+    <dimen name="about_section_title_bottom_margin">5dp</dimen>
+    <dimen name="about_home_logo_size">100dp</dimen>
 
 </resources>
