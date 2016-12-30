@@ -57,8 +57,8 @@
 
     <Button
         android:id="@+id/homeButton"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="@dimen/gamemap_homeButton_width"
+        android:layout_height="@dimen/gamemap_homeButton_height"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"

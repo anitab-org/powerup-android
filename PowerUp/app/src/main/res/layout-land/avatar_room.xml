@@ -49,7 +49,7 @@
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/avatar_room_ll_margin_top"
         android:layout_toRightOf="@+id/relativeLayoutAvatar"
         android:orientation="horizontal">
 

@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/avatar_button_margin"
         android:layout_marginTop="@dimen/avatar_button_margin"
-        android:hint="points"
+        android:hint="@string/points"
         android:textColor="@color/powerup_black"
         android:textSize="@dimen/back_button_textsize" />
 

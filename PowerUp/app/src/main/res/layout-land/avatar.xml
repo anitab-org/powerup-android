@@ -10,7 +10,7 @@
         android:layout_width="@dimen/face_view_width"
         android:layout_height="@dimen/face_view_height"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="@dimen/avatar_face_margin_top"
         android:src="@drawable/face1" />
 
     <ImageView

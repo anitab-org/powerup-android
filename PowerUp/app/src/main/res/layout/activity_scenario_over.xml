@@ -146,26 +146,26 @@
 
     <TextView
         android:id="@+id/scenarioTextView"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/scenario_tv_width"
+        android:layout_height="@dimen/scenario_tv_height"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/relativeLayout3"
         android:layout_toRightOf="@+id/relativeLayout3"
-        android:text="Scenario description"
+        android:text="@string/scenario_description"
         android:textColor="@color/powerup_black"
         android:textSize="@dimen/back_button_textsize" />
 
     <ImageButton
         android:id="@+id/replayButton"
-        android:layout_width="@dimen/linear_layout_width"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/scenario_ib_width"
+        android:layout_height="@dimen/scenario_ib_height"
         android:layout_below="@+id/scenarioTextView"
         android:layout_centerHorizontal="true"
         android:background="@drawable/replay_text" />
 
     <ImageButton
         android:id="@+id/continueButton"
-        android:layout_width="@dimen/linear_layout_width"
+        android:layout_width="@dimen/scenario_ib_width"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/replayButton"
         android:layout_toEndOf="@+id/replayButton"
@@ -174,17 +174,17 @@
 
     <ImageView
         android:id="@+id/karmaImageView"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/karma_iv_width"
+        android:layout_height="@dimen/karma_iv_height"
         android:src="@drawable/karma_box" />
 
     <TextView
         android:id="@+id/karmaPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="points"
+        android:layout_marginLeft="@dimen/scenario_tv_margin"
+        android:layout_marginTop="@dimen/scenario_tv_margin"
+        android:hint="@string/points"
         android:textColor="@color/powerup_black"
         android:textSize="@dimen/back_button_textsize" />
 

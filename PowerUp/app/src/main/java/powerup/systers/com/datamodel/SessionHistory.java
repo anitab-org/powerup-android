@@ -1,6 +1,6 @@
-/** 
-* @desc sets up the default avatar features and scenario points upon beginning the app.
-*/
+/**
+ * @desc sets up the default avatar features and scenario points upon beginning the app.
+ */
 
 package powerup.systers.com.datamodel;
 
