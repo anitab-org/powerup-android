@@ -127,7 +127,7 @@
     <dimen name="linear_layout_height">150dp</dimen>
     <dimen name="linear_layout_margin_top">80dp</dimen>
     <dimen name="linear_layout_margin_right">20dp</dimen>
-    <dimen name="continue_margin">40dp</dimen>
+    <dimen name="continue_margin">50dp</dimen>
     <dimen name="linear_layout_width_landscape">90dp</dimen>
     <dimen name="linear_layout_margin_left">10dp</dimen>
     <dimen name="select_feature_linear_layout_width_hair">160dp</dimen>
@@ -161,6 +161,11 @@
     <dimen name="about_section_title_top_margin">15dp</dimen>
     <dimen name="about_section_title_bottom_margin">5dp</dimen>
     <dimen name="about_home_logo_size">100dp</dimen>
+    <dimen name="button_font">18sp</dimen>
+    <dimen name="margin_left_continue_button">45dp</dimen>
+    <dimen name="button_layout_width">160dp</dimen>
+    <dimen name="replay_layout_marginTop">365dp</dimen>
+    <dimen name="margin_left_replay_button">30dp</dimen>
 
 
 </resources>

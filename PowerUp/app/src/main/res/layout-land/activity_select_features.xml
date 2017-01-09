@@ -522,6 +522,6 @@
         android:layout_above="@+id/power_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background" />
 
 </RelativeLayout>

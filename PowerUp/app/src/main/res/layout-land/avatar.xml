@@ -77,7 +77,7 @@
         android:layout_alignTop="@+id/backButton"
         android:layout_toEndOf="@+id/hairView"
         android:layout_toRightOf="@+id/hairView"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background" />
 
     <TextView
         android:id="@+id/finalAvatarTextViewLand"
@@ -96,7 +96,7 @@
         android:layout_below="@+id/hairView"
         android:layout_toLeftOf="@+id/hairView"
         android:layout_toStartOf="@+id/hairView"
-        android:background="@drawable/back_background"
+        android:background="@drawable/brown_button_background"
         android:text="@string/back_button"
         android:textAllCaps="false"
         android:textSize="@dimen/back_button_textsize" />

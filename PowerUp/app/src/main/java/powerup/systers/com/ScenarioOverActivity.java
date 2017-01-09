@@ -33,8 +33,8 @@ public class ScenarioOverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scenario_over);
         scenarioOverActivityInstance = this;
         scenarioActivityDone = 1;
-        ImageButton replayButton = (ImageButton) findViewById(R.id.replayButton);
-        ImageButton continueButton = (ImageButton) findViewById(R.id.continueButton);
+        Button replayButton = (Button) findViewById(R.id.replayButton);
+        Button continueButton = (Button) findViewById(R.id.continueButton);
         Button homeButton = (Button) findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override

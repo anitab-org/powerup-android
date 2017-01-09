@@ -29,22 +29,28 @@
         android:layout_height="@dimen/powerup_icon_height"
         android:src="@drawable/ic_launcher" />
 
-    <ImageButton
+    <Button
         android:id="@+id/startButtonMain"
         android:layout_width="@dimen/start_button_width"
         android:layout_height="@dimen/start_button_height"
-        android:background="@drawable/buttons" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/start_text"
+        android:textSize="@dimen/button_font"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/newUserButtonFirstPage"
         android:layout_width="@dimen/new_user_button_width"
         android:layout_height="@dimen/new_user_button_height"
-        android:background="@drawable/new_user" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/new_user_text"
+        android:textSize="@dimen/button_font"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/aboutButtonMain"
         android:layout_width="@dimen/about_button_width"
         android:layout_height="@dimen/about_button_height"
-        android:background="@drawable/aboutbutton" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/about_text"
+        android:textSize="@dimen/button_font"/>
 
 </LinearLayout>
