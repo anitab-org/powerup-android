@@ -22,8 +22,8 @@
     <dimen name="completed_scene_margin_top">118dp</dimen>
     <dimen name="completed_scene_map_margin_bottom">70dp</dimen>
     <dimen name="completed_scene_map_margin_right">25dp</dimen>
-    <dimen name="completed_scene_text_land_margin_top">53dp</dimen>
-    <dimen name="completed_scene_text_land_width">300dp</dimen>
+    <dimen name="completed_scene_text_land_margin_top">53sp</dimen>
+    <dimen name="completed_scene_text_land_width">300sp</dimen>
     <dimen name="completed_scene_continue_button_map_land_margin_bottom">50dp</dimen>
     <dimen name="completed_scene_continue_button_map_land_margin_right">90dp</dimen>
     <dimen name="completed_scene_store_button_land_margin_left">145dp</dimen>
@@ -57,7 +57,7 @@
     <dimen name="powerup_icon_width">150dp</dimen>
     <dimen name="powerup_width">304dp</dimen>
     <dimen name="power_bar_view_height">75dp</dimen>
-    <dimen name="game_text_size">20dp</dimen>
+    <dimen name="game_text_size">20sp</dimen>
     <dimen name="map_house_click_height">100dp</dimen>
     <dimen name="map_house_click_width">100dp</dimen>
     <dimen name="map_hospital_click_height">100dp</dimen>
@@ -67,8 +67,8 @@
     <dimen name="map_boyfriend_click_height">100dp</dimen>
     <dimen name="map_boyfriend_click_width">75dp</dimen>
     <dimen name="main_list_view_width">200dp</dimen>
-    <dimen name="main_list_view_height">150dp</dimen>
-    <dimen name="question_view_margin_top">34dp</dimen>
+    <dimen name="main_list_view_height">200dp</dimen>
+    <dimen name="question_view_margin_top">40dp</dimen>
     <dimen name="question_view_width">200dp</dimen>
     <dimen name="redo_button_width">30dp</dimen>
     <dimen name="redo_button_height">30dp</dimen>
@@ -141,17 +141,18 @@
     <dimen name="complete_activity_margin_left">10dp</dimen>
     <dimen name="complete_activity_margin_bottom">90dp</dimen>
     <dimen name="scenario_tv_width">150dp</dimen>
-    <dimen name="scenario_tv_height">80dp</dimen>
+    <dimen name="scenario_tv_height">80dp</dimen>`
     <dimen name="scenario_ib_width">100dp</dimen>
     <dimen name="scenario_ib_height">45dp</dimen>
     <dimen name="karma_iv_width">80dp</dimen>
     <dimen name="karma_iv_height">50dp</dimen>
     <dimen name="scenario_tv_margin">20dp</dimen>
     <dimen name="avatar_hair_iv_margin">180dp</dimen>
-    <dimen name="gameActivity_ll_margin_left">20dp</dimen>
+    <dimen name="gameActivity_ll_margin_left">40dp</dimen>
     <dimen name="gamemap_homeButton_width">50dp</dimen>
     <dimen name="gamemap_homeButton_height">70dp</dimen>
     <dimen name="pgame_quesitionView_marginLeft">20dp</dimen>
+    <dimen name="hair_eyes_face_clothes">15sp</dimen>
     <dimen name="about_text_size_title">40sp</dimen>
     <dimen name="about_text_size_section_title">20dp</dimen>
     <dimen name="about_text_size_section_content">16sp</dimen>
@@ -160,5 +161,6 @@
     <dimen name="about_section_title_top_margin">15dp</dimen>
     <dimen name="about_section_title_bottom_margin">5dp</dimen>
     <dimen name="about_home_logo_size">100dp</dimen>
+
 
 </resources>
