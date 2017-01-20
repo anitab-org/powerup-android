@@ -12,7 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 public class StartActivity extends Activity {
 
@@ -25,7 +25,7 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_main);
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
-        ImageButton newUserButton = (ImageButton) findViewById(R.id.newUserButtonFirstPage);
+        Button newUserButton = (Button) findViewById(R.id.newUserButtonFirstPage);
         newUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +33,7 @@ public class StartActivity extends Activity {
             }
         });
 
-        ImageButton startButton = (ImageButton) findViewById(R.id.startButtonMain);
+        Button startButton = (Button) findViewById(R.id.startButtonMain);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,7 @@ public class StartActivity extends Activity {
             }
         });
 
-        ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutButtonMain);
+        Button aboutButton = (Button) findViewById(R.id.aboutButtonMain);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

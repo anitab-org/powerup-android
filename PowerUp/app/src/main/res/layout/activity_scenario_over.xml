@@ -155,22 +155,28 @@
         android:textColor="@color/powerup_black"
         android:textSize="@dimen/back_button_textsize" />
 
-    <ImageButton
+    <Button
         android:id="@+id/replayButton"
-        android:layout_width="@dimen/scenario_ib_width"
-        android:layout_height="@dimen/scenario_ib_height"
-        android:layout_below="@+id/scenarioTextView"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/replay_text" />
+        android:layout_width="@dimen/button_layout_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/replay_layout_marginTop"
+        android:background="@drawable/brown_button_background"
+        android:text="@string/replay"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_font"
+        android:layout_marginLeft="@dimen/margin_left_replay_button"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/continueButton"
-        android:layout_width="@dimen/scenario_ib_width"
+        android:layout_width="@dimen/button_layout_width"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/replayButton"
         android:layout_toEndOf="@+id/replayButton"
         android:layout_toRightOf="@+id/replayButton"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/continue_text"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_font"/>
 
     <ImageView
         android:id="@+id/karmaImageView"

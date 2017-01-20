@@ -16,13 +16,12 @@
     <string name="store">Store</string>
     <string name="enter">Continue..</string>
     <string name="back_to_map">Back to Map</string>
-    <string name="replay">Replay</string>
     <string name="preferences_has_previously_started">has_previously_started</string>
     <string name="avatar">"Here is your final Avatar!\nPress continue to start\n your journey.."</string>
     <string name="avatar_land">"Here is your final Avatar! Press continue to start\n your journey.."</string>
     <string name="select_feature_coins">"10 coins"</string>
     <string name="pgame_scenario_hint">"Scenario Name"</string>
-    <string name="back_button">"Back"</string>
+    <string name="back_button"><b>"Back"</b></string>
     <string name="select_feature">"Choose your feature.."</string>
     <string name="from_activity">"fromActivity"</string>
     <string name="eye">"eye"</string>
@@ -55,4 +54,9 @@
     <string name="about_urgency_section_title"><![CDATA[> Why this App is needed]]></string>
     <string name="about_how_app_helps_section_title"><![CDATA[> How does PowerUp help teenagers?]]></string>
     <string name="about_how_app_helps_section_content">The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The Content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</string>
+    <string name="new_user_text"><b>New User</b></string>
+    <string name="start_text"><b>Start</b></string>
+    <string name="about_text"><b>About</b></string>
+    <string name="continue_text"><b>Continue</b></string>
+    <string name="replay"><b>Replay</b></string>
 </resources>

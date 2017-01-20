@@ -77,7 +77,9 @@
         android:layout_marginRight="@dimen/avatar_button_margin"
         android:layout_toEndOf="@+id/eyeView"
         android:layout_toRightOf="@+id/eyeView"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/continue_text"
+        android:textSize="@dimen/button_font"/>
 
     <TextView
         android:id="@+id/finalAvatarTextView"
@@ -93,13 +95,13 @@
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="@dimen/back_button_width"
-        android:layout_height="@dimen/back_button_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/clothView"
         android:layout_marginLeft="@dimen/avatar_button_margin"
         android:layout_toLeftOf="@+id/clothView"
         android:layout_toStartOf="@+id/clothView"
-        android:background="@drawable/back_background"
+        android:background="@drawable/brown_button_background"
         android:text="@string/back_button"
         android:textAllCaps="false"
         android:textSize="@dimen/back_button_textsize" />

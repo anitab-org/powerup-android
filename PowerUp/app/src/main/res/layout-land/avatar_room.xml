@@ -231,6 +231,6 @@
         android:layout_alignBottom="@+id/relativeLayoutAvatar"
         android:layout_alignEnd="@+id/linearLayout5"
         android:layout_alignRight="@+id/linearLayout5"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background" />
 
 </RelativeLayout>

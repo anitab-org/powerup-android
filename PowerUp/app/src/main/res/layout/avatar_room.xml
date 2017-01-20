@@ -234,6 +234,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/relativeLayout2"
         android:layout_marginBottom="@dimen/continue_margin"
-        android:background="@drawable/endingscreen6" />
+        android:layout_marginLeft="@dimen/margin_left_continue_button"
+        android:background="@drawable/brown_button_background"
+        android:text="@string/continue_text"
+        android:textSize="@dimen/button_font"/>
 
 </RelativeLayout>

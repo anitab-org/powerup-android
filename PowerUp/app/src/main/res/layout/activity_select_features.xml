@@ -530,6 +530,9 @@
         android:layout_above="@+id/power_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/endingscreen6" />
+        android:background="@drawable/brown_button_background"
+        android:text="@string/continue_text"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_font"/>
 
 </RelativeLayout>
