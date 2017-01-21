@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.powerup.MainActivity">
+    tools:context="powerup.systers.com.StartActivity">
 
     <TextView
         android:id="@+id/powerupTextView"
@@ -35,7 +35,8 @@
         android:layout_height="@dimen/start_button_height"
         android:background="@drawable/brown_button_background"
         android:text="@string/start_text"
-        android:textSize="@dimen/button_font"/>
+        android:textSize="@dimen/button_font"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/newUserButtonFirstPage"
@@ -43,7 +44,7 @@
         android:layout_height="@dimen/new_user_button_height"
         android:background="@drawable/brown_button_background"
         android:text="@string/new_user_text"
-        android:textSize="@dimen/button_font"/>
+        android:textSize="@dimen/button_font" />
 
     <Button
         android:id="@+id/aboutButtonMain"
@@ -51,6 +52,6 @@
         android:layout_height="@dimen/about_button_height"
         android:background="@drawable/brown_button_background"
         android:text="@string/about_text"
-        android:textSize="@dimen/button_font"/>
+        android:textSize="@dimen/button_font" />
 
 </LinearLayout>

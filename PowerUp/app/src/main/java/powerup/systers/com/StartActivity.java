@@ -9,6 +9,7 @@ package powerup.systers.com;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -18,6 +19,9 @@ public class StartActivity extends Activity {
 
     private SharedPreferences preferences;
     private boolean hasPreviouslyStarted;
+    private Button startButton;
+    private Button newUserButton;
+    private Button aboutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,7 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_main);
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
-        Button newUserButton = (Button) findViewById(R.id.newUserButtonFirstPage);
+        newUserButton = (Button) findViewById(R.id.newUserButtonFirstPage);
         newUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +37,7 @@ public class StartActivity extends Activity {
             }
         });
 
-        Button startButton = (Button) findViewById(R.id.startButtonMain);
+        startButton = (Button) findViewById(R.id.startButtonMain);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +50,7 @@ public class StartActivity extends Activity {
             }
         });
 
-        Button aboutButton = (Button) findViewById(R.id.aboutButtonMain);
+        aboutButton = (Button) findViewById(R.id.aboutButtonMain);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,5 +64,8 @@ public class StartActivity extends Activity {
     protected void onResume() {
         super.onResume();
         hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
+        if (hasPreviouslyStarted) {
+            startButton.setText(getString(R.string.resume_text));
+        }
     }
 }
