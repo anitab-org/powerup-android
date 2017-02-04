@@ -38,9 +38,13 @@ public class GameActivity extends Activity {
     private Button replay;
     private Button goToMap;
     private ArrayAdapter<String> listAdapter;
+    private static boolean isStateChanged = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if(savedInstanceState != null){
+            isStateChanged = true;
+        }
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
@@ -228,7 +232,11 @@ public class GameActivity extends Activity {
                 startActivity(intent);
             }
         }
-        SessionHistory.currQID = scene.getFirstQuestionID();
+        if (isStateChanged == false){
+            SessionHistory.currQID = scene.getFirstQuestionID();
+        } else {
+            isStateChanged = false;
+        }
         scenarioNameTextView.setText(scene.getScenarioName());
         updateQA();
     }
