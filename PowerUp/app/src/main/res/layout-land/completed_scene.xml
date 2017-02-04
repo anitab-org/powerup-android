@@ -18,23 +18,25 @@
 
     <Button
         android:id="@+id/ContinueButtonMap"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/continue_buttonmap_width"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/completed_scene_continue_button_map_land_margin_bottom"
+        android:layout_alignLeft="@+id/completed_scene_textView"
+        android:background="@drawable/brown_button_background"
+        android:textSize="@dimen/continue_map_button_text_size"
+        android:layout_marginBottom="@dimen/continue_button_map_margin_bottom_landscape"
         android:layout_marginRight="@dimen/completed_scene_continue_button_map_land_margin_right"
         android:text="@string/map" />
 
     <Button
         android:id="@+id/store_button"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/store_button_map_width"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/ContinueButtonMap"
-        android:layout_marginLeft="@dimen/completed_scene_store_button_land_margin_left"
+        android:layout_alignBaseline="@id/ContinueButtonMap"
+        android:layout_alignBottom="@id/ContinueButtonMap"
+        android:layout_toRightOf="@+id/ContinueButtonMap"
+        android:textSize="@dimen/store_map_button_text_size"
+        android:background="@drawable/brown_button_background"
         android:text="@string/store" />
 
 </RelativeLayout>

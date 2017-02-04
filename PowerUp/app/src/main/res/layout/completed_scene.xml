@@ -8,8 +8,7 @@
         android:id="@+id/completed_scene_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginRight="@dimen/completed_scene_margin_right"
         android:layout_marginTop="@dimen/completed_scene_margin_top"
         android:ems="10"
@@ -19,21 +18,26 @@
 
     <Button
         android:id="@+id/ContinueButtonMap"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/continue_buttonmap_width"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@id/completed_scene_textView"
-        android:layout_marginBottom="@dimen/completed_scene_map_margin_bottom"
-        android:layout_marginRight="@dimen/completed_scene_map_margin_right"
+        android:layout_alignLeft="@+id/completed_scene_textView"
+        android:background="@drawable/brown_button_background"
+        android:textSize="@dimen/continue_map_button_text_size"
+        android:layout_marginBottom="@dimen/continue_button_map_margin_bottom"
+        android:layout_marginRight="@dimen/completed_scene_continue_button_map_land_margin_right"
         android:text="@string/map" />
 
     <Button
         android:id="@+id/store_button"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/store_button_map_width"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/ContinueButtonMap"
         android:layout_alignBottom="@id/ContinueButtonMap"
-        android:layout_alignLeft="@id/completed_scene_textView"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/store_map_button_text_size"
+        android:layout_marginRight="@dimen/store_button_margin_right"
+        android:background="@drawable/brown_button_background"
         android:text="@string/store" />
 
 </RelativeLayout>
