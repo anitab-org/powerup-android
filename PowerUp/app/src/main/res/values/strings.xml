@@ -55,6 +55,7 @@
     <string name="about_how_app_helps_section_title"><![CDATA[> How does PowerUp help teenagers?]]></string>
     <string name="about_how_app_helps_section_content">The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The Content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</string>
     <string name="new_user_text"><b>New User</b></string>
+    <string name="resume_text">Resume</string>
     <string name="start_text"><b>Start</b></string>
     <string name="about_text"><b>About</b></string>
     <string name="continue_text"><b>Continue</b></string>
