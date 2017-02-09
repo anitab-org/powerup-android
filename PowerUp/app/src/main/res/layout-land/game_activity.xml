@@ -12,22 +12,22 @@
         android:id="@+id/scenarioNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/redoButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="@dimen/gameActivity_tv_margin_left"
+        android:layout_marginTop="@dimen/scenarioNameEditText_margin_top"
         android:background="@android:color/transparent"
         android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
         android:ems="@integer/text_view_ems"
         android:hint="@string/pgame_scenario_hint"
-        android:textColor="@android:color/black"
+        android:textColor="@color/powerup_black"
+        android:gravity="top"
         android:textSize="@dimen/game_text_size" />
 
     <ListView
         android:id="@+id/mainListView"
         android:layout_width="@dimen/gameActivity_lv_width"
         android:layout_height="@dimen/main_list_view_height"
+        android:layout_below="@+id/questionView"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@android:color/white"
@@ -58,15 +58,17 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/marco" />
 
-
     <TextView
         android:id="@+id/questionView"
         android:layout_width="@dimen/questionview_tv_width"
         android:layout_height="wrap_content"
         android:layout_below="@+id/scenarioNameEditText"
+        android:layout_toRightOf="@+id/faceImageView"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:ems="@integer/text_view_ems"
+        android:layout_marginLeft="@dimen/questionview_tv_margin_left"
+        android:layout_marginTop="@dimen/questionview_tv_margin_top"
         android:hint="@string/question"
         android:textColor="#4e4d40"
         android:textSize="@dimen/game_text_size" />
@@ -184,7 +186,5 @@
             app:rcProgress="@integer/half_progress"
             app:rcProgressColor="@color/powerup_yellow"
             app:rcRadius="@dimen/power_bar_radius" />
-
     </RelativeLayout>
-
 </RelativeLayout>

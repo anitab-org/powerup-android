@@ -7,5 +7,7 @@
     <dimen name="avatar_room_width">90dp</dimen>
     <dimen name="avatar_room_height">90dp</dimen>
     <dimen name="avatar_room_continue_button_land">40dp</dimen>
-
+    <dimen name="questionview_tv_margin_top">22dp</dimen>
+    <dimen name="questionview_tv_margin_left">20dp</dimen>
+    <dimen name="scenarioNameEditText_margin_top">-4dp</dimen>
 </resources>

@@ -40,5 +40,6 @@
     <dimen name="avatar_room_continue_button_land">80dp</dimen>
     <dimen name="about_top_bottom_padding">100dp</dimen>
     <dimen name="about_side_padding">100dp</dimen>
-
+    <dimen name="questionview_tv_margin_top">35dp</dimen>
+    <dimen name="questionview_tv_margin_left">20dp</dimen>
 </resources>

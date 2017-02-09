@@ -45,6 +45,8 @@
     <dimen name="gameActivity_iv_width">180dp</dimen>
     <dimen name="gameActivity_iv_height">300dp</dimen>
     <dimen name="questionview_tv_width">400dp</dimen>
+    <dimen name="questionview_tv_margin_top">15dp</dimen>
+    <dimen name="questionview_tv_margin_left">15dp</dimen>
     <dimen name="gameActivity_rl_marginTop">10dp</dimen>
     <dimen name="continue_button_map_margin_bottom_landscape">40dp</dimen>
 </resources>
