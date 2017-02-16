@@ -21,17 +21,19 @@ import powerup.systers.com.db.DatabaseHandler;
 
 public class ScenarioOverActivity extends AppCompatActivity {
 
-    public static Activity scenarioOverActivityInstance;
+    public Activity scenarioOverActivityInstance;
     public static int scenarioActivityDone;
     private DatabaseHandler mDbHandler;
 
+    public ScenarioOverActivity() {
+        scenarioOverActivityInstance = this;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.activity_scenario_over);
-        scenarioOverActivityInstance = this;
         scenarioActivityDone = 1;
         Button replayButton = (Button) findViewById(R.id.replayButton);
         Button continueButton = (Button) findViewById(R.id.continueButton);
@@ -114,7 +116,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameActivity.gameActivityInstance.finish();
+                new GameActivity().gameActivityInstance.finish();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
         });
@@ -129,7 +131,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 DatabaseHandler dbHandler = new DatabaseHandler(ScenarioOverActivity.this);
                 dbHandler.resetCompleted(SessionHistory.currSessionID);
                 dbHandler.resetReplayed(SessionHistory.currSessionID);
-                GameActivity.gameActivityInstance.finish();
+                new GameActivity().gameActivityInstance.finish();
                 scenarioOverActivityInstance.finish();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
@@ -142,7 +144,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        GameActivity.gameActivityInstance.finish();
+        new GameActivity().gameActivityInstance.finish();
     }
 
     public DatabaseHandler getmDbHandler() {

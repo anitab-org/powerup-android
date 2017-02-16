@@ -4,8 +4,6 @@
  */
 
 package powerup.systers.com;
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +18,7 @@ import powerup.systers.com.db.DatabaseHandler;
 
 public class AvatarRoomActivity extends Activity {
 
-    public static Activity avatarRoomInstance;
+    public Activity avatarRoomInstance;
     private DatabaseHandler mDbHandler;
     private ImageView eyeView;
     private ImageView faceView;
@@ -35,11 +33,13 @@ public class AvatarRoomActivity extends Activity {
     private Integer face = 1;
     private Integer cloth = 1;
 
+    public AvatarRoomActivity() {
+        avatarRoomInstance = this;
+    }
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
-        avatarRoomInstance = this;
         setContentView(R.layout.avatar_room);
         eyeView = (ImageView) findViewById(R.id.eyes);
         faceView = (ImageView) findViewById(R.id.face);
