@@ -176,4 +176,5 @@
     <dimen name="scenario_description_margin_top">40dp</dimen>
     <dimen name="karma_imageview_margin_top">5dp</dimen>
     <dimen name="health_power_bar_margin_right">20dp</dimen>
+    <dimen name="scenarioNameEditText_margin_top">-4dp</dimen>
 </resources>

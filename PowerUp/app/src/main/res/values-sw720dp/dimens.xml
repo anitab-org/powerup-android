@@ -39,5 +39,4 @@
     <dimen name="avatar_room_width">150dp</dimen>
     <dimen name="avatar_room_height">150dp</dimen>
     <dimen name="avatar_room_continue_button_land">100dp</dimen>
-
 </resources>
