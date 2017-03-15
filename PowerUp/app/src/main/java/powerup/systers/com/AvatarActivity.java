@@ -137,12 +137,12 @@ public class AvatarActivity extends Activity {
                         edit.putBoolean(getString(R.string.preferences_has_previously_started), Boolean.TRUE);
                         edit.apply();
                     }
-                    AvatarRoomActivity.avatarRoomInstance.finish();
+                    new AvatarRoomActivity().avatarRoomInstance.finish();
                     finish();
                     startActivityForResult(new Intent(AvatarActivity.this, MapActivity.class), 0);
                 } else {
-                    DressingRoomActivity.dressingRoomInstance.finish();
-                    SelectFeaturesActivity.selectFeatureInstance.finish();
+                    new DressingRoomActivity().dressingRoomInstance.finish();
+                    new SelectFeaturesActivity().selectFeatureInstance.finish();
                     finish();
                     startActivityForResult(new Intent(AvatarActivity.this, MapActivity.class), 0);
                 }

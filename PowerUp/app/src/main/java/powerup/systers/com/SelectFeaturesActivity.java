@@ -22,7 +22,7 @@ import powerup.systers.com.db.DatabaseHandler;
 
 public class SelectFeaturesActivity extends AppCompatActivity {
 
-    public static Activity selectFeatureInstance;
+    public Activity selectFeatureInstance;
     Integer bag = 1;
     Integer glasses = 1;
     Integer hat = 1;
@@ -36,13 +36,15 @@ public class SelectFeaturesActivity extends AppCompatActivity {
     private Integer cloth = 1;
     private DatabaseHandler mDbHandler;
 
+    public SelectFeaturesActivity() {
+        selectFeatureInstance = this;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_features);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
-        selectFeatureInstance = this;
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         LinearLayout linearLayouthandbag = (LinearLayout) findViewById(R.id.linearLayouthandbag);
         LinearLayout linearLayoutGlasses = (LinearLayout) findViewById(R.id.linearLayoutGlasses);

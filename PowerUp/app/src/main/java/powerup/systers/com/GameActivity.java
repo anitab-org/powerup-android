@@ -28,7 +28,7 @@ import powerup.systers.com.db.DatabaseHandler;
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
 
-    public static Activity gameActivityInstance;
+    public Activity gameActivityInstance;
     private DatabaseHandler mDbHandler;
     private List<Answer> answers;
     private Scenario scene;
@@ -40,6 +40,9 @@ public class GameActivity extends Activity {
     private ArrayAdapter<String> listAdapter;
     private static boolean isStateChanged = false;
 
+    public GameActivity() {
+        gameActivityInstance = this;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if(savedInstanceState != null){
@@ -49,7 +52,6 @@ public class GameActivity extends Activity {
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
-        gameActivityInstance = this;
         // Find the ListView resource.
         ListView mainListView = (ListView) findViewById(R.id.mainListView);
         questionTextView = (TextView) findViewById(R.id.questionView);
@@ -175,7 +177,7 @@ public class GameActivity extends Activity {
      */
     private void updateScenario() {
         if (ScenarioOverActivity.scenarioActivityDone == 1)
-            ScenarioOverActivity.scenarioOverActivityInstance.finish();
+            new ScenarioOverActivity().scenarioOverActivityInstance.finish();
         if (scene != null)
             prevScene = getmDbHandler().getScenarioFromID(scene.getId());
         scene = getmDbHandler().getScenario();

@@ -17,16 +17,18 @@ import powerup.systers.com.db.DatabaseHandler;
 
 public class DressingRoomActivity extends AppCompatActivity {
 
-    public static Activity dressingRoomInstance;
+    public Activity dressingRoomInstance;
     private DatabaseHandler mDbHandler;
 
+    public DressingRoomActivity() {
+        dressingRoomInstance = this;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dressing_room);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
-        dressingRoomInstance = this;
         ImageView eyeView = (ImageView) findViewById(R.id.eyeView);
         ImageView faceView = (ImageView) findViewById(R.id.faceView);
         ImageView hairView = (ImageView) findViewById(R.id.hairView);
