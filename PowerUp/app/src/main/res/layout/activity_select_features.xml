@@ -171,154 +171,186 @@
                 android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
         </LinearLayout>
     </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main_linear_layout"
+    android:layout_toRightOf="@id/relativeLayout2"
+    android:layout_above="@id/power_bar"
+    android:layout_marginLeft="@dimen/relative2_marginLeft"
 
+  >
     <LinearLayout
-        android:id="@+id/linearLayouthandbag"
-        android:layout_width="@dimen/select_feature_linear_layout_width"
-        android:layout_height="@dimen/select_feature_linear_layout_height"
-        android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
-        android:layout_toEndOf="@+id/relativeLayout2"
-        android:layout_toRightOf="@+id/relativeLayout2"
-        android:background="@drawable/round_rect_green_shape"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/bag"
-            android:textAllCaps="true"
-            android:textColor="@color/powerup_black"
-            android:textSize="@dimen/final_avatar_text_view_text_size" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height">
-
-            <ImageView
-                android:id="@+id/imageViewhandbag"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/bag1" />
-
-            <TextView
-                android:id="@+id/tvPaidHandbag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
-                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
-                android:rotation="@integer/text_view_rotation"
-                android:textColor="@color/powerup_black"
-                android:textSize="@dimen/select_feature_tv_paid_size_small" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tvHandbagPoints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/text_view_necklace" />
+        android:id="@+id/horizontal_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/horizontal_holder_marginRight"
+        android:layout_weight="3"
+        android:layout_marginTop="@dimen/horizontal_holder_marginTop">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayouthandbag"
+            android:layout_width="@dimen/select_feature_linear_layout_width"
+            android:layout_height="@dimen/select_feature_linear_layout_height"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/relativeLayout2"
+            android:layout_toRightOf="@+id/relativeLayout2"
+            android:background="@drawable/round_rect_green_shape"
             android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/leftHandbag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
-
-            <ImageButton
-                android:id="@+id/rightHandbag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutGlasses"
-        android:layout_width="@dimen/select_feature_linear_layout_width"
-        android:layout_height="@dimen/select_feature_linear_layout_height"
-        android:layout_alignTop="@+id/linearLayouthandbag"
-        android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_left"
-        android:layout_toRightOf="@+id/linearLayouthandbag"
-        android:background="@drawable/round_rect_blue_shape"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/glasses"
-            android:textAllCaps="true"
-            android:textColor="@color/powerup_black"
-            android:textSize="@dimen/final_avatar_text_view_text_size" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/select_feature_image_height">
-
-            <ImageView
-                android:id="@+id/imageViewGlasses"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/select_feature_image_height"
-                android:src="@drawable/glasses1" />
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvPaidGlasses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
-                android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
-                android:rotation="@integer/text_view_rotation"
+                android:gravity="center"
+                android:text="@string/bag"
+                android:textAllCaps="true"
                 android:textColor="@color/powerup_black"
-                android:textSize="@dimen/select_feature_tv_paid_size_small" />
-        </RelativeLayout>
+                android:textSize="@dimen/final_avatar_text_view_text_size" />
 
-        <TextView
-            android:id="@+id/tvGlassesPoints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/text_view_necklace" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_feature_image_height">
+
+                <ImageView
+                    android:id="@+id/imageViewhandbag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bag1" />
+
+                <TextView
+                    android:id="@+id/tvPaidHandbag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                    android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                    android:rotation="@integer/text_view_rotation"
+                    android:textColor="@color/powerup_black"
+                    android:textSize="@dimen/select_feature_tv_paid_size_small" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvHandbagPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_view_necklace" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/leftHandbag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+                <ImageButton
+                    android:id="@+id/rightHandbag"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayoutGlasses"
+            android:layout_width="@dimen/select_feature_linear_layout_width"
+            android:layout_height="@dimen/select_feature_linear_layout_height"
+            android:layout_alignTop="@+id/linearLayouthandbag"
+            android:layout_weight="1"
+            android:layout_toRightOf="@+id/linearLayouthandbag"
+            android:background="@drawable/round_rect_blue_shape"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/leftGlasses"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+                android:gravity="center"
+                android:text="@string/glasses"
+                android:textAllCaps="true"
+                android:textColor="@color/powerup_black"
+                android:textSize="@dimen/final_avatar_text_view_text_size" />
 
-            <ImageButton
-                android:id="@+id/rightGlasses"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/select_feature_image_height">
+
+                <ImageView
+                    android:id="@+id/imageViewGlasses"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/select_feature_image_height"
+                    android:src="@drawable/glasses1" />
+
+                <TextView
+                    android:id="@+id/tvPaidGlasses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/select_feature_tv_paid_left_margin_small"
+                    android:layout_marginTop="@dimen/select_feature_tv_paid_top_margin_small"
+                    android:rotation="@integer/text_view_rotation"
+                    android:textColor="@color/powerup_black"
+                    android:textSize="@dimen/select_feature_tv_paid_size_small" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvGlassesPoints"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+                android:gravity="center"
+                android:textSize="@dimen/text_view_necklace" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/leftGlasses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+
+                <ImageButton
+                    android:id="@+id/rightGlasses"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:id="@+id/horizontal_holder2"
+        android:layout_weight="3"
+        android:layout_below="@id/horizontal_holder"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/horizontal_holder_marginRight">
     <LinearLayout
         android:id="@+id/linearLayoutHat"
         android:layout_width="@dimen/select_feature_linear_layout_width"
+        android:layout_weight="1"
         android:layout_height="@dimen/select_feature_linear_layout_height"
         android:layout_alignLeft="@+id/linearLayouthandbag"
         android:layout_below="@+id/linearLayouthandbag"
         android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
         android:background="@drawable/round_rect_pink_shape"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/hat_marginRight">
 
         <TextView
             android:layout_width="wrap_content"
@@ -367,10 +399,12 @@
                 android:id="@+id/leftHat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+                android:src="@drawable/ic_keyboard_arrow_left_white_18dp"
+                android:layout_weight="1"/>
 
             <ImageButton
                 android:id="@+id/rightHat"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
@@ -386,6 +420,7 @@
         android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top"
         android:background="@drawable/round_rect_purple_shape"
         android:gravity="center"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
@@ -435,22 +470,39 @@
             <ImageButton
                 android:id="@+id/leftNecklace"
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
 
             <ImageButton
                 android:id="@+id/rightNecklace"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
         </LinearLayout>
     </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_above="@+id/power_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/brown_button_background"
+        android:text="@string/continue_text"
+        android:textAllCaps="false"
+        android:layout_weight="1"
+        android:textSize="@dimen/button_font"/>
 
+</LinearLayout>
     <RelativeLayout
         android:id="@+id/power_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/power_bar_view_height"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        >
 
         <ImageView
             android:id="@+id/powerBarView"
@@ -523,16 +575,5 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/continueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/power_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/brown_button_background"
-        android:text="@string/continue_text"
-        android:textAllCaps="false"
-        android:textSize="@dimen/button_font"/>
 
 </RelativeLayout>
