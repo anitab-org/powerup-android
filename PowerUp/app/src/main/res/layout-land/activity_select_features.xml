@@ -101,7 +101,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/select_feature_linear_layout_margin_top_landscape"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_yellow_shape"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -241,7 +241,7 @@
         android:layout_alignTop="@+id/linearLayouthandbag"
         android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_top_landscape"
         android:layout_toRightOf="@+id/linearLayouthandbag"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_blue_shape"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -309,7 +309,7 @@
         android:layout_alignTop="@+id/linearLayouthandbag"
         android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_top_landscape"
         android:layout_toRightOf="@+id/linearLayoutGlasses"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_pink_shape"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -377,7 +377,7 @@
         android:layout_alignTop="@+id/linearLayouthandbag"
         android:layout_marginLeft="@dimen/select_feature_linear_layout_margin_top_landscape"
         android:layout_toRightOf="@+id/linearLayoutHat"
-        android:background="@drawable/round_rect_green_shape"
+        android:background="@drawable/round_rect_purple_shape"
         android:gravity="center"
         android:orientation="vertical">
 
