@@ -128,8 +128,6 @@ public class GameActivity extends Activity {
                             updatePoints(position);
                             updateQA();
                         } else {
-                            SessionHistory.prevSessionID = scene.getId();
-                            SessionHistory.currSessionID = scene.getNextScenarioID();
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 1;
@@ -228,6 +226,7 @@ public class GameActivity extends Activity {
                 finish();
                 startActivityForResult(intent, 0);
             } else {
+                SessionHistory.prevSessionID = scene.getId();
                 SessionHistory.currSessionID = scene.getNextScenarioID();
                 Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
                 intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
