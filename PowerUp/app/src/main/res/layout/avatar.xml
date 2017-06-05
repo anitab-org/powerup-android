@@ -91,7 +91,7 @@
         android:gravity="center"
         android:text="@string/avatar"
         android:textColor="@color/powerup_black"
-        android:textSize="@dimen/final_avatar_text_view_text_size" />
+        android:textSize="@dimen/final_avatar_text_size" />
 
     <Button
         android:id="@+id/backButton"

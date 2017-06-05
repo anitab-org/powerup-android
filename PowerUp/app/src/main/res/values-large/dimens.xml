@@ -29,6 +29,7 @@
     <dimen name="select_feature_tv_paid_left_margin_small">15dp</dimen>
     <dimen name="select_feature_tv_paid_size_small">32sp</dimen>
     <dimen name="text_view_necklace">18sp</dimen>
+    <dimen name="final_avatar_text_size">25sp</dimen>
 
 
 </resources>
