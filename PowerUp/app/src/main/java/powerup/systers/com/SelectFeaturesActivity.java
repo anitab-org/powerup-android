@@ -166,6 +166,11 @@ public class SelectFeaturesActivity extends AppCompatActivity {
             linearLayoutHat.setVisibility(View.GONE);
             linearLayoutNecklace.setVisibility(View.GONE);
             imageViewSelectFeature.setImageDrawable(getResources().getDrawable(R.drawable.cloth1));
+            int isPurchased = getmDbHandler().getPurchasedClothes(1);
+            if (isPurchased == 1) {
+                imageViewSelectFeature.setAlpha((float) 0.5);
+                tvPaidSelectFeature.setText(getResources().getString(R.string.paid_feature));
+            }
             TextView tv = (TextView) findViewById(R.id.textViewSelectFeature);
             tvPoints = (TextView) findViewById(R.id.tvSelectFeaturePoints);
             tvPoints.setText(String.valueOf(getmDbHandler().getPointsClothes(cloth)));
@@ -202,6 +207,11 @@ public class SelectFeaturesActivity extends AppCompatActivity {
             linearLayoutHat.setVisibility(View.GONE);
             linearLayoutNecklace.setVisibility(View.GONE);
             imageViewSelectFeature.setImageDrawable(getResources().getDrawable(R.drawable.hair1));
+            int isPurchased = getmDbHandler().getPurchasedHair(1);
+            if (isPurchased == 1) {
+                imageViewSelectFeature.setAlpha((float) 0.5);
+                tvPaidSelectFeature.setText(getResources().getString(R.string.paid_feature));
+            }
             TextView tv = (TextView) findViewById(R.id.textViewSelectFeature);
             tvPoints = (TextView) findViewById(R.id.tvSelectFeaturePoints);
             tvPoints.setText(String.valueOf(getmDbHandler().getPointsHair(hair)));
