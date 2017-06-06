@@ -84,7 +84,7 @@
     <dimen name="avatar_room_continue_button">50dp</dimen>
     <dimen name="simple_row_text_view_padding">10dp</dimen>
     <dimen name="final_avatar_text_view_margin_top">70dp</dimen>
-    <dimen name="final_avatar_text_view_text_size">20sp</dimen>
+    <dimen name="final_avatar_text_view_text_size">12sp</dimen>
     <dimen name="avatar_margin">40dp</dimen>
     <dimen name="avatar_face_view_land_margin_top">72dp</dimen>
     <dimen name="avatar_hair_view_land_margin_top">70dp</dimen>
@@ -115,10 +115,10 @@
     <dimen name="select_feature_glasses_view_height_landscape">60dp</dimen>
     <dimen name="select_feature_linear_layout_width">90dp</dimen>
     <dimen name="select_feature_linear_layout_height">150dp</dimen>
-    <dimen name="select_feature_linear_layout_margin_top">30dp</dimen>
+    <dimen name="select_feature_linear_layout_margin_top">10dp</dimen>
     <dimen name="select_feature_linear_layout_margin_left">20dp</dimen>
     <dimen name="select_feature_image_height">80dp</dimen>
-    <dimen name="text_view_necklace">18sp</dimen>
+    <dimen name="text_view_necklace">12sp</dimen>
     <dimen name="select_feature_linear_layout_width_landscape">90dp</dimen>
     <dimen name="select_feature_linear_layout_height_landscape">150dp</dimen>
     <dimen name="select_feature_linear_layout_margin_top_landscape">10dp</dimen>
@@ -177,4 +177,9 @@
     <dimen name="karma_imageview_margin_top">5dp</dimen>
     <dimen name="health_power_bar_margin_right">20dp</dimen>
     <dimen name="scenarioNameEditText_margin_top">-4dp</dimen>
+    <dimen name="horizontal_holder_marginRight">20dp</dimen>
+    <dimen name="horizontal_holder_marginTop">20dp</dimen>
+    <dimen name="hat_marginRight">20dp</dimen>
+    <dimen name="relative2_marginLeft">10dp</dimen>
+    <dimen name="final_avatar_text_size">18sp</dimen>
 </resources>

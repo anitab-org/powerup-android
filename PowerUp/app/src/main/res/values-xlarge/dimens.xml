@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="face_view_width">200dp</dimen>
+    <dimen name="face_view_height">240dp</dimen>
+    <dimen name="eye_view_width">100dp</dimen>
+    <dimen name="eye_view_height">100dp</dimen>
+    <dimen name="eye_view_margin_bottom">60dp</dimen>
+    <dimen name="hair_view_width">300dp</dimen>
+    <dimen name="hair_view_height">300dp</dimen>
+    <dimen name="cloth_view_width">150dp</dimen>
+    <dimen name="cloth_view_height">400dp</dimen>
+    <dimen name="select_feature_bag_view_width">140dp</dimen>
+    <dimen name="select_feature_bag_view_height">140dp</dimen>
+    <dimen name="select_feature_glasses_view_width">180dp</dimen>
+    <dimen name="select_feature_glasses_view_height">100dp</dimen>
+    <dimen name="select_feature_hat_view_width">200dp</dimen>
+    <dimen name="select_feature_hat_view_height">120dp</dimen>
+    <dimen name="select_feature_necklace_view_width">160dp</dimen>
+    <dimen name="select_feature_necklace_view_height">100dp</dimen>
+
+    <dimen name="handbag_">43dp</dimen>
+    <dimen name="select_feature_linear_layout_width">195dp</dimen>
+    <dimen name="select_feature_linear_layout_height">324dp</dimen>
+    <dimen name="final_avatar_text_view_text_size">26sp</dimen>
+    <dimen name="select_feature_image_height">173dp</dimen>
+    <dimen name="select_feature_tv_paid_top_margin_small">65dp</dimen>
+    <dimen name="select_feature_tv_paid_left_margin_small">22dp</dimen>
+    <dimen name="select_feature_tv_paid_size_small">46sp</dimen>
+    <dimen name="text_view_necklace">27sp</dimen>
+    <dimen name="final_avatar_text_size">34sp</dimen>
+</resources>
