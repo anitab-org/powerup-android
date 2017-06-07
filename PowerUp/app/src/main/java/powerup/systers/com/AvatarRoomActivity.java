@@ -245,6 +245,8 @@ public class AvatarRoomActivity extends Activity {
                 SessionHistory.currSessionID = 1;
                 SessionHistory.currScenePoints = 0;
                 getmDbHandler().resetPurchase();
+                getmDbHandler().setPurchasedHair(hair);
+                getmDbHandler().setPurchasedClothes(cloth);
                 Random random = new Random();
                 Integer healing = random.nextInt(101 - 1) + 1;
                 getmDbHandler().setHealing(healing);
