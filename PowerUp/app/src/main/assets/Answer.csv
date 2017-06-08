@@ -53,3 +53,20 @@
 53,33,Whatever!,$,1
 54,34,Yo! See you soon,$,1
 55,31,Hehe.. be careful,$,1
+56,35,Yes..I am comfortable and prefer speaking alone,36,2
+57,35,No..I am not comfortable. Please call her.,40,2
+58,35,Say yes even if you are not comfortable,36,2
+59,36,Answer questions hesitantly,38,2
+60,36,Please call my mother,40,2
+61,36,Stay quiet until doctor calls your mother,40,2
+62,40,Stay quiet and let your mother answer for you,37,2
+63,40,Voluntarily answer questions yourself,38,2
+64,40,Give answers in detail,38,2
+65,37,Stay quiet,38,2
+66,37,Correct her and tell all problems clearly in detail,38,2
+67,38,Tell doctor about any pain or infection or health problem during checkup,39,2
+68,38,Stay quiet. Don't tell any problem you are facing to save embarrassment,39,2
+69,38,Lie on checkup questions to save embarrassment,39,2
+70,39,No..Return home,$,2
+71,39,No..Ask your mother later after returning home,$,2
+72,39,Ask your all doubts related to puberty,$,2
