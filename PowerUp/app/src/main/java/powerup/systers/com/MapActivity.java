@@ -37,17 +37,17 @@ public class MapActivity extends Activity {
         getmDbHandler().open();
         setContentView(R.layout.gamemap);
 
-        Button house = (Button) findViewById(R.id.HouseButton);
-        house.setOnClickListener(onClickListener);
+        Button school = (Button) findViewById(R.id.HouseButton);
+        school.setOnClickListener(onClickListener);
 
-        Button boyfriend = (Button) findViewById(R.id.BoyfriendButton);
-        boyfriend.setOnClickListener(onClickListener);
+        Button home = (Button) findViewById(R.id.BoyfriendButton);
+        home.setOnClickListener(onClickListener);
 
         Button hospital = (Button) findViewById(R.id.HospitalButton);
         hospital.setOnClickListener(onClickListener);
 
-        Button school = (Button) findViewById(R.id.SchoolButton);
-        school.setOnClickListener(onClickListener);
+        Button library = (Button) findViewById(R.id.SchoolButton);
+        library.setOnClickListener(onClickListener);
 
         Button storeButton = (Button) findViewById(R.id.storeButton);
         storeButton.setOnClickListener(new OnClickListener() {
