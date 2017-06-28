@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="banner_height">150dp</dimen>
+    <dimen name="score_padding_right">17dp</dimen>
+    <dimen name="score_text_size">19sp</dimen>
+    <dimen name="continue_width">200dp</dimen>
+    <dimen name="continue_height">80dp</dimen>
+    <dimen name="continue_marginBottom">6dp</dimen>
+    <dimen name="pros_cons_textSize">18sp</dimen>
+    <dimen name="pros_cons_paddingRight">20dp</dimen>
+    <dimen name="pros_cons_paddingTop">10dp</dimen>
+</resources>

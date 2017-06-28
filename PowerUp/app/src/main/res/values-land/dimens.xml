@@ -197,4 +197,13 @@
     <dimen name="questionview_tv_margin_left">15dp</dimen>
     <dimen name="gameActivity_rl_marginTop">10dp</dimen>
     <dimen name="continue_button_map_margin_bottom_landscape">40dp</dimen>
+    <dimen name="adjustable">0dp</dimen>
+    <dimen name="score_padding_right">20dp</dimen>
+    <dimen name="score_text_size">22sp</dimen>
+    <dimen name="continue_width">250dp</dimen>
+    <dimen name="continue_height">100dp</dimen>
+    <dimen name="continue_marginBottom">10dp</dimen>
+    <dimen name="pros_cons_textSize">20sp</dimen>
+    <dimen name="pros_cons_paddingRight">20dp</dimen>
+    <dimen name="pros_cons_paddingTop">10dp</dimen>
 </resources>

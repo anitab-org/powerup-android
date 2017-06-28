@@ -28,4 +28,13 @@
     <dimen name="select_feature_tv_paid_size_small">46sp</dimen>
     <dimen name="text_view_necklace">27sp</dimen>
     <dimen name="final_avatar_text_size">34sp</dimen>
+    <dimen name="banner_height">300dp</dimen>
+    <dimen name="score_padding_right">34dp</dimen>
+    <dimen name="score_text_size">38sp</dimen>
+    <dimen name="continue_width">400dp</dimen>
+    <dimen name="continue_height">140dp</dimen>
+    <dimen name="continue_marginBottom">12dp</dimen>
+    <dimen name="pros_cons_textSize">38sp</dimen>
+    <dimen name="pros_cons_paddingRight">25dp</dimen>
+    <dimen name="pros_cons_paddingTop">15dp</dimen>
 </resources>

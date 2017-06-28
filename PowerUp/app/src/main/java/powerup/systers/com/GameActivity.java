@@ -16,14 +16,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.minesweeper.MinesweeperGameActivity;
+import powerup.systers.com.minesweeper.MinesweeperSessionManager;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
@@ -43,21 +49,26 @@ public class GameActivity extends Activity {
     public GameActivity() {
         gameActivityInstance = this;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        if(savedInstanceState != null){
+
+        if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
+            startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
+        }
+        if (savedInstanceState != null) {
             isStateChanged = true;
         }
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
+
         // Find the ListView resource.
         ListView mainListView = (ListView) findViewById(R.id.mainListView);
         questionTextView = (TextView) findViewById(R.id.questionView);
         scenarioNameTextView = (TextView) findViewById(R.id.scenarioNameEditText);
-        listAdapter = new ArrayAdapter<>(this, R.layout.simplerow,
-                new ArrayList<String>());
+        listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
         answers = new ArrayList<>();
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
         replay = (Button) findViewById(R.id.redoButton);
@@ -66,6 +77,7 @@ public class GameActivity extends Activity {
         ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
         ImageView hairImageView = (ImageView) findViewById(R.id.hairImageView);
         ImageView clothImageView = (ImageView) findViewById(R.id.clothImageView);
+
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
@@ -109,7 +121,8 @@ public class GameActivity extends Activity {
         }
 
         // Update Scene
-        updateScenario();
+        updateScenario(0);
+        updateQA();
         if (scene.getReplayed() == 1) {
             goToMap.setAlpha((float) 0.0);
             replay.setAlpha((float) 0.0);
@@ -127,15 +140,18 @@ public class GameActivity extends Activity {
                                     .getNextQuestionID();
                             updatePoints(position);
                             updateQA();
+                        } else if (answers.get(position).getNextQuestionID() == -1) {
+                            updatePoints(position);
+                            getmDbHandler().setCompletedScenario(scene.getId());
+                            updateScenario(-1);
                         } else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 1;
                             }
                             updatePoints(position);
-                            getmDbHandler().setCompletedScenario(
-                                    scene.getId());
-                            updateScenario();
+                            getmDbHandler().setCompletedScenario(scene.getId());
+                            updateScenario(0);
                         }
                     }
                 });
@@ -160,6 +176,7 @@ public class GameActivity extends Activity {
 
     /**
      * Add karma points to the session.
+     *
      * @param position the current question user is on
      */
     private void updatePoints(int position) {
@@ -172,8 +189,9 @@ public class GameActivity extends Activity {
     /**
      * Finish, replay, or go to another scenario as needed. Updates the
      * question and answer if the last scenario has not yet been reached.
+     * @param type coding scheme for .csv files, -1 means minesweeper game, 0 means scenario completion
      */
-    private void updateScenario() {
+    private void updateScenario(int type) {
         if (ScenarioOverActivity.scenarioActivityDone == 1)
             new ScenarioOverActivity().scenarioOverActivityInstance.finish();
         if (scene != null)
@@ -219,6 +237,8 @@ public class GameActivity extends Activity {
                 }
             });
         }
+        SessionHistory.currQID = scene.getFirstQuestionID();
+        scenarioNameTextView.setText(scene.getScenarioName());
         // If completed check if it is last scene
         if (prevScene != null && prevScene.getCompleted() == 1) {
             if (scene.getNextScenarioID() == -1) {
@@ -228,18 +248,17 @@ public class GameActivity extends Activity {
             } else {
                 SessionHistory.prevSessionID = scene.getId();
                 SessionHistory.currSessionID = scene.getNextScenarioID();
-                Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
-                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
-                startActivity(intent);
+                if (type == 0) {
+                    Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
+                    intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
+                    startActivity(intent);
+                } else if (type == -1) {
+                    new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
+                    startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, true));
+                }
             }
         }
-        if (isStateChanged == false){
-            SessionHistory.currQID = scene.getFirstQuestionID();
-        } else {
-            isStateChanged = false;
-        }
-        scenarioNameTextView.setText(scene.getScenarioName());
-        updateQA();
+
     }
 
     /**
