@@ -45,7 +45,7 @@ public class MinesweeperSessionManager {
     }
 
     public int getCompletedRounds() {
-        return pref.getInt(ROUNDS_COMPLETED, 0);
+        return pref.getInt(ROUNDS_COMPLETED, 1);
     }
 
     /**
@@ -61,5 +61,4 @@ public class MinesweeperSessionManager {
         editor.clear();
         editor.commit();
     }
-
 }
