@@ -76,7 +76,6 @@ public class GameActivity extends Activity {
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
-
         SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
         ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
