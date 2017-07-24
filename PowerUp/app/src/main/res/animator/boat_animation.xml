@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially"
+    >
+<rotate
+    android:fromDegrees="20"
+    android:toDegrees="-10"
+    android:pivotX="29%"
+    android:pivotY="50%"
+    android:duration="2000"
+/>
+    <rotate
+        android:startOffset="2000"
+        android:fromDegrees="-10"
+        android:toDegrees="10"
+        android:pivotX="29%"
+        android:pivotY="50%"
+        android:duration="2000"
+        />
+
+</set>

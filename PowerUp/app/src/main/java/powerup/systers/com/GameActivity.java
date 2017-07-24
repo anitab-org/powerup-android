@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,6 +31,7 @@ import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
@@ -144,6 +146,10 @@ public class GameActivity extends Activity {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-1);
+                        } else if (answers.get(position).getNextQuestionID() == -2) {
+                            updatePoints(position);
+                            getmDbHandler().setCompletedScenario(scene.getId());
+                            updateScenario(-2);
                         } else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
@@ -241,11 +247,6 @@ public class GameActivity extends Activity {
         scenarioNameTextView.setText(scene.getScenarioName());
         // If completed check if it is last scene
         if (prevScene != null && prevScene.getCompleted() == 1) {
-            if (scene.getNextScenarioID() == -1) {
-                Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
-                finish();
-                startActivityForResult(intent, 0);
-            } else {
                 SessionHistory.prevSessionID = scene.getId();
                 SessionHistory.currSessionID = scene.getNextScenarioID();
                 if (type == 0) {
@@ -255,7 +256,8 @@ public class GameActivity extends Activity {
                 } else if (type == -1) {
                     new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
                     startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, true));
-                }
+                } else if (type == -2) {
+                startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
             }
         }
 

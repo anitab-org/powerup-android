@@ -206,4 +206,11 @@
     <dimen name="pros_cons_textSize">20sp</dimen>
     <dimen name="pros_cons_paddingRight">20dp</dimen>
     <dimen name="pros_cons_paddingTop">10dp</dimen>
+    <dimen name="pointer_width">75dp</dimen>
+    <dimen name="pointer_height">27dp</dimen>
+    <dimen name="swim_game_paddingRight">30dp</dimen>
+    <dimen name="swim_game_paddingLeft">26dp</dimen>
+    <dimen name="swim_score_textSize">30sp</dimen>
+    <dimen name="swim_button_textSize">60sp</dimen>
+    <dimen name="question_textSize">16sp</dimen>
 </resources>

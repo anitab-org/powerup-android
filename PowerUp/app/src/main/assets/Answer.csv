@@ -82,12 +82,12 @@
 82,43,Go to Internet,47,2
 83,44,I should wait !! I will get better,45,2
 84,44,I should talk to Mom,46,2
-85,45,Visit Doctor !!,$,2
+85,45,Visit Doctor !!,-2,2
 86,45,Go to Mom,46,2
-87,46,Visit Doctor!!,$,2
+87,46,Visit Doctor!!,-2,2
 88,47,Take medicine,45,2
 89,47,Go to Mom,46,2
-90,47,Visit Doctor!!,$,2
+90,47,Visit Doctor!!,-2,2
 91,48,Aaruhi- Talk to your Mom,46,2
 92,48,Juhi- It's happening to me as well..Go to Internet,47,2
 93,48,Ruhi- It's not happening to me..Talk to your Mom,46,2

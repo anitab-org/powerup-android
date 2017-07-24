@@ -31,4 +31,5 @@ public class PowerUpUtils {
             {"=> Better Success Rate3", "=> Cheapest Contraceptive3", "=> No protection against STDs3"}};
 
     public static volatile boolean sPauseTest = true;
+    public static final String[][] SWIM_SINK_QUESTION_ANSWERS = {{"Sex is good","F"},{"We should use condom","T"},{"Sachin designed this game","T"},{"Sachin is working on Conference Android Project","F"},{"Google is future's past","F"}};
 }
