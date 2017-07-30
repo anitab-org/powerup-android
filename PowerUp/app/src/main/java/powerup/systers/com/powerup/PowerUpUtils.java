@@ -10,7 +10,7 @@ import powerup.systers.com.R;
 
 public class PowerUpUtils {
 
-    public static final int NUMBER_OF_ROUNDS = 3;
+    public static final int NUMBER_OF_ROUNDS = 1;
     public static final int NUMBER_OF_CELLS = 25;
     public static final int MAXIMUM_FLIPS_ALLOWED = 5;
     public static final int RED_BANNER = 1;
@@ -41,4 +41,6 @@ public class PowerUpUtils {
     public static final int[] SWIM_TUTS = {R.drawable.swim_tut1,R.drawable.swim_tut2,R.drawable.swim_tut3};
     public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background,R.drawable.background,R.drawable.background,R.drawable.classroom,R.drawable.dressing_room,R.drawable.hospital,R.drawable.library};
 
+    public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3,R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3,R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3};
+    public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods","Pimples","Bra","Periods","Pimples","Bra","Periods","Pimples","Bra"};
 }

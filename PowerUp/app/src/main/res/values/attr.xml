@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="position" format="integer" />
+    <declare-styleable name="VocabTileImageView">
+    </declare-styleable>
+    <declare-styleable name="VocabBoardTextView">
+    </declare-styleable>
+</resources>
+
+
