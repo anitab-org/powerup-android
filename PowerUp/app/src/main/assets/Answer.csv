@@ -67,9 +67,9 @@
 67,38,Tell doctor about any pain or infection or health problem during checkup,39,2
 68,38,Stay quiet. Don't tell any problem you are facing to save embarrassment,39,2
 69,38,Lie on checkup questions to save embarrassment,39,2
-70,39,No..Return home,$,2
-71,39,No..Ask your mother later after returning home,$,2
-72,39,Ask your all doubts related to puberty,$,2
+70,39,No..Return home,-3,2
+71,39,No..Ask your mother later after returning home,-3,2
+72,39,Ask your all doubts related to puberty,-3,2
 73,41,I am getting acnes and fat at hips,42,2
 74,41,I am not growing.Everybody else has got much bigger than me,43,2
 75,41,I have got period for the first time,44,2

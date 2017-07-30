@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import powerup.systers.com.GameActivity;
+
 import powerup.systers.com.R;
+import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class VocabMatchEndActivity extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class VocabMatchEndActivity extends AppCompatActivity {
     }
 
     public void continuePressed(View view){
-        Intent intent = new Intent(VocabMatchEndActivity.this, GameActivity.class);
+        Intent intent = new Intent(VocabMatchEndActivity.this, ScenarioOverActivity.class);
         finish();
         startActivity(intent);
     }
