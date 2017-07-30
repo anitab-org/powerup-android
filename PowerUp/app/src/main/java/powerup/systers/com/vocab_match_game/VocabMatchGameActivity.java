@@ -3,13 +3,14 @@ package powerup.systers.com.vocab_match_game;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -71,8 +72,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         oldestTile = 0;
         r = new Random();
         startNewTile(Math.abs(r.nextInt() % 3), img1);
-
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -89,6 +88,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         }, 4000);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void startNewTile(final int position, final VocabTileImageView imageview) {
         imageview.setImageDrawable(getResources().getDrawable(PowerUpUtils.VOCAB_TILES_IMAGES[latestTile]));
         imageview.setX(0);
@@ -96,26 +96,43 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         imageview.setY(position * (height / 3));
         imageview.setVisibility(View.VISIBLE);
         imageview.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-
         ObjectAnimator animation = ObjectAnimator.ofFloat(imageview, "translationX", width * 0.63f);
         animation.setDuration(6000);
         animation.setInterpolator(new LinearInterpolator());
         animation.addListener(new AnimatorListenerAdapter() {
+
             @Override
             public void onAnimationEnd(Animator animation) {
                 imageview.setLayerType(View.LAYER_TYPE_NONE, null);
                 imageview.setVisibility(View.GONE);
-                if (PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile].equals(getTextFromBoard(imageview.getPosition()))) {
+                final TextView boardView = getBoardFromPosition(imageview.getPosition());
+                String boardText = getBoardFromPosition(imageview.getPosition()).getText().toString();
+                String tileText = PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile];
+                if (tileText.equals(boardText)) {
                     score++;
                     scoreView.setText("" + score);
+                    boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_green));
+                }else {
+                    boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_red));
                 }
+
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_yellow));
+                    }
+                },2);
                 latestTile++;
-                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length)
+
+
+                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length) {
                     getPositionFromText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile]).setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[latestTile]);
+                }
                 oldestTile++;
-                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length){
+                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length) {
                     startNewTile(Math.abs(r.nextInt() % 3), imageview);
-                }else if (latestTile == PowerUpUtils.VOCAB_TILES_IMAGES.length + 2){
+                } else if (latestTile == PowerUpUtils.VOCAB_TILES_IMAGES.length + 2){
                     Intent intent = new Intent(VocabMatchGameActivity.this,VocabMatchEndActivity.class);
                     intent.putExtra(PowerUpUtils.SCORE,score);
                     finish();
@@ -127,13 +144,13 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         animation.start();
     }
 
-    public String getTextFromBoard(int position) {
+    public TextView getBoardFromPosition(int position) {
         if (tv1.getPosition() == position)
-            return tv1.getText().toString();
+            return tv1;
         else if (tv2.getPosition() == position)
-            return tv2.getText().toString();
+            return tv2;
         else
-            return tv3.getText().toString();
+            return tv3;
     }
 
     public VocabBoardTextView getPositionFromText(String text) {
@@ -155,7 +172,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_STARTED:
                     view.setVisibility(View.INVISIBLE);
-                    Log.i("Drag Event", "Entered");
                     break;
 
                 case DragEvent.ACTION_DRAG_ENDED:
@@ -165,7 +181,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                             view.setVisibility(View.VISIBLE);
                         }
                     });
-                    Log.i("Drag Event", "Exited");
                     break;
 
                 case DragEvent.ACTION_DROP:
