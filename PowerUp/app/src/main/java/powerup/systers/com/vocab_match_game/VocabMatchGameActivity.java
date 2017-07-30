@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -112,8 +113,15 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                 if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length)
                     getPositionFromText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile]).setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[latestTile]);
                 oldestTile++;
-                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length)
+                if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length){
                     startNewTile(Math.abs(r.nextInt() % 3), imageview);
+                }else if (latestTile == PowerUpUtils.VOCAB_TILES_IMAGES.length + 2){
+                    Intent intent = new Intent(VocabMatchGameActivity.this,VocabMatchEndActivity.class);
+                    intent.putExtra(PowerUpUtils.SCORE,score);
+                    finish();
+                    startActivity(intent);
+                }
+
             }
         });
         animation.start();
@@ -161,7 +169,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                     break;
 
                 case DragEvent.ACTION_DROP:
-                    Log.e("sachin1", "sachin");
                     VocabBoardTextView source = (VocabBoardTextView) view;
                     VocabBoardTextView target = (VocabBoardTextView) v;
                     float sourceX = source.getY();
@@ -170,7 +177,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                     source.setPosition(target.getPosition());
                     target.setY(sourceX);
                     target.setPosition(sourcePosition);
-                    Log.e("sachin", source.getPosition() + "" + target.getPosition());
                     break;
             }
             return true;
@@ -180,7 +186,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
     private class TouchListener implements View.OnTouchListener {
         @Override
         public boolean onTouch(View v, MotionEvent motionEvent) {
-            Log.e("sachin", motionEvent.getAction() + " " + motionEvent.getActionMasked() + " " + motionEvent.getSource());
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
