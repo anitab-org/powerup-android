@@ -46,7 +46,6 @@
     <dimen name="question_textSize">32sp</dimen>
     <dimen name="swim_score_text_size">155sp</dimen>
     <dimen name="swim_answer_textSize">78sp</dimen>
-<<<<<<< HEAD
     <dimen name="map_paddingBottom">150dp</dimen>
     <dimen name="map_marginBottom">30dp</dimen>
     <dimen name="store_height_value">200dp</dimen>
@@ -63,6 +62,4 @@
     <dimen name="answer_listview_width">460dp</dimen>
     <dimen name="asker_width">220dp</dimen>
     <dimen name="asker_height">280dp</dimen>
-=======
->>>>>>> Adds Game end screen for Swim To Sink Game
 </resources>
