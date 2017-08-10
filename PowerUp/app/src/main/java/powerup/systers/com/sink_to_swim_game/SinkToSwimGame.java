@@ -229,7 +229,7 @@ public class SinkToSwimGame extends AppCompatActivity {
             return;
         float pixels = height * 0.1f;
         pointer.animate().translationYBy(-pixels).setDuration(10).setInterpolator(new LinearInterpolator());
-        boat.animate().translationYBy(-(height * 0.1f * 0.66f));
+        boat.animate().translationYBy(-(height * 0.1f * 0.66f)).setDuration(10).setInterpolator(new LinearInterpolator());
     }
 
     /**
