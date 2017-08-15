@@ -133,4 +133,14 @@
         android:layout_height="@dimen/pointer_height"
         android:src="@drawable/swim_game_pointer" />
 
+    <ImageView
+        android:id="@+id/continue_button"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:background="@drawable/continue_button"
+        android:onClick="gameStarted"
+        android:scaleType="fitXY" />
+
 </FrameLayout>

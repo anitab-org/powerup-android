@@ -42,27 +42,6 @@ public class SinkToSwimGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sink_to_swim_game);
-        //defines the wave animation on boat
-        mAnimation = AnimationUtils.loadAnimation(this, R.animator.boat_animation); // Now it should work smoothy as hanging problem is solved now
-        mAnimation.setInterpolator(new LinearInterpolator());
-        mAnimation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-                boat.startAnimation(mAnimation);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
         boat = (ImageView) findViewById(R.id.boat);
         trueOption = (Button) findViewById(R.id.true_option);
         skipOption = (Button) findViewById(R.id.skip_option);
@@ -76,8 +55,32 @@ public class SinkToSwimGame extends AppCompatActivity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
-
         initialSetUp();
+    }
+
+    public void gameStarted(View view) {
+        findViewById(R.id.continue_button).setVisibility(View.GONE);
+        //defines the wave animation on boat
+        mAnimation = AnimationUtils.loadAnimation(this, R.animator.boat_animation); // Now it should work smoothy as hanging problem is solved now
+        mAnimation.setInterpolator(new LinearInterpolator());
+        mAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                boat.startAnimation(mAnimation);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        boat.startAnimation(mAnimation); //starts wave animation on boat
+        countDownTimer.start();
     }
 
     /**
@@ -88,11 +91,9 @@ public class SinkToSwimGame extends AppCompatActivity {
         speed = 2; // speed with which boat and pointer will come down
         curQuestion = 0;
         millisLeft = 40000; //=40 sec //time left before game is over
-
         questionView.setText(PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][0]);
         bringPointerAndBoatToInitial(); //brings the pointer of scale and boat to their initial positions
         setButtonsEnabled(true); //enables the true,false,and skip button for clicking
-        boat.startAnimation(mAnimation); //starts wave animation on boat
         countDownTimer = new CountDownTimer(millisLeft, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -110,7 +111,6 @@ public class SinkToSwimGame extends AppCompatActivity {
                 gameEnd(); //game ends when time finishes
             }
         };
-        countDownTimer.start();
     }
 
     /**
@@ -138,9 +138,10 @@ public class SinkToSwimGame extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void showNextQuestion() {
         curQuestion++;
-        if (curQuestion == PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS.length) //if last question in database, 
-            curQuestion = 0;
-
+        if (curQuestion == PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS.length) { //if last question in database,
+            gameEnd();
+            return;
+        }
         final AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
         final AlphaAnimation fadeOut = new AlphaAnimation(1f, 0f);
         fadeOut.setFillAfter(true);
@@ -156,7 +157,6 @@ public class SinkToSwimGame extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
                 questionView.setText(PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][0]);
                 questionView.setBackground(null);
                 questionView.startAnimation(fadeIn);
@@ -183,7 +183,6 @@ public class SinkToSwimGame extends AppCompatActivity {
 
             }
         });
-
         questionView.startAnimation(fadeOut);
     }
 
@@ -211,11 +210,11 @@ public class SinkToSwimGame extends AppCompatActivity {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_right));
             } else {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
-                showNextQuestion();
             }
         }
-        showNextQuestion();
+
         questionView.setText("");
+        showNextQuestion();
         scoreView.setText("Score: " + score);
     }
 
@@ -224,7 +223,9 @@ public class SinkToSwimGame extends AppCompatActivity {
      * called for correct answer
      */
     public void bringPointerAndAvatarUp() {
-        animator.cancel();
+        if (animator != null) {
+            animator.cancel();
+        }
         if (pointer.getTranslationY() < height * 0.2) //if pointer already at the topmost position, return
             return;
         float pixels = height * 0.1f;
