@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import powerup.systers.com.db.DatabaseHandler;
@@ -39,9 +41,13 @@ public class MapActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.gamemap);
+        Button homeButton = (Button) findViewById(R.id.home_button);
+        homeButton.setHeight(homeButton.getWidth());
 
         Button school = (Button) findViewById(R.id.HouseButton);
         school.setOnClickListener(onClickListener);
@@ -63,11 +69,11 @@ public class MapActivity extends Activity {
             }
         });
 
-        Button homeButton = (Button) findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+                startActivity(new Intent(MapActivity.this,StartActivity.class));
             }
         });
 

@@ -19,9 +19,9 @@ import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowCountDownTimer;
 
 import powerup.systers.com.BuildConfig;
-import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.sink_to_swim_game.SinkToSwimEndActivity;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 
 import static org.junit.Assert.assertEquals;
@@ -48,9 +48,9 @@ public class SinkToSwimTests {
     }
 
     @Test
-    public void gameEndStartsGameOverActivity() {
-        Class GameOver = GameOverActivity.class;
-        Intent expectedIntent = new Intent(activity, GameOver);
+    public void gameEndStartsSinkToSwimEndActivity() {
+        Class SinkToSwimEnd = SinkToSwimEndActivity.class;
+        Intent expectedIntent = new Intent(activity, SinkToSwimEnd);
 
         activity.gameEnd();
 
@@ -188,8 +188,8 @@ public class SinkToSwimTests {
     @Test
     public void gameOverOnQuestionsFinished() {
         activity.curQuestion = PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS.length - 1;
-        Class GameOver = GameOverActivity.class;
-        Intent expectedIntent = new Intent(activity, GameOver);
+        Class SinkToSwimEnd = SinkToSwimEndActivity.class;
+        Intent expectedIntent = new Intent(activity, SinkToSwimEnd);
 
         activity.showNextQuestion();
 

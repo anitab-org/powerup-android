@@ -93,7 +93,7 @@
     <dimen name="select_feature_image_view">200dp</dimen>
     <dimen name="select_feature_image_view_margin">20dp</dimen>
     <dimen name="store_width">70dp</dimen>
-    <dimen name="store_height">200dp</dimen>
+    <dimen name="store_height">100dp</dimen>
     <dimen name="back_button_width">120dp</dimen>
     <dimen name="back_button_height">50dp</dimen>
     <dimen name="back_button_textsize">20sp</dimen>
@@ -213,4 +213,10 @@
     <dimen name="swim_score_textSize">30sp</dimen>
     <dimen name="swim_button_textSize">60sp</dimen>
     <dimen name="question_textSize">16sp</dimen>
+    <dimen name="swim_score_text_size">84sp</dimen>
+    <dimen name="swim_answer_textSize">54sp</dimen>
+    <dimen name="map_paddingBottom">150dp</dimen>
+    <dimen name="map_marginBottom">30dp</dimen>
+    <dimen name="store_height_value">200dp</dimen>
+    <dimen name="home_button_height">40dp</dimen>
 </resources>

@@ -31,7 +31,7 @@ public class SinkToSwimGame extends AppCompatActivity {
     public ImageView pointer, boat;
     public int height;
     public Animation mAnimation;
-    public int score, curQuestion, speed;
+    public int score, curQuestion, speed, correctAnswers, wrongAnswers;
     public Button trueOption, falseOption, skipOption;
     public TextView questionView, timer, scoreView;
     public long millisLeft;
@@ -87,6 +87,8 @@ public class SinkToSwimGame extends AppCompatActivity {
      * @desc sets up the initial setting of the game
      */
     public void initialSetUp() {
+        correctAnswers = 0;
+        wrongAnswers = 0;
         score = 0;
         speed = 2; // speed with which boat and pointer will come down
         curQuestion = 0;
@@ -127,9 +129,12 @@ public class SinkToSwimGame extends AppCompatActivity {
      */
     public void gameEnd() {
         countDownTimer.cancel();
-        Intent intent = new Intent(SinkToSwimGame.this, GameOverActivity.class);
+        Intent intent = new Intent(SinkToSwimGame.this, SinkToSwimEndActivity.class);
+        intent.putExtra(PowerUpUtils.SCORE,score);
+        intent.putExtra(PowerUpUtils.CORRECT_ANSWERS,correctAnswers);
+        intent.putExtra(PowerUpUtils.WRONG_ANSWER,wrongAnswers);
         finish();
-        startActivityForResult(intent, 0);
+        startActivity(intent);
     }
 
     /**
@@ -198,18 +203,22 @@ public class SinkToSwimGame extends AppCompatActivity {
         if (view == findViewById(R.id.true_option)) {
             if (PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][1] == "T") {
                 score += 1;
+                correctAnswers++;
                 bringPointerAndAvatarUp();
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_right));
             } else {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
+                wrongAnswers++;
             }
         } else if (view == findViewById(R.id.false_option)) {
             if (PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][1] == "F") {
                 score += 1;
+                correctAnswers++;
                 bringPointerAndAvatarUp();
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_right));
             } else {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
+                wrongAnswers++;
             }
         }
 

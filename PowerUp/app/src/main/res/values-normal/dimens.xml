@@ -16,4 +16,10 @@
     <dimen name="swim_score_textSize">14sp</dimen>
     <dimen name="swim_button_textSize">22sp</dimen>
     <dimen name="question_textSize">17sp</dimen>
+    <dimen name="swim_score_text_size">74sp</dimen>
+    <dimen name="swim_answer_textSize">38sp</dimen>
+    <dimen name="map_paddingBottom">150dp</dimen>
+    <dimen name="map_marginBottom">30dp</dimen>
+    <dimen name="store_height_value">200dp</dimen>
+    <dimen name="home_button_height">40dp</dimen>
 </resources>

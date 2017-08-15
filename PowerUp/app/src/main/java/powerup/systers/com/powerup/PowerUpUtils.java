@@ -1,5 +1,7 @@
 package powerup.systers.com.powerup;
 
+import android.graphics.drawable.Drawable;
+
 import powerup.systers.com.R;
 
 /**
@@ -13,6 +15,10 @@ public class PowerUpUtils {
     public static final int MAXIMUM_FLIPS_ALLOWED = 5;
     public static final int RED_BANNER = 1;
     public static final int GREEN_BANNER = 0;
+
+    public static final String SCORE = "score";
+    public static final String CORRECT_ANSWERS = "correct";
+    public static final String WRONG_ANSWER = "wrong";
 
 
     public static final String CALLED_BY = "GAME_ACTIVITY";
@@ -32,4 +38,7 @@ public class PowerUpUtils {
 
     public static volatile boolean sPauseTest = true;
     public static final String[][] SWIM_SINK_QUESTION_ANSWERS = {{"Sex is good","F"},{"We should use condom","T"},{"Sachin designed this game","T"},{"Sachin is working on Conference Android Project","F"},{"Google is future's past","F"}};
+    public static final int[] SWIM_TUTS = {R.drawable.swim_tut1,R.drawable.swim_tut2,R.drawable.swim_tut3};
+    public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background,R.drawable.background,R.drawable.background,R.drawable.classroom,R.drawable.dressing_room,R.drawable.hospital,R.drawable.library};
+
 }

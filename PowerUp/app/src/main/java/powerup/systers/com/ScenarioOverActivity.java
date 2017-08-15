@@ -6,34 +6,46 @@
 
 package powerup.systers.com;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Scene;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
+
+import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.powerup.PowerUpUtils;
+
+import static powerup.systers.com.R.string.scene;
 
 public class ScenarioOverActivity extends AppCompatActivity {
 
     public Activity scenarioOverActivityInstance;
     public static int scenarioActivityDone;
     private DatabaseHandler mDbHandler;
+    public Scenario scene;
 
     public ScenarioOverActivity() {
         scenarioOverActivityInstance = this;
     }
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.activity_scenario_over);
+        scene = getmDbHandler().getScenario();
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-2]));
         scenarioActivityDone = 1;
         Button replayButton = (Button) findViewById(R.id.replayButton);
         Button continueButton = (Button) findViewById(R.id.continueButton);
