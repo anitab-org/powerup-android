@@ -38,7 +38,7 @@
     <dimen name="face_view_height">120dp</dimen>
     <dimen name="face_view_margin_top">180dp</dimen>
     <dimen name="face_right_margin_top">21dp</dimen>
-    <dimen name="hair_view_width">150dp</dimen>
+    <dimen name="hair_view_width">100dp</dimen>
     <dimen name="hair_view_height">150dp</dimen>
     <dimen name="hair_margin_left">35dp</dimen>
     <dimen name="hair_view_margin_top">128dp</dimen>
@@ -57,7 +57,7 @@
     <dimen name="powerup_icon_width">120dp</dimen>
     <dimen name="powerup_width">304dp</dimen>
     <dimen name="power_bar_view_height">75dp</dimen>
-    <dimen name="game_text_size">18sp</dimen>
+    <dimen name="game_text_size">16sp</dimen>
     <dimen name="map_house_click_height">60dp</dimen>
     <dimen name="map_house_click_width">200dp</dimen>
     <dimen name="map_hospital_click_height">50dp</dimen>
@@ -67,7 +67,7 @@
     <dimen name="map_boyfriend_click_height">50dp</dimen>
     <dimen name="map_boyfriend_click_width">100dp</dimen>
     <dimen name="main_list_view_width">200dp</dimen>
-    <dimen name="main_list_view_height">200dp</dimen>
+    <dimen name="main_list_view_height">120dp</dimen>
     <dimen name="question_view_margin_top">40dp</dimen>
     <dimen name="question_view_width">200dp</dimen>
     <dimen name="redo_button_width">30dp</dimen>
@@ -189,10 +189,8 @@
     <dimen name="avatar_face_margin_top">95dp</dimen>
     <dimen name="avatar_room_ll_margin_top">50dp</dimen>
     <dimen name="gameActivity_tv_margin_left">20dp</dimen>
-    <dimen name="gameActivity_lv_width">280dp</dimen>
-    <dimen name="gameActivity_iv_width">180dp</dimen>
     <dimen name="gameActivity_iv_height">300dp</dimen>
-    <dimen name="questionview_tv_width">400dp</dimen>
+    <dimen name="questionview_tv_width">180dp</dimen>
     <dimen name="questionview_tv_margin_top">15dp</dimen>
     <dimen name="questionview_tv_margin_left">15dp</dimen>
     <dimen name="gameActivity_rl_marginTop">10dp</dimen>
@@ -219,4 +217,14 @@
     <dimen name="map_marginBottom">30dp</dimen>
     <dimen name="store_height_value">200dp</dimen>
     <dimen name="home_button_height">40dp</dimen>
+    <dimen name="karma_star_width">60dp</dimen>
+    <dimen name="karma_star_height">60dp</dimen>
+    <dimen name="karma_points_textSize">20sp</dimen>
+    <dimen name="skills_bar_width">300dp</dimen>
+    <dimen name="skills_bar_height">100dp</dimen>
+    <dimen name="conversation_margin">20dp</dimen>
+    <dimen name="game_padding_left">50dp</dimen>
+    <dimen name="answer_listview_width">230dp</dimen>
+    <dimen name="asker_width">110dp</dimen>
+    <dimen name="asker_height">140dp</dimen>
 </resources>

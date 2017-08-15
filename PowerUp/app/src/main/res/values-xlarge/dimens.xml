@@ -5,7 +5,7 @@
     <dimen name="eye_view_width">100dp</dimen>
     <dimen name="eye_view_height">100dp</dimen>
     <dimen name="eye_view_margin_bottom">60dp</dimen>
-    <dimen name="hair_view_width">300dp</dimen>
+    <dimen name="hair_view_width">200dp</dimen>
     <dimen name="hair_view_height">300dp</dimen>
     <dimen name="cloth_view_width">150dp</dimen>
     <dimen name="cloth_view_height">400dp</dimen>
@@ -50,4 +50,16 @@
     <dimen name="map_marginBottom">30dp</dimen>
     <dimen name="store_height_value">200dp</dimen>
     <dimen name="home_button_height">80dp</dimen>
+    <dimen name="karma_star_width">120dp</dimen>
+    <dimen name="karma_star_height">120dp</dimen>
+    <dimen name="karma_points_textSize">40sp</dimen>
+    <dimen name="skills_bar_width">600dp</dimen>
+    <dimen name="skills_bar_height">200dp</dimen>
+    <dimen name="conversation_margin">28dp</dimen>
+    <dimen name="questionview_tv_width">360dp</dimen>
+    <dimen name="game_text_size">32sp</dimen>
+    <dimen name="game_padding_left">50dp</dimen>
+    <dimen name="answer_listview_width">460dp</dimen>
+    <dimen name="asker_width">220dp</dimen>
+    <dimen name="asker_height">280dp</dimen>
 </resources>

@@ -45,7 +45,6 @@ public class GameActivity extends Activity {
     private Scenario prevScene;
     private TextView questionTextView;
     private TextView scenarioNameTextView;
-    private Button replay;
     private Button goToMap;
     private ArrayAdapter<String> listAdapter;
     private static boolean isStateChanged = false;
@@ -77,7 +76,6 @@ public class GameActivity extends Activity {
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
-        replay = (Button) findViewById(R.id.redoButton);
 
         SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
@@ -132,7 +130,6 @@ public class GameActivity extends Activity {
         updateQA();
         if (scene.getReplayed() == 1) {
             goToMap.setAlpha((float) 0.0);
-            replay.setAlpha((float) 0.0);
         }
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter(listAdapter);
@@ -166,23 +163,6 @@ public class GameActivity extends Activity {
                         }
                     }
                 });
-
-        IconRoundCornerProgressBar powerBarHealing = (IconRoundCornerProgressBar) findViewById(R.id.powerbarHealing);
-        powerBarHealing.setIconImageResource(R.drawable.icon_healing);
-        powerBarHealing.setIconBackgroundColor(R.color.powerup_purple_light);
-        powerBarHealing.setProgress(mDbHandler.getHealing());
-
-        IconRoundCornerProgressBar powerbarInvisibility = (IconRoundCornerProgressBar) findViewById(R.id.powerbarInvisibility);
-        powerbarInvisibility.setIconImageResource(R.drawable.icon_invisibility);
-        powerbarInvisibility.setProgress(mDbHandler.getInvisibility());
-
-        IconRoundCornerProgressBar powerbarStrength = (IconRoundCornerProgressBar) findViewById(R.id.powerbarStrength);
-        powerbarStrength.setIconImageResource(R.drawable.icon_strength);
-        powerbarStrength.setProgress(mDbHandler.getStrength());
-
-        IconRoundCornerProgressBar powerbarTelepathy = (IconRoundCornerProgressBar) findViewById(R.id.powerbarTelepathy);
-        powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
-        powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
     }
 
     /**
@@ -225,26 +205,6 @@ public class GameActivity extends Activity {
                     getmDbHandler()
                             .setReplayedScenario(scene.getScenarioName());
                     goToMap.setAlpha((float) 0.0);
-                    replay.setAlpha((float) 0.0);
-                }
-            });
-            // Replay Mechanics
-            replay.setAlpha((float) 1.0);
-            replay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // In case the user moves back to map in between a running
-                    // Scenario.
-
-                    SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                    replay.setClickable(false);
-                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivityForResult(intent, 0);
-                    getmDbHandler()
-                            .setReplayedScenario(scene.getScenarioName());
-                    goToMap.setAlpha((float) 0.0);
-                    replay.setAlpha((float) 0.0);
                 }
             });
         }

@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import powerup.systers.com.db.DatabaseHandler;
 
 public class AvatarActivity extends Activity {
@@ -34,8 +35,7 @@ public class AvatarActivity extends Activity {
         ImageView glassesView = (ImageView) findViewById(R.id.glassesView);
         ImageView hatView = (ImageView) findViewById(R.id.hatView);
         ImageView necklaceView = (ImageView) findViewById(R.id.necklaceView);
-        Button continueButton = (Button) findViewById(R.id.continueButton);
-        Button backButton = (Button) findViewById(R.id.backButton);
+        ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
@@ -149,12 +149,6 @@ public class AvatarActivity extends Activity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     public DatabaseHandler getmDbHandler() {

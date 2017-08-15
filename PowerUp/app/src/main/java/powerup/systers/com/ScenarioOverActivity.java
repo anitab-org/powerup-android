@@ -47,8 +47,8 @@ public class ScenarioOverActivity extends AppCompatActivity {
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-2]));
         scenarioActivityDone = 1;
-        Button replayButton = (Button) findViewById(R.id.replayButton);
-        Button continueButton = (Button) findViewById(R.id.continueButton);
+        ImageView replayButton = (ImageView) findViewById(R.id.replayButton);
+        ImageView continueButton = (ImageView) findViewById(R.id.continueButton);
         Button homeButton = (Button) findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,23 +105,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 | IllegalArgumentException error) {
             error.printStackTrace();
         }
-
-        IconRoundCornerProgressBar powerBarHealing = (IconRoundCornerProgressBar) findViewById(R.id.powerbarHealing);
-        powerBarHealing.setIconImageResource(R.drawable.icon_healing);
-        powerBarHealing.setIconBackgroundColor(R.color.powerup_purple_light);
-        powerBarHealing.setProgress(mDbHandler.getHealing());
-
-        IconRoundCornerProgressBar powerbarInvisibility = (IconRoundCornerProgressBar) findViewById(R.id.powerbarInvisibility);
-        powerbarInvisibility.setIconImageResource(R.drawable.icon_invisibility);
-        powerbarInvisibility.setProgress(mDbHandler.getInvisibility());
-
-        IconRoundCornerProgressBar powerbarStrength = (IconRoundCornerProgressBar) findViewById(R.id.powerbarStrength);
-        powerbarStrength.setIconImageResource(R.drawable.icon_strength);
-        powerbarStrength.setProgress(mDbHandler.getStrength());
-
-        IconRoundCornerProgressBar powerbarTelepathy = (IconRoundCornerProgressBar) findViewById(R.id.powerbarTelepathy);
-        powerbarTelepathy.setIconImageResource(R.drawable.icon_telepathy);
-        powerbarTelepathy.setProgress(mDbHandler.getTelepathy());
 
         scenarioTextView.setText("Current Scene: " + getIntent().getExtras().getString(String.valueOf(R.string.scene)));
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));

@@ -57,7 +57,7 @@ public class AvatarRoomActivity extends Activity {
         ImageButton clothRight = (ImageButton) findViewById(R.id.clotheRight);
         ImageButton hairLeft = (ImageButton) findViewById(R.id.hairLeft);
         ImageButton hairRight = (ImageButton) findViewById(R.id.hairRight);
-        Button continueButton = (Button) findViewById(R.id.continueButtonAvatar);
+        ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
 
         eyeLeft.setOnClickListener(new View.OnClickListener() {
             @Override

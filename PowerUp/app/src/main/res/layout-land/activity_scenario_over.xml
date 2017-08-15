@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/classroom"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     tools:context="powerup.systers.com.ScenarioOverActivity"
@@ -14,7 +14,7 @@
         android:id="@+id/relativeLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
+       android:layout_alignParentBottom="true">
 
         <ImageView
             android:id="@+id/faceView"
@@ -50,150 +50,63 @@
 
     <Button
         android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/ic_launcher" />
+        android:layout_width="@dimen/home_button_height"
+        android:layout_height="@dimen/home_button_height"
+        android:background="@drawable/home_button" />
 
-    <ImageView
-        android:id="@+id/health_text_ImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/power_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/health_power_bar_margin_right"
-        android:src="@drawable/health_power_text" />
-
-    <RelativeLayout
-        android:id="@+id/power_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/power_bar_view_height"
-        android:layout_alignParentBottom="true">
-
-        <ImageView
-            android:id="@+id/powerBarView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/power_bar_view_height"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/power_status_bar" />
-
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarHealing"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_marginTop="@dimen/power_bar_margin_top"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_purple_light"
-            app:rcRadius="@dimen/power_bar_radius" />
-
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarStrength"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/powerbarHealing"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_marginTop="@dimen/power_bar_margin_right"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_pink"
-            app:rcRadius="@dimen/power_bar_radius" />
-
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarTelepathy"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignTop="@id/powerbarHealing"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_toLeftOf="@id/powerbarHealing"
-            android:layout_toStartOf="@id/powerbarHealing"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_blue_green"
-            app:rcRadius="@dimen/power_bar_radius" />
-
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarInvisibility"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignLeft="@id/powerbarTelepathy"
-            android:layout_alignStart="@id/powerbarTelepathy"
-            android:layout_alignTop="@id/powerbarStrength"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_yellow"
-            app:rcRadius="@dimen/power_bar_radius" />
-    </RelativeLayout>
 
     <TextView
+        android:layout_centerHorizontal="true"
         android:id="@+id/scenarioTextView"
-        android:layout_width="@dimen/scenario_tv_width"
-        android:layout_height="@dimen/scenario_tv_height"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/karma_star_height"
         android:layout_marginTop="@dimen/scenario_description_margin_top"
-        android:layout_toEndOf="@+id/relativeLayout3"
-        android:layout_toRightOf="@+id/relativeLayout3"
         android:text="@string/scenario_description"
         android:textColor="@color/powerup_black"
-        android:textSize="@dimen/back_button_textsize" />
-
-    <Button
-        android:id="@+id/replayButton"
-        android:layout_width="@dimen/button_layout_width"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/health_text_ImageView"
-        android:layout_marginLeft="@dimen/margin_left_replay_button"
-        android:layout_toRightOf="@+id/relativeLayout3"
-        android:background="@drawable/brown_button_background"
-        android:text="@string/replay"
-        android:textAllCaps="false"
-        android:textSize="@dimen/button_font" />
-
-    <Button
-        android:id="@+id/continueButton"
-        android:layout_width="@dimen/button_layout_width"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/replayButton"
-        android:layout_toEndOf="@+id/replayButton"
-        android:layout_toRightOf="@+id/replayButton"
-        android:layout_marginLeft="@dimen/continue_button_margin_left"
-        android:background="@drawable/brown_button_background"
-        android:text="@string/continue_text"
-        android:textAllCaps="false"
-        android:textSize="@dimen/button_font" />
+        android:textSize="@dimen/karma_points_textSize"/>
 
     <ImageView
-        android:id="@+id/karmaImageView"
-        android:layout_width="@dimen/karma_iv_width"
-        android:layout_height="@dimen/karma_iv_height"
-        android:layout_marginTop="@dimen/karma_imageview_margin_top"
-        android:src="@drawable/karma_box" />
+        android:id="@+id/replayButton"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:background="@drawable/replay_button"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/continueButton"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:background="@drawable/continue_button"
+        android:scaleType="fitXY"
+        android:alpha="0.9"/>
+
+    <ImageView
+        android:layout_width="@dimen/skills_bar_width"
+        android:layout_height="@dimen/skills_bar_height"
+        android:src="@drawable/skill_bars"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/karma_star"
+        android:layout_width="@dimen/karma_star_width"
+        android:layout_height="@dimen/karma_star_height"
+        android:src="@drawable/karma"/>
 
     <TextView
         android:id="@+id/karmaPoints"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/scenario_tv_margin"
-        android:layout_marginTop="@dimen/scenario_tv_margin"
-        android:hint="@string/points"
-        android:textColor="@color/powerup_black"
-        android:textSize="@dimen/back_button_textsize" />
+        android:layout_height="@dimen/karma_star_height"
+        android:layout_toRightOf="@id/karma_star"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="@dimen/karma_points_textSize"
+        android:textColor="@color/powerup_black"/>
 
 </RelativeLayout>

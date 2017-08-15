@@ -22,4 +22,16 @@
     <dimen name="map_marginBottom">30dp</dimen>
     <dimen name="store_height_value">200dp</dimen>
     <dimen name="home_button_height">20dp</dimen>
+    <dimen name="karma_star_width">45dp</dimen>
+    <dimen name="karma_star_height">45dp</dimen>
+    <dimen name="karma_points_textSize">15sp</dimen>
+    <dimen name="skills_bar_width">225dp</dimen>
+    <dimen name="skills_bar_height">75dp</dimen>
+    <dimen name="conversation_margin">9dp</dimen>
+    <dimen name="questionview_tv_width">135dp</dimen>
+    <dimen name="game_text_size">12sp</dimen>
+    <dimen name="game_padding_left">50dp</dimen>
+    <dimen name="answer_listview_width">175dp</dimen>
+    <dimen name="asker_width">80dp</dimen>
+    <dimen name="asker_height">90dp</dimen>
 </resources>
