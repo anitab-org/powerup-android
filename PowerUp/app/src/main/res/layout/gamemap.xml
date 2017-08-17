@@ -34,15 +34,16 @@
             android:paddingBottom="@dimen/map_paddingBottom">
 
             <ImageView
+                android:clickable="false"
                 android:id="@+id/school"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1.3"
                 android:text="@string/house"
-                android:src="@drawable/map_lock"
                 android:scaleType="centerInside"/>
 
             <ImageView
+                android:clickable="false"
                 android:id="@+id/house"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -75,12 +76,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:clickable="false"
                     android:id="@+id/hospital"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/map_marginBottom"
                     android:layout_weight="5"
-                    android:src="@drawable/map_lock"
                     android:scaleType="centerInside"
                     android:text="@string/hospital" />
 
@@ -101,7 +102,6 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="@dimen/map_marginBottom"
                 android:layout_weight="1"
-                android:src="@drawable/map_lock"
                 android:scaleType="centerInside" />
 
         </LinearLayout>

@@ -22,10 +22,10 @@ public class MapActivity extends Activity {
 
     private DatabaseHandler mDbHandler;
     private OnClickListener onClickListener = new OnClickListener() {
-
         @Override
         public void onClick(View v) {
             ImageView scenarioChooser = (ImageView) v;
+            if (v.isEnabled()){
             if (getmDbHandler().setSessionId(getScenarioName(scenarioChooser.getId()))) {
                 startActivityForResult(new Intent(MapActivity.this, GameActivity.class), 0);
             } else if (new MinesweeperSessionManager(MapActivity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
@@ -33,7 +33,8 @@ public class MapActivity extends Activity {
             } else {
                 startActivityForResult(new Intent(MapActivity.this, CompletedSceneActivity.class), 0);
             }
-        }
+            finish();
+        }}
     };
 
     private String getScenarioName(int id) {
@@ -72,11 +73,15 @@ public class MapActivity extends Activity {
         ImageView house = (ImageView) findViewById(R.id.house);
         house.setOnClickListener(onClickListener);
 
-        ImageView hospital = (ImageView) findViewById(R.id.hospital);
+        ImageView hospital = (ImageView)  findViewById(R.id.hospital);
         hospital.setOnClickListener(onClickListener);
 
         ImageView library = (ImageView) findViewById(R.id.library);
         library.setOnClickListener(onClickListener);
+
+        school.setEnabled(false);
+        hospital.setEnabled(false);
+        library.setEnabled(false);
 
         Button storeButton = (Button) findViewById(R.id.store);
         storeButton.setOnClickListener(new OnClickListener() {
@@ -96,18 +101,16 @@ public class MapActivity extends Activity {
 
         //changes the Map building's greyscale color and locks according to the scenarios completions
         if (getmDbHandler().getScenarioFromID(4).getCompleted() == 1){
-            school.setImageDrawable(null); //remove lock on school
+            schoolBuilding.setImageDrawable(getResources().getDrawable(R.drawable.school_colored));
+            school.setEnabled(true);
         }
         if (getmDbHandler().getScenarioFromID(5).getCompleted() == 1){
-            hospital.setImageDrawable(null); //remove lock on school
-            schoolBuilding.setImageDrawable(getResources().getDrawable(R.drawable.school_colored));
+            hospitalBuilding.setImageDrawable(getResources().getDrawable(R.drawable.hospital_colored));
+            hospital.setEnabled(true);
         }
         if (getmDbHandler().getScenarioFromID(6).getCompleted() == 1){
-            library.setImageDrawable(null); //remove lock on library
-            hospitalBuilding.setImageDrawable(getResources().getDrawable(R.drawable.hospital_colored));
-        }
-        if (getmDbHandler().getScenarioFromID(7).getCompleted() == 1){
             libraryBuilding.setImageDrawable(getResources().getDrawable(R.drawable.library_colored));
+            library.setEnabled(true);
         }
 
     }

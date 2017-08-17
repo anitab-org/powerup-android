@@ -189,20 +189,10 @@
     <dimen name="avatar_face_margin_top">95dp</dimen>
     <dimen name="avatar_room_ll_margin_top">50dp</dimen>
     <dimen name="gameActivity_tv_margin_left">20dp</dimen>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <dimen name="gameActivity_iv_height">300dp</dimen>
-    <dimen name="questionview_tv_width">180dp</dimen>
-=======
     <dimen name="gameActivity_lv_width">280dp</dimen>
     <dimen name="gameActivity_iv_width">120dp</dimen>
     <dimen name="gameActivity_iv_height">300dp</dimen>
-    <dimen name="questionview_tv_width">200dp</dimen>
->>>>>>> Dressing Room, SelectFeatureActivity UI updated, dressing room buttons left
-=======
-    <dimen name="gameActivity_iv_height">300dp</dimen>
     <dimen name="questionview_tv_width">180dp</dimen>
->>>>>>> Updates UI of Game Acticity and ScenarioOverActivity, Adds Replay Button and screen size support, Removes Redo Button
     <dimen name="questionview_tv_margin_top">15dp</dimen>
     <dimen name="questionview_tv_margin_left">15dp</dimen>
     <dimen name="gameActivity_rl_marginTop">10dp</dimen>
@@ -234,18 +224,9 @@
     <dimen name="karma_points_textSize">20sp</dimen>
     <dimen name="skills_bar_width">300dp</dimen>
     <dimen name="skills_bar_height">100dp</dimen>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Updates UI of Game Acticity and ScenarioOverActivity, Adds Replay Button and screen size support, Removes Redo Button
     <dimen name="conversation_margin">20dp</dimen>
     <dimen name="game_padding_left">50dp</dimen>
     <dimen name="answer_listview_width">230dp</dimen>
     <dimen name="asker_width">110dp</dimen>
     <dimen name="asker_height">140dp</dimen>
-<<<<<<< HEAD
-=======
->>>>>>> Dressing Room, SelectFeatureActivity UI updated, dressing room buttons left
-=======
->>>>>>> Updates UI of Game Acticity and ScenarioOverActivity, Adds Replay Button and screen size support, Removes Redo Button
 </resources>
