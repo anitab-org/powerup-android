@@ -27,15 +27,16 @@ public class AvatarActivity extends Activity {
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         fromActivity = getIntent().getExtras().getInt(getResources().getString(R.string.from_activity));
-        ImageView eyeView = (ImageView) findViewById(R.id.eyeView);
-        ImageView faceView = (ImageView) findViewById(R.id.faceView);
-        ImageView hairView = (ImageView) findViewById(R.id.hairView);
-        ImageView clothView = (ImageView) findViewById(R.id.clothView);
-        ImageView bagView = (ImageView) findViewById(R.id.bagView);
-        ImageView glassesView = (ImageView) findViewById(R.id.glassesView);
-        ImageView hatView = (ImageView) findViewById(R.id.hatView);
-        ImageView necklaceView = (ImageView) findViewById(R.id.necklaceView);
+        ImageView eyeView = (ImageView) findViewById(R.id.eye_view);
+        ImageView skinView = (ImageView) findViewById(R.id.skin_view);
+        ImageView hairView = (ImageView) findViewById(R.id.hair_view);
+        ImageView clothView = (ImageView) findViewById(R.id.dress_view);
+        ImageView bagView = (ImageView) findViewById(R.id.bag_view);
+        ImageView glassesView = (ImageView) findViewById(R.id.glass_view);
+        ImageView hatView = (ImageView) findViewById(R.id.hat_view);
+        ImageView necklaceView = (ImageView) findViewById(R.id.necklace_view);
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
+        
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
@@ -48,11 +49,11 @@ public class AvatarActivity extends Activity {
             e.printStackTrace();
         }
 
-        String faceImageName = getResources().getString(R.string.face);
-        faceImageName = faceImageName + getmDbHandler().getAvatarFace();
+        String skinImageName = getResources().getString(R.string.skin);
+        skinImageName = skinImageName + getmDbHandler().getAvatarFace();
         try {
-            photoNameField = ourRID.getClass().getField(faceImageName);
-            faceView.setImageResource(photoNameField.getInt(ourRID));
+            photoNameField = ourRID.getClass().getField(skinImageName);
+            skinView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException e) {
             e.printStackTrace();
