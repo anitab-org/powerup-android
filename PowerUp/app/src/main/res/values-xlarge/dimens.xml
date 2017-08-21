@@ -65,4 +65,5 @@
     <dimen name="selection_margin_wide">35dp</dimen>
     <dimen name="selection_margin_small">12dp</dimen>
     <dimen name="selection_text_size">35sp</dimen>
+    <dimen name="start_height">120dp</dimen>
 </resources>
