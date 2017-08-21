@@ -9,14 +9,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
@@ -34,6 +32,7 @@ import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
+import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
@@ -76,7 +75,6 @@ public class GameActivity extends Activity {
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
-
         SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
         ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
@@ -152,7 +150,12 @@ public class GameActivity extends Activity {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-2);
-                        } else {
+                        } else if (answers.get(position).getNextQuestionID() == -3){
+                            updatePoints(position);
+                            getmDbHandler().setCompletedScenario(scene.getId());
+                            updateScenario(-3);
+                        }
+                        else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 1;
@@ -222,8 +225,11 @@ public class GameActivity extends Activity {
                     new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
                     startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, true));
                 } else if (type == -2) {
-                startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
-            }
+                    startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
+                } else if (type == -3) {
+                    startActivity(new Intent(GameActivity.this, VocabMatchTutorials.class));
+                }
+
         }
 
     }

@@ -189,6 +189,8 @@
     <dimen name="avatar_face_margin_top">95dp</dimen>
     <dimen name="avatar_room_ll_margin_top">50dp</dimen>
     <dimen name="gameActivity_tv_margin_left">20dp</dimen>
+    <dimen name="gameActivity_lv_width">280dp</dimen>
+    <dimen name="gameActivity_iv_width">120dp</dimen>
     <dimen name="gameActivity_iv_height">300dp</dimen>
     <dimen name="questionview_tv_width">180dp</dimen>
     <dimen name="questionview_tv_margin_top">15dp</dimen>

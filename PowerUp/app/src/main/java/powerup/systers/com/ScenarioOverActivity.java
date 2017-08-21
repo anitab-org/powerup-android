@@ -106,6 +106,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
             error.printStackTrace();
         }
 
+        if(getIntent().getExtras()!=null)
         scenarioTextView.setText("Current Scene: " + getIntent().getExtras().getString(String.valueOf(R.string.scene)));
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
         continueButton.setOnClickListener(new View.OnClickListener() {
