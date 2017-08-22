@@ -76,10 +76,10 @@ public class GameActivity extends Activity {
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
         SessionHistory.currScenePoints = 0;
-        ImageView eyeImageView = (ImageView) findViewById(R.id.eyeImageView);
-        ImageView faceImageView = (ImageView) findViewById(R.id.faceImageView);
-        ImageView hairImageView = (ImageView) findViewById(R.id.hairImageView);
-        ImageView clothImageView = (ImageView) findViewById(R.id.clothImageView);
+        ImageView eyeImageView = (ImageView) findViewById(R.id.eye_view);
+        ImageView skinImageView = (ImageView) findViewById(R.id.skin_view);
+        ImageView hairImageView = (ImageView) findViewById(R.id.hair_view);
+        ImageView clothImageView = (ImageView) findViewById(R.id.dress_view);
 
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
@@ -93,11 +93,11 @@ public class GameActivity extends Activity {
             error.printStackTrace();
         }
 
-        String faceImageName = getResources().getString(R.string.face);
-        faceImageName = faceImageName + getmDbHandler().getAvatarFace();
+        String skinImageName = getResources().getString(R.string.skin);
+        skinImageName = skinImageName + getmDbHandler().getAvatarFace();
         try {
-            photoNameField = ourRID.getClass().getField(faceImageName);
-            faceImageView.setImageResource(photoNameField.getInt(ourRID));
+            photoNameField = ourRID.getClass().getField(skinImageName);
+            skinImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException error) {
             error.printStackTrace();

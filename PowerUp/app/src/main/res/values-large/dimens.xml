@@ -68,4 +68,6 @@
     <dimen name="selection_margin_small">9dp</dimen>
     <dimen name="selection_text_size">27sp</dimen>
     <dimen name="start_height">80dp</dimen>
+    <dimen name="avatar_width">188dp</dimen>
+    <dimen name="avatar_height">375dp</dimen>
 </resources>
