@@ -233,4 +233,6 @@
     <dimen name="selection_margin_small">6dp</dimen>
     <dimen name="selection_text_size">17sp</dimen>
     <dimen name="start_height">80dp</dimen>
+    <dimen name="avatar_width">125dp</dimen>
+    <dimen name="avatar_height">250dp</dimen>
 </resources>
