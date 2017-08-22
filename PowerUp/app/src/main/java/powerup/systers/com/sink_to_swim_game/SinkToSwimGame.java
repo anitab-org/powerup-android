@@ -58,31 +58,6 @@ public class SinkToSwimGame extends AppCompatActivity {
         initialSetUp();
     }
 
-    public void gameStarted(View view) {
-        findViewById(R.id.continue_button).setVisibility(View.GONE);
-        //defines the wave animation on boat
-        mAnimation = AnimationUtils.loadAnimation(this, R.animator.boat_animation); // Now it should work smoothy as hanging problem is solved now
-        mAnimation.setInterpolator(new LinearInterpolator());
-        mAnimation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                boat.startAnimation(mAnimation);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        boat.startAnimation(mAnimation); //starts wave animation on boat
-        countDownTimer.start();
-    }
-
     /**
      * @desc sets up the initial setting of the game
      */
@@ -113,7 +88,20 @@ public class SinkToSwimGame extends AppCompatActivity {
                 gameEnd(); //game ends when time finishes
             }
         };
+        gameBegins();
     }
+
+
+    public void gameBegins() {
+        //defines the wave animation on boat
+        mAnimation = AnimationUtils.loadAnimation(this, R.animator.boat_animation);
+        mAnimation.setInterpolator(new LinearInterpolator());
+        mAnimation.setRepeatMode(Animation.INFINITE); //does not work
+        boat.startAnimation(mAnimation); //starts wave animation on boat
+        countDownTimer.start();
+    }
+
+
 
     /**
      * @desc brings the pointer and avatar to their initial position
