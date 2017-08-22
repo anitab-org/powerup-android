@@ -54,4 +54,5 @@
     <dimen name="selection_margin_wide">17dp</dimen>
     <dimen name="selection_margin_small">6dp</dimen>
     <dimen name="selection_text_size">17sp</dimen>
+    <dimen name="start_height">60dp</dimen>
 </resources>
