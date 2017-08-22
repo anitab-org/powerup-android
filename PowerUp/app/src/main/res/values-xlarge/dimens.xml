@@ -62,4 +62,7 @@
     <dimen name="answer_listview_width">460dp</dimen>
     <dimen name="asker_width">220dp</dimen>
     <dimen name="asker_height">280dp</dimen>
+    <dimen name="selection_margin_wide">35dp</dimen>
+    <dimen name="selection_margin_small">12dp</dimen>
+    <dimen name="selection_text_size">35sp</dimen>
 </resources>

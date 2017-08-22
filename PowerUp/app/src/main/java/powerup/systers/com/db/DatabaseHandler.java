@@ -223,7 +223,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
     * @desc change the avatar's face.
     * @param face - the number of the requested face
     */
-    public void setAvatarFace(Integer face) {
+    public void setAvatarSkin(Integer face) {
         String query = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
                 " SET " + PowerUpContract.AvatarEntry.COLUMN_FACE + " = " + face +
                 " WHERE " + PowerUpContract.AvatarEntry.COLUMN_ID + " = 1";
