@@ -25,10 +25,10 @@ import powerup.systers.com.powerup.PowerUpUtils;
 
 public class VocabMatchGameActivity extends AppCompatActivity {
 
-    VocabBoardTextView tv1, tv2, tv3;
-    VocabTileImageView img1, img2, img3;
-    int height, width, oldestTile, score, latestTile;
-    TextView scoreView;
+    public VocabBoardTextView tv1, tv2, tv3;
+    public VocabTileImageView img1, img2, img3;
+    public int height, width, oldestTile, score, latestTile;
+    public TextView scoreView;
     Random r;
 
     @Override
@@ -61,7 +61,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         initialSetUp();
     }
 
-    private void initialSetUp() {
+    public void initialSetUp() {
         tv1.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[0]);
         tv1.setPosition(0);
         tv2.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[1]);
@@ -90,7 +90,10 @@ public class VocabMatchGameActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void startNewTile(final int position, final VocabTileImageView imageview) {
-        imageview.setImageDrawable(getResources().getDrawable(PowerUpUtils.VOCAB_TILES_IMAGES[latestTile]));
+
+        if(latestTile<PowerUpUtils.VOCAB_TILES_IMAGES.length){
+            imageview.setImageDrawable(getResources().getDrawable(PowerUpUtils.VOCAB_TILES_IMAGES[latestTile]));
+        }
         imageview.setX(0);
         imageview.setPosition(position);
         imageview.setY(position * (height / 3));
@@ -103,19 +106,22 @@ public class VocabMatchGameActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+
                 imageview.setLayerType(View.LAYER_TYPE_NONE, null);
                 imageview.setVisibility(View.GONE);
                 final TextView boardView = getBoardFromPosition(imageview.getPosition());
                 String boardText = getBoardFromPosition(imageview.getPosition()).getText().toString();
-                String tileText = PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile];
-                if (tileText.equals(boardText)) {
-                    score++;
-                    scoreView.setText("" + score);
-                    boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_green));
-                }else {
-                    boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_red));
-                }
 
+                if (oldestTile < PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS.length){
+                    String tileText = PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile];
+                    if (tileText.equals(boardText)) {
+                        score++;
+                        scoreView.setText("" + score);
+                        boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_green));
+                    }else {
+                        boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_red));
+                    }
+                }
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

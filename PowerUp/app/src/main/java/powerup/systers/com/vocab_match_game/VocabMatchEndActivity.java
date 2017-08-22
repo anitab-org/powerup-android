@@ -13,6 +13,8 @@ import powerup.systers.com.powerup.PowerUpUtils;
 
 public class VocabMatchEndActivity extends AppCompatActivity {
 
+    public TextView scoreView, correctView, wrongView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +23,9 @@ public class VocabMatchEndActivity extends AppCompatActivity {
         int score = intent.getExtras().getInt(PowerUpUtils.SCORE);
         int correctAnswers= score;
         int wrongAnswers= PowerUpUtils.VOCAB_TILES_IMAGES.length - score;
-        TextView scoreView = (TextView) findViewById(R.id.vocab_score);
-        TextView  correctView = (TextView) findViewById(R.id.correct);
-        TextView  wrongView = (TextView) findViewById(R.id.wrong);
+        scoreView = (TextView) findViewById(R.id.vocab_score);
+        correctView = (TextView) findViewById(R.id.correct);
+        wrongView = (TextView) findViewById(R.id.wrong);
         scoreView.setText(""+score);
         correctView.setText(""+correctAnswers);
         wrongView.setText(""+wrongAnswers);
