@@ -90,7 +90,7 @@ public class MapActivity extends Activity {
         storeButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, SelectFeaturesActivity.class));
+                startActivity(new Intent(MapActivity.this, StoreActivity.class));
             }
         });
 

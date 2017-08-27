@@ -44,6 +44,7 @@ public class PowerUpUtils {
     public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3,R.drawable.vocab_cramping_tile,R.drawable.vocab_deo_tile,R.drawable.vocab_depression_tile,R.drawable.vocab_fat,R.drawable.vocab_skinny,R.drawable.vocab_tampon};
     public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods","Pimples","Bra","Cramping","Deo","Depression","Fat","Skinny","Tampon"};
     public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1,R.drawable.vocab_tut2};
+
     public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
 
 
