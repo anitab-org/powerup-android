@@ -57,4 +57,6 @@
     <dimen name="start_height">60dp</dimen>
     <dimen name="avatar_width">110dp</dimen>
     <dimen name="avatar_height">220dp</dimen>
+    <dimen name="replay_marginTop">180dp</dimen>
+    <dimen name="replay_marginLeft">110dp</dimen>
 </resources>

@@ -4,76 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/classroom"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="@drawable/scenario_over"
     tools:context="powerup.systers.com.ScenarioOverActivity"
     android:id="@+id/root">
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true">
-
-        <ImageView
-            android:id="@+id/faceView"
-            android:layout_width="@dimen/face_view_width"
-            android:layout_height="@dimen/face_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/face1" />
-
-        <ImageView
-            android:id="@+id/eyeView"
-            android:layout_width="@dimen/eye_view_width"
-            android:layout_height="@dimen/eye_view_height"
-            android:layout_alignBottom="@id/faceView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/eye_view_margin_bottom"
-            android:src="@drawable/eye1" />
-
-        <ImageView
-            android:id="@+id/hairView"
-            android:layout_width="@dimen/hair_view_width"
-            android:layout_height="@dimen/hair_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hair2" />
-
-        <ImageView
-            android:id="@+id/clothView"
-            android:layout_width="@dimen/cloth_view_width"
-            android:layout_height="@dimen/cloth_view_height"
-            android:layout_alignTop="@+id/eyeView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cloth1" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_alignParentRight="true"
-        android:layout_width="@dimen/home_button_height"
-        android:layout_height="@dimen/home_button_height"
-        android:background="@drawable/home_button" />
-
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/scenarioTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/karma_star_height"
-        android:layout_marginTop="@dimen/scenario_description_margin_top"
-        android:text="@string/scenario_description"
-        android:textColor="@color/powerup_black"
-        android:textSize="@dimen/karma_points_textSize"/>
 
     <ImageView
         android:id="@+id/replayButton"
         android:layout_width="@dimen/continue_width"
         android:layout_height="@dimen/continue_height"
-        android:background="@drawable/replay_button"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:layout_marginTop="@dimen/replay_marginTop"
+        android:layout_marginLeft="@dimen/replay_marginLeft"
+        android:alpha="0"/>
+
+    <Button
+        android:layout_toRightOf="@id/replayButton"
+        android:id="@+id/mapButton"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_marginTop="@dimen/replay_marginTop"
+        android:alpha="0"/>
 
     <ImageView
         android:id="@+id/continueButton"
@@ -85,13 +36,6 @@
         android:background="@drawable/continue_button"
         android:scaleType="fitXY"
         android:alpha="0.9"/>
-
-    <ImageView
-        android:layout_width="@dimen/skills_bar_width"
-        android:layout_height="@dimen/skills_bar_height"
-        android:src="@drawable/skill_bars"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
 
     <ImageView
         android:id="@+id/karma_star"

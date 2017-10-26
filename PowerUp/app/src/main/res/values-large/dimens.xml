@@ -70,4 +70,6 @@
     <dimen name="start_height">80dp</dimen>
     <dimen name="avatar_width">188dp</dimen>
     <dimen name="avatar_height">375dp</dimen>
+    <dimen name="replay_marginTop">270dp</dimen>
+    <dimen name="replay_marginLeft">180dp</dimen>
 </resources>
