@@ -19,6 +19,8 @@ public class PowerUpUtils {
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";
     public static final String WRONG_ANSWER = "wrong";
+    public static final String MAP = "map";
+    public static final String SOURCE = "source";
 
 
     public static final String CALLED_BY = "GAME_ACTIVITY";

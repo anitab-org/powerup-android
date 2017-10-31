@@ -36,11 +36,6 @@
             android:launchMode="singleTop"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".CompletedSceneActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".GameOverActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"

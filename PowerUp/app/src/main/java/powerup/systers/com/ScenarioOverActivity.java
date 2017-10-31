@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Scene;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -67,6 +68,11 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
         });
+        if (getIntent().getExtras()!=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE))){
+            continueButton.setVisibility(View.GONE);
+            continueButton.setOnClickListener(null);
+        }
+
 
         replayButton.setOnClickListener(new View.OnClickListener() {
             @Override

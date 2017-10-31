@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 public class MapActivity extends Activity {
 
@@ -31,7 +32,9 @@ public class MapActivity extends Activity {
             } else if (new MinesweeperSessionManager(MapActivity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
                 startActivity(new Intent(MapActivity.this, MinesweeperGameActivity.class));
             } else {
-                startActivityForResult(new Intent(MapActivity.this, CompletedSceneActivity.class), 0);
+                Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
+                intent.putExtra(PowerUpUtils.SOURCE,PowerUpUtils.MAP);
+                startActivityForResult(intent, 0);
             }
             finish();
         }}
@@ -87,7 +90,7 @@ public class MapActivity extends Activity {
         storeButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MapActivity.this, DressingRoomActivity.class));
+                startActivity(new Intent(MapActivity.this, SelectFeaturesActivity.class));
             }
         });
 
