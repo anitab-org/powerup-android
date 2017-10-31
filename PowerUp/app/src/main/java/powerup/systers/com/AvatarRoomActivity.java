@@ -4,13 +4,18 @@
  */
 
 package powerup.systers.com;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
 import java.util.Random;
+
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 
@@ -30,6 +35,7 @@ public class AvatarRoomActivity extends Activity {
     public AvatarRoomActivity() {
         avatarRoomInstance = this;
     }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
@@ -229,26 +235,17 @@ public class AvatarRoomActivity extends Activity {
                 getmDbHandler().resetPurchase();
                 getmDbHandler().setPurchasedHair(hair);
                 getmDbHandler().setPurchasedClothes(cloth);
-                Random random = new Random();
-                Integer healing = random.nextInt(101 - 1) + 1;
-                getmDbHandler().setHealing(healing);
 
-                random = new Random();
-                Integer strength = random.nextInt(101 - 1) + 1;
-                getmDbHandler().setStrength(strength);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarRoomActivity.this);
+                boolean hasPreviouslyStarted = prefs.getBoolean(getString(R.string.preferences_has_previously_started), false);
+                if (!hasPreviouslyStarted) {
+                    SharedPreferences.Editor edit = prefs.edit();
+                    edit.putBoolean(getString(R.string.preferences_has_previously_started), Boolean.TRUE);
+                    edit.apply();
+                }
+                finish();
+                startActivityForResult(new Intent(AvatarRoomActivity.this, MapActivity.class), 0);
 
-                random = new Random();
-                Integer invisibility = random.nextInt(101 - 1) + 1;
-                getmDbHandler().setInvisibility(invisibility);
-
-                random = new Random();
-                Integer telepathy = random.nextInt(101 - 1) + 1;
-                getmDbHandler().setTelepathy(telepathy);
-                Log.i("Powers", mDbHandler.getHealing() + " " + mDbHandler.getInvisibility() +
-                        " " + mDbHandler.getStrength());
-                Intent intent = new Intent(AvatarRoomActivity.this, AvatarActivity.class);
-                intent.putExtra(getResources().getString(R.string.from_activity), 1);
-                startActivityForResult(intent, 0);
             }
         });
         getmDbHandler().close();
