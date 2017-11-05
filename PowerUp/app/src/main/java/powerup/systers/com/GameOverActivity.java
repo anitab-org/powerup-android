@@ -30,13 +30,5 @@ public class GameOverActivity extends Activity {
                 startActivityForResult(intent, 0);
             }
         });
-        Button storeButton = (Button) findViewById(R.id.store_button);
-        storeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GameOverActivity.this, DressingRoomActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

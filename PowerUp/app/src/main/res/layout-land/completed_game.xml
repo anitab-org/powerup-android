@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/plain_background">
 
     <TextView
         android:id="@+id/completed_game_textView"
@@ -18,25 +18,12 @@
 
     <Button
         android:id="@+id/ContinueButtonMap"
-        android:layout_width="@dimen/continue_buttonmap_width"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/completed_game_textView"
-        android:background="@drawable/brown_button_background"
-        android:textSize="@dimen/continue_map_button_text_size"
-        android:layout_marginBottom="@dimen/continue_button_map_margin_bottom_landscape"
-        android:layout_marginRight="@dimen/completed_scene_continue_button_map_land_margin_right"
-        android:text="@string/map" />
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:background="@drawable/map_button"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
 
-    <Button
-        android:id="@+id/store_button"
-        android:layout_width="@dimen/store_button_map_width"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/ContinueButtonMap"
-        android:layout_alignBottom="@id/ContinueButtonMap"
-        android:layout_toRightOf="@+id/ContinueButtonMap"
-        android:textSize="@dimen/store_map_button_text_size"
-        android:background="@drawable/brown_button_background"
-        android:text="@string/store" />
+        />
 
 </RelativeLayout>
