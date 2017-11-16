@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -49,9 +48,9 @@ public class AvatarRoomActivity extends Activity {
         ImageView eyeRight = (ImageView) findViewById(R.id.eyes_right);
         ImageView skinLeft = (ImageView) findViewById(R.id.skin_left);
         ImageView skinRight = (ImageView) findViewById(R.id.skin_right);
-        ImageView clothLeft = (ImageView) findViewById(R.id.clothes_left);
+        final ImageView clothLeft = (ImageView) findViewById(R.id.clothes_left);
         ImageView clothRight = (ImageView) findViewById(R.id.clothes_right);
-        ImageView hairLeft = (ImageView) findViewById(R.id.hair_left);
+        final ImageView hairLeft = (ImageView) findViewById(R.id.hair_left);
         ImageView hairRight = (ImageView) findViewById(R.id.hair_right);
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
 
@@ -219,22 +218,18 @@ public class AvatarRoomActivity extends Activity {
             @Override
             public void onClick(View v) {
                 getmDbHandler().open();
+                getmDbHandler().resetPurchase();
                 getmDbHandler().setAvatarEye(eye);
                 getmDbHandler().setAvatarSkin(skin);
                 getmDbHandler().setAvatarHair(hair);
                 getmDbHandler().setAvatarCloth(cloth);
-                getmDbHandler().setAvatarBag(0);
-                getmDbHandler().setAvatarGlasses(0);
-                getmDbHandler().setAvatarHat(0);
-                getmDbHandler().setAvatarNecklace(0);
+                getmDbHandler().setPurchasedHair(hair);
+                getmDbHandler().setPurchasedClothes(cloth);
                 getmDbHandler().updateComplete();//set all the complete fields back to 0
                 getmDbHandler().updateReplayed();//set all the replayed fields back to 0
                 SessionHistory.totalPoints = 0;    //reset the points stored
                 SessionHistory.currSessionID = 1;
                 SessionHistory.currScenePoints = 0;
-                getmDbHandler().resetPurchase();
-                getmDbHandler().setPurchasedHair(hair);
-                getmDbHandler().setPurchasedClothes(cloth);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarRoomActivity.this);
                 boolean hasPreviouslyStarted = prefs.getBoolean(getString(R.string.preferences_has_previously_started), false);

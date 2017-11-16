@@ -1,7 +1,5 @@
 package powerup.systers.com.powerup;
 
-import android.graphics.drawable.Drawable;
-
 import powerup.systers.com.R;
 
 /**
@@ -23,7 +21,7 @@ public class PowerUpUtils {
     public static final String SOURCE = "source";
 
 
-    public static final String CALLED_BY = "GAME_ACTIVITY";
+    public static final String CALLED_BY = "TUTORIALS_ACTIVITY";
     public static final String ID_REFERENCE = "powerup.systers.com.powerup:id/imageView";
     public static final String ID_REF = "powerup.systers.com:id/imageView";
     public static final String MINESWEEP_PREVIOUS_SCENARIO = "School";
@@ -46,4 +44,15 @@ public class PowerUpUtils {
     public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3,R.drawable.vocab_cramping_tile,R.drawable.vocab_deo_tile,R.drawable.vocab_depression_tile,R.drawable.vocab_fat,R.drawable.vocab_skinny,R.drawable.vocab_tampon};
     public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods","Pimples","Bra","Cramping","Deo","Depression","Fat","Skinny","Tampon"};
     public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1,R.drawable.vocab_tut2};
+    public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
+
+    public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16};
+    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","10","10","10","5","5","10","5","5","10","10","10","5","5"};
+
+    public static final int[] CLOTHES_IMAGES = {R.drawable.dress1,R.drawable.dress2,R.drawable.dress3,R.drawable.dress4};
+    public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10"};
+
+    public static final int[] ACCESSORIES_IMAGES = {R.drawable.acc1,R.drawable.acc2,R.drawable.acc3,R.drawable.acc4};
+    public static final String[] ACCESSORIES_POINTS_TEXTS = {"10","5","5","10"};
 }
+

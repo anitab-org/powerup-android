@@ -38,4 +38,5 @@
     <dimen name="selection_margin_small">5dp</dimen>
     <dimen name="selection_text_size">14sp</dimen>
     <dimen name="start_height">20dp</dimen>
+    <dimen name="hair_button_marginLeft">75dp</dimen>
 </resources>

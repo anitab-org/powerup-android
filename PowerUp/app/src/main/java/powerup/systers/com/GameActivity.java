@@ -29,6 +29,7 @@ import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
+import powerup.systers.com.minesweeper.MinesweeperTutorials;
 import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
@@ -80,6 +81,7 @@ public class GameActivity extends Activity {
         ImageView skinImageView = (ImageView) findViewById(R.id.skin_view);
         ImageView hairImageView = (ImageView) findViewById(R.id.hair_view);
         ImageView clothImageView = (ImageView) findViewById(R.id.dress_view);
+        ImageView accessoryImageView = (ImageView) findViewById(R.id.accessory_view);
 
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
@@ -94,7 +96,7 @@ public class GameActivity extends Activity {
         }
 
         String skinImageName = getResources().getString(R.string.skin);
-        skinImageName = skinImageName + getmDbHandler().getAvatarFace();
+        skinImageName = skinImageName + getmDbHandler().getAvatarSkin();
         try {
             photoNameField = ourRID.getClass().getField(skinImageName);
             skinImageView.setImageResource(photoNameField.getInt(ourRID));
@@ -118,6 +120,17 @@ public class GameActivity extends Activity {
         try {
             photoNameField = ourRID.getClass().getField(hairImageName);
             hairImageView.setImageResource(photoNameField.getInt(ourRID));
+        } catch (NoSuchFieldException | IllegalAccessException
+                | IllegalArgumentException error) {
+            error.printStackTrace();
+        }
+
+        getmDbHandler().setAvatarAccessory(getmDbHandler().getAvatarAccessory());
+        String accessoryImageName = getResources().getString(R.string.accessories);
+        accessoryImageName = accessoryImageName + getmDbHandler().getAvatarAccessory();
+        try {
+            photoNameField = ourRID.getClass().getField(accessoryImageName);
+            accessoryImageView.setImageResource(photoNameField.getInt(ourRID));
         } catch (NoSuchFieldException | IllegalAccessException
                 | IllegalArgumentException error) {
             error.printStackTrace();
@@ -223,7 +236,7 @@ public class GameActivity extends Activity {
                     startActivity(intent);
                 } else if (type == -1) {
                     new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
-                    startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, true));
+                    startActivity(new Intent(GameActivity.this, MinesweeperTutorials.class));
                 } else if (type == -2) {
                     startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
                 } else if (type == -3) {

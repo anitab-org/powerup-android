@@ -46,7 +46,7 @@ public class PowerUpContract {
 
         public static final String COLUMN_EYES = "Eyes";
 
-        public static final String COLUMN_BAG = "Bag";
+        public static final String COLUMN_ACCESSORY = "Bag";
 
         public static final String COLUMN_GLASSES = "Glasses";
 

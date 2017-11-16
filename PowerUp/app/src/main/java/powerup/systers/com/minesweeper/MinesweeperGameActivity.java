@@ -56,10 +56,10 @@ public class MinesweeperGameActivity extends AppCompatActivity {
      * sets red mines at random positions in board based on success percentage of contraceptive method of current round
      */
     public void setUpGame() {
-        boolean calledByGameActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false); //tells if game is called for the first time
+        boolean calledByTutorialsActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false); //tells if game is called for the first time
         numSelectionsLeft = PowerUpUtils.MAXIMUM_FLIPS_ALLOWED;
 
-        if (!calledByGameActivity) { //if called by previous round of minesweeper game
+        if (!calledByTutorialsActivity) { //if called by previous round of minesweeper game
 
             //fetch previous round score and rounds completed from session database
             MinesweeperSessionManager session = new MinesweeperSessionManager(this);

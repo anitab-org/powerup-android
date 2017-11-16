@@ -25,10 +25,11 @@
     <string name="from_activity">"fromActivity"</string>
     <string name="eye">"eyes"</string>
     <string name="hair">"hair"</string>
-    <string name="cloth">"dress"</string>
+    <string name="cloth">"dress_avatar"</string>
     <string name="skin">"skin"</string>
     <string name="face">"face"</string>
     <string name="accessory">"accessory"</string>
+    <string name="accessories">"acc_avatar"</string>
     <string name="bag">"bag"</string>
     <string name="hat">"hat"</string>
     <string name="necklace">"necklace"</string>

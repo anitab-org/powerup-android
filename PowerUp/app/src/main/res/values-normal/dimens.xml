@@ -59,4 +59,5 @@
     <dimen name="avatar_height">220dp</dimen>
     <dimen name="replay_marginTop">180dp</dimen>
     <dimen name="replay_marginLeft">110dp</dimen>
+    <dimen name="hair_button_marginLeft">100dp</dimen>
 </resources>
