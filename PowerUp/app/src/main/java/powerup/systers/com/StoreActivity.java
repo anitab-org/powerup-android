@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -291,7 +292,7 @@ public class StoreActivity extends AppCompatActivity {
                 storeItem = layoutInflater.inflate(R.layout.store_selection_view, parent, false);
                 int itemWidth = (int) ((screenWidth / 85.428f) * 13);
                 int itemHeight = (int) ((screenHeight / 51.428f) * 18);
-                storeItem.setLayoutParams(new FrameLayout.LayoutParams(itemWidth, itemHeight));
+                storeItem.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
                 holder = new ViewHolder(storeItem);
                 storeItem.setTag(holder);
             } else {

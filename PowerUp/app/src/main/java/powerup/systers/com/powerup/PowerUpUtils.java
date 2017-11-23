@@ -46,6 +46,7 @@ public class PowerUpUtils {
     public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1,R.drawable.vocab_tut2};
     public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
 
+
     public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16};
     public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","10","10","10","5","5","10","5","5","10","10","10","5","5"};
 
