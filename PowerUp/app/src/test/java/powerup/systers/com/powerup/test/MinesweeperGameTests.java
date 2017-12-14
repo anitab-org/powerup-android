@@ -45,6 +45,7 @@ public class MinesweeperGameTests {
     MinesweeperGameActivity activity;
     MinesweeperSessionManager sessionManager;
 
+    // Initial setup for running Robolectric test, this function is called before starting each test
     @Before
     public void setUp() throws Exception {
         activity = Robolectric.buildActivity(MinesweeperGameActivity.class)
@@ -53,12 +54,14 @@ public class MinesweeperGameTests {
                 .get();
     }
 
+    // Tests if activity instance is not null
     @Test
     public void shouldNotBeNull() throws Exception {
         assertNotNull(activity);
     }
 
 
+    // Checks if the continue button launches ProsAndConsActivity
     @Test
     public void continueButtonShouldLaunchProsAndCons() throws Exception {
         Class ProsAndCons = ProsAndConsActivity.class;
@@ -71,6 +74,7 @@ public class MinesweeperGameTests {
         assertTrue(expectedIntent.filterEquals(actualIntent));
     }
 
+    // Verifies that cons' column has a red banner
     @Test
     public void showsCorrectRedBanner() throws Exception {
         int type = PowerUpUtils.RED_BANNER;
@@ -83,6 +87,7 @@ public class MinesweeperGameTests {
         assertEquals(expected, shadowDrawable.getCreatedFromResId());
     }
 
+    // Verifies that pros' column has a green column
     @Test
     public void showsCorrectGreenBanner() throws Exception {
         int type = PowerUpUtils.GREEN_BANNER;
@@ -95,6 +100,7 @@ public class MinesweeperGameTests {
         assertEquals(expected, shadowDrawable.getCreatedFromResId());
     }
 
+    // Test if success banner is displayed
     @Test
     public void minesDisabledAfterBannerAppearance1() throws Exception {
         int type = PowerUpUtils.GREEN_BANNER;
@@ -105,6 +111,7 @@ public class MinesweeperGameTests {
             assertTrue(!activity.findViewById(id).isEnabled());
     }
 
+    // Test if failure banner is displayed
     @Test
     public void minesDisabledAfterBannerAppearance2() throws Exception {
         int type = PowerUpUtils.RED_BANNER;
@@ -115,6 +122,7 @@ public class MinesweeperGameTests {
             assertTrue(!activity.findViewById(id).isEnabled());
     }
 
+    // Checks if score gets updated in TextView
     @Test
     public void scoreGetsUpdated() throws Exception {
         int sampleScore = 3;
@@ -128,6 +136,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedText, actualText);
     }
 
+    // Checks if the number of chances decrease by one on opening a green mine
     @Test
     public void chacesNumberDecrementsCorrectly() throws Exception {
         int sampleChancesLeft = 3;
@@ -139,6 +148,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedChances, activity.numSelectionsLeft);
     }
 
+    // Tests if all mines are enabled on game start
     @Test
     public void minesEnabledOnGameStart() throws Exception {
         activity.setUpGame();
@@ -147,6 +157,7 @@ public class MinesweeperGameTests {
             assertTrue(activity.findViewById(id).isEnabled());
     }
 
+    // Tests if the mines get greyed out after they have been clicked
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Test
     public void greyOutMines() throws Exception {
@@ -164,6 +175,7 @@ public class MinesweeperGameTests {
         assertEquals(PorterDuff.Mode.MULTIPLY, actualColor.getMode());
     }
 
+    // Tests if continue button is hidden on game start
     @Test
     public void continueHiddenOnRoundStart() throws Exception {
         ImageView continueButton = (ImageView) activity.findViewById(R.id.continue_button);
@@ -175,6 +187,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedAplha, continueButton.getAlpha(), 0.005);
     }
 
+    // Tests if banner if hidden on game start
     @Test
     public void bannerHiddenOnRoundStart() throws Exception {
         ImageView banner = (ImageView) activity.findViewById(R.id.banner);
@@ -185,6 +198,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedAplha, banner.getAlpha(), 0.005);
     }
 
+    // Tests if continue button is not clickable on game start
     @Test
     public void continueButtonNotClickableOnGameStart() throws Exception {
         ImageView continueButton = (ImageView) activity.findViewById(R.id.continue_button);
@@ -194,6 +208,7 @@ public class MinesweeperGameTests {
         assertTrue(!continueButton.isClickable());
     }
 
+    // Tests if continue button becomes clickable after the banner is shown on the screen
     @Test
     public void continueButtonClickableAfterBanner() {
         ImageView continueButton = (ImageView) activity.findViewById(R.id.continue_button);
@@ -203,6 +218,7 @@ public class MinesweeperGameTests {
         assertTrue(continueButton.isClickable());
     }
 
+    // Tests if score increases after clicking on a green mine
     @Test
     public void scoreIncrementCorrectly1() {
         int sampleScore = 4;
@@ -213,6 +229,7 @@ public class MinesweeperGameTests {
         assertEquals(sampleScore + 1, activity.score);
     }
 
+    // Tests if score remains same after clicking on a red mine
     @Test
     public void scoreIncrementCorrectly2() {
         int sampleScore = 4;
@@ -223,6 +240,7 @@ public class MinesweeperGameTests {
         assertEquals(sampleScore, activity.score);
     }
 
+    // Tests that the mine is turned red when the user clicks the wrong mine
     @Test
     public void shouldShowRedMineCorrectly() throws Exception {
         activity.setUpGame(); //call this function to initialise mines Hashset
@@ -240,6 +258,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedDrawable, drawableResId);
     }
 
+    // Tests that the mine is turned green when the user clicks the correct mine
     @Test
     public void shouldShowGreenMineCorrectly() throws Exception {
         activity.setUpGame(); //call this function to initialise mines Hashset
@@ -257,6 +276,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedDrawable, drawableResId);
     }
 
+    // Tests if minesweeper game is completed when last selection is a green mine
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Test
     public void roundCompletesWhenChancesFinished1() throws InterruptedException {
@@ -274,6 +294,7 @@ public class MinesweeperGameTests {
 
     }
 
+    // Tests if minesweeper game is completed when last selection is a red mine
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Test
     public void roundCompletesWhenChancesFinished2() throws InterruptedException {
@@ -290,6 +311,7 @@ public class MinesweeperGameTests {
         assertEquals(1f, activity.continueButton.getAlpha(), 0.005f);
     }
 
+    // Tests if MinesweeperSessionManager stores score correctly
     @Test
     public void testSessionManagerScore() {
         sessionManager = new MinesweeperSessionManager(activity);
@@ -300,6 +322,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedScore, sessionManager.getScore());
     }
 
+    // Tests if MinesweeperSessionManager saves the correct number of rounds
     @Test
     public void testSessionManagerCompletedRounds() {
         sessionManager = new MinesweeperSessionManager(activity);
@@ -310,6 +333,7 @@ public class MinesweeperGameTests {
         assertEquals(expectedRounds, sessionManager.getCompletedRounds());
     }
 
+    // Tests if score is always non-negative
     @Test
     public void scoreNotNegative() {
         sessionManager = new MinesweeperSessionManager(activity);
@@ -317,6 +341,7 @@ public class MinesweeperGameTests {
         assertTrue(sessionManager.getScore() >= 0);
     }
 
+    // Tests if number of rounds completed are always non-negative
     @Test
     public void roundsCompletedNotNegative() {
         sessionManager = new MinesweeperSessionManager(activity);
