@@ -4,187 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/classroom"
     android:gravity="fill"
-    tools:context="com.example.powerup.Game">
+    tools:context="com.example.powerup.Game"
+    android:id="@+id/root">
 
     <TextView
         android:id="@+id/scenarioNameEditText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_height="@dimen/karma_star_height"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/scenarioNameEditText_margin_top"
         android:background="@android:color/transparent"
         android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
         android:ems="@integer/text_view_ems"
         android:hint="@string/pgame_scenario_hint"
         android:textColor="@color/powerup_black"
         android:gravity="top"
-        android:textSize="@dimen/game_text_size" />
+        android:textSize="@dimen/game_text_size"/>
 
-    <ListView
-        android:id="@+id/mainListView"
-        android:layout_width="@dimen/gameActivity_lv_width"
-        android:layout_height="@dimen/main_list_view_height"
-        android:layout_below="@+id/questionView"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@android:color/white"
-        android:clickable="true" />
 
     <Button
         android:id="@+id/continueButtonGoesToMap"
-        android:layout_width="@dimen/continue_button_map_width"
-        android:layout_height="@dimen/continue_button_map_height"
+        android:layout_width="@dimen/home_button_height"
+        android:layout_height="@dimen/home_button_height"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/home" />
+        android:background="@drawable/home_button" />
 
-    <Button
-        android:id="@+id/redoButton"
-        android:layout_width="@dimen/redo_button_width"
-        android:layout_height="@dimen/redo_button_height"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@id/continueButtonGoesToMap"
-        android:background="@drawable/replay" />
 
     <ImageView
         android:id="@+id/askerImageView"
-        android:layout_width="@dimen/gameActivity_iv_width"
-        android:layout_height="@dimen/gameActivity_iv_height"
-        android:layout_above="@+id/power_bar"
-        android:layout_alignParentEnd="true"
+
+        android:layout_marginRight="@dimen/conversation_margin"
+        android:layout_width="@dimen/asker_width"
+        android:layout_height="@dimen/asker_height"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:src="@drawable/marco" />
 
-    <TextView
-        android:id="@+id/questionView"
-        android:layout_width="@dimen/questionview_tv_width"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scenarioNameEditText"
-        android:layout_toRightOf="@+id/faceImageView"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:ems="@integer/text_view_ems"
-        android:layout_marginLeft="@dimen/questionview_tv_margin_left"
-        android:layout_marginTop="@dimen/questionview_tv_margin_top"
-        android:hint="@string/question"
-        android:textColor="#4e4d40"
-        android:textSize="@dimen/game_text_size" />
 
-    <RelativeLayout
+
+    <FrameLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scenarioNameEditText"
-        android:layout_marginTop="@dimen/gameActivity_rl_marginTop">
-
-        <ImageView
-            android:id="@+id/faceImageView"
-            android:layout_width="@dimen/face_view_width"
-            android:layout_height="@dimen/face_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/face1" />
-
-        <ImageView
-            android:id="@+id/eyeImageView"
-            android:layout_width="@dimen/eye_view_width"
-            android:layout_height="@dimen/eye_view_height"
-            android:layout_alignBottom="@id/faceImageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/eye_view_margin_bottom"
-            android:src="@drawable/eye1" />
-
-        <ImageView
-            android:id="@+id/hairImageView"
-            android:layout_width="@dimen/hair_view_width"
-            android:layout_height="@dimen/hair_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hair2" />
-
-        <ImageView
-            android:id="@+id/clothImageView"
-            android:layout_width="@dimen/cloth_view_width"
-            android:layout_height="@dimen/cloth_view_height"
-            android:layout_alignTop="@+id/eyeImageView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cloth1" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/power_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/power_bar_view_height"
+        android:layout_width="@dimen/avatar_width"
+        android:layout_height="@dimen/avatar_height"
         android:layout_alignParentBottom="true">
 
         <ImageView
-            android:id="@+id/powerBarView"
+            android:id="@+id/skin_view"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/power_bar_view_height"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/power_status_bar" />
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/skin1" />
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarHealing"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_marginTop="@dimen/power_bar_margin_top"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_purple_light"
-            app:rcRadius="@dimen/power_bar_radius" />
+        <ImageView
+            android:id="@+id/dress_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/dress_avatar1" />
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarStrength"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/powerbarHealing"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_marginTop="@dimen/power_bar_margin_right"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_pink"
-            app:rcRadius="@dimen/power_bar_radius" />
+        <ImageView
+            android:id="@+id/hair_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/hair1" />
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarTelepathy"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignTop="@id/powerbarHealing"
-            android:layout_marginRight="@dimen/power_bar_margin_right"
-            android:layout_toLeftOf="@id/powerbarHealing"
-            android:layout_toStartOf="@id/powerbarHealing"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_blue_green"
-            app:rcRadius="@dimen/power_bar_radius" />
+        <ImageView
+            android:id="@+id/eye_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/eyes3" />
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/powerbarInvisibility"
-            android:layout_width="@dimen/power_bar_width"
-            android:layout_height="@dimen/power_bar_height"
-            android:layout_alignLeft="@id/powerbarTelepathy"
-            android:layout_alignStart="@id/powerbarTelepathy"
-            android:layout_alignTop="@id/powerbarStrength"
-            app:rcBackgroundColor="@android:color/black"
-            app:rcBackgroundPadding="@dimen/power_bar_radius_padding"
-            app:rcMax="@integer/max_progress"
-            app:rcProgress="@integer/half_progress"
-            app:rcProgressColor="@color/powerup_yellow"
-            app:rcRadius="@dimen/power_bar_radius" />
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/accessory_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            />
+
+    </FrameLayout>
+
+    <ListView
+        android:paddingBottom="@dimen/conversation_margin"
+        android:paddingLeft="@dimen/game_padding_left"
+        android:paddingRight="@dimen/conversation_margin"
+        android:id="@+id/mainListView"
+        android:layout_width="@dimen/answer_listview_width"
+        android:layout_height="@dimen/main_list_view_height"
+        android:layout_toRightOf="@id/relativeLayout"
+        android:layout_centerVertical="true"
+        android:background="@drawable/left_conversation"
+        android:clickable="true"/>
+    <TextView
+        android:textColor="@color/powerup_black"
+        android:id="@+id/questionView"
+        android:layout_width="@dimen/questionview_tv_width"
+        android:textSize="@dimen/game_text_size"
+        android:layout_height="wrap_content"
+        android:background="@drawable/right_conversation"
+        android:hint="@string/question"
+        android:layout_above="@id/mainListView"
+        android:layout_marginTop="@dimen/conversation_margin"
+        android:layout_marginBottom="@dimen/conversation_margin"
+        android:layout_toLeftOf="@id/askerImageView"
+        android:gravity="center"/>
+
 </RelativeLayout>

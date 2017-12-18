@@ -6,4 +6,9 @@
     <color name="powerup_blue_green">#12bea2</color>
     <color name="powerup_black">#000000</color>
     <color name="about_background">#c8ffffff</color>
+    <color name="score_color">#68B9C3</color>
+    <color name="cons_text">#ff0000</color>
+    <color name="correct_answer">#69FF6E</color>
+    <color name="wrong_answer">#FF6969</color>
+    <color name="score_text">#6EBFE1</color>
 </resources>

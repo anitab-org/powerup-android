@@ -1,67 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/map">
+    android:background="@drawable/map_no_building">
 
-    <Button
-        android:id="@+id/HouseButton"
-        android:layout_width="@dimen/map_house_click_width"
-        android:layout_height="@dimen/map_house_click_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="@dimen/house_button_margin_left"
-        android:layout_marginTop="@dimen/house_button_margin_top"
-        android:alpha="@dimen/map_alpha"
-        android:text="@string/house" />
+    <ImageView
+        android:id="@+id/school_building"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/school_grayscale"/>
+    <ImageView
+        android:id="@+id/library_building"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/library_grayscale"/>
+    <ImageView
+        android:id="@+id/hospital_building"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hospital_grayscale"/>
 
-    <Button
-        android:id="@+id/HospitalButton"
-        android:layout_width="@dimen/map_hospital_click_width"
-        android:layout_height="@dimen/map_hospital_click_height"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/HouseButton"
-        android:layout_marginRight="@dimen/hospital_button_margin_right"
-        android:alpha="@dimen/map_alpha"
-        android:text="@string/hospital" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/house_colored">
 
-    <Button
-        android:id="@+id/SchoolButton"
-        android:layout_width="@dimen/map_school_click_width"
-        android:layout_height="@dimen/map_school_click_height"
-        android:layout_alignLeft="@id/HospitalButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@id/HospitalButton"
-        android:layout_marginBottom="@dimen/school_button_margin_bottom"
-        android:alpha="@dimen/map_alpha"
-        android:text="@string/school" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/map_paddingBottom">
 
-    <Button
-        android:id="@+id/BoyfriendButton"
-        android:layout_width="@dimen/map_boyfriend_click_width"
-        android:layout_height="@dimen/map_boyfriend_click_height"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/boyfriend_button_margin_bottom"
-        android:layout_marginLeft="@dimen/boyfriend_button_margin_left"
-        android:alpha="@dimen/map_alpha"
-        android:text="@string/boyfriend" />
+            <ImageView
+                android:clickable="false"
+                android:id="@+id/school"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:text="@string/house"
+                android:scaleType="centerInside"/>
 
-    <Button
-        android:id="@+id/storeButton"
-        android:layout_width="@dimen/store_width"
-        android:layout_height="@dimen/store_height"
-        android:layout_alignTop="@+id/HouseButton"
-        android:layout_centerHorizontal="true"
-        android:alpha="@dimen/map_alpha"
-        android:text="@string/store" />
+            <ImageView
+                android:clickable="false"
+                android:id="@+id/house"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginRight="@dimen/map_marginBottom"
+                android:layout_weight="1"
+                android:alpha="@dimen/map_alpha"
+                android:text="@string/boyfriend" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="@dimen/gamemap_homeButton_width"
-        android:layout_height="@dimen/gamemap_homeButton_height"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:alpha="@dimen/map_alpha" />
+        <Button
+            android:id="@+id/store"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/store_height_value"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/map_marginBottom"
+            android:layout_weight="1"
+            android:alpha="@dimen/map_alpha"
+            android:text="@string/store" />
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:clickable="false"
+                    android:id="@+id/hospital"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/map_marginBottom"
+                    android:layout_weight="5"
+                    android:scaleType="centerInside"
+                    android:text="@string/hospital" />
+
+                <Button
+                    android:id="@+id/home_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/library"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/map_marginBottom"
+                android:layout_weight="1"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

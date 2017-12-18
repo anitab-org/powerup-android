@@ -7,11 +7,11 @@
 7,4,I’m feeling weird. Can we talk about this?,$,2
 8,5,Let’s go to the store and buy some.,6,4
 9,5,I am not feeling comfortable about this.,7,4
-10,5,"Nevermind let’s just have sex.",$,0
+10,5,Nevermind let’s just have sex.,-1,0
 11,7,I really think we should find a condom,6,3
 12,7,I changed my mind. I wanna go home.,$,3
-13,6,"Ok I am going home",$,4
-14,6,Ok fine. Let’s have sex,$,0
+13,6,Ok I am going home,$,4
+14,6,Ok fine. Let’s have sex,-1,0
 15,3,Returns Home,$,0
 16,8,Maybe another time.,3,2
 17,8,Sure,2,1
@@ -22,11 +22,11 @@
 22,11,I’m feeling weird. Can we talk about this?,$,2
 23,12,Let’s go to the store and buy some.,6,4
 24,12,I am not feeling comfortable about this.,7,4
-25,12,"Nevermind let’s just have sex.",$,0
+25,12,Nevermind let’s just have sex.,-1,0
 26,14,I really think we should find a condom,6,3
 27,14,I changed my mind. I wanna go home.,$,3
-28,13,"Ok I am going home",$,4
-29,13,Ok fine. Let’s have sex,$,0
+28,13,Ok I am going home,$,4
+29,13,Ok fine. Let’s have sex,-1,0
 30,10,Returns Home,$,0
 31,15,Maybe another time.,3,2
 32,15,Sure,2,1
@@ -37,13 +37,13 @@
 37,18,I’m feeling weird. Can we talk about this?,$,2
 38,19,Let’s go to the store and buy some.,6,4
 39,19,I am not feeling comfortable about this.,7,4
-40,19,"Nevermind let’s just have sex.",$,0
+40,19,Nevermind let’s just have sex.,-1,0
 41,21,I really think we should find a condom,6,3
 42,21,I changed my mind. I wanna go home.,$,3
-43,20,"Ok I am going home",$,4
-44,20,Ok fine. Let’s have sex,$,0
+43,20,Ok I am going home,$,4
+44,20,Ok fine. Let’s have sex,-1,0
 45,17,Returns Home,$,0
-46,29,"Friend X" you never returned my ipod from last summer...,30,1
+46,29,Friend X you never returned my ipod from last summer...,30,1
 47,30,Fine whatever. Here it is.,31,2
 48,30,I don't know man. I begged my mom for this last Christmas. This is my baby.,32,3
 49,30,ABSOLUTELY not. You are a terrible person and I never want to see you again.,33,1
@@ -53,3 +53,58 @@
 53,33,Whatever!,$,1
 54,34,Yo! See you soon,$,1
 55,31,Hehe.. be careful,$,1
+56,35,Yes..I am comfortable and prefer speaking alone,36,2
+57,35,No..I am not comfortable. Please call her.,40,2
+58,35,Say yes even if you are not comfortable,36,2
+59,36,Answer questions hesitantly,38,2
+60,36,Please call my mother,40,2
+61,36,Stay quiet until doctor calls your mother,40,2
+62,40,Stay quiet and let your mother answer for you,37,2
+63,40,Voluntarily answer questions yourself,38,2
+64,40,Give answers in detail,38,2
+65,37,Stay quiet,38,2
+66,37,Correct her and tell all problems clearly in detail,38,2
+67,38,Tell doctor about any pain or infection or health problem during checkup,39,2
+68,38,Stay quiet. Don't tell any problem you are facing to save embarrassment,39,2
+69,38,Lie on checkup questions to save embarrassment,39,2
+70,39,No..Return home,-3,2
+71,39,No..Ask your mother later after returning home,-3,2
+72,39,Ask your all doubts related to puberty,-3,2
+73,41,I am getting acnes and fat at hips,42,2
+74,41,I am not growing.Everybody else has got much bigger than me,43,2
+75,41,I have got period for the first time,44,2
+76,42,I should go diet,45,2
+77,42,I should talk to Mom,46,2
+78,42,I should search on Internet,47,2
+79,42,Lemme ask my friends,48,2
+80,43,Let me eat more over my capacity,45,2
+81,43,I should talk to mom,46,2
+82,43,Go to Internet,47,2
+83,44,I should wait !! I will get better,45,2
+84,44,I should talk to Mom,46,2
+85,45,Visit Doctor !!,-2,2
+86,45,Go to Mom,46,2
+87,46,Visit Doctor!!,-2,2
+88,47,Take medicine,45,2
+89,47,Go to Mom,46,2
+90,47,Visit Doctor!!,-2,2
+91,48,Aaruhi- Talk to your Mom,46,2
+92,48,Juhi- It's happening to me as well..Go to Internet,47,2
+93,48,Ruhi- It's not happening to me..Talk to your Mom,46,2
+94,49,It's fine since Mathew is my uncle,50,2
+95,49,This looks wrong and I will be careful,51,2
+96,50,It is unexpected for you. You couldn't do anything as you are in shock.,52,2
+97,51,Shout until someone comes. Tell everybody about this.,54,2
+98,51,Hit him with anything nearby and run as fast as you can. Tell everyone about this,54,2
+99,51,You expected this and were prepared. Call someone secretly with your phone.,54,2
+100,52,Tell your parents about this,54,2
+101,52,Tell your friends about this,55,2
+102,52,Remain Quiet.,53,2
+103,53,Tell your parents about this,54,2
+104,53,Tell your friends about this,55,2
+105,53,Remain Quiet.,53,2
+106,54,Mathew is handed over to the police,$,2
+107,56,Stay Quiet and keep suffering.,$,2
+108,56,Tell your parents,54,2
+109,55,Neha: Tell your parents,54,2
+110,55,Sneha: Stay quiet..he is your uncle,56,2

@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/plain_background">
 
-    <ImageView
-        android:layout_width="@dimen/about_home_logo_size"
-        android:layout_height="@dimen/about_home_logo_size"
-        android:src="@drawable/ic_launcher"
-        android:layout_alignParentTop="true"
+    <Button
+        android:id="@+id/homeButton"
+        android:onClick="pressHomeButton"
         android:layout_alignParentRight="true"
-        android:onClick="pressHomeButton"/>
+        android:layout_width="@dimen/home_button_height"
+        android:layout_height="@dimen/home_button_height"
+        android:background="@drawable/home_button" />
 
     <LinearLayout
         android:layout_width="match_parent"
