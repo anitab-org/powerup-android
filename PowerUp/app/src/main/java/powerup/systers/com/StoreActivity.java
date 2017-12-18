@@ -293,6 +293,7 @@ public class StoreActivity extends AppCompatActivity {
                 int itemWidth = (int) ((screenWidth / 85.428f) * 13);
                 int itemHeight = (int) ((screenHeight / 51.428f) * 18);
                 storeItem.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
+
                 holder = new ViewHolder(storeItem);
                 storeItem.setTag(holder);
             } else {
