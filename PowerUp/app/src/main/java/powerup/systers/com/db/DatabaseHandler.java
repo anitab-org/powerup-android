@@ -399,6 +399,10 @@ public class DatabaseHandler extends AbstractDbAdapter {
         String query3 = "UPDATE " + PowerUpContract.AccessoryEntry.TABLE_NAME +
                 " SET " + PowerUpContract.AccessoryEntry.COLUMN_PURCHASED + " = 0";
         mDb.execSQL(query3);
+
+        String query4 = "UPDATE " + PowerUpContract.AvatarEntry.TABLE_NAME +
+                " SET " + PowerUpContract.AvatarEntry.COLUMN_ACCESSORY + " = 0";
+        mDb.execSQL(query4);
     }
 
     public void resetReplayed(int id){
