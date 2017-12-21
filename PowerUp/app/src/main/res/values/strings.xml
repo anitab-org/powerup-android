@@ -67,4 +67,6 @@
     <string name="start_dialog_message">If you start a new game, previous data and all karma points will be lost !</string>
     <string name="start_title_message">Are you Sure ?</string>
     <string name="start_confirm_message">Create new Avatar</string>
+    <string name="game_to_map_message">If you migrate to map, current scene karma points will be lost</string>
+    <string name="game_confirm_message">Go to Map</string>
 </resources>
