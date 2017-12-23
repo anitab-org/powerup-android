@@ -17,7 +17,7 @@
         android:id="@+id/start_button"
         android:layout_width="@dimen/continue_width"
         android:layout_height="@dimen/start_height"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="@dimen/continue_marginBottom"
         android:alpha="0.9"
         android:background="@drawable/start_button"
