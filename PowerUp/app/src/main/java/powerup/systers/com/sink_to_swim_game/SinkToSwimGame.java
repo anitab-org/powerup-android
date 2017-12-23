@@ -138,10 +138,10 @@ public class SinkToSwimGame extends AppCompatActivity {
         final AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
         final AlphaAnimation fadeOut = new AlphaAnimation(1f, 0f);
         fadeOut.setFillAfter(true);
-        fadeIn.setDuration(800);
-        fadeOut.setDuration(800);
+        fadeIn.setDuration(600);
+        fadeOut.setDuration(600);
         fadeIn.setFillAfter(true);
-        fadeIn.setStartOffset(500);
+        fadeIn.setStartOffset(300);
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -198,6 +198,7 @@ public class SinkToSwimGame extends AppCompatActivity {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
                 wrongAnswers++;
             }
+            questionView.setText("");
         } else if (view == findViewById(R.id.false_option)) {
             if (PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][1] == "F") {
                 score += 1;
@@ -208,9 +209,9 @@ public class SinkToSwimGame extends AppCompatActivity {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
                 wrongAnswers++;
             }
+            questionView.setText("");
         }
 
-        questionView.setText("");
         showNextQuestion();
         scoreView.setText("Score: " + score);
     }
