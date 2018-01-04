@@ -3,8 +3,10 @@ package powerup.systers.com.sink_to_swim_game;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -37,6 +39,10 @@ public class SinkToSwimGame extends AppCompatActivity {
     public long millisLeft;
     public CountDownTimer countDownTimer;
     public ViewPropertyAnimator animator;
+    final String SOUND_TYPE = "SOUND_TYPE";
+    final static int BGM = 0;
+    private SharedPreferences prefs;
+    final String CURR_POSITION = "CURR_POSITION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +94,10 @@ public class SinkToSwimGame extends AppCompatActivity {
                 gameEnd(); //game ends when time finishes
             }
         };
+        prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putInt(CURR_POSITION, 0);
+        edit.apply();
         gameBegins();
     }
 
@@ -274,6 +284,8 @@ public class SinkToSwimGame extends AppCompatActivity {
                     gameEnd(); //game ends when time finishes
                 }
             }.start();
+        startService(new Intent(SinkToSwimGame.this, SinkToSwimSound.class)
+                .putExtra(SOUND_TYPE, BGM));
         super.onResume();
     }
 
@@ -285,6 +297,7 @@ public class SinkToSwimGame extends AppCompatActivity {
     public void onPause() {
         countDownTimer.cancel();
         countDownTimer = null;
+        stopService(new Intent(SinkToSwimGame.this, SinkToSwimSound.class));
         super.onPause();
     }
 }
