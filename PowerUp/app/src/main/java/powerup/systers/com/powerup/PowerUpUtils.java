@@ -25,6 +25,7 @@ public class PowerUpUtils {
     public static final String ID_REFERENCE = "powerup.systers.com.powerup:id/imageView";
     public static final String ID_REF = "powerup.systers.com:id/imageView";
     public static final String MINESWEEP_PREVIOUS_SCENARIO = "School";
+    public static final String IS_FINAL_SCENARIO_EXTRA = "IS_FINAL_SCENARIO";
 
     public static final int[] ROUNDS_FAILURE_PERCENTAGES = {18, 20, 25};
     public static final int[] ROUND_BACKGROUNDS = {R.drawable.minesweeper_condom_background, R.drawable.minesweeper_condom_background, R.drawable.minesweeper_condom_background};

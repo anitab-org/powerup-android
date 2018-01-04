@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.R;
+import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class SinkToSwimEndActivity extends AppCompatActivity {
@@ -29,7 +30,8 @@ public class SinkToSwimEndActivity extends AppCompatActivity {
     }
 
     public void continuePressed(View view){
-        Intent intent = new Intent(SinkToSwimEndActivity.this, GameOverActivity.class);
+        Intent intent = new Intent(SinkToSwimEndActivity.this, ScenarioOverActivity.class);
+        intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
         finish();
         startActivityForResult(intent, 0);
     }
