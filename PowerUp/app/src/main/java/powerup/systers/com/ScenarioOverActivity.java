@@ -6,37 +6,31 @@
 
 package powerup.systers.com;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 
 import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.powerup.PowerUpUtils;
 
-import static powerup.systers.com.R.string.scene;
-
 public class ScenarioOverActivity extends AppCompatActivity {
 
-    public Activity scenarioOverActivityInstance;
     public static int scenarioActivityDone;
-    private DatabaseHandler mDbHandler;
+    public Activity scenarioOverActivityInstance;
     public Scenario scene;
+    private DatabaseHandler mDbHandler;
 
     public ScenarioOverActivity() {
         scenarioOverActivityInstance = this;
     }
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,20 +51,19 @@ public class ScenarioOverActivity extends AppCompatActivity {
         });
 
         TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
-        
+
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new GameActivity().gameActivityInstance.finish();
+                finishCurrentSituation();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
         });
-        if (getIntent().getExtras()!=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE))){
+        if (isRedirectedFromMap()) {
             continueButton.setVisibility(View.GONE);
             continueButton.setOnClickListener(null);
         }
-
 
         replayButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,20 +75,17 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 DatabaseHandler dbHandler = new DatabaseHandler(ScenarioOverActivity.this);
                 dbHandler.resetCompleted(SessionHistory.currSessionID);
                 dbHandler.resetReplayed(SessionHistory.currSessionID);
-                new GameActivity().gameActivityInstance.finish();
+                finishCurrentSituation();
                 scenarioOverActivityInstance.finish();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
             }
         });
     }
 
-    /**
-     * If the "back" button is pressed, the current situation closes itself.
-     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        new GameActivity().gameActivityInstance.finish();
+        finishCurrentSituation();
     }
 
     public DatabaseHandler getmDbHandler() {
@@ -104,5 +94,13 @@ public class ScenarioOverActivity extends AppCompatActivity {
 
     public void setmDbHandler(DatabaseHandler mDbHandler) {
         this.mDbHandler = mDbHandler;
+    }
+
+    private boolean isRedirectedFromMap() {
+        return getIntent().getExtras() != null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE));
+    }
+
+    private void finishCurrentSituation() {
+        new GameActivity().gameActivityInstance.finish();
     }
 }
