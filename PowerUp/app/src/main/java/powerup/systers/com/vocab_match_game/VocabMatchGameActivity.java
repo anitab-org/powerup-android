@@ -128,7 +128,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                     public void run() {
                         boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_yellow));
                     }
-                },2);
+                },250);
                 latestTile++;
 
 
