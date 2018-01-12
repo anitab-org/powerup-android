@@ -91,6 +91,7 @@ public class MapActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MapActivity.this, StoreActivity.class));
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
 
