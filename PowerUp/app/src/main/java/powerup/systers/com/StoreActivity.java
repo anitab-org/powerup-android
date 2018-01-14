@@ -43,6 +43,7 @@ public class StoreActivity extends AppCompatActivity {
     private DatabaseHandler mDbHandler;
     java.lang.reflect.Field photoNameField;
     R.drawable ourRID;
+    long selectedItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -295,6 +296,7 @@ public class StoreActivity extends AppCompatActivity {
                 storeItem.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
                 holder = new ViewHolder(storeItem);
                 storeItem.setTag(holder);
+                selectedItemId = getItemId(calculatePosition(position)+1); //Previously purchased
             } else {
                 holder = (ViewHolder) storeItem.getTag();
             }
@@ -307,6 +309,7 @@ public class StoreActivity extends AppCompatActivity {
                         int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == 0) { //hair
                             setAvatarHair(index);
+                            selectedItemId = getmDbHandler().getAvatarHair(); //hairItem selected
                             if (getmDbHandler().getPurchasedHair(index) == 0){
                                 SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
                                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
@@ -316,6 +319,7 @@ public class StoreActivity extends AppCompatActivity {
 
                         } else if (storeItemTypeindex == 1) { //clothes
                             setAvatarClothes(index);
+                            selectedItemId = getmDbHandler().getAvatarCloth(); //clothItem selected
                             if (getmDbHandler().getPurchasedClothes(index) == 0){
                                 SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
                                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
@@ -324,6 +328,7 @@ public class StoreActivity extends AppCompatActivity {
 
                         } else if (storeItemTypeindex == 2) { //accessories
                             setAvatarAccessories(index);
+                            selectedItemId = getmDbHandler().getAvatarAccessory(); //accessoryItem selected
                             if (getmDbHandler().getPurchasedAccessories(index) == 0){
                                 SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
                                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
@@ -343,8 +348,13 @@ public class StoreActivity extends AppCompatActivity {
 
             if (getPurchasedStatus(id) == 1) { // whatever type is currently opened, it is already bought
                 storeItem.setBackground(getResources().getDrawable(R.drawable.sold_item));
-                holder.itemImage.setImageResource(R.drawable.store_tick);
                 storeItem.setEnabled(true);
+                //Testing whether the item matches id (selected)
+                if (selectedItemId == id) {
+                    holder.itemImage.setImageResource(R.drawable.store_tick);
+                } else {
+                    holder.itemImage.setImageResource(android.R.color.transparent);
+                }
             } else { //not purchased => available/not available
                 holder.itemImage.setImageResource(Color.TRANSPARENT);
                 if (Integer.parseInt(temp.points) <= SessionHistory.totalPoints) { //can be bought
