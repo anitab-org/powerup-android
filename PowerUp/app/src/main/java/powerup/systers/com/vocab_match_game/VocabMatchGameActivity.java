@@ -21,6 +21,7 @@ import java.util.Random;
 
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.datamodel.SessionHistory;
 
 
 public class VocabMatchGameActivity extends AppCompatActivity {
@@ -141,6 +142,8 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                 } else if (latestTile == PowerUpUtils.VOCAB_TILES_IMAGES.length + 2){
                     Intent intent = new Intent(VocabMatchGameActivity.this,VocabMatchEndActivity.class);
                     intent.putExtra(PowerUpUtils.SCORE,score);
+                    SessionHistory.totalPoints += score;
+                    SessionHistory.currScenePoints += score;
                     finish();
                     startActivity(intent);
                 }
