@@ -4,6 +4,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/plain_background">
 
+    <ImageView
+        android:id="@+id/karma_star"
+        android:layout_width="@dimen/karma_star_width"
+        android:layout_height="@dimen/karma_star_height"
+        android:src="@drawable/karma"/>
+    <TextView
+        android:id="@+id/karmaPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/karma_star_height"
+        android:layout_toRightOf="@id/karma_star"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="@dimen/karma_points_textSize"
+        android:textColor="@color/powerup_black"/>
     <TextView
         android:id="@+id/completed_game_textView"
         android:layout_width="@dimen/completed_scene_text_land_width"

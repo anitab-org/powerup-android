@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import powerup.systers.com.datamodel.SessionHistory;
 
 public class GameOverActivity extends Activity {
 
@@ -30,5 +32,7 @@ public class GameOverActivity extends Activity {
                 startActivityForResult(intent, 0);
             }
         });
+        TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
+        karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
     }
 }
