@@ -27,6 +27,7 @@ public class StartActivity extends Activity {
 
     private SharedPreferences preferences;
     private boolean hasPreviouslyStarted;
+    private boolean hasPreviouslyCustomized;
     private Button startButton;
     private Button newUserButton;
     private Button aboutButton;
@@ -39,6 +40,7 @@ public class StartActivity extends Activity {
         context = StartActivity.this;
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
+        hasPreviouslyCustomized = preferences.getBoolean(getString(R.string.preferences_has_previously_customized), false);
         newUserButton = (Button) findViewById(R.id.newUserButtonFirstPage);
         newUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,9 @@ public class StartActivity extends Activity {
                         .setMessage(getResources().getString(R.string.start_dialog_message));
                 builder.setPositiveButton(getString(R.string.start_confirm_message), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        SharedPreferences.Editor edit = preferences.edit();
+                        edit.putBoolean(getString(R.string.preferences_has_previously_customized), Boolean.FALSE);
+                        edit.apply();
                         startActivityForResult(new Intent(StartActivity.this, AvatarRoomActivity.class), 0);
                     }
                 });

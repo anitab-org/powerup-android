@@ -13,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/redoButton"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
@@ -28,6 +30,7 @@
         android:layout_width="@dimen/main_list_view_width"
         android:layout_height="@dimen/main_list_view_height"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/askerImageView"
         android:background="@android:color/white"
         android:clickable="true" />
@@ -36,6 +39,7 @@
         android:id="@+id/continueButtonGoesToMap"
         android:layout_width="@dimen/continue_button_map_width"
         android:layout_height="@dimen/continue_button_map_height"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/home" />
@@ -45,6 +49,7 @@
         android:layout_width="@dimen/redo_button_width"
         android:layout_height="@dimen/redo_button_height"
         android:layout_alignParentTop="true"
+        android:layout_toStartOf="@id/continueButtonGoesToMap"
         android:layout_toLeftOf="@id/continueButtonGoesToMap"
         android:background="@drawable/replay" />
 
@@ -53,6 +58,7 @@
         android:layout_width="@dimen/asker_image_view_width"
         android:layout_height="@dimen/asker_image_view_height"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@id/scenarioNameEditText"
         android:src="@drawable/marco" />
 
@@ -69,6 +75,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/power_status_bar" />
 
@@ -76,8 +83,10 @@
             android:id="@+id/powerbarHealing"
             android:layout_width="@dimen/power_bar_width"
             android:layout_height="@dimen/power_bar_height"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/power_bar_margin_right"
             android:layout_marginRight="@dimen/power_bar_margin_right"
             android:layout_marginTop="@dimen/power_bar_margin_top"
             app:rcBackgroundColor="@android:color/black"
@@ -92,7 +101,9 @@
             android:layout_width="@dimen/power_bar_width"
             android:layout_height="@dimen/power_bar_height"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_below="@id/powerbarHealing"
+            android:layout_marginEnd="@dimen/power_bar_margin_right"
             android:layout_marginRight="@dimen/power_bar_margin_right"
             android:layout_marginTop="@dimen/power_bar_margin_right"
             app:rcBackgroundColor="@android:color/black"
@@ -107,6 +118,7 @@
             android:layout_width="@dimen/power_bar_width"
             android:layout_height="@dimen/power_bar_height"
             android:layout_alignTop="@id/powerbarHealing"
+            android:layout_marginEnd="@dimen/power_bar_margin_right"
             android:layout_marginRight="@dimen/power_bar_margin_right"
             android:layout_toLeftOf="@id/powerbarHealing"
             android:layout_toStartOf="@id/powerbarHealing"
@@ -137,9 +149,11 @@
         android:id="@+id/questionView"
         android:layout_width="@dimen/question_view_width"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@id/askerImageView"
         android:layout_marginLeft="@dimen/pgame_quesitionView_marginLeft"
+        android:layout_marginStart="@dimen/pgame_quesitionView_marginLeft"
         android:layout_marginTop="@dimen/question_view_margin_top"
         android:background="@android:color/transparent"
         android:ems="@integer/text_view_ems"

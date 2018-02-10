@@ -6,6 +6,9 @@
     <dimen name="continue_width">250dp</dimen>
     <dimen name="continue_height">100dp</dimen>
     <dimen name="continue_marginBottom">10dp</dimen>
+    <dimen name="back_width">250dp</dimen>
+    <dimen name="back_height">100dp</dimen>
+    <dimen name="back_marginBottom">10dp</dimen>
     <dimen name="pros_cons_textSize">12sp</dimen>
     <dimen name="pros_cons_paddingRight">14dp</dimen>
     <dimen name="pros_cons_paddingTop">7dp</dimen>
@@ -37,6 +40,7 @@
     <dimen name="selection_margin_wide">14dp</dimen>
     <dimen name="selection_margin_small">5dp</dimen>
     <dimen name="selection_text_size">14sp</dimen>
+    <dimen name="final_scene_text_size">23sp</dimen>
     <dimen name="start_height">20dp</dimen>
     <dimen name="hair_button_marginLeft">75dp</dimen>
 </resources>

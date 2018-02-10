@@ -182,6 +182,7 @@
     <dimen name="hat_marginRight">20dp</dimen>
     <dimen name="relative2_marginLeft">10dp</dimen>
     <dimen name="final_avatar_text_size">18sp</dimen>
+    <dimen name="final_scene_text_size">33sp</dimen>
     <dimen name="avatar_room_margin_one">-50dp</dimen>
     <dimen name="avatar_room_margin_two">30dp</dimen>
     <dimen name="avatar_room_continue_button_land">30dp</dimen>
@@ -203,6 +204,9 @@
     <dimen name="continue_width">250dp</dimen>
     <dimen name="continue_height">100dp</dimen>
     <dimen name="continue_marginBottom">10dp</dimen>
+    <dimen name="back_width">250dp</dimen>
+    <dimen name="back_height">100dp</dimen>
+    <dimen name="back_marginBottom">10dp</dimen>
     <dimen name="pros_cons_textSize">20sp</dimen>
     <dimen name="pros_cons_paddingRight">20dp</dimen>
     <dimen name="pros_cons_paddingTop">10dp</dimen>
@@ -243,4 +247,5 @@
     <dimen name="game_convo_padding_right">30dp</dimen>
     <dimen name="game_convo_padding_top">10dp</dimen>
     <dimen name="game_convo_padding_bottom">10dp</dimen>
+    <dimen name="scenario_name_marginLeft">8dp</dimen>
 </resources>

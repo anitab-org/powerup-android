@@ -6,8 +6,10 @@ import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -21,6 +23,7 @@ import java.util.Random;
 
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.datamodel.SessionHistory;
 
 
 public class VocabMatchGameActivity extends AppCompatActivity {
@@ -29,6 +32,8 @@ public class VocabMatchGameActivity extends AppCompatActivity {
     public VocabTileImageView img1, img2, img3;
     public int height, width, oldestTile, score, latestTile;
     public TextView scoreView;
+    public MediaPlayer mediaPlayerPlus;
+    public MediaPlayer mediaPlayerNegative;
     Random r;
 
     @Override
@@ -59,6 +64,8 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         img3.getLayoutParams().width = height / 4;
         img3.getLayoutParams().height = height / 4;
         initialSetUp();
+        mediaPlayerPlus = MediaPlayer.create(this, R.raw.plus_power_up);
+        mediaPlayerNegative = MediaPlayer.create(this, R.raw.negative_hurt);
     }
 
     public void initialSetUp() {
@@ -117,8 +124,10 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                     if (tileText.equals(boardText)) {
                         score++;
                         scoreView.setText("" + score);
+                        mediaPlayerPlus.start();
                         boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_green));
                     }else {
+                        mediaPlayerNegative.start();
                         boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_red));
                     }
                 }
@@ -128,7 +137,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                     public void run() {
                         boardView.setBackground(getResources().getDrawable(R.drawable.vocab_clipboard_yellow));
                     }
-                },2);
+                },250);
                 latestTile++;
 
 
@@ -141,6 +150,8 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                 } else if (latestTile == PowerUpUtils.VOCAB_TILES_IMAGES.length + 2){
                     Intent intent = new Intent(VocabMatchGameActivity.this,VocabMatchEndActivity.class);
                     intent.putExtra(PowerUpUtils.SCORE,score);
+                    SessionHistory.totalPoints += score;
+                    SessionHistory.currScenePoints += score;
                     finish();
                     startActivity(intent);
                 }

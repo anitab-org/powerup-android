@@ -26,10 +26,10 @@ public class AvatarRoomActivity extends Activity {
     private ImageView skinAvatar;
     private ImageView clothAvatar;
     private ImageView hairAvatar;
-    private Integer eye = 1;
-    private Integer hair = 1;
-    private Integer skin = 1;
-    private Integer cloth = 1;
+    private Integer eye;
+    private Integer hair;
+    private Integer skin;
+    private Integer cloth;
 
     public AvatarRoomActivity() {
         avatarRoomInstance = this;
@@ -53,7 +53,63 @@ public class AvatarRoomActivity extends Activity {
         final ImageView hairLeft = (ImageView) findViewById(R.id.hair_left);
         ImageView hairRight = (ImageView) findViewById(R.id.hair_right);
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarRoomActivity.this);
+        boolean hasPreviouslyCustomized = prefs.getBoolean(getString(R.string.preferences_has_previously_customized), false);
+        if (!hasPreviouslyCustomized) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean(getString(R.string.preferences_has_previously_customized), Boolean.TRUE);
+            edit.apply();
+            eye=1;
+            skin=1;
+            hair=1;
+            cloth=1;
+        } else {
+            eye=getmDbHandler().getAvatarEye();
+            skin=getmDbHandler().getAvatarSkin();
+            hair=getmDbHandler().getAvatarHair();
+            cloth=getmDbHandler().getAvatarCloth();
+            String eyeImageName = getResources().getString(R.string.eye);
+            eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
+            R.drawable ourRID = new R.drawable();
+            java.lang.reflect.Field photoNameField;
+            try {
+                photoNameField = ourRID.getClass().getField(eyeImageName);
+                eyeAvatar.setImageResource(photoNameField.getInt(ourRID));
+            } catch (NoSuchFieldException | IllegalAccessException
+                    | IllegalArgumentException error) {
+                error.printStackTrace();
+            }
 
+            String skinImageName = getResources().getString(R.string.skin);
+            skinImageName = skinImageName + getmDbHandler().getAvatarSkin();
+            try {
+                photoNameField = ourRID.getClass().getField(skinImageName);
+                skinAvatar.setImageResource(photoNameField.getInt(ourRID));
+            } catch (NoSuchFieldException | IllegalAccessException
+                    | IllegalArgumentException error) {
+                error.printStackTrace();
+            }
+
+            String clothImageName = getResources().getString(R.string.cloth);
+            clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
+            try {
+                photoNameField = ourRID.getClass().getField(clothImageName);
+                clothAvatar.setImageResource(photoNameField.getInt(ourRID));
+            } catch (NoSuchFieldException | IllegalAccessException
+                    | IllegalArgumentException error) {
+                error.printStackTrace();
+            }
+
+            String hairImageName = getResources().getString(R.string.hair);
+            hairImageName = hairImageName + getmDbHandler().getAvatarHair();
+            try {
+                photoNameField = ourRID.getClass().getField(hairImageName);
+                hairAvatar.setImageResource(photoNameField.getInt(ourRID));
+            } catch (NoSuchFieldException | IllegalAccessException
+                    | IllegalArgumentException error) {
+                error.printStackTrace();
+            }
+        }
         eyeLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,17 +286,9 @@ public class AvatarRoomActivity extends Activity {
                 SessionHistory.totalPoints = 0;    //reset the points stored
                 SessionHistory.currSessionID = 1;
                 SessionHistory.currScenePoints = 0;
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarRoomActivity.this);
-                boolean hasPreviouslyStarted = prefs.getBoolean(getString(R.string.preferences_has_previously_started), false);
-                if (!hasPreviouslyStarted) {
-                    SharedPreferences.Editor edit = prefs.edit();
-                    edit.putBoolean(getString(R.string.preferences_has_previously_started), Boolean.TRUE);
-                    edit.apply();
-                }
                 finish();
-                startActivityForResult(new Intent(AvatarRoomActivity.this, MapActivity.class), 0);
-
+                startActivity(new Intent(AvatarRoomActivity.this, FinalAvatarActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
         getmDbHandler().close();
