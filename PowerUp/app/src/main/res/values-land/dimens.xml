@@ -238,4 +238,5 @@
     <dimen name="replay_marginTop">400dp</dimen>
     <dimen name="replay_marginLeft">180dp</dimen>
     <dimen name="hair_button_marginLeft">100dp</dimen>
+    <dimen name="scenario_name_marginLeft">8dp</dimen>
 </resources>
