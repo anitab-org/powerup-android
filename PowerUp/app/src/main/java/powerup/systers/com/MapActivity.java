@@ -29,12 +29,15 @@ public class MapActivity extends Activity {
             if (v.isEnabled()){
             if (getmDbHandler().setSessionId(getScenarioName(scenarioChooser.getId()))) {
                 startActivityForResult(new Intent(MapActivity.this, GameActivity.class), 0);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (new MinesweeperSessionManager(MapActivity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
                 startActivity(new Intent(MapActivity.this, MinesweeperGameActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else {
                 Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
                 intent.putExtra(PowerUpUtils.SOURCE,PowerUpUtils.MAP);
                 startActivityForResult(intent, 0);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
             finish();
         }}
@@ -91,7 +94,7 @@ public class MapActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MapActivity.this, StoreActivity.class));
-                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
 
@@ -100,6 +103,7 @@ public class MapActivity extends Activity {
             public void onClick(View v) {
                 finish();
                 startActivity(new Intent(MapActivity.this,StartActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
 

@@ -65,6 +65,7 @@ public class GameActivity extends Activity {
         context = GameActivity.this;
         if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
             startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
         if (savedInstanceState != null) {
             isStateChanged = true;
@@ -246,9 +247,10 @@ public class GameActivity extends Activity {
                                 .setReplayedScenario(scene.getScenarioName());
                         goToMap.setAlpha((float) 0.0);
                     } else {
-                        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
-                        finish();
-                        startActivity(intent);
+                        Intent intent = new Intent(GameActivity.this, MapActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivityForResult(intent, 0);
+                        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                     }
                 }
             });
@@ -263,13 +265,17 @@ public class GameActivity extends Activity {
                     Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
                     intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
                     startActivity(intent);
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if (type == -1) {
                     new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
                     startActivity(new Intent(GameActivity.this, MinesweeperTutorials.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if (type == -2) {
                     startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if (type == -3) {
                     startActivity(new Intent(GameActivity.this, VocabMatchTutorials.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
 
         }

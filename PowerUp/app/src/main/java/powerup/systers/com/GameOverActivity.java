@@ -30,6 +30,7 @@ public class GameOverActivity extends Activity {
                         MapActivity.class);
                 finish();
                 startActivityForResult(intent, 0);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
         TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);

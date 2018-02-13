@@ -53,6 +53,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 startActivity(new Intent(ScenarioOverActivity.this, MapActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
 
@@ -65,8 +66,10 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 new GameActivity().gameActivityInstance.finish();
                 if (getIntent().getBooleanExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, false)) {
                     startActivity(new Intent(ScenarioOverActivity.this, GameOverActivity.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
                     startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
             }
         });
@@ -89,6 +92,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 new GameActivity().gameActivityInstance.finish();
                 scenarioOverActivityInstance.finish();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
     }

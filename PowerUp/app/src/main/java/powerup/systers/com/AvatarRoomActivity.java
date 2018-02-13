@@ -288,7 +288,7 @@ public class AvatarRoomActivity extends Activity {
                 SessionHistory.currScenePoints = 0;
                 finish();
                 startActivity(new Intent(AvatarRoomActivity.this, FinalAvatarActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
         getmDbHandler().close();
