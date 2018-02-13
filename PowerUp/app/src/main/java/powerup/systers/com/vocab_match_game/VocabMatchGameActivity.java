@@ -257,7 +257,6 @@ public class VocabMatchGameActivity extends AppCompatActivity {
         session.saveData(score, oldestTile);
         super.onPause();
     }
-}
 
     /**
      * Goes back to the map when user presses back button
