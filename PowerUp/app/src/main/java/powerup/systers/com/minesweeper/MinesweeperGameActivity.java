@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.util.HashSet;
 import java.util.Random;
 
+import powerup.systers.com.MinesweeperSound;
 import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
@@ -130,6 +131,7 @@ public class MinesweeperGameActivity extends AppCompatActivity {
      * @desc the opened mine is red, show failure banner
      */
     public void openedRedMine() {
+        playSound(MinesweeperSound.TYPE_INCORRECT);
         showBanner(1);
     }
 
@@ -139,6 +141,7 @@ public class MinesweeperGameActivity extends AppCompatActivity {
      * includes zoom in and out bounce animation on score
      */
     public void openedGreenMine() {
+        playSound(MinesweeperSound.TYPE_CORRECT);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.animator.zoom_in);
         scoreTextView.startAnimation(animation);
         score++;
@@ -241,7 +244,13 @@ public class MinesweeperGameActivity extends AppCompatActivity {
         overridePendingTransition(R.animator.fade_in, R.animator.fade_out);
     }
 
-    /**
+    private void playSound(int sound) {
+        Intent intent = new Intent(this, MinesweeperSound.class)
+                .putExtra(MinesweeperSound.SOUND_TYPE_EXTRA, sound);
+        startService(intent);
+    }
+
+  /**
      * Goes back to the map when user presses back button
      */
     @Override
