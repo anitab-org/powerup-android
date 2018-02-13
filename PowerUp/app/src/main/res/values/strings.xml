@@ -68,6 +68,13 @@
     <string name="start_dialog_message">If you start a new game, previous data and all karma points will be lost !</string>
     <string name="start_title_message">Are you Sure ?</string>
     <string name="start_confirm_message">Create new Avatar</string>
+    <string name="purchase_confirm_title">Warning</string>
+    <string name="purchase_confirm_message">Are you sure you want to purchase this item? You will be spending %d points and the purchase can\'t be reverted</string>
+    <string name="purchase_confirm_ok">Purchase</string>
+    <string name="purchase_confirm_cancel">Maybe not</string>
+    <string name="purchase_success_title">Yay!</string>
+    <string name="purchase_success_message">The purchase is successful!</string>
+    <string name="purchase_success_ok">OK</string>
     <string name="current_scenario_name">Current Scenario: %s</string>
     <string name="scenario_over_dialog_message1">You gained\u0020</string>
     <string name="scenario_over_title_message">Hooray!</string>

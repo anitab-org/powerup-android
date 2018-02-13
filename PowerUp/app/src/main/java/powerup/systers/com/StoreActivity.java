@@ -2,11 +2,15 @@ package powerup.systers.com;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -311,28 +315,30 @@ public class StoreActivity extends AppCompatActivity {
                             setAvatarHair(index);
                             selectedItemId = getmDbHandler().getAvatarHair(); //hairItem selected
                             if (getmDbHandler().getPurchasedHair(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-
-                                getmDbHandler().setPurchasedHair(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarHair(index);
                             }
 
                         } else if (storeItemTypeindex == 1) { //clothes
                             setAvatarClothes(index);
                             selectedItemId = getmDbHandler().getAvatarCloth(); //clothItem selected
                             if (getmDbHandler().getPurchasedClothes(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-                                getmDbHandler().setPurchasedClothes(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarClothes(index);
                             }
 
                         } else if (storeItemTypeindex == 2) { //accessories
                             setAvatarAccessories(index);
                             selectedItemId = getmDbHandler().getAvatarAccessory(); //accessoryItem selected
                             if (getmDbHandler().getPurchasedAccessories(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-                                getmDbHandler().setPurchasedAccessories(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarAccessories(index);
                             }
                         }
                         adapter.refresh(adapter.storeItems); // will update change the background if any is not available
@@ -369,6 +375,55 @@ public class StoreActivity extends AppCompatActivity {
             return storeItem;
         }
 
+    }
+
+    private void showConfirmPurchaseDialog(final int cost, final int index) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.purchase_confirm_title)
+                .setMessage(getString(R.string.purchase_confirm_message, cost));
+        builder.setPositiveButton(R.string.purchase_confirm_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                SessionHistory.totalPoints -= cost;
+                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
+                switch (storeItemTypeindex) {
+                    case PowerUpUtils.TYPE_HAIR:
+                        getmDbHandler().setPurchasedHair(index);
+                        setAvatarHair(index);
+                        break;
+                    case PowerUpUtils.TYPE_CLOTHES:
+                        getmDbHandler().setPurchasedClothes(index);
+                        setAvatarClothes(index);
+                        break;
+                    case PowerUpUtils.TYPE_ACCESSORIES:
+                        getmDbHandler().setPurchasedAccessories(index);
+                        setAvatarAccessories(index);
+                }
+                adapter.refresh(adapter.storeItems); // will update change the background if any is not available
+                showSuccessPurchaseDialog();
+            }
+        });
+        builder.setNegativeButton(R.string.purchase_confirm_cancel, null);
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
+    }
+
+    private void showSuccessPurchaseDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.purchase_success_title)
+                .setMessage(R.string.purchase_success_message);
+        builder.setPositiveButton(R.string.purchase_success_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+               dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
     }
 
     public int getPurchasedStatus(int index) {
