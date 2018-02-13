@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
@@ -32,6 +33,7 @@ public class StartActivity extends Activity {
     private Button newUserButton;
     private Button aboutButton;
     Context context;
+    boolean backAlreadyPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,5 +116,23 @@ public class StartActivity extends Activity {
         if (hasPreviouslyStarted) {
             startButton.setText(getString(R.string.resume_text));
         }
+    }
+    @Override
+    public void onBackPressed() {
+        if (backAlreadyPressed) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+            super.onBackPressed();
+            return;
+        }
+        this.backAlreadyPressed = true;
+        Toast.makeText(this, getResources().getString(R.string.toast_confirm_exit_message), Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backAlreadyPressed=false;
+            }
+        }, 2000);
     }
 }
