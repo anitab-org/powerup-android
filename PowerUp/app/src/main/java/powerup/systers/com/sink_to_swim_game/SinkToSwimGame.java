@@ -23,6 +23,7 @@ import android.widget.TextView;
 import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
+import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.datamodel.SessionHistory;
 
@@ -70,14 +71,33 @@ public class SinkToSwimGame extends AppCompatActivity {
      * @desc sets up the initial setting of the game
      */
     public void initialSetUp() {
-        correctAnswers = 0;
-        wrongAnswers = 0;
-        score = 0;
-        speed = 2; // speed with which boat and pointer will come down
-        curQuestion = 0;
-        millisLeft = 40000; //=40 sec //time left before game is over
+        boolean calledByTutorialsActivity = getIntent().
+                getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+        if(!calledByTutorialsActivity) {
+            SinkToSwimSessionManager session = new SinkToSwimSessionManager(this);
+            correctAnswers = session.getCorrectAnswer();
+            wrongAnswers = session.getWrongAnswer();
+            score = session.getCurrScore();
+            scoreView.setText("Score: " + score);
+            speed = session.getSpeed();
+            curQuestion = session.getCurrQuestion();
+            millisLeft = session.getTimeLeft();
+            boat.setY(session.getBoatHeight());
+            pointer.setY(session.getPointerHeight());
+        }else {
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            score = 0;
+            speed = 2; // speed with which boat and pointer will come down
+            curQuestion = 0;
+            millisLeft = 40000; //=40 sec //time left before game is over
+            bringPointerAndBoatToInitial(); //brings the pointer of scale and boat to their initial positions
+        }
+        if (curQuestion == PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS.length) {
+            gameEnd();
+            return;
+        }
         questionView.setText(PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][0]);
-        bringPointerAndBoatToInitial(); //brings the pointer of scale and boat to their initial positions
         setButtonsEnabled(true); //enables the true,false,and skip button for clicking
         countDownTimer = new CountDownTimer(millisLeft, 1000) {
 
@@ -128,7 +148,7 @@ public class SinkToSwimGame extends AppCompatActivity {
      * @desc ends the game
      */
     public void gameEnd() {
-        countDownTimer.cancel();
+        if(countDownTimer!=null){countDownTimer.cancel();}
         Intent intent = new Intent(SinkToSwimGame.this, SinkToSwimEndActivity.class);
         intent.putExtra(PowerUpUtils.SCORE,score);
         intent.putExtra(PowerUpUtils.CORRECT_ANSWERS,correctAnswers);
@@ -300,10 +320,15 @@ public class SinkToSwimGame extends AppCompatActivity {
      */
     @Override
     public void onPause() {
+        super.onPause();
+        SinkToSwimSessionManager session = new SinkToSwimSessionManager(this);
         countDownTimer.cancel();
         countDownTimer = null;
+        float boatHeight = boat.getY();
+        float pointerHeight = pointer.getY();
+        session.saveData(score, millisLeft, curQuestion,
+                wrongAnswers, correctAnswers, speed, boatHeight, pointerHeight);
         stopService(new Intent(SinkToSwimGame.this, SinkToSwimSound.class));
-        super.onPause();
     }
 
     /**

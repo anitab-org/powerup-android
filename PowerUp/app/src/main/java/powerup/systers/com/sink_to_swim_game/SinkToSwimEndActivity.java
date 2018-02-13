@@ -32,6 +32,8 @@ public class SinkToSwimEndActivity extends AppCompatActivity {
     }
 
     public void continuePressed(View view){
+        SinkToSwimSessionManager session = new SinkToSwimSessionManager(this);
+        session.saveSinkToSwimOpenedStatus(false);
         Intent intent = new Intent(SinkToSwimEndActivity.this, ScenarioOverActivity.class);
         intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
         finish();

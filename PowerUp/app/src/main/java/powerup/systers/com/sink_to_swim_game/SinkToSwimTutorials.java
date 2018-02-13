@@ -44,7 +44,8 @@ public class SinkToSwimTutorials extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (startButton.isEnabled()){
-                    Intent intent = new Intent(SinkToSwimTutorials.this,SinkToSwimGame.class);
+                    Intent intent = new Intent(SinkToSwimTutorials.this,SinkToSwimGame.class)
+                            .putExtra(PowerUpUtils.CALLED_BY, true);
                     finish();
                     startActivity(intent);
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);

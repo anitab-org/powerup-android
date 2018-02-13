@@ -26,7 +26,8 @@ public class VocabMatchTutorials extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(curTutorialImage == PowerUpUtils.VOCAB_MATCH_TUTS.length){
-                    Intent intent = new Intent(VocabMatchTutorials.this,VocabMatchGameActivity.class);
+                    Intent intent = new Intent(VocabMatchTutorials.this,VocabMatchGameActivity.class)
+                            .putExtra(PowerUpUtils.CALLED_BY, true);
                     finish();
                     startActivity(intent);
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);

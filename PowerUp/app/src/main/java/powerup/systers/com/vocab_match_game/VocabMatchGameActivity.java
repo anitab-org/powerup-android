@@ -24,6 +24,7 @@ import java.util.Random;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.datamodel.SessionHistory;
 
@@ -70,14 +71,33 @@ public class VocabMatchGameActivity extends AppCompatActivity {
     }
 
     public void initialSetUp() {
-        tv1.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[0]);
+        boolean calledByTutorialsActivity = getIntent().
+                getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+        if(!calledByTutorialsActivity) {
+            VocabMatchSessionManager session = new VocabMatchSessionManager(this);
+            oldestTile = session.getCurrTile();
+            latestTile = session.getCurrTile();
+            score = session.getCurrScore();
+            scoreView.setText("" + score);
+            //makes sure no array out of bond, if no board left loop to the beginning
+            //this is cleaner than trying to figure out what the clipboard contained before
+            tv1.setText(PowerUpUtils.
+                    VOCAB_MATCHES_BOARDS_TEXTS[oldestTile % PowerUpUtils.VOCAB_TILES_IMAGES.length]);
+            tv2.setText(PowerUpUtils.
+                    VOCAB_MATCHES_BOARDS_TEXTS[(oldestTile + 1) % PowerUpUtils.VOCAB_TILES_IMAGES.length]);
+            tv3.setText(PowerUpUtils.
+                    VOCAB_MATCHES_BOARDS_TEXTS[(oldestTile + 2) % PowerUpUtils.VOCAB_TILES_IMAGES.length]);
+        } else {
+            tv1.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[0]);
+            tv2.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[1]);
+            tv3.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[2]);
+            latestTile = 0;
+            oldestTile = 0;
+            score=0;
+        }
         tv1.setPosition(0);
-        tv2.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[1]);
         tv2.setPosition(1);
-        tv3.setText(PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[2]);
         tv3.setPosition(2);
-        latestTile = 0;
-        oldestTile = 0;
         r = new Random();
         startNewTile(Math.abs(r.nextInt() % 3), img1);
         new Handler().postDelayed(new Runnable() {
@@ -99,7 +119,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void startNewTile(final int position, final VocabTileImageView imageview) {
 
-        if(latestTile<PowerUpUtils.VOCAB_TILES_IMAGES.length){
+        if (latestTile < PowerUpUtils.VOCAB_TILES_IMAGES.length) {
             imageview.setImageDrawable(getResources().getDrawable(PowerUpUtils.VOCAB_TILES_IMAGES[latestTile]));
         }
         imageview.setX(0);
@@ -120,7 +140,7 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                 final TextView boardView = getBoardFromPosition(imageview.getPosition());
                 String boardText = getBoardFromPosition(imageview.getPosition()).getText().toString();
 
-                if (oldestTile < PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS.length){
+                if (oldestTile < PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS.length) {
                     String tileText = PowerUpUtils.VOCAB_MATCHES_BOARDS_TEXTS[oldestTile];
                     if (tileText.equals(boardText)) {
                         score++;
@@ -230,6 +250,14 @@ public class VocabMatchGameActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onPause() {
+        VocabMatchSessionManager session = new VocabMatchSessionManager(this);
+        session.saveData(score, oldestTile);
+        super.onPause();
+    }
+}
 
     /**
      * Goes back to the map when user presses back button
