@@ -89,7 +89,6 @@ public class ScenarioOverActivity extends AppCompatActivity {
                 DatabaseHandler dbHandler = new DatabaseHandler(ScenarioOverActivity.this);
                 dbHandler.resetCompleted(SessionHistory.currSessionID);
                 dbHandler.resetReplayed(SessionHistory.currSessionID);
-                new GameActivity().gameActivityInstance.finish();
                 scenarioOverActivityInstance.finish();
                 startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
@@ -98,12 +97,14 @@ public class ScenarioOverActivity extends AppCompatActivity {
     }
 
     /**
-     * If the "back" button is pressed, the current situation closes itself.
+     * Goes back to the map when user presses back button
      */
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        new GameActivity().gameActivityInstance.finish();
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(ScenarioOverActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
     }
 
     public DatabaseHandler getmDbHandler() {

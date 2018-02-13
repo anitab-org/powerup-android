@@ -21,10 +21,11 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.datamodel.SessionHistory;
-
 
 public class VocabMatchGameActivity extends AppCompatActivity {
 
@@ -228,5 +229,16 @@ public class VocabMatchGameActivity extends AppCompatActivity {
                 return false;
             }
         }
+    }
+
+    /**
+     * Goes back to the map when user presses back button
+     */
+    @Override
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(VocabMatchGameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
     }
 }

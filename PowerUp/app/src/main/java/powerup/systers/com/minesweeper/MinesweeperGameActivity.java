@@ -18,6 +18,8 @@ import android.widget.TextView;
 import java.util.HashSet;
 import java.util.Random;
 
+import powerup.systers.com.GameOverActivity;
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.datamodel.SessionHistory;
@@ -239,6 +241,16 @@ public class MinesweeperGameActivity extends AppCompatActivity {
         overridePendingTransition(R.animator.fade_in, R.animator.fade_out);
     }
 
+    /**
+     * Goes back to the map when user presses back button
+     */
+    @Override
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(MinesweeperGameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
+    }
 }
 
 

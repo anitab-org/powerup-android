@@ -389,8 +389,8 @@ public class StoreActivity extends AppCompatActivity {
     public void setmDbHandler(DatabaseHandler mDbHandler) {
         this.mDbHandler = mDbHandler;
     }
-
-    public void setArrows() {
+  
+  public void setArrows() {
         if(currentPage==0){
             leftArrow.setVisibility(View.GONE);
         } else {
@@ -403,10 +403,15 @@ public class StoreActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Goes back to the map when user presses back button
+     */
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(StoreActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         finish();
-        super.onBackPressed();
     }
 }
 
