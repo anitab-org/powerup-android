@@ -34,6 +34,7 @@ public class MapActivity extends Activity {
                 startActivity(new Intent(MapActivity.this, MinesweeperGameActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else {
+                new ScenarioOverActivity(MapActivity.this).saveActivityOpenedStatus(true);
                 Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
                 intent.putExtra(PowerUpUtils.SOURCE,PowerUpUtils.MAP);
                 startActivityForResult(intent, 0);
