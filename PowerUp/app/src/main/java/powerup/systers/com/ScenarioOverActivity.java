@@ -37,6 +37,7 @@ import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.powerup.PowerUpUtils;
 
+import static powerup.systers.com.R.string.scenario_description;
 import static powerup.systers.com.R.string.scene;
 
 public class ScenarioOverActivity extends AppCompatActivity {
@@ -68,6 +69,7 @@ public class ScenarioOverActivity extends AppCompatActivity {
         getmDbHandler().open();
         setContentView(R.layout.activity_scenario_over);
         scene = getmDbHandler().getScenario();
+        Scenario prevScene = getmDbHandler().getScenarioFromID(SessionHistory.prevSessionID); //Fetching Scenario
         scenarioActivityDone = 1;
         if(!new ScenarioOverActivity(this).isActivityOpened()){
             dialogMaker();
@@ -84,6 +86,10 @@ public class ScenarioOverActivity extends AppCompatActivity {
             }
         });
 
+        //Initializing and setting Text for currentScenarioName
+        TextView currentScenarioName = (TextView) findViewById(R.id.currentScenarioName);
+        currentScenarioName.setText(getResources().
+                getString(R.string.current_scenario_name,prevScene.getScenarioName()));
         TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
         
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));

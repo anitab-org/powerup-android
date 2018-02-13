@@ -57,4 +57,15 @@
         android:textSize="@dimen/karma_points_textSize"
         android:textColor="@color/powerup_black"/>
 
+    <TextView
+        android:id="@+id/currentScenarioName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/current_scenario_textSize"
+        android:textColor="@color/current_scenario_text"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/current_scenario_marginTop"
+        android:textStyle="bold"
+        android:text="@string/current_scenario_name" />
 </RelativeLayout>

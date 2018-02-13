@@ -242,6 +242,8 @@
     <dimen name="replay_marginTop">400dp</dimen>
     <dimen name="replay_marginLeft">180dp</dimen>
     <dimen name="hair_button_marginLeft">100dp</dimen>
+    <dimen name="current_scenario_textSize">23sp</dimen>
+    <dimen name="current_scenario_marginTop">60sp</dimen>
     <dimen name="game_convo_text_size">14sp</dimen>
     <dimen name="game_convo_padding_left">10dp</dimen>
     <dimen name="game_convo_padding_right">30dp</dimen>
