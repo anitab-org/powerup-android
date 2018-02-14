@@ -6,6 +6,7 @@
     -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!-- API 11 theme customizations can go here. -->
+        <item name="android:windowBackground"></item>
     </style>
 
 </resources>

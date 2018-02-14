@@ -71,7 +71,9 @@
                     android:layout_weight="10"
                     android:gravity="center"
                     android:paddingLeft="@dimen/swim_game_paddingLeft"
+                    android:paddingStart="@dimen/swim_game_paddingLeft"
                     android:paddingRight="@dimen/swim_game_paddingRight"
+                    android:paddingEnd="@dimen/swim_game_paddingRight"
                     android:textSize="@dimen/question_textSize" />
 
                 <LinearLayout
@@ -79,7 +81,9 @@
                     android:layout_height="0dp"
                     android:layout_weight="4"
                     android:paddingLeft="@dimen/swim_game_paddingLeft"
-                    android:paddingRight="@dimen/swim_game_paddingRight">
+                    android:paddingStart="@dimen/swim_game_paddingLeft"
+                    android:paddingRight="@dimen/swim_game_paddingRight"
+                    android:paddingEnd="@dimen/swim_game_paddingRight">
 
                     <Button
                         android:id="@+id/true_option"

@@ -10,6 +10,7 @@
         android:id="@+id/homeButton"
         android:onClick="pressHomeButton"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="@dimen/home_button_height"
         android:layout_height="@dimen/home_button_height"
         android:background="@drawable/home_button" />

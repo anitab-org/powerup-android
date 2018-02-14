@@ -13,6 +13,9 @@ public class PowerUpUtils {
     public static final int MAXIMUM_FLIPS_ALLOWED = 5;
     public static final int RED_BANNER = 1;
     public static final int GREEN_BANNER = 0;
+    public static final int TYPE_HAIR = 0;
+    public static final int TYPE_CLOTHES = 1;
+    public static final int TYPE_ACCESSORIES = 2;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";
@@ -25,6 +28,7 @@ public class PowerUpUtils {
     public static final String ID_REFERENCE = "powerup.systers.com.powerup:id/imageView";
     public static final String ID_REF = "powerup.systers.com:id/imageView";
     public static final String MINESWEEP_PREVIOUS_SCENARIO = "School";
+    public static final String IS_FINAL_SCENARIO_EXTRA = "IS_FINAL_SCENARIO";
 
     public static final int[] ROUNDS_FAILURE_PERCENTAGES = {18, 20, 25};
     public static final int[] ROUND_BACKGROUNDS = {R.drawable.minesweeper_condom_background, R.drawable.minesweeper_condom_background, R.drawable.minesweeper_condom_background};
@@ -48,12 +52,12 @@ public class PowerUpUtils {
 
 
     public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16};
-    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","10","10","10","5","5","10","5","5","10","10","10","5","5"};
+    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","5","5","5","5","5","5","10","10","10","10","10","10","10"};
 
     public static final int[] CLOTHES_IMAGES = {R.drawable.dress1,R.drawable.dress2,R.drawable.dress3,R.drawable.dress4};
     public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10"};
 
     public static final int[] ACCESSORIES_IMAGES = {R.drawable.acc1,R.drawable.acc2,R.drawable.acc3,R.drawable.acc4};
-    public static final String[] ACCESSORIES_POINTS_TEXTS = {"10","5","5","10"};
+    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10"};
 }
 

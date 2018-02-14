@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/store"
+    android:background="@drawable/dressing_room"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,7 +26,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
                 android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_left" />
 
@@ -42,7 +44,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
                 android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_right" />
 
@@ -51,7 +55,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
                 android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_left" />
 
@@ -67,7 +73,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
                 android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_right" />
 
@@ -76,7 +84,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
                 android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_left" />
 
@@ -92,7 +102,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
                 android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_right" />
 
@@ -101,7 +113,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
                 android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_left" />
 
@@ -117,7 +131,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
                 android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_right" />
         </LinearLayout>
@@ -183,6 +199,7 @@
         android:layout_height="@dimen/continue_height"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="@dimen/continue_marginBottom"
         android:alpha="0.9"
         android:background="@drawable/continue_button"
