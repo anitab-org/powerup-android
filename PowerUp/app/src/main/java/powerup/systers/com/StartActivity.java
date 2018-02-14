@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
-import powerup.systers.com.vocab_match_game.VocabMatchSessionManager
+import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
 public class StartActivity extends Activity {
 
