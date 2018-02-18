@@ -1,37 +1,13 @@
-before_install: 
- - cd PowerUp
- - chmod +x gradlew
+sudo: required
 language: android
-jdk: oraclejdk8
-# Turn off caching to avoid any caching problems
-cache: false
-sudo: true
-
-env:
-  matrix:
-    - ANDROID_API_LEVEL=23 ADB_INSTALL_TIMEOUT=12 ANDROID_BUILD_TOOLS_VERSION=23.0.1 ANDROID_ABI=armeabi-v7a ANDROID_TAG=google_apis
 android:
  components:
-    - tools # to get the new repository-11.xml
     - platform-tools
-    - tools # to install Android SDK tools
-    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-    - android-$ANDROID_API_LEVEL    
-    # For Google APIs
-    - addon-google_apis-google-$ANDROID_API_LEVEL
-    # Google Play Services
-    - extra-google-google_play_services
-    # Support library
-    - extra-android-support
-    # Latest artifacts in local repository
-    - extra-google-m2repository
-    - extra-android-m2repository
-    # Specify at least one system image,
-    - sys-img-armeabi-v7a-android-22
-    - sys-img-armeabi-v7a-android-17
+    - tools
+    - build-tools-26.0.2
+    - android-23
+before_script:
+ - cd PowerUp
+ - chmod +x gradlew
 script:
- - chmod +x ./gradlew    
-notifications:
-  email:
-    recipients:
-      - sasachin04@gmail.com
+ - ./gradlew assembleDebug
