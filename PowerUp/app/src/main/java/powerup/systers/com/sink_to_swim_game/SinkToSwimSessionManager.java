@@ -9,20 +9,20 @@ import android.content.SharedPreferences;
 
 public class SinkToSwimSessionManager {
     private final String GAME_OPENED = "IS_SINK_TO_SWIM_OPENED";
-    static final String CURR_SCORE = "currScore";
-    static final String TIME_LEFT = "timeLeft";
-    static final String CURR_QUESTION = "currQuestion";
-    static final String WRONG_ANSWERS = "wrongAnswers";
-    static final String CORRECT_ANSWERS = "correctAnswers";
-    static final String SPEED = "speed";
-    static final String BOAT_HEIGHT = "boatHeight";
-    static final String POINTER_HEIGHT = "pointerHeight";
+    private static final String CURR_SCORE = "currScore";
+    private static final String TIME_LEFT = "timeLeft";
+    private static final String CURR_QUESTION = "currQuestion";
+    private static final String WRONG_ANSWERS = "wrongAnswers";
+    private static final String CORRECT_ANSWERS = "correctAnswers";
+    private static final String SPEED = "speed";
+    private static final String BOAT_HEIGHT = "boatHeight";
+    private static final String POINTER_HEIGHT = "pointerHeight";
     private final String PREF_NAME = "SINK_TO_SWIM_PREFERENCE";
     private final int PRIVATE_MODE = 0;
 
-    SharedPreferences pref;
-    Context context;
-    SharedPreferences.Editor editor;
+    private SharedPreferences pref;
+    private Context context;
+    private SharedPreferences.Editor editor;
     public SinkToSwimSessionManager(Context context) {
         this.context = context;
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
