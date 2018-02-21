@@ -77,7 +77,8 @@
             <ImageView
                 android:id="@+id/dress_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/hair_view"
