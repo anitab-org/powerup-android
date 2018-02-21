@@ -69,6 +69,7 @@ public class AboutActivity extends Activity {
 
     public void pressHomeButton(View view){
         finish();
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
     @Override

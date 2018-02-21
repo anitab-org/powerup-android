@@ -30,6 +30,7 @@
         <ImageView
             android:id="@+id/hair_button"
             android:layout_marginLeft="@dimen/hair_button_marginLeft"
+            android:layout_marginStart="@dimen/hair_button_marginLeft"
             android:layout_weight="1.7"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -43,6 +44,7 @@
         <ImageView
             android:id="@+id/accessories_button"
             android:layout_marginRight="@dimen/hair_button_marginLeft"
+            android:layout_marginEnd="@dimen/hair_button_marginLeft"
             android:layout_weight="2.8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -52,6 +54,7 @@
             android:layout_width="@dimen/home_button_height"
             android:layout_height="@dimen/home_button_height"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/home_button" />
     </LinearLayout>

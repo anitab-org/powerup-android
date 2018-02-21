@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.powerup.PowerUpUtils;
 
@@ -27,12 +28,24 @@ public class MinesweeperTutorials extends AppCompatActivity {
                     Intent intent = new Intent(MinesweeperTutorials.this,MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, true);
                     finish();
                     startActivity(intent);
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }else {
                     tutorialView.setImageDrawable(getResources().getDrawable(PowerUpUtils.MINES_TUTS[curTutorialImage]));
                     curTutorialImage++;
                 }
             }
         });
+    }
+
+    /**
+     * Goes back to the map when user presses back button
+     */
+    @Override
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(MinesweeperTutorials.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
     }
     }
 

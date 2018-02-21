@@ -16,6 +16,7 @@
     <string name="enter">Continue..</string>
     <string name="back_to_map">Back to Map</string>
     <string name="preferences_has_previously_started">has_previously_started</string>
+    <string name="preferences_has_previously_customized">has_previously_customized</string>
     <string name="avatar">"Here is your final Avatar!\nPress continue to start\n your journey.."</string>
     <string name="avatar_land">"Here is your final Avatar! Press continue to start\n your journey.."</string>
     <string name="select_feature_coins">"10 coins"</string>
@@ -67,4 +68,23 @@
     <string name="start_dialog_message">If you start a new game, previous data and all karma points will be lost !</string>
     <string name="start_title_message">Are you Sure ?</string>
     <string name="start_confirm_message">Create new Avatar</string>
+    <string name="purchase_confirm_title">Warning</string>
+    <string name="purchase_confirm_message">Are you sure you want to purchase this item? You will be spending %d points and the purchase can\'t be reverted</string>
+    <string name="purchase_confirm_ok">Purchase</string>
+    <string name="purchase_confirm_cancel">Maybe not</string>
+    <string name="purchase_success_title">Yay!</string>
+    <string name="purchase_success_message">The purchase is successful!</string>
+    <string name="purchase_success_ok">OK</string>
+    <string name="current_scenario_name">Current Scenario: %s</string>
+    <string name="scenario_over_dialog_message1">You gained\u0020</string>
+    <string name="scenario_over_title_message">Hooray!</string>
+    <string name="scenario_over_confirm_message">OK</string>
+    <string name="scenario_over_dialog_message2">\u0020karma points</string>
+    <string name="toast_confirm_exit_message">Press once more to exit</string>
+    <string name="start_dialog_message_load">You have no previous karma points. Click on NEW GAME to begin</string>
+    <string name="start_title_message_load">No previous Karma Points !</string>
+    <string name="start_confirm_message_load">Dismiss</string>
+    <string name="game_to_map_message">If you migrate to map, current scene karma points will be lost</string>
+    <string name="game_confirm_message">Go to Map</string>
+    <string name="marcello_Text">Marcello</string>
 </resources>

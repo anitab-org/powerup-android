@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import powerup.systers.com.GameOverActivity;
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
+import powerup.systers.com.minesweeper.MinesweeperGameActivity;
+import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class SinkToSwimEndActivity extends AppCompatActivity {
@@ -29,8 +32,23 @@ public class SinkToSwimEndActivity extends AppCompatActivity {
     }
 
     public void continuePressed(View view){
-        Intent intent = new Intent(SinkToSwimEndActivity.this, GameOverActivity.class);
+        SinkToSwimSessionManager session = new SinkToSwimSessionManager(this);
+        session.saveSinkToSwimOpenedStatus(false);
+        Intent intent = new Intent(SinkToSwimEndActivity.this, ScenarioOverActivity.class);
+        intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
         finish();
         startActivityForResult(intent, 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    /**
+     * Goes back to the map when user presses back button
+     */
+    @Override
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(SinkToSwimEndActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
     }
 }

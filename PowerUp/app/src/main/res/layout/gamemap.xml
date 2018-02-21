@@ -48,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginRight="@dimen/map_marginBottom"
+                android:layout_marginEnd="@dimen/map_marginBottom"
                 android:layout_weight="1"
                 android:alpha="@dimen/map_alpha"
                 android:text="@string/boyfriend" />

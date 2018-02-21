@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
@@ -42,12 +43,24 @@ public class ProsAndConsActivity extends AppCompatActivity {
     public void continuePressedProsAndCons(View v) {
         if (completedRounds < PowerUpUtils.NUMBER_OF_ROUNDS) { //calls next round if true
             startActivity(new Intent(ProsAndConsActivity.this, MinesweeperGameActivity.class).putExtra(PowerUpUtils.CALLED_BY, false));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         } else {
             new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(false); //marks minesweeper game as finished
             Intent intent = new Intent(ProsAndConsActivity.this, ScenarioOverActivity.class);
             intent.putExtra(String.valueOf(R.string.scene), PowerUpUtils.MINESWEEP_PREVIOUS_SCENARIO);
             startActivity(intent);
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
     }
 
+    /**
+     * Goes back to the map when user presses back button
+     */
+    @Override
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(ProsAndConsActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
+    }
 }

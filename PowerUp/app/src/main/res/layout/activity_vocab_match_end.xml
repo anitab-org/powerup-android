@@ -10,7 +10,7 @@
         android:id="@+id/continue_button"
         android:layout_width="@dimen/continue_width"
         android:layout_height="@dimen/continue_height"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="@dimen/continue_marginBottom"
         android:background="@drawable/continue_button"
         android:onClick="continuePressed"

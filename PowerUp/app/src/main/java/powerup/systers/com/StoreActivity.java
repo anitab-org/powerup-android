@@ -2,11 +2,15 @@ package powerup.systers.com;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +47,7 @@ public class StoreActivity extends AppCompatActivity {
     private DatabaseHandler mDbHandler;
     java.lang.reflect.Field photoNameField;
     R.drawable ourRID;
+    long selectedItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 startActivity(new Intent(StoreActivity.this,MapActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
 
@@ -110,6 +116,7 @@ public class StoreActivity extends AppCompatActivity {
                 currentPage = 0;
                 storeItemTypeindex = 0;
                 adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
+                setArrows();
             }
         });
 
@@ -119,6 +126,7 @@ public class StoreActivity extends AppCompatActivity {
                 currentPage = 0;
                 storeItemTypeindex = 1;
                 adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, PowerUpUtils.CLOTHES_IMAGES.length%6));
+                setArrows();
             }
         });
 
@@ -128,16 +136,15 @@ public class StoreActivity extends AppCompatActivity {
                 currentPage = 0;
                 storeItemTypeindex = 2;
                 adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, PowerUpUtils.ACCESSORIES_IMAGES.length%6));
+                setArrows();
             }
         });
 
         leftArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentPage == 0) {
-                    return;
-                }
                 currentPage--;
+                setArrows();
                 if (currentPage * 6 < allDataSet.get(storeItemTypeindex).size()) {
                     if (allDataSet.get(storeItemTypeindex).size() >= currentPage * 6 + 6) {
                         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, currentPage * 6 + 6));
@@ -152,14 +159,11 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentPage++;
-                if (currentPage * 6 < allDataSet.get(storeItemTypeindex).size()) {
-                    if (allDataSet.get(storeItemTypeindex).size() >= currentPage * 6 + 6) {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, currentPage * 6 + 6));
-                    } else {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, allDataSet.get(storeItemTypeindex).size()));
-                    }
+                setArrows();
+                if (allDataSet.get(storeItemTypeindex).size() >= currentPage * 6 + 6) {
+                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, currentPage * 6 + 6));
                 } else {
-                    currentPage--;
+                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, allDataSet.get(storeItemTypeindex).size()));
                 }
             }
         });
@@ -168,6 +172,7 @@ public class StoreActivity extends AppCompatActivity {
         createDataLists();
         adapter = new GridAdapter(this, allDataSet.get(0).subList(0, 6));
         gridView.setAdapter(adapter);
+        setArrows();
     }
 
     public void setAvatarHair(int index){
@@ -296,6 +301,7 @@ public class StoreActivity extends AppCompatActivity {
 
                 holder = new ViewHolder(storeItem);
                 storeItem.setTag(holder);
+                selectedItemId = getItemId(calculatePosition(position)+1); //Previously purchased
             } else {
                 holder = (ViewHolder) storeItem.getTag();
             }
@@ -308,27 +314,32 @@ public class StoreActivity extends AppCompatActivity {
                         int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == 0) { //hair
                             setAvatarHair(index);
+                            selectedItemId = getmDbHandler().getAvatarHair(); //hairItem selected
                             if (getmDbHandler().getPurchasedHair(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-
-                                getmDbHandler().setPurchasedHair(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarHair(index);
                             }
 
                         } else if (storeItemTypeindex == 1) { //clothes
                             setAvatarClothes(index);
+                            selectedItemId = getmDbHandler().getAvatarCloth(); //clothItem selected
                             if (getmDbHandler().getPurchasedClothes(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-                                getmDbHandler().setPurchasedClothes(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarClothes(index);
                             }
 
                         } else if (storeItemTypeindex == 2) { //accessories
                             setAvatarAccessories(index);
+                            selectedItemId = getmDbHandler().getAvatarAccessory(); //accessoryItem selected
                             if (getmDbHandler().getPurchasedAccessories(index) == 0){
-                                SessionHistory.totalPoints -= Integer.parseInt(itemPoints.getText().toString());
-                                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
-                                getmDbHandler().setPurchasedAccessories(index);
+                                final int cost = Integer.parseInt(itemPoints.getText().toString());
+                                showConfirmPurchaseDialog(cost, index);
+                            } else {
+                                setAvatarAccessories(index);
                             }
                         }
                         adapter.refresh(adapter.storeItems); // will update change the background if any is not available
@@ -344,8 +355,13 @@ public class StoreActivity extends AppCompatActivity {
 
             if (getPurchasedStatus(id) == 1) { // whatever type is currently opened, it is already bought
                 storeItem.setBackground(getResources().getDrawable(R.drawable.sold_item));
-                holder.itemImage.setImageResource(R.drawable.store_tick);
                 storeItem.setEnabled(true);
+                //Testing whether the item matches id (selected)
+                if (selectedItemId == id) {
+                    holder.itemImage.setImageResource(R.drawable.store_tick);
+                } else {
+                    holder.itemImage.setImageResource(android.R.color.transparent);
+                }
             } else { //not purchased => available/not available
                 holder.itemImage.setImageResource(Color.TRANSPARENT);
                 if (Integer.parseInt(temp.points) <= SessionHistory.totalPoints) { //can be bought
@@ -360,6 +376,55 @@ public class StoreActivity extends AppCompatActivity {
             return storeItem;
         }
 
+    }
+
+    private void showConfirmPurchaseDialog(final int cost, final int index) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.purchase_confirm_title)
+                .setMessage(getString(R.string.purchase_confirm_message, cost));
+        builder.setPositiveButton(R.string.purchase_confirm_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                SessionHistory.totalPoints -= cost;
+                karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
+                switch (storeItemTypeindex) {
+                    case PowerUpUtils.TYPE_HAIR:
+                        getmDbHandler().setPurchasedHair(index);
+                        setAvatarHair(index);
+                        break;
+                    case PowerUpUtils.TYPE_CLOTHES:
+                        getmDbHandler().setPurchasedClothes(index);
+                        setAvatarClothes(index);
+                        break;
+                    case PowerUpUtils.TYPE_ACCESSORIES:
+                        getmDbHandler().setPurchasedAccessories(index);
+                        setAvatarAccessories(index);
+                }
+                adapter.refresh(adapter.storeItems); // will update change the background if any is not available
+                showSuccessPurchaseDialog();
+            }
+        });
+        builder.setNegativeButton(R.string.purchase_confirm_cancel, null);
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
+    }
+
+    private void showSuccessPurchaseDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.purchase_success_title)
+                .setMessage(R.string.purchase_success_message);
+        builder.setPositiveButton(R.string.purchase_success_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+               dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
     }
 
     public int getPurchasedStatus(int index) {
@@ -380,11 +445,29 @@ public class StoreActivity extends AppCompatActivity {
     public void setmDbHandler(DatabaseHandler mDbHandler) {
         this.mDbHandler = mDbHandler;
     }
+  
+  public void setArrows() {
+        if(currentPage==0){
+            leftArrow.setVisibility(View.GONE);
+        } else {
+            leftArrow.setVisibility(View.VISIBLE);
+        }
+        if((currentPage+1) * 6 >= allDataSet.get(storeItemTypeindex).size()){
+            rightArrow.setVisibility(View.GONE);
+        } else {
+            rightArrow.setVisibility(View.VISIBLE);
+        }
+    }
 
+    /**
+     * Goes back to the map when user presses back button
+     */
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
+        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+        // clears the activities that were created after the found instance of the required activity
+        startActivity(new Intent(StoreActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         finish();
-        super.onBackPressed();
     }
 }
 

@@ -14,6 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/karma_star_height"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/scenario_name_marginLeft"
+        android:layout_marginStart="@dimen/scenario_name_marginLeft"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:background="@android:color/transparent"
         android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
         android:ems="@integer/text_view_ems"
@@ -27,6 +30,7 @@
         android:id="@+id/continueButtonGoesToMap"
         android:layout_width="@dimen/home_button_height"
         android:layout_height="@dimen/home_button_height"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/home_button" />
@@ -35,9 +39,11 @@
     <ImageView
         android:id="@+id/askerImageView"
 
+        android:layout_marginEnd="@dimen/conversation_margin"
         android:layout_marginRight="@dimen/conversation_margin"
         android:layout_width="@dimen/asker_width"
         android:layout_height="@dimen/asker_height"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/marco" />
@@ -89,11 +95,14 @@
     <ListView
         android:paddingBottom="@dimen/conversation_margin"
         android:paddingLeft="@dimen/game_padding_left"
+        android:paddingStart="@dimen/game_padding_left"
         android:paddingRight="@dimen/conversation_margin"
+        android:paddingEnd="@dimen/conversation_margin"
         android:id="@+id/mainListView"
         android:layout_width="@dimen/answer_listview_width"
         android:layout_height="@dimen/main_list_view_height"
         android:layout_toRightOf="@id/relativeLayout"
+        android:layout_toEndOf="@id/relativeLayout"
         android:layout_centerVertical="true"
         android:background="@drawable/left_conversation"
         android:clickable="true"/>
@@ -101,14 +110,36 @@
         android:textColor="@color/powerup_black"
         android:id="@+id/questionView"
         android:layout_width="@dimen/questionview_tv_width"
-        android:textSize="@dimen/game_text_size"
+        android:textSize="@dimen/game_convo_text_size"
         android:layout_height="wrap_content"
         android:background="@drawable/right_conversation"
+        android:scrollbars="vertical"
+        android:maxLines="5"
+        android:paddingTop="@dimen/game_convo_padding_top"
+        android:paddingStart="@dimen/game_convo_padding_left"
+        android:paddingLeft="@dimen/game_convo_padding_left"
+        android:paddingEnd="@dimen/game_convo_padding_right"
+        android:paddingRight="@dimen/game_convo_padding_right"
+        android:paddingBottom="@dimen/game_convo_padding_bottom"
         android:hint="@string/question"
         android:layout_above="@id/mainListView"
         android:layout_marginTop="@dimen/conversation_margin"
         android:layout_marginBottom="@dimen/conversation_margin"
         android:layout_toLeftOf="@id/askerImageView"
+        android:layout_toStartOf="@id/askerImageView"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/askerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/askerImageView"
+        android:layout_alignRight="@+id/askerImageView"
+        android:layout_below="@+id/askerImageView"
+        android:layout_toEndOf="@+id/questionView"
+        android:layout_toRightOf="@+id/questionView"
+        android:text="@string/marcello_Text"
+        android:textColor="@color/powerup_black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 </RelativeLayout>

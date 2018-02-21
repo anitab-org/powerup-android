@@ -16,6 +16,7 @@
         android:layout_height="@dimen/continue_height"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:alpha="1"
         android:background="@drawable/continue_button"
         android:clickable="false"
@@ -27,8 +28,10 @@
         android:layout_height="match_parent"
         android:layout_above="@id/continue_button"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:orientation="vertical"
-        android:paddingRight="@dimen/pros_cons_paddingRight">
+        android:paddingRight="@dimen/pros_cons_paddingRight"
+        android:paddingEnd="@dimen/pros_cons_paddingRight">
 
         <TextView
             android:id="@+id/pro_one"

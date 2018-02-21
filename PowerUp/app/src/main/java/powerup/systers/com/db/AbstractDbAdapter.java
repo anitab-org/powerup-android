@@ -15,6 +15,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Array;
+import java.util.Arrays;
 
 public abstract class AbstractDbAdapter {
 
@@ -120,7 +122,7 @@ public abstract class AbstractDbAdapter {
                 throw new Error(
                         "Incorrect Answer CSV Format! Use AID, QID, ADes,"
                                 + "NextID, Points at line: "
-                                + rowData.toString());
+                                + Arrays.toString(rowData));
             }
         }
 
@@ -145,7 +147,7 @@ public abstract class AbstractDbAdapter {
             } else {
                 throw new Error("Incorrect Scenario CSV Format! Use ID,"
                         + "ScenarioName, Timestamp, Asker, Avatar, FirstQID,"
-                        + " NextScenarioID at line: " + rowData.toString());
+                        + " NextScenarioID at line: " + Arrays.toString(rowData));
             }
         }
 
@@ -164,7 +166,7 @@ public abstract class AbstractDbAdapter {
                 db.insert(PowerUpContract.ClothesEntry.TABLE_NAME, null, values);
             } else {
                 throw new Error("Incorrect Clothes CSV Format! Use ID,"
-                        + "ClothName, Points" + rowData.toString());
+                        + "ClothName, Points" + Arrays.toString(rowData));
             }
         }
 
@@ -183,7 +185,7 @@ public abstract class AbstractDbAdapter {
                 db.insert(PowerUpContract.HairEntry.TABLE_NAME, null, values);
             } else {
                 throw new Error("Incorrect Hair CSV Format! Use ID,"
-                        + "HairName, Points" + rowData.toString());
+                        + "HairName, Points" + Arrays.toString(rowData));
             }
         }
 
@@ -202,7 +204,7 @@ public abstract class AbstractDbAdapter {
                 db.insert(PowerUpContract.AccessoryEntry.TABLE_NAME, null, values);
             } else {
                 throw new Error("Incorrect Accessory CSV Format! Use ID,"
-                        + "AccessoryName, Points" + rowData.toString());
+                        + "AccessoryName, Points" + Arrays.toString(rowData));
             }
         }
 
