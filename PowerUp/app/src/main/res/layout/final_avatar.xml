@@ -51,9 +51,10 @@
 
                 <ImageView
                     android:id="@+id/dress_view"
-                    android:src="@drawable/dress_avatar1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dress_avatar1" />
 
                 <ImageView
                     android:id="@+id/hair_view"
