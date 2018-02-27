@@ -125,7 +125,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage = 0;
                 storeItemTypeindex = 1;
-                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, PowerUpUtils.CLOTHES_IMAGES.length%6));
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
                 setArrows();
             }
         });
@@ -135,7 +135,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage = 0;
                 storeItemTypeindex = 2;
-                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, PowerUpUtils.ACCESSORIES_IMAGES.length%6));
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
                 setArrows();
             }
         });
