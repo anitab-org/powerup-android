@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/classroom"
     android:gravity="fill"
-    tools:context="com.example.powerup.Game"
+    tools:context="powerup.systers.com.GameActivity"
     android:id="@+id/root">
 
     <TextView
