@@ -336,6 +336,8 @@ public class GameActivity extends Activity {
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                goToMap.setAlpha(1f);
+                goToMap.setClickable(true);
                 dialog.dismiss();
             }
         });
