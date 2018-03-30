@@ -7,10 +7,14 @@ import android.os.Bundle;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private Handler handler;
+    private Runnable runnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Handler().postDelayed(new Runnable() {
+        handler = new Handler();
+        runnable = new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, StartActivity.class);
@@ -18,6 +22,13 @@ public class SplashActivity extends AppCompatActivity {
                 overridePendingTransition(R.animator.fade_in, R.animator.fade_out);
                 finish();
             }
-        },1000);
+        };
+        handler.postDelayed(runnable,1000);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacks(runnable);
     }
 }
