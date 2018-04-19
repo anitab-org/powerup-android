@@ -90,6 +90,7 @@ public class FinalAvatarActivity extends Activity{
                     edit.apply();
                 }
                 startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {
