@@ -2,7 +2,6 @@ package powerup.systers.com.powerup.test;
 
 import android.content.Intent;
 import android.os.Build;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import org.junit.After;
@@ -21,9 +20,7 @@ import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;
 import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimEndActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchEndActivity;
-import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

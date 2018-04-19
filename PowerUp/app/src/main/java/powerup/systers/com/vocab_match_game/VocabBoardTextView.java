@@ -3,7 +3,6 @@ package powerup.systers.com.vocab_match_game;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 /**
  * Created by sachinaggarwal on 23/07/17.

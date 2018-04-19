@@ -1,7 +1,6 @@
 package powerup.systers.com.powerup.test;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -15,12 +14,9 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadow.api.Shadow;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowDrawable;
 import org.robolectric.shadows.ShadowPorterDuffColorFilter;
-
-import java.util.Collections;
 
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;

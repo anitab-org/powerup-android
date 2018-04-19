@@ -5,10 +5,10 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
@@ -20,12 +20,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
-import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 /**
  * Created by sachinaggarwal on 7/07/17.

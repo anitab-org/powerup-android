@@ -7,8 +7,8 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,12 +18,11 @@ import android.widget.TextView;
 import java.util.HashSet;
 import java.util.Random;
 
-import powerup.systers.com.MinesweeperSound;
-import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.MapActivity;
+import powerup.systers.com.MinesweeperSound;
 import powerup.systers.com.R;
-import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 /**
  * Created by sachinaggarwal on 25/06/17.

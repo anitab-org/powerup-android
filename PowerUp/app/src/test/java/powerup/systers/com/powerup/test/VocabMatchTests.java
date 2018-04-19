@@ -15,7 +15,6 @@ import org.robolectric.shadows.ShadowActivity;
 
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.powerup.PowerUpUtils;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.vocab_match_game.VocabMatchEndActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
 
