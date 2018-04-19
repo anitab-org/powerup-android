@@ -10,7 +10,7 @@ public class SessionHistory {
     public static int prevSessionID = -1;
     public static int totalPoints = 0;
     public static int currScenePoints = 0;
-    public static int eyesTotalNo = 9;
+    public static int eyesTotalNo = 7;
     public static int clothTotalNo = 4;
     public static int hairTotalNo = 16;
     public static int skinTotalNo = 16;
