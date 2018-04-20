@@ -47,7 +47,6 @@ public class StoreActivity extends AppCompatActivity {
     private DatabaseHandler mDbHandler;
     java.lang.reflect.Field photoNameField;
     R.drawable ourRID;
-    long selectedItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -301,7 +300,6 @@ public class StoreActivity extends AppCompatActivity {
 
                 holder = new ViewHolder(storeItem);
                 storeItem.setTag(holder);
-                selectedItemId = getItemId(calculatePosition(position)+1); //Previously purchased
             } else {
                 holder = (ViewHolder) storeItem.getTag();
             }
@@ -314,7 +312,6 @@ public class StoreActivity extends AppCompatActivity {
                         int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == 0) { //hair
                             setAvatarHair(index);
-                            selectedItemId = getmDbHandler().getAvatarHair(); //hairItem selected
                             if (getmDbHandler().getPurchasedHair(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
@@ -324,7 +321,6 @@ public class StoreActivity extends AppCompatActivity {
 
                         } else if (storeItemTypeindex == 1) { //clothes
                             setAvatarClothes(index);
-                            selectedItemId = getmDbHandler().getAvatarCloth(); //clothItem selected
                             if (getmDbHandler().getPurchasedClothes(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
@@ -334,7 +330,6 @@ public class StoreActivity extends AppCompatActivity {
 
                         } else if (storeItemTypeindex == 2) { //accessories
                             setAvatarAccessories(index);
-                            selectedItemId = getmDbHandler().getAvatarAccessory(); //accessoryItem selected
                             if (getmDbHandler().getPurchasedAccessories(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
@@ -357,7 +352,7 @@ public class StoreActivity extends AppCompatActivity {
                 storeItem.setBackground(getResources().getDrawable(R.drawable.sold_item));
                 storeItem.setEnabled(true);
                 //Testing whether the item matches id (selected)
-                if (selectedItemId == id) {
+                if (getSelectedItemId() == id) {
                     holder.itemImage.setImageResource(R.drawable.store_tick);
                 } else {
                     holder.itemImage.setImageResource(android.R.color.transparent);
@@ -376,6 +371,19 @@ public class StoreActivity extends AppCompatActivity {
             return storeItem;
         }
 
+    }
+
+    private int getSelectedItemId(){
+        switch (storeItemTypeindex) {
+            case 0: //hair
+                return getmDbHandler().getAvatarHair();
+            case 1: //cloth
+                return getmDbHandler().getAvatarCloth();
+            case 2:
+                return getmDbHandler().getAvatarAccessory();
+            default:
+                throw new IllegalArgumentException("Invalid store type index");
+        }
     }
 
     private void showConfirmPurchaseDialog(final int cost, final int index) {
