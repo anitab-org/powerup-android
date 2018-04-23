@@ -8,7 +8,9 @@ package powerup.systers.com.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
+
 import java.util.List;
+
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;

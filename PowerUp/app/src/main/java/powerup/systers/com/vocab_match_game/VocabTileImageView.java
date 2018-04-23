@@ -2,7 +2,6 @@ package powerup.systers.com.vocab_match_game;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 /**
  * Created by sachinaggarwal on 24/07/17.

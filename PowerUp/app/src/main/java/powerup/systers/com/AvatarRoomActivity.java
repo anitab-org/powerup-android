@@ -13,8 +13,6 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.Random;
-
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 

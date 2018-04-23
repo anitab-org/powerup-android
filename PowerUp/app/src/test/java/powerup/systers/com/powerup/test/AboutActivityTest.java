@@ -1,7 +1,6 @@
 package powerup.systers.com.powerup.test;
 
 import android.os.Build;
-import android.widget.Button;
 import android.widget.TextView;
 
 import org.junit.Before;
