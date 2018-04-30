@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
@@ -44,6 +45,7 @@ public class MapActivity extends Activity {
                 } else {
                     Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
                     intent.putExtra(PowerUpUtils.SOURCE,PowerUpUtils.MAP);
+                    intent.putExtra(PowerUpUtils.SCENARIO_NAME,getScenarioName(scenarioChooser.getId()));
                     startActivityForResult(intent, 0);
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
@@ -116,15 +118,15 @@ public class MapActivity extends Activity {
         });
 
         //changes the Map building's greyscale color and locks according to the scenarios completions
-        if (getmDbHandler().getScenarioFromID(4).getCompleted() == 1){
+        if (getmDbHandler().getScenarioFromID(4).getCompleted() == 1 || SessionHistory.sceneHomeIsReplayed){
             schoolBuilding.setImageDrawable(getResources().getDrawable(R.drawable.school_colored));
             school.setEnabled(true);
         }
-        if (getmDbHandler().getScenarioFromID(5).getCompleted() == 1){
+        if (getmDbHandler().getScenarioFromID(5).getCompleted() == 1 || SessionHistory.sceneSchoolIsReplayed){
             hospitalBuilding.setImageDrawable(getResources().getDrawable(R.drawable.hospital_colored));
             hospital.setEnabled(true);
         }
-        if (getmDbHandler().getScenarioFromID(6).getCompleted() == 1){
+        if (getmDbHandler().getScenarioFromID(6).getCompleted() == 1 || SessionHistory.sceneHospitalIsReplayed){
             libraryBuilding.setImageDrawable(getResources().getDrawable(R.drawable.library_colored));
             library.setEnabled(true);
         }

@@ -284,6 +284,10 @@ public class AvatarRoomActivity extends Activity {
                 SessionHistory.totalPoints = 0;    //reset the points stored
                 SessionHistory.currSessionID = 1;
                 SessionHistory.currScenePoints = 0;
+                SessionHistory.sceneHomeIsReplayed = false;
+                SessionHistory.sceneSchoolIsReplayed = false;
+                SessionHistory.sceneHospitalIsReplayed = false;
+                SessionHistory.sceneLibraryIsReplayed = false;
                 finish();
                 startActivity(new Intent(AvatarRoomActivity.this, FinalAvatarActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
