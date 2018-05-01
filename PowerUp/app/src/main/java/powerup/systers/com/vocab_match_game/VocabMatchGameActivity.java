@@ -8,10 +8,9 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
-import android.os.Handler;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -23,10 +22,8 @@ import java.util.Random;
 
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.powerup.PowerUpUtils;
-import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 public class VocabMatchGameActivity extends AppCompatActivity {
 

@@ -5,10 +5,10 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
@@ -20,12 +20,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import powerup.systers.com.GameOverActivity;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
-import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 /**
  * Created by sachinaggarwal on 7/07/17.
@@ -173,10 +171,10 @@ public class SinkToSwimGame extends AppCompatActivity {
         final AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
         final AlphaAnimation fadeOut = new AlphaAnimation(1f, 0f);
         fadeOut.setFillAfter(true);
-        fadeIn.setDuration(800);
-        fadeOut.setDuration(800);
+        fadeIn.setDuration(600);
+        fadeOut.setDuration(600);
         fadeIn.setFillAfter(true);
-        fadeIn.setStartOffset(500);
+        fadeIn.setStartOffset(300);
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -233,6 +231,7 @@ public class SinkToSwimGame extends AppCompatActivity {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
                 wrongAnswers++;
             }
+            questionView.setText("");
         } else if (view == findViewById(R.id.false_option)) {
             if (PowerUpUtils.SWIM_SINK_QUESTION_ANSWERS[curQuestion][1].equals("F")) {
                 score += 1;
@@ -243,9 +242,9 @@ public class SinkToSwimGame extends AppCompatActivity {
                 questionView.setBackground(getResources().getDrawable(R.drawable.swim_cross));
                 wrongAnswers++;
             }
+            questionView.setText("");
         }
 
-        questionView.setText("");
         showNextQuestion();
         scoreView.setText("Score: " + score);
     }

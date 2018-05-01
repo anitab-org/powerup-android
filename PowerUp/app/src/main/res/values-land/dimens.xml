@@ -154,7 +154,7 @@
     <dimen name="pgame_quesitionView_marginLeft">20dp</dimen>
     <dimen name="hair_eyes_face_clothes">15sp</dimen>
     <dimen name="about_text_size_title">40sp</dimen>
-    <dimen name="about_text_size_section_title">20dp</dimen>
+    <dimen name="about_text_size_section_title">20sp</dimen>
     <dimen name="about_text_size_section_content">16sp</dimen>
     <dimen name="about_side_padding">40dp</dimen>
     <dimen name="about_top_bottom_padding">50dp</dimen>

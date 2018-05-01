@@ -11,9 +11,6 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.Random;
-
-import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 
 public class FinalAvatarActivity extends Activity{
@@ -90,6 +87,7 @@ public class FinalAvatarActivity extends Activity{
                     edit.apply();
                 }
                 startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {

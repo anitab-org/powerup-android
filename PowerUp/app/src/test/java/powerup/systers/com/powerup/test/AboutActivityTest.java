@@ -1,6 +1,6 @@
 package powerup.systers.com.powerup.test;
 
-import android.widget.Button;
+import android.os.Build;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class,sdk = Build.VERSION_CODES.LOLLIPOP)
+@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class AboutActivityTest {
     private AboutActivity activity;
 
@@ -39,7 +39,7 @@ public class AboutActivityTest {
     }
 
     @Test
-    public void clickingHomeButton_shouldFinishActivity() {
+    public void clickingHomeButtonShouldFinishActivity() {
         activity.findViewById(R.id.homeButton).performClick();
         ShadowActivity activityShadow = shadowOf(activity);
         assertTrue(activityShadow.isFinishing());
@@ -51,4 +51,5 @@ public class AboutActivityTest {
         assertEquals(textView.getText().toString(),
                 activity.getResources().getString(R.string.about_title));
     }
+
 }

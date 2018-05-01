@@ -2,11 +2,6 @@ package powerup.systers.com.powerup.test;
 
 import android.content.Intent;
 import android.os.Build;
-import android.os.Handler;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +11,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
-import org.robolectric.shadows.ShadowCountDownTimer;
 
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;

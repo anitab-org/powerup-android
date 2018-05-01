@@ -24,20 +24,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 
 import powerup.systers.com.datamodel.Scenario;
-import powerup.systers.com.datamodel.Score;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.powerup.PowerUpUtils;
 
-import static powerup.systers.com.R.string.scenario_description;
-import static powerup.systers.com.R.string.scene;
 
 public class ScenarioOverActivity extends AppCompatActivity {
 
@@ -115,6 +110,8 @@ public class ScenarioOverActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SessionHistory.currSessionID = SessionHistory.prevSessionID;
+                //Check that reducing points does not lead to negetive value
+                if(SessionHistory.totalPoints - SessionHistory.currScenePoints >= 0)
                 SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                 SessionHistory.currScenePoints = 0;
                 scenarioActivityDone = 0;

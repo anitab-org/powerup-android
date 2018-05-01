@@ -7,7 +7,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,4 +17,23 @@ allprojects {
         jcenter()
         google()
     }
+}
+
+ext {
+    // Sdk and tools
+    minSdkVersion = 15
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+
+    // App dependencies
+    supportLibraryVersion = '26.1.0'
+    roundProgressBarVersion = '2.0.3'
+
+    jUnitVersion = '4.12'
+    mockitoVersion = '2.8.47'
+    robolectricVersion = '3.3.1'
+    runnerVersion = '1.0.1'
+    rulesVersion = '0.5'
+    espressoVersion = '3.0.1'
 }

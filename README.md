@@ -1,15 +1,18 @@
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://github.com/systers/powerup-android)
+
 # PowerUp - Android
 
 PowerUp is a female empowerment educational mobile game app that will allow young girls to learn about reproductive health 
 and self-esteem by navigating the life of their avatar!
 
 ## Setup for Developers
-1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS
-1. Go to [the project repo](https://github.com/systers/powerup-android/) and fork it by clicking "Fork" 
-1. If you are working on Windows, download [Git Bash for Windows](https://git-for-windows.github.io/) to get a full Unix bash with Git functionality
-1. Clone the repo to your desktop `git clone https://github.com/YOUR_USERNAME/powerup-android.git`
-1. Initialize Git. `git init`
-1. Open the project with Android Studio 
+1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS. If you are using Android Studio 3.0 use these resources(https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html / https://developer.android.com/studio/releases/gradle-plugin.html) 
+2. Go to [the project repo](https://github.com/systers/powerup-android/) and fork it by clicking "Fork" 
+3. If you are working on Windows, download [Git Bash for Windows](https://git-for-windows.github.io/) to get a full Unix bash with Git functionality
+4. Clone the repo to your desktop `git clone https://github.com/YOUR_USERNAME/powerup-android.git`
+5. Initialize Git. `git init`
+6. Open the project with Android Studio 
+7. Fetch the latest version of code from branch "develop".
 
 ## Configure remotes
 When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:
@@ -61,7 +64,7 @@ When a repository is cloned, it has a default remote called `origin` that points
 Here's the link to the official documentation:
 [Visit Documentation!](http://chetnagsocpowerupandroid.blogspot.in/2015/05/database-design.html)
 
-##Coding Guidelines
+## Coding Guidelines
 1. Don't use magic numbers or hard-coded strings. Put them in dimens.xml or strings.xml
 1. Class names should be in CamelCase. Name activities with names including Activity so it's easier to know what they are.
 1. Include spaces between parameters when you call a method for example: `Intent(MainActivity.this, GameActivity.class)`.

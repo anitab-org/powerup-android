@@ -1,7 +1,7 @@
 package powerup.systers.com.minesweeper;
 
-import android.content.SharedPreferences;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 /**
  * Created by sachinaggarwal on 25/06/17.
