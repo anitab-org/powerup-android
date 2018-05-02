@@ -16,6 +16,7 @@ public class PowerUpUtils {
     public static final int TYPE_HAIR = 0;
     public static final int TYPE_CLOTHES = 1;
     public static final int TYPE_ACCESSORIES = 2;
+    public static final int MAX_ELEMENTS_PER_SCREEN = 6;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";

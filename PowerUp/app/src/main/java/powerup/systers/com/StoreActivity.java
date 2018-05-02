@@ -28,6 +28,8 @@ import powerup.systers.com.datamodel.StoreItem;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.powerup.PowerUpUtils;
 
+import static powerup.systers.com.powerup.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
+
 
 public class StoreActivity extends AppCompatActivity {
 
@@ -110,7 +112,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage = 0;
                 storeItemTypeindex = 0;
-                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
                 setArrows();
             }
         });
@@ -120,7 +122,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage = 0;
                 storeItemTypeindex = 1;
-                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
                 setArrows();
             }
         });
@@ -130,7 +132,7 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage = 0;
                 storeItemTypeindex = 2;
-                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, 6));
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
                 setArrows();
             }
         });
@@ -140,11 +142,11 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage--;
                 setArrows();
-                if (currentPage * 6 < allDataSet.get(storeItemTypeindex).size()) {
-                    if (allDataSet.get(storeItemTypeindex).size() >= currentPage * 6 + 6) {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, currentPage * 6 + 6));
+                if (currentPage * MAX_ELEMENTS_PER_SCREEN < allDataSet.get(storeItemTypeindex).size()) {
+                    if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
+                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
                     } else {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, allDataSet.get(storeItemTypeindex).size()));
+                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
                     }
                 }
             }
@@ -155,17 +157,17 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 currentPage++;
                 setArrows();
-                if (allDataSet.get(storeItemTypeindex).size() >= currentPage * 6 + 6) {
-                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, currentPage * 6 + 6));
+                if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
+                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
                 } else {
-                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * 6, allDataSet.get(storeItemTypeindex).size()));
+                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
                 }
             }
         });
 
         gridView = (GridView) findViewById(R.id.grid_view);
         createDataLists();
-        adapter = new GridAdapter(this, allDataSet.get(0).subList(0, 6));
+        adapter = new GridAdapter(this, allDataSet.get(0).subList(0, MAX_ELEMENTS_PER_SCREEN));
         gridView.setAdapter(adapter);
         setArrows();
     }
@@ -237,7 +239,7 @@ public class StoreActivity extends AppCompatActivity {
     }
 
     public int calculatePosition(int position) {
-        int id = currentPage*6+position;
+        int id = currentPage * MAX_ELEMENTS_PER_SCREEN +position;
         return id;
     }
 
@@ -456,7 +458,7 @@ public class StoreActivity extends AppCompatActivity {
         } else {
             leftArrow.setVisibility(View.VISIBLE);
         }
-        if((currentPage+1) * 6 >= allDataSet.get(storeItemTypeindex).size()){
+        if((currentPage+1) * MAX_ELEMENTS_PER_SCREEN >= allDataSet.get(storeItemTypeindex).size()){
             rightArrow.setVisibility(View.GONE);
         } else {
             rightArrow.setVisibility(View.VISIBLE);
