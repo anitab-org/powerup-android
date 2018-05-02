@@ -16,6 +16,7 @@ public class PowerUpUtils {
     public static final int TYPE_HAIR = 0;
     public static final int TYPE_CLOTHES = 1;
     public static final int TYPE_ACCESSORIES = 2;
+    public static final int MAX_ELEMENTS_PER_SCREEN = 6;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";
@@ -52,13 +53,98 @@ public class PowerUpUtils {
     public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
 
 
-    public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16};
-    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","5","5","5","5","5","5","10","10","10","10","10","10","10"};
+    public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16,R.drawable.hair17};
+    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","5","5","5","5","5","5","10","10","10","10","10","10","10","10"};
 
-    public static final int[] CLOTHES_IMAGES = {R.drawable.dress1,R.drawable.dress2,R.drawable.dress3,R.drawable.dress4};
-    public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10"};
+    public static final int[] CLOTHES_IMAGES = {
+            R.drawable.dress1,
+            R.drawable.dress2,
+            R.drawable.dress3,
+            R.drawable.dress4,
+            R.drawable.dress5,
+            R.drawable.dress6,
+            R.drawable.dress7,
+            R.drawable.dress8,
+            R.drawable.dress9,
+            R.drawable.dress10,
+            R.drawable.dress11,
+            R.drawable.dress12,
+            R.drawable.dress13,
+            R.drawable.dress14,
+            R.drawable.dress15,
+            R.drawable.dress16,
+            R.drawable.dress17,
+            R.drawable.dress18,
+            R.drawable.dress19,
+            R.drawable.dress20,
+            R.drawable.dress21,
+            R.drawable.dress22,
+            R.drawable.dress23,
+            R.drawable.dress24,
+            R.drawable.dress25,
+            R.drawable.dress26,
+            R.drawable.dress27,
+            R.drawable.dress28,
+            R.drawable.dress29,
+            R.drawable.dress30,
+            R.drawable.dress31,
+            R.drawable.dress32,
+            R.drawable.dress33,
+            R.drawable.dress34,
+            R.drawable.dress35,
+            R.drawable.dress36,
+            R.drawable.dress37,
+            R.drawable.dress38,
+            R.drawable.dress39,
+            R.drawable.dress40,
+            R.drawable.dress41,
+            R.drawable.dress42,
+            R.drawable.dress43,
+            R.drawable.dress44,
+            R.drawable.dress45,
+            R.drawable.dress46,
+            R.drawable.dress47,
+            R.drawable.dress48,
+            R.drawable.dress49
+    };
+    public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10"};
 
-    public static final int[] ACCESSORIES_IMAGES = {R.drawable.acc1,R.drawable.acc2,R.drawable.acc3,R.drawable.acc4};
-    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10"};
+    public static final int[] ACCESSORIES_IMAGES = {
+            R.drawable.acc1,
+            R.drawable.acc2,
+            R.drawable.acc3,
+            R.drawable.acc4,
+            R.drawable.acc5,
+            R.drawable.acc6,
+            R.drawable.acc7,
+            R.drawable.acc8,
+            R.drawable.acc9,
+            R.drawable.acc10,
+            R.drawable.acc11,
+            R.drawable.acc12,
+            R.drawable.acc13,
+            R.drawable.acc14,
+            R.drawable.acc15,
+            R.drawable.acc16,
+            R.drawable.acc17,
+            R.drawable.acc18,
+            R.drawable.acc19,
+            R.drawable.acc20,
+            R.drawable.acc21,
+            R.drawable.acc22,
+            R.drawable.acc23,
+            R.drawable.acc24,
+            R.drawable.acc25,
+            R.drawable.acc26,
+            R.drawable.acc27,
+            R.drawable.acc28,
+            R.drawable.acc29,
+            R.drawable.acc30,
+            R.drawable.acc31,
+            R.drawable.acc32,
+            R.drawable.acc33,
+            R.drawable.acc34,
+            R.drawable.acc35};
+    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10"};
 }
 
