@@ -23,6 +23,7 @@ public class PowerUpUtils {
     public static final String WRONG_ANSWER = "wrong";
     public static final String MAP = "map";
     public static final String SOURCE = "source";
+    public static final String SCENARIO_NAME = "scenario_name";
 
 
     public static final String CALLED_BY = "TUTORIALS_ACTIVITY";
