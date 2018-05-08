@@ -23,4 +23,5 @@ public class SessionHistory {
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;
     public static boolean sceneLibraryIsReplayed = false;
+    public static boolean hasPreviouslyCustomized = false;
 }
