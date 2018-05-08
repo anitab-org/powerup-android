@@ -12,6 +12,6 @@ before_script:
  - chmod +x gradlew
 script:
  - ./gradlew assembleDebug
-after_script:
+after_success:
   - cd ..
   - ./generate-apk.sh
