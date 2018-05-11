@@ -22,7 +22,7 @@ import powerup.systers.com.MapActivity;
 import powerup.systers.com.MinesweeperSound;
 import powerup.systers.com.R;
 import powerup.systers.com.datamodel.SessionHistory;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
 /**
  * Created by sachinaggarwal on 25/06/17.

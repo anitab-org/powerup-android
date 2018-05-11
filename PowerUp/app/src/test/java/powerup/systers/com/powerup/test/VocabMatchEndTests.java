@@ -19,7 +19,7 @@ import org.robolectric.shadows.ShadowActivity;
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;
 import powerup.systers.com.ScenarioOverActivity;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 import powerup.systers.com.vocab_match_game.VocabMatchEndActivity;
 
 import static org.junit.Assert.assertEquals;

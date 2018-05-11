@@ -26,9 +26,9 @@ import java.util.List;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.datamodel.StoreItem;
 import powerup.systers.com.db.DatabaseHandler;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
-import static powerup.systers.com.powerup.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
+import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
 
 
 public class StoreActivity extends AppCompatActivity {

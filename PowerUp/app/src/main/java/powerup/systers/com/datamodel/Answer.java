@@ -14,6 +14,8 @@ public class Answer {
     private Integer nextQuestionID;
     private Integer points;
 
+
+
     public Integer getAnswerID() {
         return answerID;
     }
