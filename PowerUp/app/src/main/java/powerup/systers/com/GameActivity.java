@@ -318,18 +318,27 @@ public class GameActivity extends Activity {
      */
     @Override
     public void onBackPressed(){
-        // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
-        // clears the activities that were created after the found instance of the required activity
-        startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-        finish();
+        if(SessionHistory.currScenePoints != 0) {
+            // clears the activities that were created after the found instance of the required activity
+            gotToMapDialogue();
+            } else {
+            // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
+            // clears the activities that were created after the found instance of the required activity
+            startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            finish();
+            }
     }
+    
     public void gotToMapDialogue(){
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setTitle(context.getResources().getString(R.string.start_title_message))
                 .setMessage(getResources().getString(R.string.game_to_map_message));
         builder.setPositiveButton(getString(R.string.game_confirm_message), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                startActivityForResult(new Intent(GameActivity.this, MapActivity.class), 0);
+                startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+                finish();
+                getmDbHandler().setReplayedScenario(scene.getScenarioName());
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
