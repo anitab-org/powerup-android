@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
@@ -78,6 +79,7 @@ public class StartActivity extends Activity {
                     Intent intent = new Intent(getApplicationContext(),AvatarRoomActivity.class);
                     startActivity(intent);
                 }
+                SessionHistory.hasPreviouslyCustomized = false;
             }
         });
 

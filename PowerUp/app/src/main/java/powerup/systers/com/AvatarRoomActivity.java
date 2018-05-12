@@ -51,16 +51,12 @@ public class AvatarRoomActivity extends Activity {
         final ImageView hairLeft = (ImageView) findViewById(R.id.hair_left);
         ImageView hairRight = (ImageView) findViewById(R.id.hair_right);
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AvatarRoomActivity.this);
-        boolean hasPreviouslyCustomized = prefs.getBoolean(getString(R.string.preferences_has_previously_customized), false);
-        if (!hasPreviouslyCustomized) {
-            SharedPreferences.Editor edit = prefs.edit();
-            edit.putBoolean(getString(R.string.preferences_has_previously_customized), Boolean.TRUE);
-            edit.apply();
+        if (!SessionHistory.hasPreviouslyCustomized) {
             eye=1;
             skin=1;
             hair=1;
             cloth=1;
+            SessionHistory.hasPreviouslyCustomized = true;
         } else {
             eye=getmDbHandler().getAvatarEye();
             skin=getmDbHandler().getAvatarSkin();
