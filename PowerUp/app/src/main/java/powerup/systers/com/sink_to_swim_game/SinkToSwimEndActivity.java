@@ -9,7 +9,7 @@ import android.widget.TextView;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.ScenarioOverActivity;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
 public class SinkToSwimEndActivity extends AppCompatActivity {
 

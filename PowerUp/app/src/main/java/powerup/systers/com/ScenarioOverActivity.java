@@ -31,7 +31,7 @@ import android.widget.TextView;
 import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
 
 public class ScenarioOverActivity extends AppCompatActivity {

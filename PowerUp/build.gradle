@@ -36,4 +36,5 @@ ext {
     runnerVersion = '1.0.1'
     rulesVersion = '0.5'
     espressoVersion = '3.0.1'
+    roomVersion = "1.0.0"
 }

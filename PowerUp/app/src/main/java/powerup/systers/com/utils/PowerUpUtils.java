@@ -1,4 +1,4 @@
-package powerup.systers.com.powerup;
+package powerup.systers.com.utils;
 
 import powerup.systers.com.R;
 

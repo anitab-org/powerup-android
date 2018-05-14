@@ -23,7 +23,8 @@ import java.util.Random;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.datamodel.SessionHistory;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
+
 
 public class VocabMatchGameActivity extends AppCompatActivity {
 
