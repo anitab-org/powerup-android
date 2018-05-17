@@ -42,55 +42,72 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = StartActivity.this;
+
+        //checking whether it's first time run of application or not
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
         hasPreviouslyCustomized = preferences.getBoolean(getString(R.string.preferences_has_previously_customized), false);
+
+        // onclick for New Game button
         newUserButton = (Button) findViewById(R.id.newUserButtonFirstPage);
         newUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (hasPreviouslyStarted) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
+
+                    // create a dialog to confirm new game action before losing saved data
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle(context.getResources().getString(R.string.start_title_message))
                             .setMessage(getResources().getString(R.string.start_dialog_message));
+
+                    // deleting all saved data on confirm click & start AvatarRoom activity
                     builder.setPositiveButton(getString(R.string.start_confirm_message), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            new MinesweeperSessionManager(StartActivity.this)
+                            new MinesweeperSessionManager(context)
                                 .saveMinesweeperOpenedStatus(false);
-                            new SinkToSwimSessionManager(StartActivity.this)
+                            new SinkToSwimSessionManager(context)
                                 .saveSinkToSwimOpenedStatus(false);
-                            new VocabMatchSessionManager(StartActivity.this)
+                            new VocabMatchSessionManager(context)
                                 .saveVocabMatchOpenedStatus(false);
-                            startActivityForResult(new Intent(StartActivity.this, AvatarRoomActivity.class), 0);
+                            startActivityForResult(new Intent(context, AvatarRoomActivity.class), 0);
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                         }
                     });
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    // dismiss the dialog on cancel click
+                    builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
                     });
+
+                    // customizing dialog with colordrawable & display dialog
                     AlertDialog dialog = builder.create();
                     ColorDrawable drawable = new ColorDrawable(Color.WHITE);
                     drawable.setAlpha(200);
                     dialog.getWindow().setBackgroundDrawable(drawable);
                     dialog.show();
-                } else{
-                    Intent intent = new Intent(getApplicationContext(),AvatarRoomActivity.class);
+
+                } else {
+                    Intent intent = new Intent(context,AvatarRoomActivity.class);
                     startActivity(intent);
                 }
+
+                // setting previously customized avatar to false
                 SessionHistory.hasPreviouslyCustomized = false;
             }
         });
 
+        // load game button initialized
         startButton = (Button) findViewById(R.id.startButtonMain);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (hasPreviouslyStarted) {
-                    startActivity(new Intent(StartActivity.this, MapActivity.class));
+                    // load map activity if shared preferences return true
+                    startActivity(new Intent(context, MapActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
+                    // create dialog to use new game button instead & dismiss dialog
                     AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
                     builder.setTitle(context.getResources().getString(R.string.start_title_message_load))
                             .setMessage(getResources().getString(R.string.start_dialog_message_load));
@@ -99,6 +116,7 @@ public class StartActivity extends Activity {
                         dialog.dismiss();
                         }
                     });
+
                     AlertDialog dialog = builder.create();
                     ColorDrawable drawable = new ColorDrawable(Color.WHITE);
                     drawable.setAlpha(200);
@@ -109,11 +127,12 @@ public class StartActivity extends Activity {
             }
         });
 
+        // starts the about activity
         aboutButton = (Button) findViewById(R.id.aboutButtonMain);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, AboutActivity.class));
+                startActivity(new Intent(context, AboutActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
@@ -130,15 +149,19 @@ public class StartActivity extends Activity {
     }
     @Override
     public void onBackPressed() {
+
         if (backAlreadyPressed) {
+            // close the application
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             startActivity(intent);
             super.onBackPressed();
             return;
         }
+        // first back press should set the variable to true & show a Toast to press again to close application
         this.backAlreadyPressed = true;
         Toast.makeText(this, getResources().getString(R.string.toast_confirm_exit_message), Toast.LENGTH_SHORT).show();
+        // set the variable to false if it takes more than 2sec for another back press
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

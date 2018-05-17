@@ -13,6 +13,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // create a runnable which starts StartActivity with 1 sec delay
         handler = new Handler();
         runnable = new Runnable() {
             @Override

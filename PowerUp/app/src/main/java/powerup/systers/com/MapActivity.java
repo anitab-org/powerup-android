@@ -32,6 +32,7 @@ public class MapActivity extends Activity {
         public void onClick(View v) {
             ImageView scenarioChooser = (ImageView) v;
             if (v.isEnabled()){
+                // checks whether has been already completed & then open GameActivity if setSessionId returns true
                 if (getmDbHandler().setSessionId(getScenarioName(scenarioChooser.getId()))) {
                     startActivityForResult(new Intent(MapActivity.this, GameActivity.class), 0);
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
@@ -70,12 +71,17 @@ public class MapActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // making windows full screen & hiding title bar of activity screen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // get database instance
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
-        setContentView(R.layout.gamemap);
 
+        // instantiating the views
+        setContentView(R.layout.gamemap);
         ImageView schoolBuilding = (ImageView) findViewById(R.id.school_building);
         ImageView hospitalBuilding = (ImageView) findViewById(R.id.hospital_building);
         ImageView libraryBuilding = (ImageView) findViewById(R.id.library_building);
@@ -95,10 +101,12 @@ public class MapActivity extends Activity {
         ImageView library = (ImageView) findViewById(R.id.library);
         library.setOnClickListener(onClickListener);
 
+        //disable onclick for imageview
         school.setEnabled(false);
         hospital.setEnabled(false);
         library.setEnabled(false);
 
+        // open StoreActivity on store click
         Button storeButton = (Button) findViewById(R.id.store);
         storeButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -108,6 +116,7 @@ public class MapActivity extends Activity {
             }
         });
 
+        // open StartActivity on home click
         homeButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +126,7 @@ public class MapActivity extends Activity {
             }
         });
 
-        //changes the Map building's greyscale color and locks according to the scenarios completions
+        //changes the Map building's greyscale color and unlocks according to the scenarios completions(check completed column in scenario table0
         if (getmDbHandler().getScenarioFromID(4).getCompleted() == 1 || SessionHistory.sceneHomeIsReplayed){
             schoolBuilding.setImageDrawable(getResources().getDrawable(R.drawable.school_colored));
             school.setEnabled(true);

@@ -26,13 +26,19 @@ public class FinalAvatarActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // get the database instance
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
+
+        // initialize variables
         setContentView(R.layout.final_avatar);
         eyeAvatar = (ImageView) findViewById(R.id.eye_view);
         hairAvatar = (ImageView) findViewById(R.id.hair_view);
         skinAvatar = (ImageView) findViewById(R.id.skin_view);
         clothAvatar = (ImageView) findViewById(R.id.dress_view);
+
+        // extract selected eyes,skin,cloth,hair from database & apply it on avatar
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
@@ -74,8 +80,12 @@ public class FinalAvatarActivity extends Activity{
                 | IllegalArgumentException error) {
             error.printStackTrace();
         }
+
+        //initialize continue & back button
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonFinal);
         ImageView backButton = (ImageView) findViewById(R.id.backButtonFinal);
+
+        // setting has previously started to true in preferences & start MapActivity
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +100,8 @@ public class FinalAvatarActivity extends Activity{
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
+
+        //re-open avatar room activity
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +110,7 @@ public class FinalAvatarActivity extends Activity{
             }
         });
     }
+
     public DatabaseHandler getmDbHandler() {
         return mDbHandler;
     }
