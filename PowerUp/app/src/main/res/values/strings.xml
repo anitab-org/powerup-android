@@ -88,4 +88,9 @@
     <string name="game_confirm_message">Go to Map</string>
     <string name="marcello_Text">Marcello</string>
     <string name="score_text_zero">Score: 0</string>
+    <string name="pregame_setup_title">In this step you can choose the members of the conversations!</string>
+    <string name="elder_sister">SISTER</string>
+    <string name="friend">FRIEND</string>
+    <string name="doctor">DOCTOR</string>
+    <string name="teacher">TEACHER</string>
 </resources>
