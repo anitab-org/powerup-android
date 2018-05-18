@@ -1,19 +1,30 @@
 package powerup.systers.com.data.entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "Point")
 public class Points {
 
-    private Integer pointsId;
+    @PrimaryKey
+    private int pointsId;
 
-    private Integer strength;
+    private int strength;
 
-    private Integer invisibility;
+    private int invisibility;
 
-    private Integer healing;
+    private int healing;
 
-    private Integer telepathy;
+    private int telepathy;
 
-    private Integer userPoints;
+    private int userPoints;
+
+    public Points(int pointsId, int strength, int invisibility, int healing, int telepathy, int userPoints) {
+        this.pointsId = pointsId;
+        this.strength = strength;
+        this.invisibility = invisibility;
+        this.healing = healing;
+        this.telepathy = telepathy;
+        this.userPoints = userPoints;
+    }
 }

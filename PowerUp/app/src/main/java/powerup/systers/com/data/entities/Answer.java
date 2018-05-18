@@ -14,17 +14,17 @@ import android.arch.persistence.room.PrimaryKey;
 public class Answer {
 
     @PrimaryKey
-    private Integer answerID;
+    private int answerID;
 
-    private Integer questionID;
+    private int questionID;
 
     private String answerDescription;
 
-    private Integer nextQuestionID;
+    private int nextQuestionID;
 
-    private Integer answerPoints;
+    private int answerPoints;
 
-    public Answer(Integer answerID, Integer questionID, String answerDescription, Integer nextQuestionID, Integer answerPoints) {
+    public Answer(int answerID, int questionID, String answerDescription, int nextQuestionID, int answerPoints) {
         this.answerID = answerID;
         this.questionID = questionID;
         this.answerDescription = answerDescription;
