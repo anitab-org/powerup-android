@@ -49,6 +49,8 @@ public class SinkToSwimGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sink_to_swim_game);
+
+        // init views
         boat = (ImageView) findViewById(R.id.boat);
         trueOption = (Button) findViewById(R.id.true_option);
         skipOption = (Button) findViewById(R.id.skip_option);

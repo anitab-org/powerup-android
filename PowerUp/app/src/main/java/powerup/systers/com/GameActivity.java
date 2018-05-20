@@ -65,6 +65,7 @@ public class GameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         new ScenarioOverActivity(this).saveActivityOpenedStatus(false);
         context = GameActivity.this;
+        // if any game was left incomplete, open respective gameactivity
         if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
             startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
@@ -75,6 +76,7 @@ public class GameActivity extends Activity {
         if(new VocabMatchSessionManager(this).isVocabMatchOpened()) {
             startActivity(new Intent(GameActivity.this, VocabMatchGameActivity.class));
         }
+        //Todo Give reason
         if (savedInstanceState != null) {
             isStateChanged = true;
         }
@@ -83,22 +85,30 @@ public class GameActivity extends Activity {
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
 
-        // Find the ListView resource.
-        ListView mainListView = (ListView) findViewById(R.id.mainListView);
+        // instantiate views
         questionTextView = (TextView) findViewById(R.id.questionView);
         scenarioNameTextView = (TextView) findViewById(R.id.scenarioNameEditText);
-        listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
-        answers = new ArrayList<>();
-        scene = getmDbHandler().getScenario();
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
-        SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eye_view);
         ImageView skinImageView = (ImageView) findViewById(R.id.skin_view);
         ImageView hairImageView = (ImageView) findViewById(R.id.hair_view);
         ImageView clothImageView = (ImageView) findViewById(R.id.dress_view);
         ImageView accessoryImageView = (ImageView) findViewById(R.id.accessory_view);
+
+        // Find the ListView resource.
+        ListView mainListView = (ListView) findViewById(R.id.mainListView);
+        listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
+        answers = new ArrayList<>();
+
+        // get scenario from database & set layout background
+        scene = getmDbHandler().getScenario();
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
+        SessionHistory.currScenePoints = 0;
+
+        // sets the movement method for handling arrow key movement
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
+
+        // set eye,skin,cloth,hair,accessory to avatar
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();

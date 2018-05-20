@@ -35,8 +35,12 @@ public class AvatarRoomActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // get the database instance
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
+
+        // initialize views
         setContentView(R.layout.avatar_room);
         eyeAvatar = (ImageView) findViewById(R.id.eye_view);
         hairAvatar = (ImageView) findViewById(R.id.hair_view);
@@ -51,6 +55,8 @@ public class AvatarRoomActivity extends Activity {
         final ImageView hairLeft = (ImageView) findViewById(R.id.hair_left);
         ImageView hairRight = (ImageView) findViewById(R.id.hair_right);
         ImageView continueButton = (ImageView) findViewById(R.id.continueButtonAvatar);
+
+        // check if avatar has been customized earlier
         if (!SessionHistory.hasPreviouslyCustomized) {
             eye=1;
             skin=1;
@@ -58,10 +64,12 @@ public class AvatarRoomActivity extends Activity {
             cloth=1;
             SessionHistory.hasPreviouslyCustomized = true;
         } else {
+            // if yes, check the customization from database for eyes, skin, hair, skin
             eye=getmDbHandler().getAvatarEye();
             skin=getmDbHandler().getAvatarSkin();
             hair=getmDbHandler().getAvatarHair();
             cloth=getmDbHandler().getAvatarCloth();
+
             String eyeImageName = getResources().getString(R.string.eye);
             eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
             R.drawable ourRID = new R.drawable();
@@ -104,6 +112,7 @@ public class AvatarRoomActivity extends Activity {
                 error.printStackTrace();
             }
         }
+        // use previous eye set
         eyeLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +133,7 @@ public class AvatarRoomActivity extends Activity {
                 }
             }
         });
-
+        // use next eye set
         eyeRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,16 +276,23 @@ public class AvatarRoomActivity extends Activity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 getmDbHandler().open();
                 getmDbHandler().resetPurchase();
+
+                // update avatar table with selected eye,skin,hair,skin
                 getmDbHandler().setAvatarEye(eye);
                 getmDbHandler().setAvatarSkin(skin);
                 getmDbHandler().setAvatarHair(hair);
                 getmDbHandler().setAvatarCloth(cloth);
+
+                //update hair, clothes table as purchased
                 getmDbHandler().setPurchasedHair(hair);
                 getmDbHandler().setPurchasedClothes(cloth);
+
                 getmDbHandler().updateComplete();//set all the complete fields back to 0
                 getmDbHandler().updateReplayed();//set all the replayed fields back to 0
+
                 SessionHistory.totalPoints = 0;    //reset the points stored
                 SessionHistory.currSessionID = 1;
                 SessionHistory.currScenePoints = 0;

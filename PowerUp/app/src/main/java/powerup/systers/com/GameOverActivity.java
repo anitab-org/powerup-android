@@ -16,13 +16,12 @@ import powerup.systers.com.datamodel.SessionHistory;
 
 public class GameOverActivity extends Activity {
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.completed_game);
+
+        // backToMap starts MapActivity
         Button backToMap = (Button) findViewById(R.id.ContinueButtonMap);
         backToMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +33,7 @@ public class GameOverActivity extends Activity {
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
+        //set the total points from sessionHistory
         TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
     }
