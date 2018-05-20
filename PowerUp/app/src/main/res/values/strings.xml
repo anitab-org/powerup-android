@@ -93,4 +93,5 @@
     <string name="friend">FRIEND</string>
     <string name="doctor">DOCTOR</string>
     <string name="teacher">TEACHER</string>
+    <string name="npc_label">Sister</string>
 </resources>
