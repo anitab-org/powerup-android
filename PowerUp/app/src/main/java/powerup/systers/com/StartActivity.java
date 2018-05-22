@@ -120,15 +120,6 @@ public class StartActivity extends Activity {
         });
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        hasPreviouslyStarted = preferences.getBoolean(getString(R.string.preferences_has_previously_started), false);
-        if (hasPreviouslyStarted) {
-            startButton.setText(getString(R.string.resume_text));
-        }
-    }
     @Override
     public void onBackPressed() {
         if (backAlreadyPressed) {
