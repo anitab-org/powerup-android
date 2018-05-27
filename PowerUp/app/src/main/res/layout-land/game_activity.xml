@@ -37,15 +37,14 @@
 
     <ImageView
         android:id="@+id/askerImageView"
-
         android:layout_marginEnd="@dimen/conversation_margin"
         android:layout_marginRight="@dimen/conversation_margin"
         android:layout_width="@dimen/asker_width"
-        android:layout_height="@dimen/asker_height"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/marco" />
+        android:src="@drawable/doctor_1" />
 
 
 
@@ -129,17 +128,4 @@
         android:layout_toStartOf="@id/askerImageView"
         android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/askerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/askerImageView"
-        android:layout_alignRight="@+id/askerImageView"
-        android:layout_below="@+id/askerImageView"
-        android:layout_toEndOf="@+id/questionView"
-        android:layout_toRightOf="@+id/questionView"
-        android:text="@string/marcello_Text"
-        android:textColor="@color/powerup_black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
 </RelativeLayout>
