@@ -1,25 +1,39 @@
 package powerup.systers.com.data.entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "Avatar")
 public class Avatar {
 
-    private Integer avatarId;
+    @PrimaryKey
+    private int avatarId;
 
-    private Integer face;
+    private int face;
 
-    private Integer clothes;
+    private int clothes;
 
-    private Integer hair;
+    private int hair;
 
-    private Integer eyes;
+    private int eyes;
 
-    private Integer bag;
+    private int bag;
 
-    private Integer glasses;
+    private int glasses;
 
-    private Integer hat;
+    private int hat;
 
-    private Integer necklace;
+    private int necklace;
+
+    public Avatar(int avatarId, int face, int clothes, int hair, int eyes, int bag, int glasses, int hat, int necklace) {
+        this.avatarId = avatarId;
+        this.face = face;
+        this.clothes = clothes;
+        this.hair = hair;
+        this.eyes = eyes;
+        this.bag = bag;
+        this.glasses = glasses;
+        this.hat = hat;
+        this.necklace = necklace;
+    }
 }

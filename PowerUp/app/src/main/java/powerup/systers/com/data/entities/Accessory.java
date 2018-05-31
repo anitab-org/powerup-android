@@ -1,19 +1,21 @@
 package powerup.systers.com.data.entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "Accessories")
 public class Accessory {
 
-    private Integer accessoryId;
+    @PrimaryKey
+    private int accessoryId;
 
     private String accessoryName;
 
-    private Integer accessoryPoints;
+    private int accessoryPoints;
 
-    private Integer accessoryPurchased;
+    private int accessoryPurchased;
 
-    public Accessory(Integer accessoryId, String accessoryName, Integer accessoryPoints, Integer accessoryPurchased) {
+    public Accessory(int accessoryId, String accessoryName, int accessoryPoints, int accessoryPurchased) {
         this.accessoryId = accessoryId;
         this.accessoryName = accessoryName;
         this.accessoryPoints = accessoryPoints;
