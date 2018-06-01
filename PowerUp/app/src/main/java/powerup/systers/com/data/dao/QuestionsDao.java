@@ -14,8 +14,8 @@ public interface QuestionsDao {
     @Insert
     void insertAllQuestion(List<Question> questionList);
 
-    @Query("SELECT * FROM Question WHERE questionID =:questionId")
-    Question getQuestion(int questionId);
+    @Query("SELECT questionDescription FROM Question WHERE questionID =:questionId")
+    String getQuestionDescriptionById(int questionId);
 
 
 }

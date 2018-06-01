@@ -21,6 +21,6 @@ public interface AccessoryDao {
     void setPurchasedAccessories(int id);
 
     @Query("UPDATE  Accessories SET accessoryPurchased =0")
-    void resetBagPurchase();
+    void resetAccessoryPurchase();
 
 }
