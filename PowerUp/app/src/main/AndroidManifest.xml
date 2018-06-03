@@ -7,8 +7,8 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppTheme"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".StartActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -104,6 +104,12 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".pregame_setup.PregameSetupActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
@@ -120,15 +126,23 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".minesweeper.MinesweeperTutorials"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".minesweeper.MinesweeperTutorials"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".pregame_setup.PreGameSetupInitialActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <service android:name=".MinesweeperSound" />
-        <service android:name=".sink_to_swim_game.SinkToSwimSound"></service>
+        <service android:name=".sink_to_swim_game.SinkToSwimSound" />
+
     </application>
 
 </manifest>

@@ -41,22 +41,15 @@ public class PowerUpUtils {
     public static final String[][] ROUNDS_PROS_CONS = {{"Round 1 Pro 1 ", "Round 1 Pro 2", "Round 1 Con 1"},
             {"Round 2 Pro 1 ", "Round 2 Pro 2", "Round 2 Con 1"},
             {"Round 3 Pro 1 ", "Round 3 Pro 2", "Round 3 Con 1"}};
-
-    public static volatile boolean sPauseTest = true;
-    public static final String[][] SWIM_SINK_QUESTION_ANSWERS = {{"Test Ques 1: \n Answer=F","F"},{"Test Ques 2: \n Answer=T","T"},{"Test Ques 3: \n Answer=T","T"},{"Test Ques 4: \n Answer=F","F"},{"Test Ques 5: \n Answer=F","F"}};
-    public static final int[] SWIM_TUTS = {R.drawable.swim_tut1,R.drawable.swim_tut2,R.drawable.swim_tut3};
-    public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background,R.drawable.background,R.drawable.background,R.drawable.home_bg,R.drawable.classroom,R.drawable.hospital_bg,R.drawable.library};
-
-    public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1,R.drawable.vocab_tile2,R.drawable.vocab_tile3,R.drawable.vocab_cramping_tile,R.drawable.vocab_deo_tile,R.drawable.vocab_depression_tile,R.drawable.vocab_fat,R.drawable.vocab_skinny,R.drawable.vocab_tampon};
-    public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods","Pimples","Bra","Cramping","Deo","Depression","Fat","Skinny","Tampon"};
-    public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1,R.drawable.vocab_tut2};
-
-    public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
-
-
-    public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16,R.drawable.hair17};
-    public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","5","5","5","5","5","5","10","10","10","10","10","10","10","10"};
-
+    public static final String[][] SWIM_SINK_QUESTION_ANSWERS = {{"Test Ques 1: \n Answer=F", "F"}, {"Test Ques 2: \n Answer=T", "T"}, {"Test Ques 3: \n Answer=T", "T"}, {"Test Ques 4: \n Answer=F", "F"}, {"Test Ques 5: \n Answer=F", "F"}};
+    public static final int[] SWIM_TUTS = {R.drawable.swim_tut1, R.drawable.swim_tut2, R.drawable.swim_tut3};
+    public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background, R.drawable.background, R.drawable.background, R.drawable.home_bg, R.drawable.classroom, R.drawable.hospital_bg, R.drawable.library};
+    public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1, R.drawable.vocab_tile2, R.drawable.vocab_tile3, R.drawable.vocab_cramping_tile, R.drawable.vocab_deo_tile, R.drawable.vocab_depression_tile, R.drawable.vocab_fat, R.drawable.vocab_skinny, R.drawable.vocab_tampon};
+    public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods", "Pimples", "Bra", "Cramping", "Deo", "Depression", "Fat", "Skinny", "Tampon"};
+    public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1, R.drawable.vocab_tut2};
+    public static final int[] MINES_TUTS = {R.drawable.mines_tut1, R.drawable.mines_tut2, R.drawable.mines_tut3};
+    public static final int[] HAIR_IMAGES = {R.drawable.hair1, R.drawable.hair2, R.drawable.hair3, R.drawable.hair4, R.drawable.hair5, R.drawable.hair6, R.drawable.hair7, R.drawable.hair8, R.drawable.hair9, R.drawable.hair10, R.drawable.hair11, R.drawable.hair12, R.drawable.hair13, R.drawable.hair14, R.drawable.hair15, R.drawable.hair16, R.drawable.hair17};
+    public static final String[] HAIR_POINTS_TEXTS = {"5", "5", "5", "5", "5", "5", "5", "5", "5", "10", "10", "10", "10", "10", "10", "10", "10"};
     public static final int[] CLOTHES_IMAGES = {
             R.drawable.dress1,
             R.drawable.dress2,
@@ -108,8 +101,7 @@ public class PowerUpUtils {
             R.drawable.dress48,
             R.drawable.dress49
     };
-    public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10"};
-
+    public static final String[] CLOTHES_POINTS_TEXTS = {"5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10"};
     public static final int[] ACCESSORIES_IMAGES = {
             R.drawable.acc1,
             R.drawable.acc2,
@@ -146,6 +138,67 @@ public class PowerUpUtils {
             R.drawable.acc33,
             R.drawable.acc34,
             R.drawable.acc35};
-    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10"};
+    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10"};
+    public static final int[] SISTER_IMAGES = {
+            R.drawable.sister1,
+            R.drawable.sister2,
+            R.drawable.sister3,
+            R.drawable.sister4,
+            R.drawable.sister5,
+            R.drawable.sister6
+    };
+    public static final int[] DOCTOR_IMAGES = {
+            R.drawable.doctor1,
+            R.drawable.doctor2,
+            R.drawable.doctor3,
+            R.drawable.doctor4,
+            R.drawable.doctor5,
+            R.drawable.doctor6
+    };
+    public static final int[] TEACHER_IMAGES = {
+            R.drawable.teacher1,
+            R.drawable.teacher2,
+            R.drawable.teacher3
+    };
+    public static final int[] FRIEND_IMAGES = {
+            R.drawable.friend1,
+            R.drawable.friend2,
+            R.drawable.friend3,
+    };
+    public static final int[] NPC_SISTER_IMAGES = {
+            R.drawable.sister_1,
+            R.drawable.sister_2,
+            R.drawable.sister_3,
+            R.drawable.sister_4,
+            R.drawable.sister_5,
+            R.drawable.sister_6
+    };
+    public static final int[] NPC_FRIEND_IMAGES = {
+            R.drawable.friend_1,
+            R.drawable.friend_2,
+            R.drawable.friend_3
+    };
+    public static final int[] NPC_DOCTOR_IMAGES = {
+            R.drawable.doctor_1,
+            R.drawable.doctor_2,
+            R.drawable.doctor_3,
+            R.drawable.doctor_4,
+            R.drawable.doctor_5,
+            R.drawable.doctor_6,
+    };
+    public static final int[] NPC_TEACHER_IMAGES = {
+            R.drawable.teacher_1,
+            R.drawable.teacher_2,
+            R.drawable.teacher_3,
+    };
+    public static final int[] NPC_IMAGE = {R.drawable.sister_1, R.drawable.friend_1, R.drawable.doctor_1, R.drawable.teacher_1};
+    public static final int SISTER_TYPE = 0;
+    public static final int FRIEND_TYPE = 1;
+    public static final int DOCTOR_TYPE = 2;
+    public static final int TEACHER_TYPE = 3;
+    public static final String[] NPC_TEXT = {"Sister", "Friend", "Doctor", "Teacher"};
+    public static volatile boolean sPauseTest = true;
+
 }
+
 
