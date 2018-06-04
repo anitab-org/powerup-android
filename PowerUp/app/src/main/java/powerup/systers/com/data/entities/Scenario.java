@@ -41,4 +41,40 @@ public class Scenario {
         this.nextScenarioID = nextScenarioID;
         this.replayed = replayed;
     }
+
+    public int getCompleted() {
+        return completed;
+    }
+
+    public int getScenarioId() {
+        return scenarioId;
+    }
+
+    public String getScenarioName() {
+        return scenarioName;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public String getAsker() {
+        return asker;
+    }
+
+    public int getAvatar() {
+        return avatar;
+    }
+
+    public int getFirstQuestionID() {
+        return firstQuestionID;
+    }
+
+    public int getNextScenarioID() {
+        return nextScenarioID;
+    }
+
+    public int getReplayed() {
+        return replayed;
+    }
 }

@@ -18,7 +18,7 @@ public interface ScenarioDao {
     Scenario getScenarioFromId(int scenarioId);
 
     @Query("SELECT * FROM scenario WHERE scenarioName =:scenarioName")
-    void getSessionByName(Scenario scenarioName);
+    Scenario getSessionByName(String scenarioName);
 
     @Query("UPDATE Scenario SET completed = 1 WHERE scenarioId = :id")
     void setCompletedScenario(int id);
