@@ -20,6 +20,10 @@ public class SessionHistory {
     public static int necklaceTotalNo = 4;
     public static int accessoryTotalNo = 4;
     public static int npcType = 0;
+    public static int npcHome = 0;
+    public static int npcSchool = 0;
+    public static int npcHospital = 0;
+    public static int npcLibrary = 0;
     public static boolean sceneHomeIsReplayed = false;
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;
