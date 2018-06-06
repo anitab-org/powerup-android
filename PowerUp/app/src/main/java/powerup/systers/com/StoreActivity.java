@@ -309,7 +309,6 @@ public class StoreActivity extends AppCompatActivity {
                         TextView itemPoints = (TextView) v.findViewById(R.id.item_points);
                         int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == 0) { //hair
-                            setAvatarHair(index);
                             if (getmDbHandler().getPurchasedHair(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
@@ -318,7 +317,6 @@ public class StoreActivity extends AppCompatActivity {
                             }
 
                         } else if (storeItemTypeindex == 1) { //clothes
-                            setAvatarClothes(index);
                             if (getmDbHandler().getPurchasedClothes(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
@@ -327,7 +325,6 @@ public class StoreActivity extends AppCompatActivity {
                             }
 
                         } else if (storeItemTypeindex == 2) { //accessories
-                            setAvatarAccessories(index);
                             if (getmDbHandler().getPurchasedAccessories(index) == 0){
                                 final int cost = Integer.parseInt(itemPoints.getText().toString());
                                 showConfirmPurchaseDialog(cost, index);
