@@ -264,6 +264,4 @@
     <dimen name="spacing_grid_view">10dp</dimen>
     <dimen name="size_npc">100dp</dimen>
     <dimen name="left_margin_arrow">24dp</dimen>
-    <dimen name="width_list_item">104dp</dimen>
-    <dimen name="height_list_item">144dp</dimen>
 </resources>

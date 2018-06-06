@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_elder_sister"
+        android:id="@+id/btn_sister"
         android:layout_width="@dimen/pregame_btn_width"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_elder_sister" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sister" />
 
     <Button
         android:id="@+id/btn_teacher"

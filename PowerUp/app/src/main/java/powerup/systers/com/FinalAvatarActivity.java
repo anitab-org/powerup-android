@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.pregame_setup.PreGameSetupInitialActivity;
 
 public class FinalAvatarActivity extends Activity{
     private ImageView eyeAvatar;
@@ -86,7 +87,7 @@ public class FinalAvatarActivity extends Activity{
                     edit.putBoolean(getString(R.string.preferences_has_previously_started), Boolean.TRUE);
                     edit.apply();
                 }
-                startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
+                startActivityForResult(new Intent(FinalAvatarActivity.this, PreGameSetupInitialActivity.class), 0);
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });

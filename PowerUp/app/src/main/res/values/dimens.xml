@@ -1,5 +1,9 @@
 <resources>
     <dimen name="banner_height">30dp</dimen>
     <dimen name="btn_radius">5dp</dimen>
+    <dimen name="width_list_item">100dp</dimen>
+    <dimen name="height_list_item">120dp</dimen>
+    <dimen name="margin_list_item">8dp</dimen>
+    <dimen name="tick_size">100dp</dimen>
 </resources>
 
