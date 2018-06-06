@@ -198,7 +198,10 @@ public class PowerUpUtils {
     public static final int TEACHER_TYPE = 3;
     public static final String[] NPC_TEXT = {"Sister", "Friend", "Doctor", "Teacher"};
     public static volatile boolean sPauseTest = true;
-
+    public static final int SCENE_HOME = 4;
+    public static final int SCENE_SCHOOL = 5;
+    public static final int SCENE_HOSPITAL = 6;
+    public static final int SCENE_LIBRARY = 7;
 }
 
 

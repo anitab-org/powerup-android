@@ -29,7 +29,7 @@ public class PregameSetupActivity extends AppCompatActivity {
     private List<List<Integer>> npcViewList = new ArrayList<>();
     private List<List<Integer>> npcFullViewList = new ArrayList<>();
     private GridAdapter gridViewAdapter;
-    private ImageView imageViewNpc, backButton, leftArrow, rightArrow, storeTick;
+    private ImageView imageViewNpc, backButton, leftArrow, rightArrow;
     private TextView npcText;
     private int screenWidth, screenHeight, currentPage, previousClickedPosition = 0, clickedPosition = 0;
     private boolean firstClick = true;
@@ -45,8 +45,6 @@ public class PregameSetupActivity extends AppCompatActivity {
         imageViewNpc = findViewById(R.id.img_npc);
         leftArrow = findViewById(R.id.pregame_left_arrow);
         rightArrow = findViewById(R.id.pregame_right_arrow);
-        storeTick = findViewById(R.id.img_tick);
-
 
         //Lists for views in grid
         List<Integer> npcSister = new ArrayList<>();
@@ -94,8 +92,8 @@ public class PregameSetupActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                saveChosenNpc();
                 startActivity(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class));
-                //TODO: Include the writing to database of user selected option
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         });
@@ -155,6 +153,7 @@ public class PregameSetupActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        saveChosenNpc();
         startActivity(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         super.onBackPressed();
@@ -207,6 +206,26 @@ public class PregameSetupActivity extends AppCompatActivity {
             int itemHeight = (int) ((screenHeight / 51.428f) * 18);
             view.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
             return view;
+        }
+    }
+
+    public void saveChosenNpc(){
+        switch (SessionHistory.npcType){
+            case PowerUpUtils.SISTER_TYPE:
+                SessionHistory.npcHome = clickedPosition;
+                break;
+            case PowerUpUtils.FRIEND_TYPE:
+                SessionHistory.npcSchool = clickedPosition;
+                break;
+            case PowerUpUtils.DOCTOR_TYPE:
+                SessionHistory.npcHospital = clickedPosition;
+                break;
+            case PowerUpUtils.TEACHER_TYPE:
+                SessionHistory.npcLibrary = clickedPosition;
+                break;
+            default:
+                SessionHistory.npcHome = clickedPosition;
+                break;
         }
     }
 }
