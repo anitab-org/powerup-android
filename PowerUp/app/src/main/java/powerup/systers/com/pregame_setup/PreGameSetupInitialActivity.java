@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.StartActivity;
@@ -16,63 +15,45 @@ import powerup.systers.com.powerup.PowerUpUtils;
 
 public class PreGameSetupInitialActivity extends Activity {
 
-    private ImageView continueButton;
-    private Button btnSister, btnFriend, btnDoctor, btnTeacher;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregame_setup_initial_screen);
+        ButterKnife.bind(this);
+    }
 
-        continueButton = findViewById(R.id.btn_continue);
-        btnSister = findViewById(R.id.btn_sister);
-        btnFriend = findViewById(R.id.btn_friend);
-        btnDoctor = findViewById(R.id.btn_doctor);
-        btnTeacher = findViewById(R.id.btn_teacher);
+    @OnClick(R.id.btn_continue)
+    public void click() {
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, MapActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
 
-        continueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(new Intent(PreGameSetupInitialActivity.this, MapActivity.class), 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
+    @OnClick(R.id.btn_sister)
+    public void clickSister() {
+        setNpcType(PowerUpUtils.SISTER_TYPE);
+    }
 
-        btnSister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SessionHistory.npcType = PowerUpUtils.SISTER_TYPE;
-                startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
+    @OnClick(R.id.btn_friend)
+    public void clickFriend() {
+        setNpcType(PowerUpUtils.FRIEND_TYPE);
+    }
 
-        btnFriend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SessionHistory.npcType = PowerUpUtils.FRIEND_TYPE;
-                startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
+    @OnClick(R.id.btn_doctor)
+    public void clickDoctor() {
+        setNpcType(PowerUpUtils.DOCTOR_TYPE);
+    }
 
-        btnDoctor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SessionHistory.npcType = PowerUpUtils.DOCTOR_TYPE;
-                startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
+    @OnClick(R.id.btn_teacher)
+    public void clickTeacher() {
+        setNpcType(PowerUpUtils.TEACHER_TYPE);
+    }
 
-        btnTeacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SessionHistory.npcType = PowerUpUtils.TEACHER_TYPE;
-                startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
+    public void setNpcType(int type) {
+        //Set the value on SessionHistory.npcType
+        SessionHistory.npcType = type;
+        //Migrate to PreGameSetupMainActivity
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
     @Override

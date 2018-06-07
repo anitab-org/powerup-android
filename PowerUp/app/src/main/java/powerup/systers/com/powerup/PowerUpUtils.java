@@ -203,5 +203,3 @@ public class PowerUpUtils {
     public static final int SCENE_HOSPITAL = 6;
     public static final int SCENE_LIBRARY = 7;
 }
-
-
