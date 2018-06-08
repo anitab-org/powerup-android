@@ -52,6 +52,7 @@ public class GameActivity extends Activity {
     private Scenario prevScene;
     private TextView questionTextView;
     private TextView scenarioNameTextView;
+    private ImageView npcImageView;
     private Button goToMap;
     private ArrayAdapter<String> listAdapter;
     private static boolean isStateChanged = false;
@@ -89,6 +90,7 @@ public class GameActivity extends Activity {
         scenarioNameTextView = (TextView) findViewById(R.id.scenarioNameEditText);
         listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
         answers = new ArrayList<>();
+        npcImageView = findViewById(R.id.askerImageView);
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
@@ -156,6 +158,8 @@ public class GameActivity extends Activity {
         updateScenario(0);
         updateQA();
         //Scene is Replayed
+        //Update NPC
+        updateNpc(scene.getId());
         if (scene.getReplayed() == 1) {
             goToMap.setAlpha((float) 1.0);
             goToMap.setOnClickListener(new View.OnClickListener() {
@@ -353,5 +357,25 @@ public class GameActivity extends Activity {
         drawable.setAlpha(200);
         dialog.getWindow().setBackgroundDrawable(drawable);
         dialog.show();
+    }
+
+    public void updateNpc(int scenarioType){
+        switch (scenarioType){
+            case PowerUpUtils.SCENE_HOME:
+                npcImageView.setImageResource(PowerUpUtils.NPC_SISTER_IMAGES[SessionHistory.npcHome]);
+                break;
+            case PowerUpUtils.SCENE_SCHOOL:
+                npcImageView.setImageResource(PowerUpUtils.NPC_FRIEND_IMAGES[SessionHistory.npcSchool]);
+                break;
+            case PowerUpUtils.SCENE_HOSPITAL:
+                npcImageView.setImageResource(PowerUpUtils.NPC_DOCTOR_IMAGES[SessionHistory.npcHospital]);
+                break;
+            case PowerUpUtils.SCENE_LIBRARY:
+                npcImageView.setImageResource(PowerUpUtils.NPC_TEACHER_IMAGES[SessionHistory.npcLibrary]);
+                break;
+            default:
+                npcImageView.setImageResource(PowerUpUtils.NPC_SISTER_IMAGES[SessionHistory.npcHome]);
+                break;
+        }
     }
 }
