@@ -29,4 +29,5 @@ public class SessionHistory {
     public static boolean sceneHospitalIsReplayed = false;
     public static boolean sceneLibraryIsReplayed = false;
     public static boolean hasPreviouslyCustomized = false;
+    public static String familyMember[] = {"Mother","Father","Brother","Sister"};
 }
