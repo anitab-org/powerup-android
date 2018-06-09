@@ -5,5 +5,10 @@
     <dimen name="height_list_item">120dp</dimen>
     <dimen name="margin_list_item">8dp</dimen>
     <dimen name="tick_size">100dp</dimen>
+    <dimen name="spinner_height">40dp</dimen>
+    <dimen name="padding_text">8dp</dimen>
+    <dimen name="padding_text_large">16dp</dimen>
+    <dimen name="bg_width">172dp</dimen>
+    <dimen name="bg_height">50dp</dimen>
 </resources>
 

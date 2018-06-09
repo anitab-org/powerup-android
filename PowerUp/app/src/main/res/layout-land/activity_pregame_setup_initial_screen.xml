@@ -2,18 +2,16 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/vocab_bg">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/pregame_label_margin_right"
-        android:layout_marginLeft="@dimen/pregame_label_margin_left"
-        android:layout_marginRight="@dimen/pregame_label_margin_right"
-        android:layout_marginStart="@dimen/pregame_label_margin_left"
-        android:layout_marginTop="@dimen/pregame_label_margin_top"
+        android:background="@color/powerup_primary_color"
+        android:padding="@dimen/padding_text"
+        android:paddingStart="@dimen/padding_text_large"
+        android:paddingTop="@dimen/padding_text_large"
         android:text="@string/pregame_setup_title"
         android:textColor="@color/powerup_dark_blue"
         android:textSize="@dimen/final_scene_text_size"
@@ -23,15 +21,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_sister"
-        android:layout_width="@dimen/pregame_btn_width"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="@string/elder_sister"
-        android:textColor="@color/powerup_dark_blue"
+    <ImageView
+        android:id="@+id/spinner_bg_1"
+        android:layout_width="@dimen/bg_width"
+        android:layout_height="@dimen/bg_height"
+        android:src="@drawable/spinner_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <ImageView
+        android:id="@+id/spinner_bg_2"
+        android:layout_width="@dimen/bg_width"
+        android:layout_height="@dimen/bg_height"
+        android:src="@drawable/spinner_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <ImageView
+        android:id="@+id/spinner_bg_3"
+        android:layout_width="@dimen/bg_width"
+        android:layout_height="@dimen/bg_height"
+        android:src="@drawable/spinner_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <ImageView
+        android:id="@+id/spinner_bg_4"
+        android:layout_width="@dimen/bg_width"
+        android:layout_height="@dimen/bg_height"
+        android:src="@drawable/spinner_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <Spinner
+        android:id="@+id/pregame_spinner_1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_height"
+        android:entries="@array/pregame_array_1"
         android:textSize="@dimen/pregame_btn_txt"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -39,15 +82,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         app:layout_constraintVertical_bias="0.20" />
 
-    <Button
-        android:id="@+id/btn_friend"
-        android:layout_width="@dimen/pregame_btn_width"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="@string/friend"
+    <Spinner
+        android:id="@+id/pregame_spinner_2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_height"
+        android:entries="@array/pregame_array_2"
         android:textColor="@color/powerup_dark_blue"
-        android:textSize="@dimen/pregame_btn_txt"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -55,35 +95,28 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         app:layout_constraintVertical_bias="0.20" />
 
-    <Button
-        android:id="@+id/btn_doctor"
-        android:layout_width="@dimen/pregame_btn_width"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="@string/doctor"
-        android:textColor="@color/powerup_dark_blue"
-        android:textSize="@dimen/pregame_btn_txt"
-        android:textStyle="bold"
+    <Spinner
+        android:id="@+id/pregame_spinner_3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_height"
+        android:entries="@array/pregame_array_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sister" />
+        app:layout_constraintTop_toBottomOf="@+id/pregame_spinner_1" />
 
-    <Button
-        android:id="@+id/btn_teacher"
-        android:layout_width="@dimen/pregame_btn_width"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
+    <Spinner
+        android:id="@+id/pregame_spinner_4"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_height"
+        android:entries="@array/pregame_array_4"
         android:text="@string/teacher"
-        android:textColor="@color/powerup_dark_blue"
-        android:textSize="@dimen/pregame_btn_txt"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_friend" />
+        app:layout_constraintTop_toBottomOf="@+id/pregame_spinner_2" />
 
     <ImageView
         android:id="@+id/btn_continue"
