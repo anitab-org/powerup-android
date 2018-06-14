@@ -10,5 +10,20 @@
     <dimen name="padding_text_large">16dp</dimen>
     <dimen name="bg_width">172dp</dimen>
     <dimen name="bg_height">50dp</dimen>
+    <dimen name="item_offset">8dp</dimen>
+    <dimen name="npc_txt_size">20sp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="arrow_size">30dp</dimen>
+    <dimen name="done_btn_width">210dp</dimen>
+    <dimen name="done_btn_height">81dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="npc_width">106dp</dimen>
+    <dimen name="bg_width_large">108dp</dimen>
+    <dimen name="bg_height_large">114dp</dimen>
+    <dimen name="continue_btn_width">195dp</dimen>
+    <dimen name="continue_btn_height">87dp</dimen>
+    <dimen name="bg_width_small">70dp</dimen>
+    <dimen name="bg_height_small">78dp</dimen>
+    <dimen name="req_txt_size">15sp</dimen>
 </resources>
 

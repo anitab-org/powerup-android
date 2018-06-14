@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,108 +23,93 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/spinner_bg_1"
-        android:layout_width="@dimen/bg_width"
-        android:layout_height="@dimen/bg_height"
-        android:src="@drawable/spinner_bg"
+        android:id="@+id/pregame_img_1"
+        android:layout_width="@dimen/bg_width_large"
+        android:layout_height="@dimen/bg_height_large"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/btn_bg_red"
+        android:src="@drawable/img_pregame"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintEnd_toStartOf="@+id/pregame_img_2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintVertical_bias="0.18" />
-
-    <ImageView
-        android:id="@+id/spinner_bg_2"
-        android:layout_width="@dimen/bg_width"
-        android:layout_height="@dimen/bg_height"
-        android:src="@drawable/spinner_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintVertical_bias="0.18" />
-
-    <ImageView
-        android:id="@+id/spinner_bg_3"
-        android:layout_width="@dimen/bg_width"
-        android:layout_height="@dimen/bg_height"
-        android:src="@drawable/spinner_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintVertical_bias="0.72" />
-
-    <ImageView
-        android:id="@+id/spinner_bg_4"
-        android:layout_width="@dimen/bg_width"
-        android:layout_height="@dimen/bg_height"
-        android:src="@drawable/spinner_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
-
-    <Spinner
-        android:id="@+id/pregame_spinner_1"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/spinner_height"
-        android:entries="@array/pregame_array_1"
-        android:textSize="@dimen/pregame_btn_txt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintVertical_bias="0.20" />
-
-    <Spinner
-        android:id="@+id/pregame_spinner_2"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/spinner_height"
-        android:entries="@array/pregame_array_2"
-        android:textColor="@color/powerup_dark_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
-        app:layout_constraintVertical_bias="0.20" />
-
-    <Spinner
-        android:id="@+id/pregame_spinner_3"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/spinner_height"
-        android:entries="@array/pregame_array_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pregame_spinner_1" />
-
-    <Spinner
-        android:id="@+id/pregame_spinner_4"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/spinner_height"
-        android:entries="@array/pregame_array_4"
-        android:text="@string/teacher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pregame_spinner_2" />
+        android:padding="@dimen/margin_small"/>
 
     <ImageView
         android:id="@+id/btn_continue"
-        android:layout_width="@dimen/continue_width"
-        android:layout_height="@dimen/continue_height"
+        android:layout_width="@dimen/continue_btn_width"
+        android:layout_height="@dimen/continue_btn_height"
         android:src="@drawable/continue_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/pregame_img_2"
+        android:layout_width="@dimen/bg_width_large"
+        android:layout_height="@dimen/bg_height_large"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pregame_img_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pregame_img_1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        android:src="@drawable/img_pregame"
+        android:background="@drawable/btn_bg"
+        android:padding="@dimen/margin_small"/>
+
+    <ImageView
+        android:id="@+id/pregame_img_3"
+        android:layout_width="@dimen/bg_width_small"
+        android:layout_height="@dimen/bg_height_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/btn_bg"
+        android:src="@drawable/img_pregame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pregame_img_4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pregame_img_2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.68"
+        android:padding="@dimen/margin_small"/>
+
+    <ImageView
+        android:id="@+id/pregame_img_4"
+        android:layout_width="@dimen/bg_width_small"
+        android:layout_height="@dimen/bg_height_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/btn_bg"
+        android:src="@drawable/img_pregame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_continue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pregame_img_3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.68"
+        android:padding="@dimen/margin_small"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:text="@string/required"
+        android:textColor="#ff0000"
+        android:textSize="@dimen/req_txt_size"
+        app:layout_constraintBottom_toTopOf="@+id/pregame_img_1"
+        app:layout_constraintEnd_toEndOf="@+id/pregame_img_1"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintVertical_bias="0.8" />
 
 </android.support.constraint.ConstraintLayout>

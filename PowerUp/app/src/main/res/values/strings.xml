@@ -99,4 +99,8 @@
     <string name="sister">Sister</string>
     <string name="brother">Brother</string>
     <string name="none">None</string>
+    <string name="guardian">Guardian</string>
+    <string name="required">Required</string>
+    <string name="choose_member">Choose one character!</string>
+    <string name="pregame_warning_message">To proceed in the game you need to choose atleast one character</string>
 </resources>

@@ -1,22 +1,21 @@
 package powerup.systers.com.pregame_setup;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,234 +24,203 @@ import powerup.systers.com.R;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.powerup.PowerUpUtils;
 
-import static powerup.systers.com.powerup.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
+public class PregameSetupActivity extends Activity {
 
-public class PregameSetupActivity extends AppCompatActivity {
-
-    @BindView(R.id.img_npc)
-    public ImageView imageViewNpc;
-    @BindView(R.id.pregame_grid_view)
-    public GridView gridView;
-    @BindView(R.id.txt_npc)
-    public TextView npcText;
-
-    //Lists for views in grid
-    private List<Integer> npcSister = new ArrayList<>();
-    private List<Integer> npcFriend = new ArrayList<>();
-    private List<Integer> npcDoctor = new ArrayList<>();
-    private List<Integer> npcTeacher = new ArrayList<>();
-    //Lists for full views
-    private List<Integer> npcSisterImages = new ArrayList<>();
-    private List<Integer> npcFriendImages = new ArrayList<>();
-    private List<Integer> npcDoctorImages = new ArrayList<>();
-    private List<Integer> npcTeacherImages = new ArrayList<>();
-    private List<List<Integer>> npcViewList = new ArrayList<>();
-    private List<List<Integer>> npcFullViewList = new ArrayList<>();
-    private GridAdapter gridViewAdapter;
-    private int screenWidth, screenHeight, currentPage = 0, clickedPosition;
+    private static int screenWidth;
+    private static int screenHeight;
+    public @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+    public @BindView(R.id.img_family_member)
+    ImageView npcImageView;
+    private int clickedPosition;
+    private final View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int previousClickedPosition = clickedPosition;
+            clickedPosition = mRecyclerView.getChildLayoutPosition(view);
+            saveCharacter(SessionHistory.characterType,clickedPosition);
+            mRecyclerView.findViewHolderForAdapterPosition(clickedPosition).itemView.findViewById(R.id.green_tick).setVisibility(View.VISIBLE);
+            if (clickedPosition != previousClickedPosition && mRecyclerView.findViewHolderForAdapterPosition(previousClickedPosition)!= null)
+                mRecyclerView.findViewHolderForAdapterPosition(previousClickedPosition).itemView.findViewById(R.id.green_tick).setVisibility(View.GONE);
+            npcImageView.setImageResource(SessionHistory.npcFullViewList[clickedPosition]);
+        }
+    };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_pregame_setup);
+        super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-
-        //creating array lists for image views
-        createMainDataLists();
-        createDataLists();
-
-        imageViewNpc.setImageResource(PowerUpUtils.NPC_IMAGE[SessionHistory.npcType]);
-        npcText.setText(PowerUpUtils.NPC_TEXT[SessionHistory.npcType]);
 
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         screenHeight = getResources().getDisplayMetrics().heightPixels;
 
-        gridViewAdapter = new GridAdapter(this);
-        gridView.setAdapter(gridViewAdapter);
-        gridViewAdapter.refresh(npcViewList.get(SessionHistory.npcType).subList(0, Math.min(npcViewList.get(SessionHistory.npcType).size(), MAX_ELEMENTS_PER_SCREEN)));
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2, LinearLayoutManager.HORIZONTAL, false);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int previousClickedPosition = clickedPosition;
-                clickedPosition = i + currentPage * MAX_ELEMENTS_PER_SCREEN;
-                imageViewNpc.setImageResource(npcFullViewList.get(SessionHistory.npcType).get(clickedPosition));
-                gridView.getChildAt(clickedPosition).findViewById(R.id.img_tick).setAlpha(1);
-                if (previousClickedPosition != clickedPosition) {
-                    gridView.getChildAt(previousClickedPosition).findViewById(R.id.img_tick).setAlpha(0);
-                }
-            }
-        });
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.item_offset);
+        mRecyclerView.addItemDecoration(itemDecoration);
+
+        int[] myDataset = SessionHistory.npcList;
+        RecyclerView.Adapter mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+        updateFullView(SessionHistory.characterType);
     }
 
-    @OnClick(R.id.btn_back)
-    public void clickBackButton() {
-        saveChosenNpc(SessionHistory.npcType);
-        startActivity(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class));
+    private static void saveCharacter(int character, int value) {
+        switch (character) {
+            case PowerUpUtils.NPC_ADULT_1:
+                SessionHistory.selectedAdult1 = value;
+                break;
+            case PowerUpUtils.NPC_ADULT_2:
+                SessionHistory.selectedAdult2 = value;
+                break;
+            case PowerUpUtils.NPC_CHILD_1:
+                SessionHistory.selectedChild1 = value;
+                break;
+            case PowerUpUtils.NPC_CHILD_2:
+                SessionHistory.selectedChild2 = value;
+                break;
+            default:
+                SessionHistory.selectedAdult1 = 0;
+                break;
+        }
+    }
+
+    /**
+     * Updates the position of green tick on start of the activity
+     * @param holder - ViewHolder object
+     * @param position - item number on grid view
+     */
+    private void updateViews(MyAdapter.ViewHolder holder, int position){
+        int temp = 0;
+        switch (SessionHistory.characterType){
+            case PowerUpUtils.NPC_ADULT_1:
+                temp = SessionHistory.selectedAdult1;
+                break;
+            case PowerUpUtils.NPC_ADULT_2:
+                temp = SessionHistory.selectedAdult2;
+                break;
+            case PowerUpUtils.NPC_CHILD_1:
+                temp = SessionHistory.selectedChild1;
+                break;
+            case PowerUpUtils.NPC_CHILD_2:
+                temp = SessionHistory.selectedChild2;
+                break;
+            default:
+                temp = SessionHistory.selectedAdult1;
+                break;
+        }
+        if(position == temp){
+            clickedPosition = temp;
+            holder.imgTick.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.imgTick.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * Update the full view of the NPC
+     *
+     * @param type - npc type
+     */
+    private void updateFullView(int type) {
+        switch (type) {
+            case PowerUpUtils.NPC_ADULT_1:
+                npcImageView.setImageResource(PowerUpUtils.NPC_ADULT_IMAGES_1[SessionHistory.selectedAdult1]);
+                break;
+            case PowerUpUtils.NPC_ADULT_2:
+                npcImageView.setImageResource(PowerUpUtils.NPC_ADULT_IMAGES_2[SessionHistory.selectedAdult2]);
+                break;
+            case PowerUpUtils.NPC_CHILD_1:
+                npcImageView.setImageResource(PowerUpUtils.NPC_CHILD_IMAGES[SessionHistory.selectedChild1]);
+                break;
+            case PowerUpUtils.NPC_CHILD_2:
+                npcImageView.setImageResource(PowerUpUtils.NPC_CHILD_IMAGES[SessionHistory.selectedChild2]);
+                break;
+            default:
+                npcImageView.setImageResource(PowerUpUtils.NPC_ADULT_IMAGES_1[SessionHistory.selectedAdult1]);
+                break;
+        }
+    }
+
+    @OnClick(R.id.pregame_back_btn)
+    public void clickBack() {
+        saveCharacter(SessionHistory.characterType, clickedPosition);
+        startActivityForResult(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-    }
-
-    @OnClick(R.id.pregame_left_arrow)
-    public void clickLeftArrow() {
-        if (currentPage - 1 >= 0) {
-            currentPage--;
-            if (npcViewList.get(SessionHistory.npcType).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
-                gridViewAdapter.refresh(npcViewList.get(SessionHistory.npcType).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
-            } else {
-                gridViewAdapter.refresh(npcViewList.get(SessionHistory.npcType).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, npcViewList.get(SessionHistory.npcType).size()));
-            }
-        }
-    }
-
-    @OnClick(R.id.pregame_right_arrow)
-    public void clickRightArrow() {
-        if ((currentPage + 1) * MAX_ELEMENTS_PER_SCREEN < npcViewList.get(SessionHistory.npcType).size()) {
-            currentPage++;
-            if (npcViewList.get(SessionHistory.npcType).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
-                gridViewAdapter.refresh(npcViewList.get(SessionHistory.npcType).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
-            } else {
-                gridViewAdapter.refresh(npcViewList.get(SessionHistory.npcType).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, npcViewList.get(SessionHistory.npcType).size()));
-            }
-        }
     }
 
     @Override
     public void onBackPressed() {
-        saveChosenNpc(SessionHistory.npcType);
-        startActivity(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class));
+        startActivityForResult(new Intent(PregameSetupActivity.this, PreGameSetupInitialActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-        super.onBackPressed();
     }
 
-    @Override
-    protected void onStart() {
-        updateClickedPosition(SessionHistory.npcType);
-        super.onStart();
-    }
+    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+        private int[] mDataset;
 
-    public void createMainDataLists() {
-        //Lists for image view in grid adapter
-        npcViewList.add(npcSister);
-        npcViewList.add(npcFriend);
-        npcViewList.add(npcDoctor);
-        npcViewList.add(npcTeacher);
-        //Lists for full image views of selected NPCs
-        npcFullViewList.add(npcSisterImages);
-        npcFullViewList.add(npcFriendImages);
-        npcFullViewList.add(npcDoctorImages);
-        npcFullViewList.add(npcTeacherImages);
-    }
-
-    public void createDataLists() {
-        for (int i = 0; i < PowerUpUtils.SISTER_IMAGES.length; i++) {
-            npcSister.add(PowerUpUtils.SISTER_IMAGES[i]);
-            npcSisterImages.add(PowerUpUtils.NPC_SISTER_IMAGES[i]);
-        }
-        for (int i = 0; i < PowerUpUtils.FRIEND_IMAGES.length; i++) {
-            npcFriend.add(PowerUpUtils.FRIEND_IMAGES[i]);
-            npcFriendImages.add(PowerUpUtils.NPC_FRIEND_IMAGES[i]);
-        }
-        for (int i = 0; i < PowerUpUtils.DOCTOR_IMAGES.length; i++) {
-            npcDoctor.add(PowerUpUtils.DOCTOR_IMAGES[i]);
-            npcDoctorImages.add(PowerUpUtils.NPC_DOCTOR_IMAGES[i]);
-        }
-        for (int i = 0; i < PowerUpUtils.TEACHER_IMAGES.length; i++) {
-            npcTeacher.add(PowerUpUtils.TEACHER_IMAGES[i]);
-            npcTeacherImages.add(PowerUpUtils.NPC_TEACHER_IMAGES[i]);
-        }
-    }
-
-    public void saveChosenNpc(int type) {
-        switch (type) {
-            case PowerUpUtils.SISTER_TYPE:
-                SessionHistory.npcHome = clickedPosition;
-                Log.v("Saved Value", "value = " + SessionHistory.npcHome);
-                break;
-            case PowerUpUtils.FRIEND_TYPE:
-                SessionHistory.npcSchool = clickedPosition;
-                break;
-            case PowerUpUtils.DOCTOR_TYPE:
-                SessionHistory.npcHospital = clickedPosition;
-                break;
-            case PowerUpUtils.TEACHER_TYPE:
-                SessionHistory.npcLibrary = clickedPosition;
-                break;
-            default:
-                SessionHistory.npcHome = clickedPosition;
-                break;
-        }
-    }
-
-    public void updateClickedPosition(int type) {
-        switch (type) {
-            case PowerUpUtils.SISTER_TYPE:
-                clickedPosition = SessionHistory.npcHome;
-                break;
-            case PowerUpUtils.FRIEND_TYPE:
-                clickedPosition = SessionHistory.npcSchool;
-                break;
-            case PowerUpUtils.DOCTOR_TYPE:
-                clickedPosition = SessionHistory.npcHospital;
-                break;
-            case PowerUpUtils.TEACHER_TYPE:
-                clickedPosition = SessionHistory.npcLibrary;
-                break;
-            default:
-                clickedPosition = SessionHistory.npcLibrary;
-                break;
-        }
-        imageViewNpc.setImageResource(npcFullViewList.get(SessionHistory.npcType).get(clickedPosition));
-    }
-
-    class GridAdapter extends BaseAdapter {
-
-        private Context context;
-        private LayoutInflater layoutInflater;
-        private List<Integer> selectedNpcList;
-
-        GridAdapter(Context c) {
-            context = c;
-            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            selectedNpcList = npcViewList.get(SessionHistory.npcType);
-        }
-
-        private void refresh(List<Integer> updatedList) {
-            selectedNpcList = updatedList;
+        MyAdapter(int[] myDataset) {
+            mDataset = myDataset;
             notifyDataSetChanged();
         }
 
+        @NonNull
         @Override
-        public int getCount() {
-            return selectedNpcList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(final int i, View view, ViewGroup viewGroup) {
-            ImageView img;
-            if (view == null) {
-                view = layoutInflater.inflate(R.layout.pregame_setup_list_item, null);
-                img = view.findViewById(R.id.item_npc);
-                view.setTag(img);
-            } else {
-                img = (ImageView) view.getTag();
-            }
-            img.setImageResource(selectedNpcList.get(i));
+        public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            //Create view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.pregame_setup_list_item, parent, false);
             int itemWidth = (int) ((screenWidth / 85.428f) * 13);
             int itemHeight = (int) ((screenHeight / 51.428f) * 18);
-            view.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
-            if (i == clickedPosition)
-                view.findViewById(R.id.img_tick).setAlpha(1);
-            return view;
+            v.setLayoutParams(new AbsListView.LayoutParams(itemWidth, itemHeight));
+            v.setOnClickListener(onClickListener);
+            return new ViewHolder(v);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
+            //Replace the contents according to data item
+            holder.npcView.setImageResource(mDataset[position]);
+                       holder.imgTick.setImageResource(R.drawable.store_tick);
+            //Setting green tick on appropriate data item
+            updateViews(holder, position);
+        }
+
+        @Override
+        public int getItemCount() {
+            return mDataset.length;
+        }
+
+        class ViewHolder extends RecyclerView.ViewHolder {
+            private ImageView npcView;
+            private ImageView imgTick;
+
+            ViewHolder(View v) {
+                super(v);
+                npcView = v.findViewById(R.id.item_npc);
+                imgTick = v.findViewById(R.id.green_tick);
+            }
+        }
+    }
+
+    private class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
+
+        private int mItemOffset;
+
+        ItemOffsetDecoration(int itemOffset) {
+            mItemOffset = itemOffset;
+        }
+
+        ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+            this(context.getResources().getDimensionPixelSize(itemOffsetId));
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                   RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
         }
     }
 }

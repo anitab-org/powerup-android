@@ -19,15 +19,22 @@ public class SessionHistory {
     public static int hatTotalNo = 4;
     public static int necklaceTotalNo = 4;
     public static int accessoryTotalNo = 4;
-    public static int npcType = 0;
-    public static int npcHome = 0;
-    public static int npcSchool = 0;
-    public static int npcHospital = 0;
-    public static int npcLibrary = 0;
     public static boolean sceneHomeIsReplayed = false;
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;
     public static boolean sceneLibraryIsReplayed = false;
     public static boolean hasPreviouslyCustomized = false;
-    public static String familyMember[] = {"Mother","Father","Brother","Sister"};
+    public static int[] npcList;
+    public static boolean adult1Chosen = false;
+    public static boolean adult2Chosen = false;
+    public static boolean child1Chosen = false;
+    public static boolean child2Chosen = false;
+    public static boolean characterChosen = false;
+    public static int[] npcFullViewList;
+    public static int characterType = 0;
+    public static int selectedAdult1 = 0;
+    public static int selectedAdult2 = 0;
+    public static int selectedChild1 = 0;
+    public static int selectedChild2 = 0;
+    public static int selectedValue = 0;
 }

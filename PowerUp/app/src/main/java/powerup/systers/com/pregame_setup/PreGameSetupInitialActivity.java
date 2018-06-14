@@ -1,75 +1,120 @@
 package powerup.systers.com.pregame_setup;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.v7.app.AlertDialog;
+import android.widget.ImageView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemSelected;
 import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.StartActivity;
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 public class PreGameSetupInitialActivity extends Activity {
+
+    @BindView(R.id.pregame_img_1)
+    public ImageView npc1;
+    @BindView(R.id.pregame_img_2)
+    public ImageView npc2;
+    @BindView(R.id.pregame_img_3)
+    public ImageView npc3;
+    @BindView(R.id.pregame_img_4)
+    public ImageView npc4;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregame_setup_initial_screen);
         ButterKnife.bind(this);
-    }
-
-    @OnItemSelected(R.id.pregame_spinner_1)
-    public void clickSpinner1(int i) {
-        String a[] = getResources().getStringArray(R.array.pregame_array_1);
-        saveMember(a[i], 0);
-    }
-
-    @OnItemSelected(R.id.pregame_spinner_2)
-    public void clickSpinner2(int i) {
-        String a[] = getResources().getStringArray(R.array.pregame_array_2);
-        saveMember(a[i], 1);
-    }
-
-    @OnItemSelected(R.id.pregame_spinner_3)
-    public void clickSpinner3(int i) {
-        String a[] = getResources().getStringArray(R.array.pregame_array_3);
-        saveMember(a[i], 2);
-    }
-
-    @OnItemSelected(R.id.pregame_spinner_4)
-    public void clickSpinner4(int i) {
-        String a[] = getResources().getStringArray(R.array.pregame_array_4);
-        saveMember(a[i], 3);
+        updateNpcView();
     }
 
     @OnClick(R.id.btn_continue)
     public void click() {
-        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, MapActivity.class), 0);
+        if (SessionHistory.characterChosen) {
+            startActivityForResult(new Intent(PreGameSetupInitialActivity.this, MapActivity.class), 0);
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(PreGameSetupInitialActivity.this);
+            builder.setTitle(getResources().getString(R.string.choose_member))
+                    .setMessage(getApplicationContext().getResources().getString(R.string.pregame_warning_message));
+            builder.setPositiveButton(getString(R.string.start_confirm_message_load), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+            drawable.setAlpha(200);
+            dialog.getWindow().setBackgroundDrawable(drawable);
+            dialog.show();
+        }
+    }
+
+    @OnClick(R.id.pregame_img_1)
+    public void clickNpc1() {
+        SessionHistory.npcList = PowerUpUtils.ADULT_IMAGES_1;
+        SessionHistory.npcFullViewList = PowerUpUtils.NPC_ADULT_IMAGES_1;
+        SessionHistory.characterType = PowerUpUtils.NPC_ADULT_1;
+        SessionHistory.adult1Chosen = true;
+        SessionHistory.characterChosen = true;
+        SessionHistory.selectedValue = SessionHistory.selectedAdult1;
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
-    private void saveMember(String member, int spinner) {
-        SessionHistory.familyMember[spinner] = member;
+    @OnClick(R.id.pregame_img_2)
+    public void clickNpc2() {
+        SessionHistory.npcList = PowerUpUtils.ADULT_IMAGES_2;
+        SessionHistory.npcFullViewList = PowerUpUtils.NPC_ADULT_IMAGES_2;
+        SessionHistory.characterType = PowerUpUtils.NPC_ADULT_2;
+        SessionHistory.adult2Chosen = true;
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    @OnClick(R.id.pregame_img_3)
+    public void clickNpc3() {
+        SessionHistory.npcList = PowerUpUtils.CHILD_IMAGES;
+        SessionHistory.npcFullViewList = PowerUpUtils.NPC_CHILD_IMAGES;
+        SessionHistory.characterType = PowerUpUtils.NPC_CHILD_1;
+        SessionHistory.child1Chosen = true;
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    @OnClick(R.id.pregame_img_4)
+    public void clickNpc4() {
+        SessionHistory.npcList = PowerUpUtils.CHILD_IMAGES;
+        SessionHistory.npcFullViewList = PowerUpUtils.NPC_CHILD_IMAGES;
+        SessionHistory.characterType = PowerUpUtils.NPC_CHILD_2;
+        SessionHistory.child2Chosen = true;
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, PregameSetupActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    private void updateNpcView() {
+        if (SessionHistory.adult1Chosen)
+            npc1.setImageResource(PowerUpUtils.ADULT_IMAGES_1[SessionHistory.selectedAdult1]);
+        if (SessionHistory.adult2Chosen && SessionHistory.selectedAdult2 != 0)
+            npc2.setImageResource(PowerUpUtils.ADULT_IMAGES_2[SessionHistory.selectedAdult2]);
+        if (SessionHistory.child1Chosen && SessionHistory.selectedChild1 != 0)
+            npc3.setImageResource(PowerUpUtils.CHILD_IMAGES[SessionHistory.selectedChild1]);
+        if (SessionHistory.child2Chosen && SessionHistory.selectedChild2 != 0)
+            npc4.setImageResource(PowerUpUtils.CHILD_IMAGES[SessionHistory.selectedChild2]);
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(PreGameSetupInitialActivity.this, StartActivity.class));
-        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onStop() {
-        Log.v("Saved Values ", "\nValue 1  =  " + SessionHistory.familyMember[0]);
-        Log.v("Saved Values ", "\nValue 2  =  " + SessionHistory.familyMember[1]);
-        Log.v("Saved Values ", "\nValue 3  =  " + SessionHistory.familyMember[2]);
-        Log.v("Saved Values ", "\nValue 4  =  " + SessionHistory.familyMember[3]);
-        super.onStop();
-    }
+        startActivityForResult(new Intent(PreGameSetupInitialActivity.this, StartActivity.class), 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);    }
 }
