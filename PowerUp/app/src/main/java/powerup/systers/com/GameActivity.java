@@ -158,8 +158,6 @@ public class GameActivity extends Activity {
         updateScenario(0);
         updateQA();
         //Scene is Replayed
-        //Update NPC
-        updateNpc(scene.getId());
         if (scene.getReplayed() == 1) {
             goToMap.setAlpha((float) 1.0);
             goToMap.setOnClickListener(new View.OnClickListener() {
@@ -357,25 +355,5 @@ public class GameActivity extends Activity {
         drawable.setAlpha(200);
         dialog.getWindow().setBackgroundDrawable(drawable);
         dialog.show();
-    }
-
-    public void updateNpc(int scenarioType){
-        switch (scenarioType){
-            case PowerUpUtils.SCENE_HOME:
-                npcImageView.setImageResource(PowerUpUtils.NPC_SISTER_IMAGES[SessionHistory.npcHome]);
-                break;
-            case PowerUpUtils.SCENE_SCHOOL:
-                npcImageView.setImageResource(PowerUpUtils.NPC_FRIEND_IMAGES[SessionHistory.npcSchool]);
-                break;
-            case PowerUpUtils.SCENE_HOSPITAL:
-                npcImageView.setImageResource(PowerUpUtils.NPC_DOCTOR_IMAGES[SessionHistory.npcHospital]);
-                break;
-            case PowerUpUtils.SCENE_LIBRARY:
-                npcImageView.setImageResource(PowerUpUtils.NPC_TEACHER_IMAGES[SessionHistory.npcLibrary]);
-                break;
-            default:
-                npcImageView.setImageResource(PowerUpUtils.NPC_SISTER_IMAGES[SessionHistory.npcHome]);
-                break;
-        }
     }
 }

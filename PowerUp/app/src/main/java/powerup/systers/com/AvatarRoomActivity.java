@@ -7,9 +7,7 @@ package powerup.systers.com;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -284,6 +282,16 @@ public class AvatarRoomActivity extends Activity {
                 SessionHistory.sceneSchoolIsReplayed = false;
                 SessionHistory.sceneHospitalIsReplayed = false;
                 SessionHistory.sceneLibraryIsReplayed = false;
+                SessionHistory.adult1Chosen = false;
+                SessionHistory.adult2Chosen = false;
+                SessionHistory.child1Chosen = false;
+                SessionHistory.child2Chosen = false;
+                SessionHistory.characterChosen = false;
+                SessionHistory.characterType = 0;
+                SessionHistory.selectedAdult1 = 0;
+                SessionHistory.selectedAdult2 = 0;
+                SessionHistory.selectedChild1 = 0;
+                SessionHistory.selectedChild2 = 0;
                 finish();
                 startActivity(new Intent(AvatarRoomActivity.this, FinalAvatarActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);

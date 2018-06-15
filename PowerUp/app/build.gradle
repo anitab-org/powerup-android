@@ -27,6 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.jUnitVersion"
+    //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
@@ -37,4 +38,5 @@ dependencies {
     implementation "com.akexorcist:RoundCornerProgressBar:$rootProject.roundProgressBarVersion"
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }

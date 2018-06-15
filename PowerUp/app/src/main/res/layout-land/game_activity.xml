@@ -44,7 +44,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/doctor_1" />
+        android:src="@drawable/guardian_1" />
 
 
 

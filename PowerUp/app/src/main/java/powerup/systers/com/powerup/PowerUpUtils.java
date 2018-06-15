@@ -17,6 +17,10 @@ public class PowerUpUtils {
     public static final int TYPE_CLOTHES = 1;
     public static final int TYPE_ACCESSORIES = 2;
     public static final int MAX_ELEMENTS_PER_SCREEN = 6;
+    public static final int NPC_ADULT_1 = 1;
+    public static final int NPC_ADULT_2 = 2;
+    public static final int NPC_CHILD_1 = 3;
+    public static final int NPC_CHILD_2 = 4;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";
@@ -139,67 +143,145 @@ public class PowerUpUtils {
             R.drawable.acc34,
             R.drawable.acc35};
     public static final String[] ACCESSORIES_POINTS_TEXTS = {"5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10"};
-    public static final int[] SISTER_IMAGES = {
-            R.drawable.sister1,
-            R.drawable.sister2,
-            R.drawable.sister3,
-            R.drawable.sister4,
-            R.drawable.sister5,
-            R.drawable.sister6
-    };
-    public static final int[] DOCTOR_IMAGES = {
-            R.drawable.doctor1,
-            R.drawable.doctor2,
-            R.drawable.doctor3,
-            R.drawable.doctor4,
-            R.drawable.doctor5,
-            R.drawable.doctor6
-    };
-    public static final int[] TEACHER_IMAGES = {
-            R.drawable.teacher1,
-            R.drawable.teacher2,
-            R.drawable.teacher3
-    };
-    public static final int[] FRIEND_IMAGES = {
-            R.drawable.friend1,
-            R.drawable.friend2,
-            R.drawable.friend3,
-    };
-    public static final int[] NPC_SISTER_IMAGES = {
+
+    public static final int [] NPC_CHILD_IMAGES = {
+            0,
+            R.drawable.brother_1,
+            R.drawable.brother_2,
+            R.drawable.brother_3,
+            R.drawable.brother_4,
+            R.drawable.brother_5,
+            R.drawable.brother_6,
+            R.drawable.brother_7,
+            R.drawable.brother_8,
+            R.drawable.brother_9,
             R.drawable.sister_1,
             R.drawable.sister_2,
             R.drawable.sister_3,
             R.drawable.sister_4,
             R.drawable.sister_5,
-            R.drawable.sister_6
+            R.drawable.sister_6,
+            R.drawable.sister_7,
+            R.drawable.sister_8,
+            R.drawable.sister_9,
+            R.drawable.sister_10
     };
-    public static final int[] NPC_FRIEND_IMAGES = {
-            R.drawable.friend_1,
-            R.drawable.friend_2,
-            R.drawable.friend_3
+
+    public static final int [] CHILD_IMAGES = {
+            R.drawable.none,
+            R.drawable.brother1,
+            R.drawable.brother2,
+            R.drawable.brother3,
+            R.drawable.brother4,
+            R.drawable.brother5,
+            R.drawable.brother6,
+            R.drawable.brother7,
+            R.drawable.brother8,
+            R.drawable.brother9,
+            R.drawable.sister1,
+            R.drawable.sister2,
+            R.drawable.sister3,
+            R.drawable.sister4,
+            R.drawable.sister5,
+            R.drawable.sister6,
+            R.drawable.sister7,
+            R.drawable.sister8,
+            R.drawable.sister9,
+            R.drawable.sister10
     };
-    public static final int[] NPC_DOCTOR_IMAGES = {
-            R.drawable.doctor_1,
-            R.drawable.doctor_2,
-            R.drawable.doctor_3,
-            R.drawable.doctor_4,
-            R.drawable.doctor_5,
-            R.drawable.doctor_6,
+
+    public static final int [] NPC_ADULT_IMAGES_1 = {
+            R.drawable.father_1,
+            R.drawable.father_2,
+            R.drawable.father_3,
+            R.drawable.guardian_1,
+            R.drawable.guardian_2,
+            R.drawable.guardian_3,
+            R.drawable.guardian_4,
+            R.drawable.guardian_5,
+            R.drawable.guardian_6,
+            R.drawable.guardian_7,
+            R.drawable.guardian_8,
+            R.drawable.guardian_9,
+            R.drawable.guardian_10,
+            R.drawable.mother_1,
+            R.drawable.mother_2,
+            R.drawable.mother_3,
+            R.drawable.mother_4,
+            R.drawable.mother_5,
+            R.drawable.mother_6,
+            R.drawable.mother_7
     };
-    public static final int[] NPC_TEACHER_IMAGES = {
-            R.drawable.teacher_1,
-            R.drawable.teacher_2,
-            R.drawable.teacher_3,
+
+    public static final int [] NPC_ADULT_IMAGES_2 = {
+            0,
+            R.drawable.father_1,
+            R.drawable.father_2,
+            R.drawable.father_3,
+            R.drawable.guardian_1,
+            R.drawable.guardian_2,
+            R.drawable.guardian_3,
+            R.drawable.guardian_4,
+            R.drawable.guardian_5,
+            R.drawable.guardian_6,
+            R.drawable.guardian_7,
+            R.drawable.guardian_8,
+            R.drawable.guardian_9,
+            R.drawable.guardian_10,
+            R.drawable.mother_1,
+            R.drawable.mother_2,
+            R.drawable.mother_3,
+            R.drawable.mother_4,
+            R.drawable.mother_5,
+            R.drawable.mother_6,
+            R.drawable.mother_7
     };
-    public static final int[] NPC_IMAGE = {R.drawable.sister_1, R.drawable.friend_1, R.drawable.doctor_1, R.drawable.teacher_1};
-    public static final int SISTER_TYPE = 0;
-    public static final int FRIEND_TYPE = 1;
-    public static final int DOCTOR_TYPE = 2;
-    public static final int TEACHER_TYPE = 3;
-    public static final String[] NPC_TEXT = {"Sister", "Friend", "Doctor", "Teacher"};
+
+    public static final int [] ADULT_IMAGES_1 = {
+            R.drawable.father1,
+            R.drawable.father2,
+            R.drawable.father3,
+            R.drawable.guardian1,
+            R.drawable.guardian2,
+            R.drawable.guardian3,
+            R.drawable.guardian4,
+            R.drawable.guardian5,
+            R.drawable.guardian6,
+            R.drawable.guardian7,
+            R.drawable.guardian8,
+            R.drawable.guardian9,
+            R.drawable.guardian10,
+            R.drawable.mother1,
+            R.drawable.mother2,
+            R.drawable.mother3,
+            R.drawable.mother4,
+            R.drawable.mother5,
+            R.drawable.mother6,
+            R.drawable.mother7
+    };
+
+    public static final int [] ADULT_IMAGES_2 = {
+            R.drawable.none,
+            R.drawable.father1,
+            R.drawable.father2,
+            R.drawable.father3,
+            R.drawable.guardian1,
+            R.drawable.guardian2,
+            R.drawable.guardian3,
+            R.drawable.guardian4,
+            R.drawable.guardian5,
+            R.drawable.guardian6,
+            R.drawable.guardian7,
+            R.drawable.guardian8,
+            R.drawable.guardian9,
+            R.drawable.guardian10,
+            R.drawable.mother1,
+            R.drawable.mother2,
+            R.drawable.mother3,
+            R.drawable.mother4,
+            R.drawable.mother5,
+            R.drawable.mother6,
+            R.drawable.mother7
+    };
     public static volatile boolean sPauseTest = true;
-    public static final int SCENE_HOME = 4;
-    public static final int SCENE_SCHOOL = 5;
-    public static final int SCENE_HOSPITAL = 6;
-    public static final int SCENE_LIBRARY = 7;
 }
