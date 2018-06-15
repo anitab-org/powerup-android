@@ -67,7 +67,7 @@ public class PregameSetupActivity extends Activity {
         updateFullView(SessionHistory.characterType);
     }
 
-    private static void saveCharacter(int character, int value) {
+    public void saveCharacter(int character, int value) {
         switch (character) {
             case PowerUpUtils.NPC_ADULT_1:
                 SessionHistory.selectedAdult1 = value;
