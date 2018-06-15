@@ -103,4 +103,6 @@
     <string name="required">Required</string>
     <string name="choose_member">Choose one character!</string>
     <string name="pregame_warning_message">To proceed in the game you need to choose atleast one character</string>
+    <string name="time">Time: </string>
+    <string name="txt_zero">00</string>
 </resources>
