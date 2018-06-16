@@ -32,5 +32,8 @@
     <dimen name="arrow_width">80dp</dimen>
     <dimen name="arrow_height">20dp</dimen>
     <dimen name="txt_size_large">25sp</dimen>
+    <dimen name="score_text_size_large">45sp</dimen>
+    <dimen name="continue_width">220dp</dimen>
+    <dimen name="continue_height">95dp</dimen>
 </resources>
 
