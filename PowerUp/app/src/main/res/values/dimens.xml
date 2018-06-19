@@ -35,5 +35,8 @@
     <dimen name="score_text_size_large">45sp</dimen>
     <dimen name="continue_width">220dp</dimen>
     <dimen name="continue_height">95dp</dimen>
+    <dimen name="memory_tile_size">120dp</dimen>
+    <dimen name="memory_label_width">401dp</dimen>
+    <dimen name="btn_margin_bottom">24dp</dimen>
 </resources>
 

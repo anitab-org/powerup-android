@@ -105,4 +105,7 @@
     <string name="pregame_warning_message">To proceed in the game you need to choose atleast one character</string>
     <string name="time">Time: </string>
     <string name="txt_zero">00</string>
+    <string name="memory_label">Does the tile on the left match the tile that appeared one tile before it?</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 </resources>
