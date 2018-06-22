@@ -27,4 +27,28 @@ public class Points {
         this.telepathy = telepathy;
         this.userPoints = userPoints;
     }
+
+    public int getPointsId() {
+        return pointsId;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getInvisibility() {
+        return invisibility;
+    }
+
+    public int getHealing() {
+        return healing;
+    }
+
+    public int getTelepathy() {
+        return telepathy;
+    }
+
+    public int getUserPoints() {
+        return userPoints;
+    }
 }

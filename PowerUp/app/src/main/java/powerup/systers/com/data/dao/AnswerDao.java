@@ -14,8 +14,8 @@ public interface AnswerDao {
     @Insert
     void insertAllAnswers(List<Answer> hairsList);
 
-    @Query("SELECT answerDescription FROM Answer WHERE questionID =:questionId")
-    List<String> getAllAnswer(int questionId);
+    @Query("SELECT * FROM Answer WHERE questionID =:questionId")
+    List<Answer> getAllAnswer(int questionId);
 
 
 }

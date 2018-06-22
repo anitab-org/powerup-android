@@ -15,7 +15,7 @@ import org.robolectric.shadows.ShadowActivity;
 
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;
-import powerup.systers.com.ScenarioOverActivity;
+import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.minesweeper.ProsAndConsActivity;

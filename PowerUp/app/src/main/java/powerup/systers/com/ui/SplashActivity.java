@@ -1,9 +1,11 @@
-package powerup.systers.com;
+package powerup.systers.com.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
+import powerup.systers.com.R;
 
 public class SplashActivity extends AppCompatActivity {
 

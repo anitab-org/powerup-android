@@ -3,7 +3,7 @@
  * with more questions and answers as needed. Also updates power/health bars.
  */
 
-package powerup.systers.com;
+package powerup.systers.com.ui.game_activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,14 +26,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import powerup.systers.com.datamodel.Answer;
-import powerup.systers.com.datamodel.Question;
-import powerup.systers.com.datamodel.Scenario;
-import powerup.systers.com.datamodel.SessionHistory;
-import powerup.systers.com.db.DatabaseHandler;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import powerup.systers.com.R;
+import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
+import powerup.systers.com.data.DataSource;
+import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.data.entities.Answer;
+import powerup.systers.com.data.entities.Scenario;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.minesweeper.MinesweeperTutorials;
+import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
@@ -43,10 +48,10 @@ import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
-public class GameActivity extends Activity {
+public class GameActivity extends Activity implements GameScreenContract.IGameScreenView{
 
     public Activity gameActivityInstance;
-    private DatabaseHandler mDbHandler;
+    private DataSource dataSource;
     private List<Answer> answers;
     private Scenario scene;
     private Scenario prevScene;
@@ -55,7 +60,19 @@ public class GameActivity extends Activity {
     private Button goToMap;
     private ArrayAdapter<String> listAdapter;
     private static boolean isStateChanged = false;
-    Context context;
+    private Context context;
+    private GameScreenPresenter presenter;
+    //avatar views
+    @BindView(R.id.eye_view)
+    ImageView eyeAvatar;
+    @BindView(R.id.skin_view)
+    ImageView skinAvatar;
+    @BindView(R.id.dress_view)
+    ImageView clothAvatar;
+    @BindView(R.id.hair_view)
+    ImageView hairAvatar;
+    @BindView(R.id.accessory_view)
+    ImageView accessoryImageView;
 
     public GameActivity() {
         gameActivityInstance = this;
@@ -65,127 +82,33 @@ public class GameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         new ScenarioOverActivity(this).saveActivityOpenedStatus(false);
         context = GameActivity.this;
-        // if any game was left incomplete, open respective gameactivity
-        if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
-            startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
-            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-        }
-        if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
-            startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
-        }
-        if(new VocabMatchSessionManager(this).isVocabMatchOpened()) {
-            startActivity(new Intent(GameActivity.this, VocabMatchGameActivity.class));
-        }
+
+        checkGameIncomplete();
+
         //Todo Give reason
         if (savedInstanceState != null) {
             isStateChanged = true;
         }
         super.onCreate(savedInstanceState);
-        setmDbHandler(new DatabaseHandler(this));
-        getmDbHandler().open();
+
         setContentView(R.layout.game_activity);
+        ButterKnife.bind(this);
 
-        // instantiate views
-        questionTextView = (TextView) findViewById(R.id.questionView);
-        scenarioNameTextView = (TextView) findViewById(R.id.scenarioNameEditText);
-        goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
-        ImageView eyeImageView = (ImageView) findViewById(R.id.eye_view);
-        ImageView skinImageView = (ImageView) findViewById(R.id.skin_view);
-        ImageView hairImageView = (ImageView) findViewById(R.id.hair_view);
-        ImageView clothImageView = (ImageView) findViewById(R.id.dress_view);
-        ImageView accessoryImageView = (ImageView) findViewById(R.id.accessory_view);
-
+        init();
         // Find the ListView resource.
-        ListView mainListView = (ListView) findViewById(R.id.mainListView);
+        ListView mainListView = findViewById(R.id.mainListView);
         listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
         answers = new ArrayList<>();
 
-        // get scenario from database & set layout background
-        scene = getmDbHandler().getScenario();
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
         SessionHistory.currScenePoints = 0;
 
         // sets the movement method for handling arrow key movement
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
 
-        // set eye,skin,cloth,hair,accessory to avatar
-        String eyeImageName = getResources().getString(R.string.eye);
-        eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
-        R.drawable ourRID = new R.drawable();
-        java.lang.reflect.Field photoNameField;
-        try {
-            photoNameField = ourRID.getClass().getField(eyeImageName);
-            eyeImageView.setImageResource(photoNameField.getInt(ourRID));
-        } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException error) {
-            error.printStackTrace();
-        }
-
-        String skinImageName = getResources().getString(R.string.skin);
-        skinImageName = skinImageName + getmDbHandler().getAvatarSkin();
-        try {
-            photoNameField = ourRID.getClass().getField(skinImageName);
-            skinImageView.setImageResource(photoNameField.getInt(ourRID));
-        } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException error) {
-            error.printStackTrace();
-        }
-
-        String clothImageName = getResources().getString(R.string.cloth);
-        clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
-        try {
-            photoNameField = ourRID.getClass().getField(clothImageName);
-            clothImageView.setImageResource(photoNameField.getInt(ourRID));
-        } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException error) {
-            error.printStackTrace();
-        }
-
-        String hairImageName = getResources().getString(R.string.hair);
-        hairImageName = hairImageName + getmDbHandler().getAvatarHair();
-        try {
-            photoNameField = ourRID.getClass().getField(hairImageName);
-            hairImageView.setImageResource(photoNameField.getInt(ourRID));
-        } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException error) {
-            error.printStackTrace();
-        }
-
-        getmDbHandler().setAvatarAccessory(getmDbHandler().getAvatarAccessory());
-        String accessoryImageName = getResources().getString(R.string.accessories);
-        accessoryImageName = accessoryImageName + getmDbHandler().getAvatarAccessory();
-        try {
-            photoNameField = ourRID.getClass().getField(accessoryImageName);
-            accessoryImageView.setImageResource(photoNameField.getInt(ourRID));
-        } catch (NoSuchFieldException | IllegalAccessException
-                | IllegalArgumentException error) {
-            error.printStackTrace();
-        }
-
         // Update Scene
         updateScenario(0);
         updateQA();
-        //Scene is Replayed
-        if (scene.getReplayed() == 1) {
-            goToMap.setAlpha((float) 1.0);
-            goToMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(SessionHistory.currScenePoints != 0) {
-                        gotToMapDialogue();
-                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                        goToMap.setClickable(false);
-                        getmDbHandler()
-                                .setReplayedScenario(scene.getScenarioName());
-                        goToMap.setAlpha((float) 0.0);
-                    } else {
-                        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
-                        finish();
-                        startActivity(intent);
-                    }
-                }
-            });
-        }
+
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter(listAdapter);
         mainListView
@@ -201,15 +124,15 @@ public class GameActivity extends Activity {
                             updateQA();
                         } else if (answers.get(position).getNextQuestionID() == -1) {
                             updatePoints(position);
-                            getmDbHandler().setCompletedScenario(scene.getId());
+                            dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-1);
                         } else if (answers.get(position).getNextQuestionID() == -2) {
                             updatePoints(position);
-                            getmDbHandler().setCompletedScenario(scene.getId());
+                            dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-2);
                         } else if (answers.get(position).getNextQuestionID() == -3){
                             updatePoints(position);
-                            getmDbHandler().setCompletedScenario(scene.getId());
+                            dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-3);
                         }
                         else {
@@ -218,11 +141,38 @@ public class GameActivity extends Activity {
                                 SessionHistory.currSessionID = 1;
                             }
                             updatePoints(position);
-                            getmDbHandler().setCompletedScenario(scene.getId());
+                            dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(0);
                         }
                     }
                 });
+    }
+
+    // if any game was left incomplete, open respective gameactivity
+    private void checkGameIncomplete() {
+        if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
+            startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+        }
+        if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
+            startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
+        }
+        if(new VocabMatchSessionManager(this).isVocabMatchOpened()) {
+            startActivity(new Intent(GameActivity.this, VocabMatchGameActivity.class));
+        }
+    }
+
+    private void init() {
+        // datasource injection
+        dataSource = InjectionClass.provideDataSource(context);
+        // instantiate views
+        questionTextView = findViewById(R.id.questionView);
+        scenarioNameTextView = findViewById(R.id.scenarioNameEditText);
+        goToMap = findViewById(R.id.continueButtonGoesToMap);
+
+        presenter = new GameScreenPresenter(this, dataSource, this);
+        presenter.setValues();
+        presenter.getScenarioBackground();
     }
 
     /**
@@ -232,9 +182,9 @@ public class GameActivity extends Activity {
      */
     private void updatePoints(int position) {
         // Update the Scene Points
-        SessionHistory.currScenePoints += answers.get(position).getPoints();
+        SessionHistory.currScenePoints += answers.get(position).getAnswerPoints();
         // Update Total Points
-        SessionHistory.totalPoints += answers.get(position).getPoints();
+        SessionHistory.totalPoints += answers.get(position).getAnswerPoints();
     }
 
     /**
@@ -245,39 +195,14 @@ public class GameActivity extends Activity {
     private void updateScenario(int type) {
         if (ScenarioOverActivity.scenarioActivityDone == 1)
             new ScenarioOverActivity().scenarioOverActivityInstance.finish();
-        if (scene != null)
-            prevScene = getmDbHandler().getScenarioFromID(scene.getId());
-        scene = getmDbHandler().getScenario();
-        // Play the scenario first time
-        if (scene.getReplayed() == 0) {
-            // goToMap Mechanics
-            goToMap.setAlpha((float) 1.0);
-            goToMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Incase the user move back to map in between a running
-                    // Scenario.
-                    if(SessionHistory.currScenePoints != 0) {
-                        gotToMapDialogue();
-                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                        goToMap.setClickable(false);
-                        getmDbHandler()
-                                .setReplayedScenario(scene.getScenarioName());
-                        goToMap.setAlpha((float) 0.0);
-                    } else {
-                        Intent intent = new Intent(GameActivity.this, MapActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivityForResult(intent, 0);
-                        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                    }
-                }
-            });
+        if (scene != null) {
+            presenter.getPreviousScene(scene.getScenarioId());
         }
-        SessionHistory.currQID = scene.getFirstQuestionID();
-        scenarioNameTextView.setText(scene.getScenarioName());
+        presenter.loadScenarioFromDatabase();
+
         // If completed check if it is last scene
         if (prevScene != null && prevScene.getCompleted() == 1) {
-                SessionHistory.prevSessionID = scene.getId();
+                SessionHistory.prevSessionID = scene.getScenarioId();
                 SessionHistory.currSessionID = scene.getNextScenarioID();
                 if (type == 0) {
                     Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
@@ -306,21 +231,8 @@ public class GameActivity extends Activity {
      * Replace the current scenario with another question/answer.
      */
     private void updateQA() {
-        listAdapter.clear();
-        getmDbHandler().getAllAnswer(answers, SessionHistory.currQID);
-        for (Answer ans : answers) {
-            listAdapter.add(ans.getAnswerDescription());
-        }
-        Question questions = getmDbHandler().getCurrentQuestion();
-        questionTextView.setText(questions.getQuestionDescription());
-    }
-
-    public DatabaseHandler getmDbHandler() {
-        return mDbHandler;
-    }
-
-    public void setmDbHandler(DatabaseHandler mDbHandler) {
-        this.mDbHandler = mDbHandler;
+        presenter.loadQuestion();
+        presenter.loadAnswer();;
     }
 
     /**
@@ -348,7 +260,7 @@ public class GameActivity extends Activity {
                 startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                 finish();
-                getmDbHandler().setReplayedScenario(scene.getScenarioName());
+                dataSource.setReplayedScenario(scene.getScenarioName());
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -364,4 +276,109 @@ public class GameActivity extends Activity {
         dialog.getWindow().setBackgroundDrawable(drawable);
         dialog.show();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        DataSource.clearInstance();
+    }
+
+    @Override
+    public void updateAvatarEye(int eye) {
+        eyeAvatar.setImageResource(eye);
+    }
+
+    @Override
+    public void updateAvatarCloth(int cloth) {
+        clothAvatar.setImageResource(cloth);
+    }
+
+    @Override
+    public void updateAvatarHair(int hair) {
+        hairAvatar.setImageResource(hair);
+    }
+
+    @Override
+    public void updateAvatarSkin(int skin) {
+        skinAvatar.setImageResource(skin);
+    }
+
+    @Override
+    public void updateScenarioFromDatabase(Scenario scenario) {
+        scene = scenario;
+
+        // Play the scenario first time
+        if (scene.getReplayed() == 0) {
+            // goToMap Mechanics
+            goToMap.setAlpha((float) 1.0);
+            goToMap.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Incase the user move back to map in between a running
+                    // Scenario.
+                    if(SessionHistory.currScenePoints != 0) {
+                        gotToMapDialogue();
+                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+                        goToMap.setClickable(false);
+                        dataSource.setReplayedScenario(scene.getScenarioName());
+                        goToMap.setAlpha((float) 0.0);
+                    } else {
+                        Intent intent = new Intent(GameActivity.this, MapActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivityForResult(intent, 0);
+                        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+                    }
+                }
+            });
+        }
+        SessionHistory.currQID = scene.getFirstQuestionID();
+        scenarioNameTextView.setText(scene.getScenarioName());
+
+        //Scene is Replayed
+        if (scene.getReplayed() == 1) {
+            goToMap.setAlpha((float) 1.0);
+            goToMap.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(SessionHistory.currScenePoints != 0) {
+                        gotToMapDialogue();
+                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+                        goToMap.setClickable(false);
+                        dataSource.setReplayedScenario(scene.getScenarioName());
+                        goToMap.setAlpha((float) 0.0);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
+                        finish();
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+
+    }
+
+    @Override
+    public void setScenarioBackground(int id) {
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id]));
+    }
+
+    @Override
+    public void updateQuestion(String question) {
+        questionTextView.setText(question);
+    }
+
+    @Override
+    public void updateAnswer(List<Answer> dataList) {
+        listAdapter.clear();
+        answers = dataList;
+        for (Answer ans : dataList) {
+            listAdapter.add(ans.getAnswerDescription());
+        }
+    }
+
+    @Override
+    public void setPrevScene(Scenario scenario) {
+        prevScene = scenario;
+    }
+
 }

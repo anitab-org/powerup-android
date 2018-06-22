@@ -7,13 +7,13 @@ import android.arch.persistence.room.PrimaryKey;
 public class Accessory {
 
     @PrimaryKey
-    private int accessoryId;
+    public int accessoryId;
 
-    private String accessoryName;
+    public String accessoryName;
 
-    private int accessoryPoints;
+    public int accessoryPoints;
 
-    private int accessoryPurchased;
+    public int accessoryPurchased;
 
     public Accessory(int accessoryId, String accessoryName, int accessoryPoints, int accessoryPurchased) {
         this.accessoryId = accessoryId;

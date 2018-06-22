@@ -1,31 +1,32 @@
-package powerup.systers.com;
+package powerup.systers.com.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import powerup.systers.com.R;
+
 public class AboutActivity extends Activity {
 
     private boolean isAboutGameOpen = false;
     private boolean isAboutUrgencyOpen = false;
     private boolean isAboutHelpingOpen = false;
-    private static String isGameOpen = "ABOUT_GAME_OPEN";
-    private static String isUrgencyOpen = "ABOUT_URGENCY_OPEN";
-    private static String isHelpingOpen = "ABOUT_HELPING_OPEN";
-    private TextView aboutGameSection, aboutUrgencySection, aboutHelpingSection;
+
+    @BindView(R.id.about_the_game)
+    TextView aboutGameSection;
+    @BindView(R.id.about_the_urgency)
+    TextView aboutUrgencySection;
+    @BindView(R.id.about_helping_by)
+    TextView aboutHelpingSection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        if (savedInstanceState != null){
-            isAboutGameOpen = savedInstanceState.getBoolean(isGameOpen);
-            isAboutUrgencyOpen = savedInstanceState.getBoolean(isUrgencyOpen);
-            isAboutHelpingOpen = savedInstanceState.getBoolean(isHelpingOpen);
-        }
-        aboutGameSection = (TextView) findViewById(R.id.about_the_game);
-        aboutUrgencySection = (TextView) findViewById(R.id.about_the_urgency);
-        aboutHelpingSection = (TextView) findViewById(R.id.about_helping_by);
+        ButterKnife.bind(this);
+
         if (isAboutGameOpen){
            aboutGameSection.setVisibility(View.VISIBLE);
         }
@@ -37,6 +38,7 @@ public class AboutActivity extends Activity {
         }
 
     }
+
     public void aboutGamePressed(View view){
         if (aboutGameSection.getVisibility() == View.GONE){
             aboutGameSection.setVisibility(View.VISIBLE);
@@ -70,13 +72,5 @@ public class AboutActivity extends Activity {
     public void pressHomeButton(View view){
         finish();
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(isGameOpen,isAboutGameOpen);
-        outState.putBoolean(isHelpingOpen,isAboutHelpingOpen);
-        outState.putBoolean(isUrgencyOpen,isAboutUrgencyOpen);
     }
 }

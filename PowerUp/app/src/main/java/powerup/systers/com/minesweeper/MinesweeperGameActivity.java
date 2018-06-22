@@ -18,10 +18,10 @@ import android.widget.TextView;
 import java.util.HashSet;
 import java.util.Random;
 
-import powerup.systers.com.MapActivity;
-import powerup.systers.com.MinesweeperSound;
+import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.MinesweeperSound;
 import powerup.systers.com.R;
-import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.utils.PowerUpUtils;
 
 /**

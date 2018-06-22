@@ -1,9 +1,11 @@
-package powerup.systers.com;
+package powerup.systers.com.ui;
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+
+import powerup.systers.com.R;
 
 public class MinesweeperSound extends Service {
     private MediaPlayer player;

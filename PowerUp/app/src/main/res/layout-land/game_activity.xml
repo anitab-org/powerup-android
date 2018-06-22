@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/classroom"
     android:gravity="fill"
-    tools:context="powerup.systers.com.GameActivity"
+    tools:context="powerup.systers.com.ui.game_activity.GameActivity"
     android:id="@+id/root">
 
     <TextView

@@ -53,10 +53,11 @@ public class PowerUpUtils {
 
     public static final int[] MINES_TUTS = {R.drawable.mines_tut1,R.drawable.mines_tut2,R.drawable.mines_tut3};
 
-
+    // list of all hair drawables available in store & it's respective points
     public static final int[] HAIR_IMAGES = {R.drawable.hair1,R.drawable.hair2,R.drawable.hair3,R.drawable.hair4,R.drawable.hair5,R.drawable.hair6,R.drawable.hair7,R.drawable.hair8,R.drawable.hair9,R.drawable.hair10,R.drawable.hair11,R.drawable.hair12,R.drawable.hair13,R.drawable.hair14,R.drawable.hair15,R.drawable.hair16,R.drawable.hair17};
     public static final String[] HAIR_POINTS_TEXTS = {"5","5","5","5","5","5","5","5","5","10","10","10","10","10","10","10","10"};
 
+    // list of all cloth drawables available in store
     public static final int[] CLOTHES_IMAGES = {
             R.drawable.dress1,
             R.drawable.dress2,
@@ -108,8 +109,10 @@ public class PowerUpUtils {
             R.drawable.dress48,
             R.drawable.dress49
     };
+    // list of point values of cloth available in store
     public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10"};
 
+    // list of all accessory drawables available in store
     public static final int[] ACCESSORIES_IMAGES = {
             R.drawable.acc1,
             R.drawable.acc2,
@@ -146,6 +149,7 @@ public class PowerUpUtils {
             R.drawable.acc33,
             R.drawable.acc34,
             R.drawable.acc35};
+    // list of point value for all accessories available in store
     public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10"};
 
     public static final String questionCSV = "Question.csv";
