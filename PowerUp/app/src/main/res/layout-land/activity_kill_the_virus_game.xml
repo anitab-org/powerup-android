@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/vocab_bg">
+    android:background="@drawable/vocab_bg"
+    android:id="@+id/constraint_layout_kill">
 
 
     <ImageView
@@ -113,6 +114,7 @@
         app:layout_constraintVertical_bias="0.6" />
 
     <View
+        android:id="@+id/img_syringe"
         android:layout_width="@dimen/arrow_width"
         android:layout_height="@dimen/arrow_height"
         android:layout_marginEnd="@dimen/margin_small"
