@@ -38,5 +38,8 @@
     <dimen name="memory_score_txt_size">40sp</dimen>
     <dimen name="continue_width_memory">100dp</dimen>
     <dimen name="continue_height_memory">230dp</dimen>
+    <dimen name="memory_tile_size">120dp</dimen>
+    <dimen name="memory_label_width">401dp</dimen>
+    <dimen name="btn_margin_bottom">24dp</dimen>
 </resources>
 
