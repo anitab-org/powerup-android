@@ -38,5 +38,10 @@
     <dimen name="memory_tile_size">120dp</dimen>
     <dimen name="memory_label_width">401dp</dimen>
     <dimen name="btn_margin_bottom">24dp</dimen>
+    <dimen name="tutorial_text_size">22sp</dimen>
+    <dimen name="tutorial_1_width">150dp</dimen>
+    <dimen name="tutorial_2_width">255dp</dimen>
+    <dimen name="tutorial_3_width">265dp</dimen>
+    <dimen name="tutorial_3_margin">32dp</dimen>
 </resources>
 
