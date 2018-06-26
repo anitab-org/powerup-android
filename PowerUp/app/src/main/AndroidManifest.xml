@@ -141,6 +141,13 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
+            android:name=".kill_the_virus_game.KillTheVirusTutorials"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
             android:name=".kill_the_virus_game.KillTheVirusGame"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
