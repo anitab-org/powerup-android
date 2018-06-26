@@ -111,4 +111,5 @@
     <string name="tutorial_1">Shoot the viruses with the syringe!</string>
     <string name="tutorial_2">The color of the syringe should match with the color of the virus otherwise you loose!</string>
     <string name="tutorial_3">Try to kill as many viruses as possible before the time runs out!</string>
+    <string name="score_kill_the_virus">kill the virus score</string>
 </resources>
