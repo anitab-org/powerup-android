@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -54,6 +55,7 @@ public class KillTheVirusGame extends Activity {
     private int[] virusColors;
     private ValueAnimator virus1Animator, virus2Animator, virus3Animator, virus4Animator, virus5Animator, virus6Animator, virus7Animator, virus8Animator;
     private Animation translateSyringe;
+    private CountDownTimer countDownTimer;
 
     @SuppressLint("ResourceType")
     @Override
@@ -95,7 +97,7 @@ public class KillTheVirusGame extends Activity {
         virus7Animator.start();
         virus8Animator.start();
 
-        new CountDownTimer(30000, 1000) {
+        countDownTimer = new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) (millisUntilFinished / 1000);
                 txtTime.setText(String.valueOf(seconds));
@@ -170,13 +172,13 @@ public class KillTheVirusGame extends Activity {
      * @param totalScore - value of total score
      */
     private void gameEnd(int totalScore) {
-        //Update the total points
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.score_kill_the_virus), totalScore);
-        editor.apply();
+        countDownTimer.cancel();
+        Intent intent = new Intent(KillTheVirusGame.this, KillTheVirusEndActivity.class);
+        //Passing the final score using intent extra
+        intent.putExtra(getString(R.string.score_kill_the_virus),totalScore);
         //End the Game
-        finish();
+        startActivity(intent);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
     //Attaches rotational animation to all the virus images

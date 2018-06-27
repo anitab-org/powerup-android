@@ -22,11 +22,11 @@
             app:layout_constraintVertical_bias="0.6" />
 
     <ImageView
-        android:id="@+id/btn_continue"
+        android:id="@+id/btn_continue_memory"
         android:layout_width="220dp"
         android:layout_height="95dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/continue_button" />
+        android:src="@drawable/continue_button" />
 
     </android.support.constraint.ConstraintLayout>

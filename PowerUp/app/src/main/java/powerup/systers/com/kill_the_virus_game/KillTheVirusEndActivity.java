@@ -1,6 +1,7 @@
 package powerup.systers.com.kill_the_virus_game;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.StartActivity;
 
 public class KillTheVirusEndActivity extends Activity {
 
@@ -19,11 +21,24 @@ public class KillTheVirusEndActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kill_the_virus_end);
         ButterKnife.bind(this);
-        //TODO: Update the score text view to display scored points
+        updateScore();
     }
 
-    @OnClick
+    @OnClick(R.id.btn_continue_memory)
     public void clickContinue() {
-        //TODO: Migrate to scene completion screen
+        startActivity(new Intent(KillTheVirusEndActivity.this, StartActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    private void updateScore() {
+        //getting the value of score from intent extra
+        int score = getIntent().getIntExtra(getString(R.string.score_kill_the_virus), -1);
+        txtScoreEnd.setText("" + score);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(KillTheVirusEndActivity.this, StartActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 }
