@@ -51,7 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_score"
+            android:id="@+id/txt_score_memory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_zero"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_time"
+            android:id="@+id/txt_time_memory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_large"
