@@ -10,6 +10,4 @@
         android:right="@dimen/btn_padding"
         android:top="@dimen/btn_padding"/>
 
-    <corners android:radius="@dimen/btn_radius"/>
-
 </shape>

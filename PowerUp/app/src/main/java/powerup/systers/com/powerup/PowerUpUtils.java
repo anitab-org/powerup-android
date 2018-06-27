@@ -21,6 +21,18 @@ public class PowerUpUtils {
     public static final int NPC_ADULT_2 = 2;
     public static final int NPC_CHILD_1 = 3;
     public static final int NPC_CHILD_2 = 4;
+    public static final int VIRUS_1 = 1;
+    public static final int VIRUS_2 = 2;
+    public static final int VIRUS_3 = 3;
+    public static final int VIRUS_4 = 4;
+    public static final int VIRUS_5 = 5;
+    public static final int VIRUS_6 = 6;
+    public static final int VIRUS_7 = 7;
+    public static final int VIRUS_8 = 8;
+    public static final int VIRUS_TYPE_1 = 0;
+    public static final int VIRUS_TYPE_2 = 1;
+    public static final int VIRUS_TYPE_3 = 2;
+    public static final int VIRUS_TYPE_4 = 3;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";

@@ -111,6 +111,7 @@
     <string name="tutorial_1">Shoot the viruses with the syringe!</string>
     <string name="tutorial_2">The color of the syringe should match with the color of the virus otherwise you loose!</string>
     <string name="tutorial_3">Try to kill as many viruses as possible before the time runs out!</string>
+    <string name="score_kill_the_virus">kill the virus score</string>
     <string name="memory_tutorial_1">Memorize and match the tile on the left with the tile that appeared one tile before it</string>
     <string name="memory_tutorial_2">Press yes or no depending upon the answer</string>
     <string name="memory_tutorial_3">Try to get maximum number of correct answers before the time runs out!</string>
