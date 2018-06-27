@@ -1,8 +1,10 @@
 package powerup.systers.com.kill_the_virus_game;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,7 +32,7 @@ public class KillTheVirusTutorials extends Activity {
     @BindView(R.id.img_virus_8)
     public ImageView imgVirus8;
     @BindView(R.id.img_syringe)
-    public ImageView imgSyringe;
+    public View imgSyringe;
     @BindView(R.id.txt_tutorial_1)
     public TextView txtTutorial1;
     @BindView(R.id.txt_tutorial_2)
@@ -46,6 +48,7 @@ public class KillTheVirusTutorials extends Activity {
     @BindView(R.id.txt_score)
     public TextView txtScore;
     public int tutorialCount = 0;
+    private final float visible = 1, notVisible = (float) 0.7, gone = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,19 +64,46 @@ public class KillTheVirusTutorials extends Activity {
             showTutorial2();
         else if (tutorialCount == 2)
             showTutorial3();
-        //else
-        //Start the game
+        else {
+            startActivity(new Intent(KillTheVirusTutorials.this, KillTheVirusGame.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            }
     }
 
     public void initializeViews() {
-        //TODO: Initialize the visibility of the tutorials
+        imgSyringe.setAlpha(notVisible);
+        txtTutorial2.setAlpha(gone);
+        txtTutorial3.setAlpha(gone);
+        txtScore.setAlpha(notVisible);
+        imgScore.setAlpha(notVisible);
+        txtTime.setAlpha(notVisible);
+        txtTimeLabel.setAlpha(notVisible);
+        tutorialCount = 1;
     }
 
     public void showTutorial2() {
-        //TODO: Update the visibility of elements
+        imgVirus1.setAlpha(notVisible);
+        imgVirus2.setAlpha(notVisible);
+        imgVirus3.setAlpha(notVisible);
+        imgVirus4.setAlpha(notVisible);
+        imgVirus5.setAlpha(notVisible);
+        imgVirus6.setAlpha(notVisible);
+        imgVirus7.setAlpha(notVisible);
+        imgVirus8.setAlpha(notVisible);
+        imgSyringe.setAlpha(visible);
+        txtTutorial1.setAlpha(gone);
+        txtTutorial2.setAlpha(visible);
+        tutorialCount = 2;
     }
 
     public void showTutorial3() {
-        //TODO: Update the visibility of elements
+        imgSyringe.setAlpha(notVisible);
+        txtTutorial2.setAlpha(gone);
+        txtTutorial3.setAlpha(visible);
+        txtScore.setAlpha(notVisible);
+        imgScore.setAlpha(notVisible);
+        txtTime.setAlpha(visible);
+        txtTimeLabel.setAlpha(visible);
+        tutorialCount = 3;
     }
 }
