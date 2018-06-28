@@ -46,5 +46,10 @@
     <dimen name="tutorial_2_width">255dp</dimen>
     <dimen name="tutorial_3_width">265dp</dimen>
     <dimen name="tutorial_3_margin">32dp</dimen>
+    <dimen name="start_width_memory">130dp</dimen>
+    <dimen name="start_height_memory">70dp</dimen>
+    <dimen name="memory_tutorial_1_width">250dp</dimen>
+    <dimen name="memory_tutorial_2_width">178dp</dimen>
+    <dimen name="memory_tutorial_3_width">220dp</dimen>
 </resources>
 

@@ -37,7 +37,7 @@ public class KillTheVirusGameTest {
 
     @Test
     public void checkCorrectHit(){
-        killTheVirusGame.rightHit();
+        killTheVirusGame.rightHit(2);
         assertEquals(true, killTheVirusGame.correctHit);
     }
 
