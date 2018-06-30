@@ -51,7 +51,7 @@ public class KillTheVirusGame extends Activity {
     public boolean correctHit = false;
     @BindView(R.id.img_syringe)
     public View imgSyringe;
-    private int hitCount = 0;
+    public int hitCount = 0;
     private int[] virusColors;
     private ValueAnimator virus1Animator, virus2Animator, virus3Animator, virus4Animator, virus5Animator, virus6Animator, virus7Animator, virus8Animator;
     private Animation translateSyringe;
@@ -236,9 +236,7 @@ public class KillTheVirusGame extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 checkHit(hitCount);
-                hitCount = hitCount + 1;
-                if (hitCount == 4)
-                    hitCount = 0;
+                incrementHitCount();
                 imgSyringe.setBackgroundColor(virusColors[hitCount]);
             }
 
@@ -246,5 +244,11 @@ public class KillTheVirusGame extends Activity {
             public void onAnimationRepeat(Animation animation) {
             }
         });
+    }
+
+    public void incrementHitCount(){
+        hitCount = hitCount + 1;
+        if (hitCount == 4)
+            hitCount = 0;
     }
 }

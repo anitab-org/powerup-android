@@ -18,33 +18,50 @@ public class KillTheVirusGameTest {
     KillTheVirusGame killTheVirusGame;
 
     @Before
-    public void setUpActivity(){
+    public void setUpActivity() {
         killTheVirusGame = new KillTheVirusGame();
     }
 
     @Test
-    public void checkInitialValues(){
+    public void checkInitialValues() {
         assertEquals(0, killTheVirusGame.score);
+        assertEquals(0, killTheVirusGame.hitCount);
         assertEquals(false, killTheVirusGame.correctHit);
     }
 
     @Test
-    public void increasePoints(){
+    public void increasePoints() {
         int points = 5;
         points = killTheVirusGame.increasePoint(points);
-        assertEquals(6,points);
+        assertEquals(6, points);
     }
 
     @Test
-    public void checkCorrectHit(){
-        killTheVirusGame.rightHit(2);
-        assertEquals(true, killTheVirusGame.correctHit);
+    public void hitCountTest1() {
+        killTheVirusGame.hitCount = 0;
+        killTheVirusGame.incrementHitCount();
+        assertEquals(1, killTheVirusGame.hitCount);
     }
 
     @Test
-    public void checkWrongHit(){
-        killTheVirusGame.wrongHit();
-        assertEquals(false, killTheVirusGame.correctHit);
+    public void hitCountTest2() {
+        killTheVirusGame.hitCount = 1;
+        killTheVirusGame.incrementHitCount();
+        assertEquals(2, killTheVirusGame.hitCount);
+    }
+
+    @Test
+    public void hitCountTest3() {
+        killTheVirusGame.hitCount = 2;
+        killTheVirusGame.incrementHitCount();
+        assertEquals(3, killTheVirusGame.hitCount);
+    }
+
+    @Test
+    public void hitCountTest4() {
+        killTheVirusGame.hitCount = 3;
+        killTheVirusGame.incrementHitCount();
+        assertEquals(0, killTheVirusGame.hitCount);
     }
 }
 
