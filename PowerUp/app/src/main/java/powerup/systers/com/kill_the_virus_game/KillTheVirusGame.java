@@ -66,6 +66,7 @@ public class KillTheVirusGame extends Activity {
         virusColors = getApplicationContext().getResources().getIntArray(R.array.kill_virus_colors);
         initialSetup();
         translateSyringe = AnimationUtils.loadAnimation(this, R.animator.translate);
+        translateSyringe.setDuration(50);
     }
 
     @OnClick(R.id.constraint_layout_kill)

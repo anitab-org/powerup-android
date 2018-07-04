@@ -105,7 +105,7 @@
     <string name="pregame_warning_message">To proceed in the game you need to choose atleast one character</string>
     <string name="time">Time: </string>
     <string name="txt_zero">00</string>
-    <string name="memory_label">Does the tile on the left match the tile that appeared one tile before it?</string>
+    <string name="memory_label">Does the tile on the left match the tile that appeared before it?</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
     <string name="tutorial_1">Shoot the viruses with the syringe!</string>
@@ -115,4 +115,5 @@
     <string name="memory_tutorial_1">Memorize and match the tile on the left with the tile that appeared one tile before it</string>
     <string name="memory_tutorial_2">Press yes or no depending upon the answer</string>
     <string name="memory_tutorial_3">Try to get maximum number of correct answers before the time runs out!</string>
+    <string name="txt_three_zero">30</string>
 </resources>

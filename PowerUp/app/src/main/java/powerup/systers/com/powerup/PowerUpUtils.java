@@ -295,5 +295,17 @@ public class PowerUpUtils {
             R.drawable.mother6,
             R.drawable.mother7
     };
+
+    public static int[] MEMORY_GAME_TILE = {
+            R.drawable.vocab_tile1,
+            R.drawable.vocab_tile2,
+            R.drawable.vocab_tile3,
+            R.drawable.vocab_cramping_tile,
+            R.drawable.vocab_deo_tile,
+            R.drawable.vocab_depression_tile,
+            R.drawable.vocab_fat,
+            R.drawable.vocab_skinny,
+            R.drawable.vocab_tampon
+    };
     public static volatile boolean sPauseTest = true;
 }

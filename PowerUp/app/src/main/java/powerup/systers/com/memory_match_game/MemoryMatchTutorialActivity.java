@@ -14,12 +14,11 @@ import powerup.systers.com.R;
 
 public class MemoryMatchTutorialActivity extends Activity {
 
-    @BindView(R.id.img_tile_1)
-    public ImageView imgTile1;
+
     @BindView(R.id.img_tile_2)
     public ImageView imgTile2;
-    @BindView(R.id.img_tile_3)
-    public ImageView imgTile3;
+    @BindView(R.id.img_tile_1)
+    public ImageView imgTile1;
     @BindView(R.id.img_score)
     public ImageView imgScore;
     @BindView(R.id.txt_score)

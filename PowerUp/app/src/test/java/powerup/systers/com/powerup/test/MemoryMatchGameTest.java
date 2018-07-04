@@ -1,96 +1,84 @@
 package powerup.systers.com.powerup.test;
 
-        import org.junit.Before;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 
-        import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
+import java.util.ArrayList;
+import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
+import static junit.framework.Assert.assertEquals;
 
-        import static junit.framework.Assert.assertEquals;
-
-        @RunWith(JUnit4.class)
+@RunWith(JUnit4.class)
 public class MemoryMatchGameTest {
 
-            @Mock
+    @Mock
     private
     MemoryMatchGameActivity memoryMatchGameActivity;
 
-            @Before
+    @Before
     public void setMemoryMatchGameActivity() {
-                memoryMatchGameActivity = new MemoryMatchGameActivity();
-            }
+        memoryMatchGameActivity = new MemoryMatchGameActivity();
+    }
 
-            //Testing the logic to update number of correct and wrong answers if yes button is pressed
-            @Test
-    public void clickYesTest() {
-                memoryMatchGameActivity.correctAnswer = 1;
-                memoryMatchGameActivity.wrongAnswer = 2;
-                memoryMatchGameActivity.clickYes();
-                if (memoryMatchGameActivity.arrayTile1[3] == memoryMatchGameActivity.arrayTile3[3]) {
-                        assertEquals(2, memoryMatchGameActivity.correctAnswer);
-                        assertEquals(2, memoryMatchGameActivity.wrongAnswer);
-                    } else {
-                        assertEquals(3, memoryMatchGameActivity.wrongAnswer);
-                        assertEquals(1, memoryMatchGameActivity.correctAnswer);
-                    }
-            }
+    //Testing the logic when values are same is correct and yes is clicked
+    @Test
+    public void answerCorrectTest1() {
+        memoryMatchGameActivity.arrayTile = new ArrayList<>();
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.positionCount = 2;
+        memoryMatchGameActivity.calledFromActivity = false;
+        memoryMatchGameActivity.clickYes();
+        assertEquals(1, memoryMatchGameActivity.correctAnswer);
+        assertEquals(1, memoryMatchGameActivity.score);
+        assertEquals(0, memoryMatchGameActivity.wrongAnswer);
+    }
 
-            //Testing the logic to update number of correct answers if no is pressed
-            @Test
-    public void clickNoTest() {
-                memoryMatchGameActivity.correctAnswer = 1;
-                memoryMatchGameActivity.wrongAnswer = 2;
-                memoryMatchGameActivity.clickNo();
-                if (memoryMatchGameActivity.arrayTile1[3] != memoryMatchGameActivity.arrayTile3[3]) {
-                        assertEquals(2, memoryMatchGameActivity.correctAnswer);
-                        assertEquals(2, memoryMatchGameActivity.wrongAnswer);
-                    } else {
-                        assertEquals(1, memoryMatchGameActivity.correctAnswer);
-                        assertEquals(3, memoryMatchGameActivity.wrongAnswer);
-                    }
-            }
+    //Testing the logic when values are different is correct and no is clicked
+    @Test
+    public void answerCorrectTest2(){
+        memoryMatchGameActivity.arrayTile = new ArrayList<>();
+        memoryMatchGameActivity.arrayTile.add(5);
+        memoryMatchGameActivity.arrayTile.add(1);
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.positionCount = 2;
+        memoryMatchGameActivity.calledFromActivity = false;
+        memoryMatchGameActivity.clickNo();
+        assertEquals(1, memoryMatchGameActivity.correctAnswer);
+        assertEquals(1, memoryMatchGameActivity.score);
+        assertEquals(0, memoryMatchGameActivity.wrongAnswer);
+    }
 
-            //Testing the logic to update number of correct answers if answer is correct
-            @Test
-    public void correctAnswerTest() {
-                boolean correct;
-                memoryMatchGameActivity.correctAnswer = 0;
-                if (memoryMatchGameActivity.arrayTile1[2] == memoryMatchGameActivity.arrayTile3[2]) {
-                        memoryMatchGameActivity.correctAnswer = memoryMatchGameActivity.correctAnswer + 1;
-                        correct = true;
-                    } else {
-                        correct = false;
-                    }
-                if (correct)
-                        assertEquals(1, memoryMatchGameActivity.correctAnswer);
-                else
-                    assertEquals(0, memoryMatchGameActivity.correctAnswer);
-            }
+    //Testing the logic when values are same is correct and no is clicked
+    @Test
+    public void answerWrongTest1() {
+        memoryMatchGameActivity.arrayTile = new ArrayList<>();
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.arrayTile.add(5);
+        memoryMatchGameActivity.arrayTile.add(5);
+        memoryMatchGameActivity.positionCount = 2;
+        memoryMatchGameActivity.calledFromActivity = false;
+        memoryMatchGameActivity.clickNo();
+        assertEquals(0, memoryMatchGameActivity.correctAnswer);
+        assertEquals(0, memoryMatchGameActivity.score);
+        assertEquals(1, memoryMatchGameActivity.wrongAnswer);
+    }
 
-            //Testing the logic to update number of wrong answers if answer is wrong
-            @Test
-    public void wrongAnswerTest() {
-                boolean wrong;
-                memoryMatchGameActivity.wrongAnswer = 0;
-                if (memoryMatchGameActivity.arrayTile1[2] != memoryMatchGameActivity.arrayTile3[2]) {
-                        memoryMatchGameActivity.wrongAnswer = memoryMatchGameActivity.wrongAnswer + 1;
-                        wrong = true;
-                    } else {
-                        wrong = false;
-                    }
-                if (wrong)
-                        assertEquals(1, memoryMatchGameActivity.wrongAnswer);
-                else
-                    assertEquals(0, memoryMatchGameActivity.wrongAnswer);
-            }
-
-            //Testing if the answers are saved correctly in arrays for each round
-            @Test
-    public void updateArrayTest() {
-                int i = memoryMatchGameActivity.roundCount;
-                assertEquals(memoryMatchGameActivity.arrayTile2[i], memoryMatchGameActivity.arrayTile1[i]);
-                assertEquals(memoryMatchGameActivity.arrayTile3[i], memoryMatchGameActivity.arrayTile2[i]);
-            }
+    //Testing the logic when values are different is correct and yes is clicked
+    @Test
+    public void answerWrongTest2() {
+        memoryMatchGameActivity.arrayTile = new ArrayList<>();
+        memoryMatchGameActivity.arrayTile.add(0);
+        memoryMatchGameActivity.arrayTile.add(1);
+        memoryMatchGameActivity.arrayTile.add(5);
+        memoryMatchGameActivity.positionCount = 2;
+        memoryMatchGameActivity.calledFromActivity = false;
+        memoryMatchGameActivity.clickYes();
+        assertEquals(0, memoryMatchGameActivity.correctAnswer);
+        assertEquals(0, memoryMatchGameActivity.score);
+        assertEquals(1, memoryMatchGameActivity.wrongAnswer);
+    }
 }
