@@ -24,23 +24,27 @@ public class MemoryMatchTutorialTest {
 
     @Test
     public void tutorial1Test() {
+        memoryMatchTutorialActivity.startFromActivity = false;
         assertEquals(0, memoryMatchTutorialActivity.tutorialCount);
     }
 
     @Test
     public void tutorial2Test() {
+        memoryMatchTutorialActivity.startFromActivity = false;
         memoryMatchTutorialActivity.initializeViews();
         assertEquals(1, memoryMatchTutorialActivity.tutorialCount);
     }
 
     @Test
     public void tutorial3Test() {
+        memoryMatchTutorialActivity.startFromActivity = false;
         memoryMatchTutorialActivity.showTutorial2();
         assertEquals(2, memoryMatchTutorialActivity.tutorialCount);
     }
 
     @Test
     public void tutorialEndTest() {
+        memoryMatchTutorialActivity.startFromActivity = false;
         memoryMatchTutorialActivity.showTutorial3();
         assertEquals(3, memoryMatchTutorialActivity.tutorialCount);
     }
