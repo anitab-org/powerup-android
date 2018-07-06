@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_kill"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/vocab_bg"
-    android:id="@+id/constraint_layout_kill">
+    android:background="@drawable/vocab_bg">
 
 
     <ImageView
@@ -147,5 +148,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/time_label"
         app:layout_constraintTop_toTopOf="@+id/time_label" />
+
+    <TextView
+        android:id="@+id/txt_lives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_small"
+        android:text="@string/txt_3"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_lives_label" />
+
+
+    <TextView
+        android:id="@+id/txt_lives_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_small"
+        android:text="@string/lives_label"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -116,4 +116,6 @@
     <string name="memory_tutorial_2">Press yes or no depending upon the answer</string>
     <string name="memory_tutorial_3">Try to get maximum number of correct answers before the time runs out!</string>
     <string name="txt_three_zero">30</string>
+    <string name="lives_label">Lives:</string>
+    <string name="txt_3">3</string>
 </resources>

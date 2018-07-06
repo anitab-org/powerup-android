@@ -51,11 +51,15 @@ public class KillTheVirusGame extends Activity {
     public boolean correctHit = false;
     @BindView(R.id.img_syringe)
     public View imgSyringe;
+    @BindView(R.id.txt_lives)
+    public TextView txtLives;
     public int hitCount = 0;
     private int[] virusColors;
     private ValueAnimator virus1Animator, virus2Animator, virus3Animator, virus4Animator, virus5Animator, virus6Animator, virus7Animator, virus8Animator;
     private Animation translateSyringe;
     private CountDownTimer countDownTimer;
+    private int lives = 3;
+    public long duration = 5000;
 
     @SuppressLint("ResourceType")
     @Override
@@ -66,7 +70,6 @@ public class KillTheVirusGame extends Activity {
         virusColors = getApplicationContext().getResources().getIntArray(R.array.kill_virus_colors);
         initialSetup();
         translateSyringe = AnimationUtils.loadAnimation(this, R.animator.translate);
-        translateSyringe.setDuration(50);
     }
 
     @OnClick(R.id.constraint_layout_kill)
@@ -156,7 +159,7 @@ public class KillTheVirusGame extends Activity {
      */
     public void wrongHit() {
         correctHit = false;
-        gameEnd(score);
+        updateLives();
     }
 
     /**
@@ -207,23 +210,24 @@ public class KillTheVirusGame extends Activity {
      */
     private void checkHit(int virusType) {
         if (((int) virus1Animator.getAnimatedValue() >= 70 && (int) virus1Animator.getAnimatedValue() <= 110) && (virusType == PowerUpUtils.VIRUS_TYPE_1))
-                rightHit(PowerUpUtils.VIRUS_1);
+            rightHit(PowerUpUtils.VIRUS_1);
         else if (((int) virus2Animator.getAnimatedValue() >= 70 && (int) virus2Animator.getAnimatedValue() <= 110) && (virusType == PowerUpUtils.VIRUS_TYPE_2))
-                rightHit(PowerUpUtils.VIRUS_2);
+            rightHit(PowerUpUtils.VIRUS_2);
         else if ((((int) virus3Animator.getAnimatedValue() >= 70 && (int) virus3Animator.getAnimatedValue() <= 110) || ((int) virus3Animator.getAnimatedValue() >= 430 && (int) virus3Animator.getAnimatedValue() <= 470)) && (virusType == PowerUpUtils.VIRUS_TYPE_3))
-                rightHit(PowerUpUtils.VIRUS_3);
+            rightHit(PowerUpUtils.VIRUS_3);
         else if (((int) virus4Animator.getAnimatedValue() >= 430 && (int) virus4Animator.getAnimatedValue() <= 470) && (virusType == PowerUpUtils.VIRUS_TYPE_4))
-                rightHit(PowerUpUtils.VIRUS_4);
+            rightHit(PowerUpUtils.VIRUS_4);
         else if (((int) virus5Animator.getAnimatedValue() >= 430 && (int) virus5Animator.getAnimatedValue() <= 470) && (virusType == PowerUpUtils.VIRUS_TYPE_1))
-                rightHit(PowerUpUtils.VIRUS_5);
+            rightHit(PowerUpUtils.VIRUS_5);
         else if (((int) virus6Animator.getAnimatedValue() >= 430 && (int) virus6Animator.getAnimatedValue() <= 470) && (virusType == PowerUpUtils.VIRUS_TYPE_2))
-                rightHit(PowerUpUtils.VIRUS_6);
+            rightHit(PowerUpUtils.VIRUS_6);
         else if (((int) virus7Animator.getAnimatedValue() >= 430 && (int) virus7Animator.getAnimatedValue() <= 470) && (virusType == PowerUpUtils.VIRUS_TYPE_3))
-                rightHit(PowerUpUtils.VIRUS_7);
+            rightHit(PowerUpUtils.VIRUS_7);
         else if(((int) virus8Animator.getAnimatedValue() >= 430 && (int) virus8Animator.getAnimatedValue() <= 470) && (virusType == PowerUpUtils.VIRUS_TYPE_4))
             rightHit(PowerUpUtils.VIRUS_8);
         else
             wrongHit();
+        updateSpeed();
     }
 
     //Starts linear animation of the syringe each time the screen is clicked
@@ -251,5 +255,24 @@ public class KillTheVirusGame extends Activity {
         hitCount = hitCount + 1;
         if (hitCount == 4)
             hitCount = 0;
+    }
+
+    public void updateLives(){
+        lives = lives - 1;
+        txtLives.setText("" + lives);
+        if(lives == 0)
+            gameEnd(score);
+    }
+
+    public void updateSpeed(){
+        duration = duration - 500;
+        virus1Animator.setDuration(duration);
+        virus2Animator.setDuration(duration);
+        virus3Animator.setDuration(duration);
+        virus4Animator.setDuration(duration);
+        virus5Animator.setDuration(duration);
+        virus6Animator.setDuration(duration);
+        virus7Animator.setDuration(duration);
+        virus8Animator.setDuration(duration);
     }
 }
