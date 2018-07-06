@@ -47,6 +47,10 @@ public class KillTheVirusTutorials extends Activity {
     public ImageView imgScore;
     @BindView(R.id.txt_score)
     public TextView txtScore;
+    @BindView(R.id.txt_lives_label)
+    public TextView txtLivesLabel;
+    @BindView(R.id.txt_lives)
+    public TextView txtLives;
     public int tutorialCount = 0;
     private final float visible = 1, notVisible = (float) 0.7, gone = 0;
 
@@ -78,6 +82,8 @@ public class KillTheVirusTutorials extends Activity {
         imgScore.setAlpha(notVisible);
         txtTime.setAlpha(notVisible);
         txtTimeLabel.setAlpha(notVisible);
+        txtLives.setAlpha(notVisible);
+        txtLivesLabel.setAlpha(notVisible);
         tutorialCount = 1;
     }
 
