@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.StartActivity;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class KillTheVirusGame extends Activity {
@@ -59,7 +61,8 @@ public class KillTheVirusGame extends Activity {
     private Animation translateSyringe;
     private CountDownTimer countDownTimer;
     private int lives = 3;
-    public long duration = 5000;
+    private long duration = 5000, millisLeft = 30000;;
+    private ImageView[] imgVirusArray = new ImageView[9];
 
     @SuppressLint("ResourceType")
     @Override
@@ -67,6 +70,7 @@ public class KillTheVirusGame extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kill_the_virus_game);
         ButterKnife.bind(this);
+        imgVirusArray = new ImageView[]{null, imgVirus1, imgVirus2, imgVirus3, imgVirus4, imgVirus5, imgVirus6, imgVirus7, imgVirus8};
         virusColors = getApplicationContext().getResources().getIntArray(R.array.kill_virus_colors);
         initialSetup();
         translateSyringe = AnimationUtils.loadAnimation(this, R.animator.translate);
@@ -83,14 +87,31 @@ public class KillTheVirusGame extends Activity {
      * Start the countdown timer
      */
     private void initialSetup() {
-        virus1Animator = animateVirus(imgVirus1, TimeUnit.SECONDS.toMillis(5), 0, 359);
-        virus2Animator = animateVirus(imgVirus2, TimeUnit.SECONDS.toMillis(5), 45, 404);
-        virus3Animator = animateVirus(imgVirus3, TimeUnit.SECONDS.toMillis(5), 90, 449);
-        virus4Animator = animateVirus(imgVirus4, TimeUnit.SECONDS.toMillis(5), 135, 494);
-        virus5Animator = animateVirus(imgVirus5, TimeUnit.SECONDS.toMillis(5), 180, 539);
-        virus6Animator = animateVirus(imgVirus6, TimeUnit.SECONDS.toMillis(5), 225, 584);
-        virus7Animator = animateVirus(imgVirus7, TimeUnit.SECONDS.toMillis(5), 270, 629);
-        virus8Animator = animateVirus(imgVirus8, TimeUnit.SECONDS.toMillis(5), 315, 674);
+        boolean calledByTutorialActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+        if(!calledByTutorialActivity){
+            KillTheVirusSessionManager session = new KillTheVirusSessionManager(this);
+            score = session.getScore();
+            millisLeft = session.getTime();
+            lives = session.getLives();
+            duration = session.getSpeed();
+            for(int i = 1; i<= 8; i++){
+                if(PowerUpUtils.VIRUS_HIT[i])
+                    imgVirusArray[i].setVisibility(View.GONE);
+            }
+            Log.v("KillTheVirusGame","Saved Score: " + score );
+            Log.v("KillTheVirusGame", "Saved Time: " + millisLeft);
+            Log.v("KillTheVirusGame", "Saved Lives: " + lives);
+            Log.v("KillTheVirusGame", "Saved Duration: " + duration);
+        }
+
+        virus1Animator = animateVirus(imgVirus1, TimeUnit.SECONDS.toMillis(duration/1000), 0, 359);
+        virus2Animator = animateVirus(imgVirus2, TimeUnit.SECONDS.toMillis(duration/1000), 45, 404);
+        virus3Animator = animateVirus(imgVirus3, TimeUnit.SECONDS.toMillis(duration/1000), 90, 449);
+        virus4Animator = animateVirus(imgVirus4, TimeUnit.SECONDS.toMillis(duration/1000), 135, 494);
+        virus5Animator = animateVirus(imgVirus5, TimeUnit.SECONDS.toMillis(duration/1000), 180, 539);
+        virus6Animator = animateVirus(imgVirus6, TimeUnit.SECONDS.toMillis(duration/1000), 225, 584);
+        virus7Animator = animateVirus(imgVirus7, TimeUnit.SECONDS.toMillis(duration/1000), 270, 629);
+        virus8Animator = animateVirus(imgVirus8, TimeUnit.SECONDS.toMillis(duration/1000), 315, 674);
 
         virus1Animator.start();
         virus2Animator.start();
@@ -101,10 +122,11 @@ public class KillTheVirusGame extends Activity {
         virus7Animator.start();
         virus8Animator.start();
 
-        countDownTimer = new CountDownTimer(30000, 1000) {
+        countDownTimer = new CountDownTimer(millisLeft, 1000) {
             public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
-                txtTime.setText(String.valueOf(seconds));
+                millisLeft = millisUntilFinished;
+                long secLeft = millisLeft / 1000;
+                txtTime.setText(String.valueOf(secLeft));
             }
 
             public void onFinish() {
@@ -119,35 +141,8 @@ public class KillTheVirusGame extends Activity {
      */
     public void rightHit(int virusNumber) {
         correctHit = true;
-        switch (virusNumber) {
-            case PowerUpUtils.VIRUS_1:
-                imgVirus1.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_2:
-                imgVirus2.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_3:
-                imgVirus3.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_4:
-                imgVirus4.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_5:
-                imgVirus5.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_6:
-                imgVirus6.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_7:
-                imgVirus7.setVisibility(View.GONE);
-                break;
-            case PowerUpUtils.VIRUS_8:
-                imgVirus8.setVisibility(View.GONE);
-                break;
-            default:
-                imgVirus1.setVisibility(View.GONE);
-                break;
-        }
+        imgVirusArray[virusNumber].setVisibility(View.GONE);
+        PowerUpUtils.VIRUS_HIT[virusNumber] = true;
         score = increasePoint(score);
         txtScore.setText(Integer.toString(score));
         if (score == 8)
@@ -274,5 +269,21 @@ public class KillTheVirusGame extends Activity {
         virus6Animator.setDuration(duration);
         virus7Animator.setDuration(duration);
         virus8Animator.setDuration(duration);
+    }
+
+    @Override
+    protected void onPause() {
+        KillTheVirusSessionManager sessionManager = new KillTheVirusSessionManager(this);
+        countDownTimer.cancel();
+        countDownTimer = null;
+        sessionManager.saveData(score,millisLeft ,lives, duration);
+        super.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(KillTheVirusGame.this, StartActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 }

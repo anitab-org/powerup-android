@@ -307,5 +307,17 @@ public class PowerUpUtils {
             R.drawable.vocab_skinny,
             R.drawable.vocab_tampon
     };
+
+    public static boolean[] VIRUS_HIT = {
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+    };
     public static volatile boolean sPauseTest = true;
 }
