@@ -48,6 +48,7 @@ public class MemoryMatchGameActivity extends Activity {
     private Animation translateTile;
     private CountDownTimer countDownTimer;
     public boolean calledFromActivity = true;
+    private long millisLeft = 30000;
 
     @SuppressLint("ResourceType")
     @Override
@@ -61,21 +62,38 @@ public class MemoryMatchGameActivity extends Activity {
     }
 
     public void initializeView() {
-        //Making the third tile not visible
         arrayTile = new ArrayList<>();
 
-        //Setting the view of first tile
-        position = random.nextInt(8);
-        imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
-        updateArray(position);
+        boolean calledByTutorialActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+        if(calledByTutorialActivity){
+            MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
+            score = sessionManager.getCurrScore();
+            millisLeft = sessionManager.getTimeLeft();
+            correctAnswer = sessionManager.getCorrectAnswer();
+            wrongAnswer = sessionManager.getWrongAnswer();
+            arrayTile.add(sessionManager.getPrevTile());
+            arrayTile.add(sessionManager.getCurrTile());
+            imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[arrayTile.get(1)]);
+            btnStart.setVisibility(View.GONE);
+            positionCount = 1;
+            txtScore.setText(""+score);
+        }
 
-        btnYes.setEnabled(false);
-        btnNo.setEnabled(false);
+        else {
+            //Setting the view of first tile
+            position = random.nextInt(8);
+            imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
+            updateArray(position);
+
+            btnYes.setEnabled(false);
+            btnNo.setEnabled(false);
+        }
 
         //Setting up the Countdown Timer
-        countDownTimer = new CountDownTimer(30000, 1000) {
+        countDownTimer = new CountDownTimer(millisLeft, 1000) {
             public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
+                millisLeft = millisUntilFinished;
+                int seconds = (int) (millisLeft / 1000);
                 txtTime.setText(String.valueOf(seconds));
             }
 
@@ -83,6 +101,8 @@ public class MemoryMatchGameActivity extends Activity {
                 gameEnd();
             }
         };
+        if(calledByTutorialActivity)
+            countDownTimer.start();
     }
 
     @OnClick(R.id.btn_start)
@@ -182,5 +202,14 @@ public class MemoryMatchGameActivity extends Activity {
         positionCount = positionCount + 1;
         arrayTile.add(value);
         Log.v("MemoryMatchGameActivity", " Value stored at " + positionCount + " is " + arrayTile.get(positionCount));
+    }
+
+    @Override
+    protected void onPause() {
+        MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
+        countDownTimer.cancel();
+        countDownTimer = null;
+        sessionManager.saveData(score, millisLeft, arrayTile.get(positionCount), arrayTile.get(positionCount - 1) , correctAnswer, wrongAnswer);
+        super.onPause();
     }
 }
