@@ -170,7 +170,11 @@ public class MemoryMatchGameActivity extends Activity {
         Log.v("MemoryMatchGameActivity", "Total score: " + score);
         Log.v("MemoryMatchGameActivity", "Number of Correct Answers: " + correctAnswer);
         Log.v("MemoryMatchGameActivity", "Number of Wrong Answers: " + wrongAnswer);
-        startActivity(new Intent(MemoryMatchGameActivity.this, StartActivity.class));
+        Intent intent = new Intent(MemoryMatchGameActivity.this, MemoryMatchEndActivity.class);
+        intent.putExtra("score", score);
+        intent.putExtra("wrong", wrongAnswer);
+        intent.putExtra("correct", correctAnswer);
+        startActivity(intent);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
