@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 public class MemoryMatchTutorialActivity extends Activity {
 
@@ -61,7 +62,9 @@ public class MemoryMatchTutorialActivity extends Activity {
             showTutorial3();
         }
         else{
-            startActivity(new Intent(MemoryMatchTutorialActivity.this, MemoryMatchGameActivity.class));
+            Intent intent = new Intent(MemoryMatchTutorialActivity.this, MemoryMatchGameActivity.class);
+            intent.putExtra(PowerUpUtils.CALLED_BY, true);
+            startActivity(intent);
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
     }
