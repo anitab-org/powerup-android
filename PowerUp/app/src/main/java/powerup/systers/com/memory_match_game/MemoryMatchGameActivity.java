@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.StartActivity;
+import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class MemoryMatchGameActivity extends Activity {
@@ -194,6 +195,9 @@ public class MemoryMatchGameActivity extends Activity {
         intent.putExtra("score", score);
         intent.putExtra("wrong", wrongAnswer);
         intent.putExtra("correct", correctAnswer);
+        //Adding mini-game scores
+        SessionHistory.totalPoints += score;
+        SessionHistory.currScenePoints += score;
         startActivity(intent);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
