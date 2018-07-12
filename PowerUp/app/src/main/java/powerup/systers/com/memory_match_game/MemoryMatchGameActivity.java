@@ -65,7 +65,7 @@ public class MemoryMatchGameActivity extends Activity {
         arrayTile = new ArrayList<>();
 
         boolean calledByTutorialActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false);
-        if(calledByTutorialActivity){
+        if(!calledByTutorialActivity){
             MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
             score = sessionManager.getCurrScore();
             millisLeft = sessionManager.getTimeLeft();
@@ -77,9 +77,7 @@ public class MemoryMatchGameActivity extends Activity {
             btnStart.setVisibility(View.GONE);
             positionCount = 1;
             txtScore.setText(""+score);
-        }
-
-        else {
+        } else {
             //Setting the view of first tile
             position = random.nextInt(8);
             imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
@@ -149,6 +147,8 @@ public class MemoryMatchGameActivity extends Activity {
         translateTile.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                btnYes.setEnabled(false);
+                btnNo.setEnabled(false);
             }
 
             @Override
@@ -156,6 +156,8 @@ public class MemoryMatchGameActivity extends Activity {
                 position = random.nextInt(8);
                 imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
                 updateArray(position);
+                btnYes.setEnabled(true);
+                btnNo.setEnabled(true);
             }
 
             @Override
