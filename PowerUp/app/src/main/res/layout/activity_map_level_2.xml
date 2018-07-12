@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/map_no_building">
+
+    <ImageView
+        android:id="@+id/school_building_level2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/school_grayscale"/>
+    <ImageView
+        android:id="@+id/library_building_level2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/library_grayscale"/>
+    <ImageView
+        android:id="@+id/hospital_building_level2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hospital_grayscale"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/house_colored">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/map_paddingBottom">
+
+            <ImageView
+                android:clickable="false"
+                android:id="@+id/school_level2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:text="@string/house"
+                android:scaleType="centerInside"/>
+
+            <ImageView
+                android:clickable="false"
+                android:id="@+id/house_level2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginRight="@dimen/map_marginBottom"
+                android:layout_marginEnd="@dimen/map_marginBottom"
+                android:layout_weight="1"
+                android:alpha="@dimen/map_alpha"
+                android:text="@string/boyfriend" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/store_level2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/store_height_value"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/map_marginBottom"
+            android:layout_weight="1"
+            android:alpha="@dimen/map_alpha"
+            android:text="@string/store" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:clickable="false"
+                    android:id="@+id/hospital_level2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/map_marginBottom"
+                    android:layout_weight="5"
+                    android:scaleType="centerInside"
+                    android:text="@string/hospital" />
+
+                <Button
+                    android:id="@+id/home_button_level2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/library_level2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/map_marginBottom"
+                android:layout_weight="1"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

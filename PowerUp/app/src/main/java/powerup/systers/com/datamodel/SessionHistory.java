@@ -23,6 +23,10 @@ public class SessionHistory {
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;
     public static boolean sceneLibraryIsReplayed = false;
+    public static boolean sceneHomeLevel2IsReplayed = false;
+    public static boolean sceneSchoolLevel2IsReplayed = false;
+    public static boolean sceneHospitalLevel2IsReplayed = false;
+    public static boolean sceneLibraryLevel2IsReplayed = false;
     public static boolean hasPreviouslyCustomized = false;
     public static int[] npcList;
     public static boolean adult1Chosen = false;

@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.ScenarioOverActivity;
 import powerup.systers.com.StartActivity;
 
 public class MemoryMatchEndActivity extends Activity {
@@ -33,7 +34,7 @@ public class MemoryMatchEndActivity extends Activity {
 
     @OnClick(R.id.continue_btn_memory)
     public void clickContinue(){
-        startActivity(new Intent(MemoryMatchEndActivity.this, StartActivity.class));
+        startActivity(new Intent(MemoryMatchEndActivity.this, ScenarioOverActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 

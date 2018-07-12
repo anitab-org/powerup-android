@@ -66,7 +66,7 @@ public class MemoryMatchSessionManager {
         return pref.getInt(CORRECT_ANSWERS,0);
     }
 
-    public boolean isSinkToSwimOpened() {
+    public boolean isMemoryMatchOpened() {
         return pref.getBoolean(GAME_OPENED, false);
     }
 
