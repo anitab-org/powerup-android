@@ -118,4 +118,8 @@
     <string name="txt_three_zero">30</string>
     <string name="lives_label">Lives:</string>
     <string name="txt_3">3</string>
+    <string name="save_the_blood_label">Presented Situation 1</string>
+    <string name="txt_answer_correct">Answer = Correct</string>
+    <string name="txt_answer_wrong">Answer = Wrong</string>
+    <string name="txt_answer_neutral">Answer = Neutral</string>
 </resources>
