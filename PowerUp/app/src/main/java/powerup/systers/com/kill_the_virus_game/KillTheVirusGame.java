@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.StartActivity;
+import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class KillTheVirusGame extends Activity {
@@ -175,6 +176,9 @@ public class KillTheVirusGame extends Activity {
         Intent intent = new Intent(KillTheVirusGame.this, KillTheVirusEndActivity.class);
         //Passing the final score using intent extra
         intent.putExtra(getString(R.string.score_kill_the_virus),totalScore);
+        //Adding mini-game scores
+        SessionHistory.totalPoints += score;
+        SessionHistory.currScenePoints += score;
         //End the Game
         startActivity(intent);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
