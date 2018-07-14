@@ -51,5 +51,8 @@
     <dimen name="memory_tutorial_1_width">250dp</dimen>
     <dimen name="memory_tutorial_2_width">178dp</dimen>
     <dimen name="memory_tutorial_3_width">220dp</dimen>
+    <dimen name="save_blood_box_width">175dp</dimen>
+    <dimen name="save_blood_box_height">115dp</dimen>
+    <dimen name="option_width">90dp</dimen>
 </resources>
 
