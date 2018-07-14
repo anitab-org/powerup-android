@@ -147,6 +147,8 @@ public class MemoryMatchGameActivity extends Activity {
         translateTile.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                btnYes.setEnabled(false);
+                btnNo.setEnabled(false);
             }
 
             @Override
@@ -154,6 +156,8 @@ public class MemoryMatchGameActivity extends Activity {
                 position = random.nextInt(8);
                 imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
                 updateArray(position);
+                btnYes.setEnabled(true);
+                btnNo.setEnabled(true);
             }
 
             @Override
