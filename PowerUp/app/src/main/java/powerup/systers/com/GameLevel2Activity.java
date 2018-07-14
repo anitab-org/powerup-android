@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -26,76 +27,71 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import powerup.systers.com.datamodel.Answer;
 import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
-import powerup.systers.com.memory_match_game.MemoryMatchTutorialActivity;
-import powerup.systers.com.minesweeper.MinesweeperGameActivity;
-import powerup.systers.com.minesweeper.MinesweeperSessionManager;
-import powerup.systers.com.minesweeper.MinesweeperTutorials;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusTutorials;
 import powerup.systers.com.powerup.PowerUpUtils;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
-
+import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
-public class GameActivity extends Activity {
+public class GameLevel2Activity extends Activity {
 
     public Activity gameActivityInstance;
+    @BindView(R.id.questionView)
+    public TextView questionTextView;
+    @BindView(R.id.scenarioNameEditText)
+    public TextView scenarioNameTextView;
+    @BindView(R.id.askerImageView)
+    public ImageView npcImageView;
+    @BindView(R.id.continueButtonGoesToMap)
+    public Button goToMap;
+    @BindView(R.id.mainListView)
+    public ListView mainListView;
+    @BindView(R.id.eye_view)
+    public ImageView eyeImageView;
+    @BindView(R.id.skin_view)
+    public ImageView skinImageView;
+    @BindView(R.id.hair_view)
+    public ImageView hairImageView;
+    @BindView(R.id.dress_view)
+    public ImageView clothImageView;
+    @Nullable
+    @BindView(R.id.acc_view)
+    public ImageView accessoryImageView;
+    private Context context;
     private DatabaseHandler mDbHandler;
     private List<Answer> answers;
     private Scenario scene;
     private Scenario prevScene;
-    private TextView questionTextView;
-    private TextView scenarioNameTextView;
-    private ImageView npcImageView;
-    private Button goToMap;
     private ArrayAdapter<String> listAdapter;
-    private static boolean isStateChanged = false;
-    Context context;
 
-    public GameActivity() {
+    public GameLevel2Activity() {
         gameActivityInstance = this;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        new ScenarioOverActivity(this).saveActivityOpenedStatus(false);
-        context = GameActivity.this;
-        if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
-            startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
-            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-        }
-        if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
-            startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
-        }
-        if (savedInstanceState != null) {
-            isStateChanged = true;
-        }
+        new ScenarioOverLevel2Activity(this).saveActivityOpenedStatus(false);
+        context = GameLevel2Activity.this;
+        
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
+        ButterKnife.bind(this);
 
         // Find the ListView resource.
-        ListView mainListView = (ListView) findViewById(R.id.mainListView);
-        questionTextView = (TextView) findViewById(R.id.questionView);
-        scenarioNameTextView = (TextView) findViewById(R.id.scenarioNameEditText);
         listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
         answers = new ArrayList<>();
-        npcImageView = findViewById(R.id.askerImageView);
         scene = getmDbHandler().getScenario();
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
-        goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId() - 5]));
         SessionHistory.currScenePoints = 0;
-        ImageView eyeImageView = (ImageView) findViewById(R.id.eye_view);
-        ImageView skinImageView = (ImageView) findViewById(R.id.skin_view);
-        ImageView hairImageView = (ImageView) findViewById(R.id.hair_view);
-        ImageView clothImageView = (ImageView) findViewById(R.id.dress_view);
-        ImageView accessoryImageView = (ImageView) findViewById(R.id.accessory_view);
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
         String eyeImageName = getResources().getString(R.string.eye);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
@@ -154,26 +150,9 @@ public class GameActivity extends Activity {
         updateScenario(0);
         updateQA();
         //Scene is Replayed
-        if (scene.getReplayed() == 1) {
+        if (scene.getReplayed() == 1)
             goToMap.setAlpha((float) 1.0);
-            goToMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(SessionHistory.currScenePoints != 0) {
-                        gotToMapDialogue();
-                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                        goToMap.setClickable(false);
-                        getmDbHandler()
-                                .setReplayedScenario(scene.getScenarioName());
-                        goToMap.setAlpha((float) 0.0);
-                    } else {
-                        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
-                        finish();
-                        startActivity(intent);
-                    }
-                }
-            });
-        }
+
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter(listAdapter);
         mainListView
@@ -187,23 +166,18 @@ public class GameActivity extends Activity {
                                     .getNextQuestionID();
                             updatePoints(position);
                             updateQA();
-                        } else if (answers.get(position).getNextQuestionID() == -1) {
+                        } else if (answers.get(position).getNextQuestionID() == -8) {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
-                            updateScenario(-1);
-                        } else if (answers.get(position).getNextQuestionID() == -2) {
+                            updateScenario(-8);
+                        } else if (answers.get(position).getNextQuestionID() == -10) {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
-                            updateScenario(-2);
-                        } else if (answers.get(position).getNextQuestionID() == -3){
-                            updatePoints(position);
-                            getmDbHandler().setCompletedScenario(scene.getId());
-                            updateScenario(-3);
-                        }
-                        else {
+                            updateScenario(-10);
+                        } else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
-                                SessionHistory.currSessionID = 1;
+                                SessionHistory.currSessionID = 8;
                             }
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
@@ -211,6 +185,22 @@ public class GameActivity extends Activity {
                         }
                     }
                 });
+    }
+
+    @OnClick(R.id.continueButtonGoesToMap)
+    public void clickGoToMap(){
+        if (SessionHistory.currScenePoints != 0) {
+            gotToMapDialogue();
+            SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+            goToMap.setClickable(false);
+            getmDbHandler()
+                    .setReplayedScenario(scene.getScenarioName());
+            goToMap.setAlpha((float) 0.0);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), MapLevel2Activity.class);
+            finish();
+            startActivity(intent);
+        }
     }
 
     /**
@@ -228,11 +218,13 @@ public class GameActivity extends Activity {
     /**
      * Finish, replay, or go to another scenario as needed. Updates the
      * question and answer if the last scenario has not yet been reached.
-     * @param type coding scheme for .csv files, -1 means minesweeper game, 0 means scenario completion
+     *
+     * @param type coding scheme for .csv files, -8 means killvirus game, -10 means vocabmatch, 0 means scenario completion
      */
     private void updateScenario(int type) {
-        if (ScenarioOverActivity.scenarioActivityDone == 1)
-            new ScenarioOverActivity().scenarioOverActivityInstance.finish();
+        if (ScenarioOverLevel2Activity.scenarioActivityDone == 1) {
+            new ScenarioOverLevel2Activity().scenarioOverActivityInstance.finish();
+        }
         if (scene != null)
             prevScene = getmDbHandler().getScenarioFromID(scene.getId());
         scene = getmDbHandler().getScenario();
@@ -240,26 +232,6 @@ public class GameActivity extends Activity {
         if (scene.getReplayed() == 0) {
             // goToMap Mechanics
             goToMap.setAlpha((float) 1.0);
-            goToMap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Incase the user move back to map in between a running
-                    // Scenario.
-                    if(SessionHistory.currScenePoints != 0) {
-                        gotToMapDialogue();
-                        SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                        goToMap.setClickable(false);
-                        getmDbHandler()
-                                .setReplayedScenario(scene.getScenarioName());
-                        goToMap.setAlpha((float) 0.0);
-                    } else {
-                        Intent intent = new Intent(GameActivity.this, MapActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivityForResult(intent, 0);
-                        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                    }
-                }
-            });
         }
         SessionHistory.currQID = scene.getFirstQuestionID();
         scenarioNameTextView.setText(scene.getScenarioName());
@@ -268,25 +240,21 @@ public class GameActivity extends Activity {
             SessionHistory.prevSessionID = scene.getId();
             SessionHistory.currSessionID = scene.getNextScenarioID();
             if (type == 0) {
-                Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
+                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class);
                 intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
+                if (prevScene.getScenarioName().equals("Library Level 2")) {
+                    intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
+                }
                 startActivity(intent);
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -1) {
-                new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
-                startActivity(new Intent(GameActivity.this, MinesweeperTutorials.class));
+            } else if (type == -8) {
+                startActivity(new Intent(GameLevel2Activity.this, KillTheVirusTutorials.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -2) {
-                new SinkToSwimSessionManager(this).saveSinkToSwimOpenedStatus(true);
-                startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -3) {
-                startActivity(new Intent(GameActivity.this, MemoryMatchTutorialActivity.class));
+            } else if (type == -10) {
+                startActivity(new Intent(GameLevel2Activity.this, VocabMatchTutorials.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
-
         }
-
     }
 
     /**
@@ -314,25 +282,25 @@ public class GameActivity extends Activity {
      * Goes back to the map when user presses back button
      */
     @Override
-    public void onBackPressed(){
-        if(SessionHistory.currScenePoints != 0) {
+    public void onBackPressed() {
+        if (SessionHistory.currScenePoints != 0) {
             // clears the activities that were created after the found instance of the required activity
             gotToMapDialogue();
         } else {
             // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
             // clears the activities that were created after the found instance of the required activity
-            startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            startActivity(new Intent(GameLevel2Activity.this, MapLevel2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             finish();
         }
     }
 
-    public void gotToMapDialogue(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+    public void gotToMapDialogue() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameLevel2Activity.this);
         builder.setTitle(context.getResources().getString(R.string.start_title_message))
                 .setMessage(getResources().getString(R.string.game_to_map_message));
         builder.setPositiveButton(getString(R.string.game_confirm_message), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                startActivity(new Intent(GameLevel2Activity.this, MapLevel2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                 finish();
                 getmDbHandler().setReplayedScenario(scene.getScenarioName());

@@ -28,7 +28,7 @@ public class GameOverActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GameOverActivity.this,
-                        MapActivity.class);
+                        MapLevel2Activity.class);
                 finish();
                 startActivityForResult(intent, 0);
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);

@@ -64,8 +64,8 @@ public class MemoryMatchGameActivity extends Activity {
 
     public void initializeView() {
         arrayTile = new ArrayList<>();
-
         boolean calledByTutorialActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+
         if(!calledByTutorialActivity){
             MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
             score = sessionManager.getCurrScore();
