@@ -63,6 +63,8 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     private Context context;
     private GameScreenPresenter presenter;
     //avatar views
+    @BindView(R.id.askerImageView)
+    ImageView npcImageView;
     @BindView(R.id.eye_view)
     ImageView eyeAvatar;
     @BindView(R.id.skin_view)
@@ -99,7 +101,6 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         ListView mainListView = findViewById(R.id.mainListView);
         listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, new ArrayList<String>());
         answers = new ArrayList<>();
-
         SessionHistory.currScenePoints = 0;
 
         // sets the movement method for handling arrow key movement

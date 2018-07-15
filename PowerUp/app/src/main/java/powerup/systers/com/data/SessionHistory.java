@@ -14,14 +14,22 @@ public class SessionHistory {
     public static int clothTotalNo = 4;
     public static int hairTotalNo = 16;
     public static int skinTotalNo = 16;
-    public static int glassesTotalNo = 3;
-    public static int bagTotalNo = 3;
-    public static int hatTotalNo = 4;
-    public static int necklaceTotalNo = 4;
-    public static int accessoryTotalNo = 4;
     public static boolean sceneHomeIsReplayed = false;
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;
     public static boolean sceneLibraryIsReplayed = false;
     public static boolean hasPreviouslyCustomized = false;
+    public static int[] npcList;
+    public static boolean adult1Chosen = false;
+    public static boolean adult2Chosen = false;
+    public static boolean child1Chosen = false;
+    public static boolean child2Chosen = false;
+    public static boolean characterChosen = false;
+    public static int[] npcFullViewList;
+    public static int characterType = 0;
+    public static int selectedAdult1 = 0;
+    public static int selectedAdult2 = 0;
+    public static int selectedChild1 = 0;
+    public static int selectedChild2 = 0;
+    public static int selectedValue = 0;
 }

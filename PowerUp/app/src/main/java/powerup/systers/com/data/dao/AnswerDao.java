@@ -16,6 +16,4 @@ public interface AnswerDao {
 
     @Query("SELECT * FROM Answer WHERE questionID =:questionId")
     List<Answer> getAllAnswer(int questionId);
-
-
 }
