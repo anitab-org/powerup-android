@@ -321,4 +321,25 @@ public class PowerUpUtils {
             false
     };
     public static volatile boolean sPauseTest = true;
+
+
+    public static String TXT_QUES_ANS_SAVE_BLOOD[][] = { {"Presented Situation 1", "Answer = Correct", "Answer = Correct", "Answer = Wrong", "Answer = Wrong","Answer = Neutral","Answer = Neutral"},
+            {"Presented Situation 2", "Answer = Wrong", "Answer = Correct", "Answer = Neutral", "Answer = Wrong","Answer = Correct","Answer = Neutral"},
+            {"Presented Situation 3", "Answer = Neutral", "Answer = Neutral", "Answer = Correct", "Answer = Correct","Answer = Wrong","Answer = Wrong"},
+            {"Presented Situation 4", "Answer = Correct", "Answer = Correct", "Answer = Correct", "Answer = Wrong","Answer = Wrong","Answer = Wrong"},
+            {"Presented Situation 5", "Answer = Neutral", "Answer = Correct", "Answer = Correct", "Answer = Neutral","Answer = Correct","Answer = Wrong"},
+            {"Presented Situation 6", "Answer = Correct", "Answer = Correct", "Answer = Wrong", "Answer = Wrong","Answer = Neutral","Answer = Neutral"},            {"Presented Situation 7", "Answer = Correct", "Answer = Correct", "Answer = Correct", "Answer = Correct","Answer = Correct","Answer = Correct"},
+            {"Presented Situation 7", "Answer = Correct", "Answer = Correct", "Answer = Wrong", "Answer = Wrong","Answer = Neutral","Answer = Neutral"}    };
+
+    public static int SAVE_BLOOD_ANSWER[][] = {{0, 1,1,0,0,2,2},
+            {0,0,1,2,0,1,2},
+            {0,2,2,1,1,0,0},
+            {0,1,1,1,0,0,0},
+            {0,2,1,1,2,1,0},
+            {0,1,1,0,0,2,2},
+            {0,1,1,1,1,1,1}};
+
+    public static int[] SAVE_BLOOD_TEXT_VIEWS = {0,R.id.txt_option_1, R.id.txt_option_2, R.id.txt_option_3, R.id.txt_option_4, R.id.txt_option_5, R.id.txt_option_6};
+
+    public static int[] SAVE_BLOOD_ANSWER_COUNT = {0,2,2,2,3,3,2,6};
 }

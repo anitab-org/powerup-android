@@ -37,6 +37,7 @@ import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusTutorials;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
@@ -174,7 +175,12 @@ public class GameLevel2Activity extends Activity {
                             updatePoints(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-10);
-                        } else {
+                        } else if (answers.get(position).getNextQuestionID() == -11) {
+                            updatePoints(position);
+                            getmDbHandler().setCompletedScenario(scene.getId());
+                            updateScenario(-11);
+                        }
+                        else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 8;
@@ -240,18 +246,16 @@ public class GameLevel2Activity extends Activity {
             SessionHistory.prevSessionID = scene.getId();
             SessionHistory.currSessionID = scene.getNextScenarioID();
             if (type == 0) {
-                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class);
-                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
-                if (prevScene.getScenarioName().equals("Library Level 2")) {
-                    intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
-                }
-                startActivity(intent);
+                startActivity(new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (type == -8) {
                 startActivity(new Intent(GameLevel2Activity.this, KillTheVirusTutorials.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (type == -10) {
                 startActivity(new Intent(GameLevel2Activity.this, VocabMatchTutorials.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -11) {
+                startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodGameActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         }
