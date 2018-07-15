@@ -122,4 +122,9 @@
     <string name="txt_answer_correct">Answer = Correct</string>
     <string name="txt_answer_wrong">Answer = Wrong</string>
     <string name="txt_answer_neutral">Answer = Neutral</string>
+    <string name="hs_eyes">hs_eyes</string>
+    <string name="hs_skin">hs_skin</string>
+    <string name="hs_dress_avatar">hs_dress_avatar</string>
+    <string name="hs_hair">hs_hair</string>
+    <string name="hs_acc">hs_acc</string>
 </resources>

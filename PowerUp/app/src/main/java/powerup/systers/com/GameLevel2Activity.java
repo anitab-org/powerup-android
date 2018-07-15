@@ -26,7 +26,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -79,7 +78,6 @@ public class GameLevel2Activity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         new ScenarioOverLevel2Activity(this).saveActivityOpenedStatus(false);
         context = GameLevel2Activity.this;
-        
         super.onCreate(savedInstanceState);
         setmDbHandler(new DatabaseHandler(this));
         getmDbHandler().open();
@@ -92,8 +90,10 @@ public class GameLevel2Activity extends Activity {
         scene = getmDbHandler().getScenario();
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId() - 5]));
         SessionHistory.currScenePoints = 0;
+
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
-        String eyeImageName = getResources().getString(R.string.eye);
+
+        String eyeImageName = getResources().getString(R.string.hs_eyes);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -105,7 +105,7 @@ public class GameLevel2Activity extends Activity {
             error.printStackTrace();
         }
 
-        String skinImageName = getResources().getString(R.string.skin);
+        String skinImageName = getResources().getString(R.string.hs_skin);
         skinImageName = skinImageName + getmDbHandler().getAvatarSkin();
         try {
             photoNameField = ourRID.getClass().getField(skinImageName);
@@ -115,7 +115,7 @@ public class GameLevel2Activity extends Activity {
             error.printStackTrace();
         }
 
-        String clothImageName = getResources().getString(R.string.cloth);
+        String clothImageName = getResources().getString(R.string.hs_dress_avatar);
         clothImageName = clothImageName + getmDbHandler().getAvatarCloth();
         try {
             photoNameField = ourRID.getClass().getField(clothImageName);
@@ -125,7 +125,7 @@ public class GameLevel2Activity extends Activity {
             error.printStackTrace();
         }
 
-        String hairImageName = getResources().getString(R.string.hair);
+        String hairImageName = getResources().getString(R.string.hs_hair);
         hairImageName = hairImageName + getmDbHandler().getAvatarHair();
         try {
             photoNameField = ourRID.getClass().getField(hairImageName);
@@ -136,7 +136,8 @@ public class GameLevel2Activity extends Activity {
         }
 
         getmDbHandler().setAvatarAccessory(getmDbHandler().getAvatarAccessory());
-        String accessoryImageName = getResources().getString(R.string.accessories);
+
+        String accessoryImageName = getResources().getString(R.string.hs_acc);
         accessoryImageName = accessoryImageName + getmDbHandler().getAvatarAccessory();
         try {
             photoNameField = ourRID.getClass().getField(accessoryImageName);
@@ -150,6 +151,7 @@ public class GameLevel2Activity extends Activity {
         updateScenario(0);
         updateQA();
         //Scene is Replayed
+
         if (scene.getReplayed() == 1)
             goToMap.setAlpha((float) 1.0);
 
