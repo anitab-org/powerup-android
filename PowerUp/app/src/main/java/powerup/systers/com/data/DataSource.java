@@ -2,16 +2,15 @@ package powerup.systers.com.data;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import java.util.List;
 
 import powerup.systers.com.data.dao.*;
 import powerup.systers.com.data.entities.*;
-import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.data.pref.IPrefHelper;
 import powerup.systers.com.utils.*;
 
-public class DataSource implements IDataSource{
+public class DataSource implements IDataSource {
 
     private Context context;
     private static volatile DataSource INSTANCE;
@@ -25,10 +24,11 @@ public class DataSource implements IDataSource{
     private ScenarioDao scenarioDao;
     private PointsDao pointsDao;
     private AppExecutors appExecutors;
+    private IPrefHelper prefHelper;
 
     // prevent direct instantiation
-    private DataSource(@NonNull AppExecutors appExecutors,Context context, @NonNull AccessoryDao accessoryDao, @NonNull AnswerDao answerDao, @NonNull AvatarDao avatarDao,
-                       @NonNull ClothesDao clothesDao, @NonNull HairDao hairDao, @NonNull QuestionsDao questionsDao, @NonNull ScenarioDao scenarioDao, @NonNull PointsDao pointsDao) {
+    private DataSource(@NonNull AppExecutors appExecutors, Context context, @NonNull AccessoryDao accessoryDao, @NonNull AnswerDao answerDao, @NonNull AvatarDao avatarDao,
+                       @NonNull ClothesDao clothesDao, @NonNull HairDao hairDao, @NonNull QuestionsDao questionsDao, @NonNull ScenarioDao scenarioDao, @NonNull PointsDao pointsDao, IPrefHelper prefHelper) {
         this.appExecutors = appExecutors;
         this.avatarDao = avatarDao;
         this.accessoryDao = accessoryDao;
@@ -39,24 +39,23 @@ public class DataSource implements IDataSource{
         this.scenarioDao = scenarioDao;
         this.pointsDao = pointsDao;
         this.context = context;
-
+        this.prefHelper = prefHelper;
     }
 
     // returns a singleton instance
     public static DataSource getInstance(@NonNull AppExecutors appExecutors, Context context, @NonNull AccessoryDao accessoryDao, @NonNull AnswerDao answerDao, @NonNull AvatarDao avatarDao,
-                                         @NonNull ClothesDao clothesDao, @NonNull HairDao hairDao, @NonNull QuestionsDao questionsDao, @NonNull ScenarioDao scenarioDao, @NonNull PointsDao pointsDao) {
+                                         @NonNull ClothesDao clothesDao, @NonNull HairDao hairDao, @NonNull QuestionsDao questionsDao, @NonNull ScenarioDao scenarioDao, @NonNull PointsDao pointsDao, @NonNull IPrefHelper prefHelper) {
         if (INSTANCE == null) {
             synchronized (DataSource.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new DataSource(appExecutors, context, accessoryDao, answerDao, avatarDao, clothesDao, hairDao, questionsDao, scenarioDao, pointsDao);
+                    INSTANCE = new DataSource(appExecutors, context, accessoryDao, answerDao, avatarDao, clothesDao, hairDao, questionsDao, scenarioDao, pointsDao, prefHelper);
                 }
             }
         }
         return INSTANCE;
     }
 
-    @VisibleForTesting
-    static void clearInstance() {
+    public static void clearInstance() {
         INSTANCE = null;
     }
 
@@ -128,11 +127,11 @@ public class DataSource implements IDataSource{
     }
 
     @Override
-    public void getAnswerDescriptionList(final int questionId, @NonNull final LoadStringListCallBack callBack) {
+    public void getAnswerList(final int questionId, @NonNull final LoadAnswerListCallBack callBack) {
         Runnable answerRunnable = new Runnable() {
             @Override
             public void run() {
-                final List<String> descriptionList = answerDao.getAllAnswer(questionId);
+                final List<Answer> descriptionList = answerDao.getAllAnswer(questionId);
                 appExecutors.mainThread().execute(new Runnable() {
                     @Override
                     public void run() {
@@ -532,4 +531,73 @@ public class DataSource implements IDataSource{
     }
 
 
+    @Override
+    public boolean checkFirstTime() {
+        return prefHelper.checkFirstTime();
+    }
+
+    @Override
+    public void setFirstTime(boolean value) {
+        prefHelper.setFirstTime(value);
+    }
+
+    @Override
+    public boolean checkPreviouslyCustomized() {
+        return prefHelper.checkPreviouslyCustomized();
+    }
+
+    @Override
+    public void setPreviouslyCustomized(boolean value) {
+        prefHelper.setPreviouslyCustomized(value);
+    }
+
+    @Override
+    public int getCurrentEyeValue() {
+        return prefHelper.getCurrentEyeValue();
+    }
+
+    @Override
+    public void setCurrentEyeValue(int value) {
+        prefHelper.setCurrentEyeValue(value);
+    }
+
+    @Override
+    public int getCurrentSkinValue() {
+        return prefHelper.getCurrentSkinValue();
+    }
+
+    @Override
+    public void setCurrentSkinValue(int value) {
+        prefHelper.setCurrentSkinValue(value);
+    }
+
+    @Override
+    public int getCurrentHairValue() {
+        return prefHelper.getCurrentHairValue();
+    }
+
+    @Override
+    public void setCurrentHairValue(int value) {
+        prefHelper.setCurrentHairValue(value);
+    }
+
+    @Override
+    public int getCurrentClothValue() {
+        return prefHelper.getCurrentClothValue();
+    }
+
+    @Override
+    public void setCurrentClothValue(int value) {
+        prefHelper.setCurrentClothValue(value);
+    }
+
+    @Override
+    public int getCurrentAccessoriesValue() {
+        return prefHelper.getCurrentAccessoriesValue();
+    }
+
+    @Override
+    public void setCurrentAccessoriesValue(int value) {
+        prefHelper.setCurrentAccessoriesValue(value);
+    }
 }

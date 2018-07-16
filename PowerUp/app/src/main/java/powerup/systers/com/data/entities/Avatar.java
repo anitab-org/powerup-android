@@ -7,23 +7,23 @@ import android.arch.persistence.room.PrimaryKey;
 public class Avatar {
 
     @PrimaryKey
-    private int avatarId;
+    public int avatarId;
 
-    private int face;
+    public int face;
 
-    private int clothes;
+    public int clothes;
 
-    private int hair;
+    public int hair;
 
-    private int eyes;
+    public int eyes;
 
-    private int bag;
+    public int bag;
 
-    private int glasses;
+    public int glasses;
 
-    private int hat;
+    public int hat;
 
-    private int necklace;
+    public int necklace;
 
     public Avatar(int avatarId, int face, int clothes, int hair, int eyes, int bag, int glasses, int hat, int necklace) {
         this.avatarId = avatarId;

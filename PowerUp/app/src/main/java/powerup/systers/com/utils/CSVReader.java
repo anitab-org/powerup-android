@@ -43,7 +43,7 @@ public class CSVReader {
                         case 0: list.add((T) new Question(Integer.valueOf(row[0]), Integer.valueOf(row[1]), row[2]));
                                 break;
                         case 1: list.add((T) new Answer(Integer.valueOf(row[0]), Integer.valueOf(row[1]),
-                                    row[2], Integer.valueOf(row[3]), Integer.valueOf(row[4])));
+                                            row[2], Integer.valueOf(row[3]), Integer.valueOf(row[4])));
                                 break;
                         case 2: list.add((T) new Scenario(Integer.valueOf(row[0]), row[1], row[2], row[3], Integer.valueOf(row[4]),
                                     Integer.valueOf(row[5]), 0, Integer.valueOf(row[6]), 0));

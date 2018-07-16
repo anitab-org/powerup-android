@@ -31,4 +31,24 @@ public class Answer {
         this.nextQuestionID = nextQuestionID;
         this.answerPoints = answerPoints;
     }
+
+    public int getAnswerID() {
+        return answerID;
+    }
+
+    public int getQuestionID() {
+        return questionID;
+    }
+
+    public String getAnswerDescription() {
+        return answerDescription;
+    }
+
+    public int getNextQuestionID() {
+        return nextQuestionID;
+    }
+
+    public int getAnswerPoints() {
+        return answerPoints;
+    }
 }

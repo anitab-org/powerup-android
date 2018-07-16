@@ -4,12 +4,14 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
+import powerup.systers.com.data.entities.Answer;
 import powerup.systers.com.data.entities.Scenario;
+import powerup.systers.com.data.pref.IPrefHelper;
 
-public interface IDataSource {
+public interface IDataSource extends IPrefHelper {
 
-    interface LoadStringListCallBack {
-        void onDataLoaded(List<String> dataList);
+    interface LoadAnswerListCallBack {
+        void onDataLoaded(List<Answer> dataList);
     }
 
     interface LoadStringCallBack {
@@ -32,7 +34,7 @@ public interface IDataSource {
 
     void insertPointsAndAvatarData();
 
-    void getAnswerDescriptionList(int questionId, @NonNull LoadStringListCallBack callBack);
+    void getAnswerList(int questionId, @NonNull LoadAnswerListCallBack callBack);
 
     void getCurrentQuestion(@NonNull LoadStringCallBack callBack);
 

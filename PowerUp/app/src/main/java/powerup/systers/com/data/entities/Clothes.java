@@ -7,13 +7,13 @@ import android.arch.persistence.room.PrimaryKey;
 public class Clothes {
 
     @PrimaryKey
-    private int clothesId;
+    public int clothesId;
 
-    private String clothesName;
+    public String clothesName;
 
-    private int clothesPoints;
+    public int clothesPoints;
 
-    private int clothesPurchased;
+    public int clothesPurchased;
 
     public Clothes(int clothesId, String clothesName, int clothesPoints, int clothesPurchased) {
         this.clothesId = clothesId;

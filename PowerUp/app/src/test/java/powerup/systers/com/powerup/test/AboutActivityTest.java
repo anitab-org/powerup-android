@@ -11,7 +11,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
-import powerup.systers.com.AboutActivity;
+import powerup.systers.com.ui.AboutActivity;
 import powerup.systers.com.BuildConfig;
 import powerup.systers.com.R;
 

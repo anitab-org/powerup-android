@@ -4,7 +4,7 @@
  * bars and karma points.
  */
 
-package powerup.systers.com;
+package powerup.systers.com.ui.scenario_over_screen;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -28,67 +28,63 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import powerup.systers.com.datamodel.Scenario;
-import powerup.systers.com.datamodel.SessionHistory;
-import powerup.systers.com.db.DatabaseHandler;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import powerup.systers.com.ui.GameOverActivity;
+import powerup.systers.com.R;
+import powerup.systers.com.data.DataSource;
+import powerup.systers.com.data.entities.Scenario;
+import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.ui.game_activity.GameActivity;
+import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 
 
-public class ScenarioOverActivity extends AppCompatActivity {
+public class ScenarioOverActivity extends AppCompatActivity implements ScenarioOverContract.IScenarioOverView{
 
     public Activity scenarioOverActivityInstance;
     public static int scenarioActivityDone;
-    private DatabaseHandler mDbHandler;
-    public Scenario scene;
+    private DataSource dataSource;
+    public Scenario scene, prevScene;
+
+    //Todo check preferences and shift it to pref file
     private final String PREF_NAME_SCENARIO = "SCENARIO_OVER_DIALOG";
     private final int PRIVATE_MODE_SCENARIO = 0;
     private final String GAME_OPENED_SCENARIO = "IS_GAME_REPLAYED";
-    SharedPreferences sharedPreferences_scenario;
-    Context context_scenario;
-    SharedPreferences.Editor editor_scenario;
-
+    private SharedPreferences sharedPreferences_scenario;
+    private SharedPreferences.Editor editor_scenario;
+    private ScenarioOverPresenter presenter;
     public ScenarioOverActivity() {
         scenarioOverActivityInstance = this;
     }
     public ScenarioOverActivity(Context context){
-        this.context_scenario = context;
         sharedPreferences_scenario = context.getSharedPreferences(PREF_NAME_SCENARIO, PRIVATE_MODE_SCENARIO);
         editor_scenario = sharedPreferences_scenario.edit();
     }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setmDbHandler(new DatabaseHandler(this));
-        getmDbHandler().open();
+
+        dataSource = InjectionClass.provideDataSource(scenarioOverActivityInstance);
         setContentView(R.layout.activity_scenario_over);
-        scene = getmDbHandler().getScenario();
-        final Scenario prevScene = getmDbHandler().getScenarioFromID(SessionHistory.prevSessionID); //Fetching Scenario
+        ButterKnife.bind(this);
+        presenter = new ScenarioOverPresenter(this, dataSource);
+
+        init();
+
         scenarioActivityDone = 1;
         //If not launched from map then only dialogMaker() is called
         if(!new ScenarioOverActivity(this).isActivityOpened() && (!(getIntent().getExtras()!=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE))))){
             dialogMaker();
         }
-        ImageView replayButton = (ImageView) findViewById(R.id.replayButton);
-        ImageView continueButton = (ImageView) findViewById(R.id.continueButton);
-        Button mapButton = (Button) findViewById(R.id.mapButton);
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                startActivity(new Intent(ScenarioOverActivity.this, MapActivity.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
 
-        //Initializing and setting Text for currentScenarioName
-        final TextView currentScenarioName = (TextView) findViewById(R.id.currentScenarioName);
-        if(getIntent().getExtras() !=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE)) && getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME) != null)
-            currentScenarioName.setText(getResources().getString(R.string.current_scenario_name,getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME)));
-        else
-            currentScenarioName.setText(getResources().getString(R.string.current_scenario_name,prevScene.getScenarioName()));
-        TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
-        
+        // init view of continue button and karma points
+        ImageView continueButton = findViewById(R.id.continueButton);
+        TextView karmaPoints = findViewById(R.id.karmaPoints);
+
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,53 +104,61 @@ public class ScenarioOverActivity extends AppCompatActivity {
             continueButton.setOnClickListener(null);
         }
 
-
-        replayButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(getIntent().getExtras() !=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE)) && getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME) != null) {
-                    String scenario = getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME);
-                    int id;
-                    switch (scenario) {
-                        case "Home":
-                            id = 4;
-                            SessionHistory.sceneHomeIsReplayed = true;
-                            break;
-                        case "School":
-                            id = 5;
-                            SessionHistory.sceneSchoolIsReplayed = true;
-                            break;
-                        case "Hospital":
-                            id = 6;
-                            SessionHistory.sceneHospitalIsReplayed = true;
-                            break;
-                        case "Library":
-                            id = 7;
-                            SessionHistory.sceneLibraryIsReplayed = true;
-                            break;
-                        default:
-                            id = 4;
-                            break;
-                        }
-                    SessionHistory.currSessionID = id;
-                    } else {
-                    SessionHistory.currSessionID = SessionHistory.prevSessionID;
-                    scenarioActivityDone = 0;
-                    }                //Check that reducing points does not lead to negetive value
-                if(SessionHistory.totalPoints - SessionHistory.currScenePoints >= 0)
-                SessionHistory.totalPoints -= SessionHistory.currScenePoints;
-                SessionHistory.currScenePoints = 0;
-                scenarioActivityDone = 0;
-                DatabaseHandler dbHandler = new DatabaseHandler(ScenarioOverActivity.this);
-                dbHandler.resetCompleted(SessionHistory.currSessionID);
-                dbHandler.resetReplayed(SessionHistory.currSessionID);
-                scenarioOverActivityInstance.finish();
-                startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
     }
 
+    private void init() {
+        presenter.loadScenario();
+    }
+
+    // open MapActivity on map button click
+    @OnClick(R.id.mapButton)
+    public void mapButtonListener (View view) {
+        finish();
+        startActivity(new Intent(ScenarioOverActivity.this, MapActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    @OnClick(R.id.replayButton)
+    public void replayButtonListener (View view) {
+        if(getIntent().getExtras() !=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE)) && getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME) != null) {
+            String scenario = getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME);
+            int id;
+            switch (scenario) {
+                case "Home":
+                    id = 4;
+                    SessionHistory.sceneHomeIsReplayed = true;
+                    break;
+                case "School":
+                    id = 5;
+                    SessionHistory.sceneSchoolIsReplayed = true;
+                    break;
+                case "Hospital":
+                    id = 6;
+                    SessionHistory.sceneHospitalIsReplayed = true;
+                    break;
+                case "Library":
+                    id = 7;
+                    SessionHistory.sceneLibraryIsReplayed = true;
+                    break;
+                default:
+                    id = 4;
+                    break;
+            }
+            SessionHistory.currSessionID = id;
+        } else {
+            SessionHistory.currSessionID = SessionHistory.prevSessionID;
+            scenarioActivityDone = 0;
+        }                //Check that reducing points does not lead to negetive value
+        if(SessionHistory.totalPoints - SessionHistory.currScenePoints >= 0)
+            SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+        SessionHistory.currScenePoints = 0;
+        scenarioActivityDone = 0;
+        dataSource.resetCompleted(SessionHistory.currSessionID);
+        dataSource.resetReplayed(SessionHistory.currSessionID);
+        scenarioOverActivityInstance.finish();
+        startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
     /**
      * Goes back to the map when user presses back button
      */
@@ -216,11 +220,21 @@ public class ScenarioOverActivity extends AppCompatActivity {
         editor_scenario.commit();
     }
 
-    public DatabaseHandler getmDbHandler() {
-        return mDbHandler;
+    @Override
+    public void setCurrentScenario(Scenario scenario) {
+        scene = scenario;
     }
 
-    public void setmDbHandler(DatabaseHandler mDbHandler) {
-        this.mDbHandler = mDbHandler;
+    @Override
+    public void setPrevScenario(Scenario scenario) {
+        prevScene = scenario;
+        //Initializing and setting Text for currentScenarioName
+        final TextView currentScenarioName = findViewById(R.id.currentScenarioName);
+        // set scenario name
+        if(getIntent().getExtras() !=null && PowerUpUtils.MAP.equals(getIntent().getExtras().getString(PowerUpUtils.SOURCE)) && getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME) != null)
+            currentScenarioName.setText(getResources().getString(R.string.current_scenario_name,getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME)));
+        else
+            currentScenarioName.setText(getResources().getString(R.string.current_scenario_name,prevScene.getScenarioName()));
+
     }
 }

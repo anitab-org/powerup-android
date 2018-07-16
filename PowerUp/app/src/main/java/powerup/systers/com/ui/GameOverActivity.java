@@ -3,16 +3,18 @@
  * has completed.
  */
 
-package powerup.systers.com;
+package powerup.systers.com.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import powerup.systers.com.datamodel.SessionHistory;
+import butterknife.OnClick;
+import powerup.systers.com.R;
+import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.ui.map_screen.MapActivity;
 
 public class GameOverActivity extends Activity {
 
@@ -21,23 +23,20 @@ public class GameOverActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.completed_game);
 
-        // backToMap starts MapActivity
-        Button backToMap = (Button) findViewById(R.id.ContinueButtonMap);
-        backToMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GameOverActivity.this,
-                        MapActivity.class);
-                finish();
-                startActivityForResult(intent, 0);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
-        });
         //set the total points from sessionHistory
-        TextView karmaPoints = (TextView) findViewById(R.id.karmaPoints);
+        TextView karmaPoints = findViewById(R.id.karmaPoints);
         karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
     }
 
+    // backToMap starts MapActivity
+    @OnClick(R.id.ContinueButtonMap)
+    public void backToMapListener(View view) {
+        Intent intent = new Intent(GameOverActivity.this,
+                MapActivity.class);
+        finish();
+        startActivityForResult(intent, 0);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
     /**
      * Goes back to the map when user presses back button
      */

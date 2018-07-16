@@ -12,11 +12,11 @@ import android.arch.persistence.room.PrimaryKey;
 public class Question {
 
     @PrimaryKey
-    private int questionID;
+    public int questionID;
 
-    private int scenarioID;
+    public int scenarioID;
 
-    private String questionDescription;
+    public String questionDescription;
 
     public Question(int questionID, int scenarioID, String questionDescription) {
         this.questionID = questionID;

@@ -7,6 +7,7 @@ import powerup.systers.com.data.entities.Points;
 
 @Dao
 public interface PointsDao {
+
     @Insert
     void insertPoints(Points points);
 }

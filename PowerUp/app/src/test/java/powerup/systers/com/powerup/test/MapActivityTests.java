@@ -17,13 +17,12 @@ import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.util.ActivityController;
 
 import powerup.systers.com.BuildConfig;
-import powerup.systers.com.GameActivity;
-import powerup.systers.com.MapActivity;
+import powerup.systers.com.ui.game_activity.GameActivity;
+import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.ScenarioOverActivity;
-import powerup.systers.com.StartActivity;
-import powerup.systers.com.StoreActivity;
-import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
+import powerup.systers.com.ui.StartActivity;
+import powerup.systers.com.ui.store_screen.StoreActivity;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;

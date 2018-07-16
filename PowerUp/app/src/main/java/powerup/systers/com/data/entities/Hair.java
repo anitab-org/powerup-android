@@ -7,13 +7,13 @@ import android.arch.persistence.room.PrimaryKey;
 public class Hair {
 
     @PrimaryKey
-    private int hairId;
+    public int hairId;
 
-    private String hairName;
+    public String hairName;
 
-    private int hairPoints;
+    public int hairPoints;
 
-    private int hairPurchased;
+    public int hairPurchased;
 
     public Hair(int hairId, String hairName, int hairPoints, int hairPurchased) {
         this.hairId = hairId;
