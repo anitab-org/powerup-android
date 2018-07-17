@@ -54,5 +54,6 @@
     <dimen name="save_blood_box_width">175dp</dimen>
     <dimen name="save_blood_box_height">115dp</dimen>
     <dimen name="option_width">90dp</dimen>
+    <dimen name="avatar_height_level2">270dp</dimen>
 </resources>
 
