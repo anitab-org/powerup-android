@@ -241,18 +241,20 @@ public class SaveTheBloodGameActivity extends Activity {
     /**
      * Save all the required values
      */
-    public void gameEnd() {
-        Intent intent = new Intent(SaveTheBloodGameActivity.this, ScenarioOverLevel2Activity.class);
-        intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
-        countDownTimer.cancel();
-        SessionHistory.totalPoints += score;
-        SessionHistory.currScenePoints += score;
-        Log.v("SaveBloodGameActivity", "Score: " + score);
-        Log.v("SaveBloodGameActivity", "Correct answers: " + correctAnswer);
-        Log.v("SaveBloodGameActivity", "Wrong answers " + wrongAnswer);
-        startActivity(intent);
-        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-    }
+     public void gameEnd() {
+                Intent intent = new Intent(SaveTheBloodGameActivity.this, SaveTheBloodEndActivity.class);
+                intent.putExtra("score", score);
+                intent.putExtra("correct", correctAnswer);
+                intent.putExtra("wrong", wrongAnswer);
+                countDownTimer.cancel();
+                SessionHistory.totalPoints += score;
+                SessionHistory.currScenePoints += score;
+                Log.v("SaveBloodGameActivity", "Score: " + score);
+                Log.v("SaveBloodGameActivity", "Correct answers: " + correctAnswer);
+                Log.v("SaveBloodGameActivity", "Wrong answers " + wrongAnswer);
+                startActivity(intent);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+     }
 
     @Override
     public void onBackPressed() {
