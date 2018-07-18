@@ -19,6 +19,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
 
 public class MapLevel2Activity extends Activity {
@@ -48,6 +50,9 @@ public class MapLevel2Activity extends Activity {
             if (v.isEnabled()) {
                 if (getmDbHandler().setSessionId(getScenarioName(scenarioChooser.getId()))) {
                     startActivityForResult(new Intent(MapLevel2Activity.this, GameLevel2Activity.class), 0);
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+                } else if(new KillTheVirusSessionManager(MapLevel2Activity.this).isKillTheVirusOpened()){
+                    startActivity(new Intent(MapLevel2Activity.this, KillTheVirusGame.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
                     Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverLevel2Activity.class);

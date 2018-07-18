@@ -18,7 +18,7 @@ public class KillTheVirusSessionManager {
     private Context context;
     private SharedPreferences.Editor editor;
 
-    KillTheVirusSessionManager(Context context) {
+    public KillTheVirusSessionManager(Context context) {
         this.context = context;
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
