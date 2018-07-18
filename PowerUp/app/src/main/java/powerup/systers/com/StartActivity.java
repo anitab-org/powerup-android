@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import powerup.systers.com.datamodel.SessionHistory;
+import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
@@ -61,6 +62,8 @@ public class StartActivity extends Activity {
                                 .saveSinkToSwimOpenedStatus(false);
                             new VocabMatchSessionManager(StartActivity.this)
                                 .saveVocabMatchOpenedStatus(false);
+                            new MemoryMatchSessionManager(StartActivity.this)
+                                .saveMemoryMatchOpenedStatus(false);
                             startActivityForResult(new Intent(StartActivity.this, AvatarRoomActivity.class), 0);
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                         }

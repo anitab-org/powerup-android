@@ -31,6 +31,8 @@ import powerup.systers.com.datamodel.Question;
 import powerup.systers.com.datamodel.Scenario;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
+import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
 import powerup.systers.com.memory_match_game.MemoryMatchTutorialActivity;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
@@ -71,6 +73,10 @@ public class GameActivity extends Activity {
         }
         if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
             startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
+        }
+        if(new MemoryMatchSessionManager(this).isMemoryMatchOpened()){
+            startActivity(new Intent(GameActivity.this, MemoryMatchGameActivity.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
         if (savedInstanceState != null) {
             isStateChanged = true;
@@ -281,6 +287,7 @@ public class GameActivity extends Activity {
                 startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (type == -3) {
+                new MemoryMatchSessionManager(this).saveMemoryMatchOpenedStatus(true);
                 startActivity(new Intent(GameActivity.this, MemoryMatchTutorialActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
