@@ -342,4 +342,17 @@ public class PowerUpUtils {
     public static int[] SAVE_BLOOD_TEXT_VIEWS = {0,R.id.txt_option_1, R.id.txt_option_2, R.id.txt_option_3, R.id.txt_option_4, R.id.txt_option_5, R.id.txt_option_6};
 
     public static int[] SAVE_BLOOD_ANSWER_COUNT = {0,2,2,2,3,3,2,6};
+
+    public static int[] HS_CLOTHES_IMAGES = {
+            R.drawable.hs_dress_avatar1,
+            R.drawable.hs_dress_avatar2,
+            R.drawable.hs_dress_avatar3,
+            R.drawable.hs_dress_avatar4,
+            R.drawable.hs_dress_avatar5,
+            R.drawable.hs_dress_avatar6,
+            R.drawable.hs_dress_avatar7,
+            R.drawable.hs_dress_avatar8
+    };
+
+    public static String[] HS_CLOTHES_POINTS_TEXTS = {"5", "5", "5", "5", "10", "10", "10", "10" };
 }

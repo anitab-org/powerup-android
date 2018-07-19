@@ -119,7 +119,7 @@ public class MapLevel2Activity extends Activity {
 
     @OnClick(R.id.store_level2)
     public void clickStoreButton(){
-        startActivity(new Intent(MapLevel2Activity.this, StoreActivity.class));
+        startActivity(new Intent(MapLevel2Activity.this, StoreLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
