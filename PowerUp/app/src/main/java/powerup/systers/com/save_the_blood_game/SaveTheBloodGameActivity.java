@@ -257,7 +257,17 @@ public class SaveTheBloodGameActivity extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        countDownTimer.cancel();
         startActivity(new Intent(SaveTheBloodGameActivity.this, MapLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    @Override
+    protected void onPause() {
+        SaveTheBloodSessionManager sessionManager = new SaveTheBloodSessionManager(this);
+        sessionManager.saveData(score, millisLeft, count, correctAnswer, wrongAnswer, progress);
+        countDownTimer.cancel();
+        countDownTimer = null;
+        super.onPause();
     }
 }

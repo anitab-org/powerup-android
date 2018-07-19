@@ -36,7 +36,7 @@ import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusTutorials;
 import powerup.systers.com.powerup.PowerUpUtils;
-import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodTutorialActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
@@ -257,7 +257,7 @@ public class GameLevel2Activity extends Activity {
                 startActivity(new Intent(GameLevel2Activity.this, VocabMatchTutorials.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (type == -11) {
-                startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodGameActivity.class));
+                startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodTutorialActivity.class));
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         }
