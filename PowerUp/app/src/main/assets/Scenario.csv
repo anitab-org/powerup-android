@@ -5,3 +5,7 @@
 5,School,1,Boyfriend,1,15,6
 6,Hospital,1,Doctor,1,35,7
 7,Library,1,People,1,41,-1
+8,Home,1,NPC 1,1,8001,9
+9,School,1,NPC 2,1,9001,10
+10,Hospital,1,NPC 3,1,10001,11
+11,Library,1,NPC 4,1,11001,-1

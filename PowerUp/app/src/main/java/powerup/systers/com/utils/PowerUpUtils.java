@@ -17,6 +17,10 @@ public class PowerUpUtils {
     public static final int TYPE_CLOTHES = 1;
     public static final int TYPE_ACCESSORIES = 2;
     public static final int MAX_ELEMENTS_PER_SCREEN = 6;
+    public static final int NPC_ADULT_1 = 1;
+    public static final int NPC_ADULT_2 = 2;
+    public static final int NPC_CHILD_1 = 3;
+    public static final int NPC_CHILD_2 = 4;
 
     public static final String SCORE = "score";
     public static final String CORRECT_ANSWERS = "correct";
@@ -109,6 +113,7 @@ public class PowerUpUtils {
             R.drawable.dress48,
             R.drawable.dress49
     };
+
     // list of point values of cloth available in store
     public static final String[] CLOTHES_POINTS_TEXTS = {"5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10","5","5","10","10","10"};
 
@@ -149,8 +154,10 @@ public class PowerUpUtils {
             R.drawable.acc33,
             R.drawable.acc34,
             R.drawable.acc35};
+
     // list of point value for all accessories available in store
-    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10"};
+    public static final String[] ACCESSORIES_POINTS_TEXTS = {"5","5","10","10","5","5","10","10","5","5","10","10","5","5","10",
+            "10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10","10","5","5","10"};
 
     public static final String questionCSV = "Question.csv";
     public static final String answerCSV = "Answer.csv";
@@ -158,5 +165,145 @@ public class PowerUpUtils {
     public static final String clothesCSV = "Clothes.csv";
     public static final String accessoriesCSV = "Accessories.csv";
     public static final String hairCSV = "Hair.csv";
-}
 
+    public static final int [] NPC_CHILD_IMAGES = {
+            0,
+            R.drawable.brother_1,
+            R.drawable.brother_2,
+            R.drawable.brother_3,
+            R.drawable.brother_4,
+            R.drawable.brother_5,
+            R.drawable.brother_6,
+            R.drawable.brother_7,
+            R.drawable.brother_8,
+            R.drawable.brother_9,
+            R.drawable.sister_1,
+            R.drawable.sister_2,
+            R.drawable.sister_3,
+            R.drawable.sister_4,
+            R.drawable.sister_5,
+            R.drawable.sister_6,
+            R.drawable.sister_7,
+            R.drawable.sister_8,
+            R.drawable.sister_9,
+            R.drawable.sister_10
+    };
+
+
+    public static final int [] CHILD_IMAGES = {
+            R.drawable.none,
+            R.drawable.brother1,
+            R.drawable.brother2,
+            R.drawable.brother3,
+            R.drawable.brother4,
+            R.drawable.brother5,
+            R.drawable.brother6,
+            R.drawable.brother7,
+            R.drawable.brother8,
+            R.drawable.brother9,
+            R.drawable.sister1,
+            R.drawable.sister2,
+            R.drawable.sister3,
+            R.drawable.sister4,
+            R.drawable.sister5,
+            R.drawable.sister6,
+            R.drawable.sister7,
+            R.drawable.sister8,
+            R.drawable.sister9,
+            R.drawable.sister10
+    };
+
+    public static final int [] NPC_ADULT_IMAGES_1 = {
+            R.drawable.father_1,
+            R.drawable.father_2,
+            R.drawable.father_3,
+            R.drawable.guardian_1,
+            R.drawable.guardian_2,
+            R.drawable.guardian_3,
+            R.drawable.guardian_4,
+            R.drawable.guardian_5,
+            R.drawable.guardian_6,
+            R.drawable.guardian_7,
+            R.drawable.guardian_8,
+            R.drawable.guardian_9,
+            R.drawable.guardian_10,
+            R.drawable.mother_1,
+            R.drawable.mother_2,
+            R.drawable.mother_3,
+            R.drawable.mother_4,
+            R.drawable.mother_5,
+            R.drawable.mother_6,
+            R.drawable.mother_7
+    };
+
+    public static final int [] NPC_ADULT_IMAGES_2 = {
+            0,
+            R.drawable.father_1,
+            R.drawable.father_2,
+            R.drawable.father_3,
+            R.drawable.guardian_1,
+            R.drawable.guardian_2,
+            R.drawable.guardian_3,
+            R.drawable.guardian_4,
+            R.drawable.guardian_5,
+            R.drawable.guardian_6,
+            R.drawable.guardian_7,
+            R.drawable.guardian_8,
+            R.drawable.guardian_9,
+            R.drawable.guardian_10,
+            R.drawable.mother_1,
+            R.drawable.mother_2,
+            R.drawable.mother_3,
+            R.drawable.mother_4,
+            R.drawable.mother_5,
+            R.drawable.mother_6,
+            R.drawable.mother_7
+    };
+
+    public static final int [] ADULT_IMAGES_1 = {
+            R.drawable.father1,
+            R.drawable.father2,
+            R.drawable.father3,
+            R.drawable.guardian1,
+            R.drawable.guardian2,
+            R.drawable.guardian3,
+            R.drawable.guardian4,
+            R.drawable.guardian5,
+            R.drawable.guardian6,
+            R.drawable.guardian7,
+            R.drawable.guardian8,
+            R.drawable.guardian9,
+            R.drawable.guardian10,
+            R.drawable.mother1,
+            R.drawable.mother2,
+            R.drawable.mother3,
+            R.drawable.mother4,
+            R.drawable.mother5,
+            R.drawable.mother6,
+            R.drawable.mother7
+    };
+
+    public static final int [] ADULT_IMAGES_2 = {
+            R.drawable.none,
+            R.drawable.father1,
+            R.drawable.father2,
+            R.drawable.father3,
+            R.drawable.guardian1,
+            R.drawable.guardian2,
+            R.drawable.guardian3,
+            R.drawable.guardian4,
+            R.drawable.guardian5,
+            R.drawable.guardian6,
+            R.drawable.guardian7,
+            R.drawable.guardian8,
+            R.drawable.guardian9,
+            R.drawable.guardian10,
+            R.drawable.mother1,
+            R.drawable.mother2,
+            R.drawable.mother3,
+            R.drawable.mother4,
+            R.drawable.mother5,
+            R.drawable.mother6,
+            R.drawable.mother7
+    };
+}
