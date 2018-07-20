@@ -60,6 +60,10 @@ public class KillTheVirusTutorials extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kill_the_virus_tutorial);
         ButterKnife.bind(this);
+
+        //Resetting the array
+        for(int i = 1; i<= 8; i++)
+                PowerUpUtils.VIRUS_HIT[i] = false;
         initializeViews();
     }
 
