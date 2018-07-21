@@ -1,130 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/classroom"
-        android:gravity="fill"
-        tools:context="powerup.systers.com.GameActivity"
-        android:id="@+id/root">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/classroom">
 
-        <TextView
-            android:id="@+id/scenarioNameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/karma_star_height"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/scenario_name_marginLeft"
-            android:layout_marginStart="@dimen/scenario_name_marginLeft"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:background="@android:color/transparent"
-            android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
-            android:ems="@integer/text_view_ems"
-            android:hint="@string/pgame_scenario_hint"
-            android:textColor="@color/powerup_black"
-            android:gravity="top"
-            android:textSize="@dimen/game_text_size"/>
-
-
-        <Button
-            android:id="@+id/continueButtonGoesToMap"
-            android:layout_width="@dimen/home_button_height"
-            android:layout_height="@dimen/home_button_height"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/home_button" />
-
+    <FrameLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="@dimen/avatar_width"
+        android:layout_height="@dimen/avatar_height_level2"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
-            android:id="@+id/askerImageView"
-            android:layout_marginEnd="@dimen/conversation_margin"
-            android:layout_marginRight="@dimen/conversation_margin"
-            android:layout_width="@dimen/asker_width"
+            android:id="@+id/skin_view"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/mother_6" />
+            android:scaleType="fitXY"
+            android:src="@drawable/hs_skin1" />
 
-        <FrameLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="@dimen/avatar_width"
-            android:layout_height="@dimen/avatar_height_level2"
-            android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/dress_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/hs_dress_avatar1" />
 
-            <ImageView
-                android:id="@+id/skin_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/hs_skin1" />
+        <ImageView
+            android:id="@+id/hair_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/hs_hair1" />
 
-            <ImageView
-                android:id="@+id/dress_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/hs_dress_avatar7" />
+        <ImageView
+            android:id="@+id/eye_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/hs_eyes1" />
 
-            <ImageView
-                android:id="@+id/hair_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/hs_hair3" />
+        <ImageView
+            android:id="@+id/accessory_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
 
-            <ImageView
-                android:id="@+id/eye_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/hs_eyes1" />
+    </FrameLayout>
 
-            <ImageView
-                android:id="@+id/accessory_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                />
+    <ImageView
+        android:id="@+id/askerImageView"
+        android:layout_width="@dimen/asker_width"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/conversation_margin"
+        android:src="@drawable/mother_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        </FrameLayout>
+    <TextView
+        android:id="@+id/questionView"
+        android:layout_width="@dimen/questionview_tv_width"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/conversation_margin"
+        android:layout_marginTop="@dimen/conversation_margin"
+        android:background="@drawable/right_conversation"
+        android:gravity="center"
+        android:hint="@string/question"
+        android:maxLines="5"
+        android:paddingBottom="@dimen/game_convo_padding_bottom"
+        android:paddingEnd="@dimen/game_convo_padding_right"
+        android:paddingLeft="@dimen/game_convo_padding_left"
+        android:paddingRight="@dimen/game_convo_padding_right"
+        android:paddingStart="@dimen/game_convo_padding_left"
+        android:paddingTop="@dimen/game_convo_padding_top"
+        android:scrollbars="vertical"
+        android:textColor="@color/powerup_black"
+        android:textSize="@dimen/game_convo_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/mainListView"
+        app:layout_constraintEnd_toStartOf="@+id/askerImageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ListView
-            android:paddingBottom="@dimen/conversation_margin"
-            android:paddingLeft="@dimen/game_padding_left"
-            android:paddingStart="@dimen/game_padding_left"
-            android:paddingRight="@dimen/conversation_margin"
-            android:paddingEnd="@dimen/conversation_margin"
-            android:id="@+id/mainListView"
-            android:layout_width="@dimen/answer_listview_width"
-            android:layout_height="@dimen/main_list_view_height"
-            android:layout_toRightOf="@id/relativeLayout"
-            android:layout_toEndOf="@id/relativeLayout"
-            android:layout_centerVertical="true"
-            android:background="@drawable/left_conversation"
-            android:clickable="true"/>
+    <ListView
+        android:id="@+id/mainListView"
+        android:layout_width="@dimen/answer_listview_width"
+        android:layout_height="@dimen/main_list_view_height"
+        android:background="@drawable/left_conversation"
+        android:clickable="true"
+        android:paddingBottom="@dimen/conversation_margin"
+        android:paddingEnd="@dimen/conversation_margin"
+        android:paddingStart="@dimen/game_padding_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:textColor="@color/powerup_black"
-            android:id="@+id/questionView"
-            android:layout_width="@dimen/questionview_tv_width"
-            android:textSize="@dimen/game_convo_text_size"
-            android:layout_height="wrap_content"
-            android:background="@drawable/right_conversation"
-            android:scrollbars="vertical"
-            android:maxLines="5"
-            android:paddingTop="@dimen/game_convo_padding_top"
-            android:paddingStart="@dimen/game_convo_padding_left"
-            android:paddingLeft="@dimen/game_convo_padding_left"
-            android:paddingEnd="@dimen/game_convo_padding_right"
-            android:paddingRight="@dimen/game_convo_padding_right"
-            android:paddingBottom="@dimen/game_convo_padding_bottom"
-            android:hint="@string/question"
-            android:layout_above="@id/mainListView"
-            android:layout_marginTop="@dimen/conversation_margin"
-            android:layout_marginBottom="@dimen/conversation_margin"
-            android:layout_toLeftOf="@id/askerImageView"
-            android:layout_toStartOf="@id/askerImageView"
-            android:gravity="center"/>
+    <Button
+        android:id="@+id/continueButtonGoesToMap"
+        android:layout_width="@dimen/home_button_height"
+        android:layout_height="@dimen/home_button_height"
+        android:background="@drawable/home_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/scenarioNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/karma_star_height"
+        android:layout_marginStart="@dimen/scenario_name_marginLeft"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/abc_primary_text_disable_only_material_dark"
+        android:ems="@integer/text_view_ems"
+        android:gravity="top"
+        android:hint="@string/pgame_scenario_hint"
+        android:textColor="@color/powerup_black"
+        android:textSize="@dimen/game_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
