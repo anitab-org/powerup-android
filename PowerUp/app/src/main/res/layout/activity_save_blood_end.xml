@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.65" />
 
     <TextView
-        android:id="@+id/txt_memory_wrong"
+        android:id="@+id/txt_save_blood_wrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_zero"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.65" />
 
     <ImageView
-        android:id="@+id/continue_btn_memory"
+        android:id="@+id/btn_continue_save_blood"
         android:layout_width="@dimen/continue_height_memory"
         android:layout_height="@dimen/continue_width_memory"
         android:src="@drawable/continue_button"

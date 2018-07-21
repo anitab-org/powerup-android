@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import powerup.systers.com.MapLevel2Activity;
 import powerup.systers.com.R;
 import powerup.systers.com.StartActivity;
 import powerup.systers.com.datamodel.SessionHistory;
@@ -95,6 +96,8 @@ public class KillTheVirusGame extends Activity {
             millisLeft = session.getTime();
             lives = session.getLives();
             duration = session.getSpeed();
+            txtScore.setText(""+score);
+            txtLives.setText(""+lives);
             for(int i = 1; i<= 8; i++){
                 if(PowerUpUtils.VIRUS_HIT[i])
                     imgVirusArray[i].setVisibility(View.GONE);
@@ -287,7 +290,7 @@ public class KillTheVirusGame extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(KillTheVirusGame.this, StartActivity.class));
+        startActivity(new Intent(KillTheVirusGame.this, MapLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 }

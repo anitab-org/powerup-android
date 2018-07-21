@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.85" />
 
     <ImageView
-        android:id="@+id/img_score"
+        android:id="@+id/img_score_save"
         android:layout_width="@dimen/score_label_size"
         android:layout_height="@dimen/score_label_size"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,34 +116,30 @@
         android:id="@+id/txt_score_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/txt_zero"
         android:textColor="@color/powerup_dark_blue"
         android:textSize="@dimen/txt_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_score"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_score"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <TextView
         android:id="@+id/txt_save_blood_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:text="@string/save_the_blood_label"
         android:textColor="@color/powerup_dark_blue"
         android:textSize="@dimen/txt_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/txt_time_label_save"
-        app:layout_constraintStart_toEndOf="@+id/img_score"
+        app:layout_constraintStart_toStartOf="@+id/txt_score_save"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
