@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.powerup.PowerUpUtils;
 
 public class SaveTheBloodTutorialActivity extends Activity {
 
@@ -76,7 +77,9 @@ public class SaveTheBloodTutorialActivity extends Activity {
         else if(tutorialCount == 2)
             showTutorial3();
         else {
-            startActivity(new Intent(SaveTheBloodTutorialActivity.this, SaveTheBloodGameActivity.class));
+            Intent intent = new Intent(SaveTheBloodTutorialActivity.this,SaveTheBloodGameActivity.class)
+                    .putExtra(PowerUpUtils.CALLED_BY, true);
+            startActivity(intent);
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
     }

@@ -36,6 +36,7 @@ public class SaveTheBloodEndActivity extends Activity {
     public void clickContinue(){
         Intent intent = new Intent(SaveTheBloodEndActivity.this, ScenarioOverLevel2Activity.class);
         intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
+        new SaveTheBloodSessionManager(this).saveSaveBloodOpenedStatus(false);
         startActivity(intent);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }

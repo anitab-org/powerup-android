@@ -22,6 +22,8 @@ import powerup.systers.com.db.DatabaseHandler;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 
 public class MapLevel2Activity extends Activity {
 
@@ -53,6 +55,9 @@ public class MapLevel2Activity extends Activity {
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if(new KillTheVirusSessionManager(MapLevel2Activity.this).isKillTheVirusOpened()){
                     startActivity(new Intent(MapLevel2Activity.this, KillTheVirusGame.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+                } else if(new SaveTheBloodSessionManager(MapLevel2Activity.this).isSaveBloodOpened()){
+                    startActivity(new Intent(MapLevel2Activity.this, SaveTheBloodGameActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
                     Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverLevel2Activity.class);
