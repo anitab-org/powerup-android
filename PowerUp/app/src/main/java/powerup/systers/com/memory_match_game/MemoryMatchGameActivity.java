@@ -21,8 +21,8 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import powerup.systers.com.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.StartActivity;
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.powerup.PowerUpUtils;
 
@@ -100,7 +100,7 @@ public class MemoryMatchGameActivity extends Activity {
                 gameEnd();
             }
         };
-        if(calledByTutorialActivity)
+        if(!calledByTutorialActivity)
             countDownTimer.start();
     }
 
@@ -221,5 +221,12 @@ public class MemoryMatchGameActivity extends Activity {
         countDownTimer = null;
         sessionManager.saveData(score, millisLeft, arrayTile.get(positionCount), arrayTile.get(positionCount - 1) , correctAnswer, wrongAnswer);
         super.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(MemoryMatchGameActivity.this, MapActivity.class));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 }

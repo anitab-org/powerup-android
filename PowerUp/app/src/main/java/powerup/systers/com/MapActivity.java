@@ -16,6 +16,8 @@ import android.widget.ImageView;
 
 import powerup.systers.com.datamodel.SessionHistory;
 import powerup.systers.com.db.DatabaseHandler;
+import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
+import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
 import powerup.systers.com.minesweeper.MinesweeperGameActivity;
 import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.powerup.PowerUpUtils;
@@ -40,8 +42,9 @@ public class MapActivity extends Activity {
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if (new SinkToSwimSessionManager(MapActivity.this).isSinkToSwimOpened()) {
                     startActivity(new Intent(MapActivity.this, SinkToSwimGame.class));
-                } else if (new VocabMatchSessionManager(MapActivity.this).isVocabMatchOpened()) {
-                    startActivity(new Intent(MapActivity.this, VocabMatchGameActivity.class));
+                } else if (new MemoryMatchSessionManager(MapActivity.this).isMemoryMatchOpened()){
+                    startActivity(new Intent(MapActivity.this, MemoryMatchGameActivity.class));
+                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
                     Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
                     intent.putExtra(PowerUpUtils.SOURCE,PowerUpUtils.MAP);

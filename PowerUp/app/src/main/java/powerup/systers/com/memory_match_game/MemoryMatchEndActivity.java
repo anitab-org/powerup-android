@@ -34,6 +34,7 @@ public class MemoryMatchEndActivity extends Activity {
 
     @OnClick(R.id.continue_btn_memory)
     public void clickContinue(){
+        new MemoryMatchSessionManager(this).saveMemoryMatchOpenedStatus(false);
         startActivity(new Intent(MemoryMatchEndActivity.this, ScenarioOverActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
