@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,7 +46,9 @@ import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
 @SuppressLint("NewApi")
 public class GameActivity extends Activity {
 
+    private static boolean isStateChanged = false;
     public Activity gameActivityInstance;
+    Context context;
     private DatabaseHandler mDbHandler;
     private List<Answer> answers;
     private Scenario scene;
@@ -53,9 +57,8 @@ public class GameActivity extends Activity {
     private TextView scenarioNameTextView;
     private ImageView npcImageView;
     private Button goToMap;
+    private ProgressBar health, invisibility, telepathy, healing;
     private ArrayAdapter<String> listAdapter;
-    private static boolean isStateChanged = false;
-    Context context;
 
     public GameActivity() {
         gameActivityInstance = this;
@@ -69,7 +72,7 @@ public class GameActivity extends Activity {
             startActivity(new Intent(GameActivity.this, MinesweeperGameActivity.class));
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
-        if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
+        if (new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
             startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
         }
         if (savedInstanceState != null) {
@@ -80,6 +83,27 @@ public class GameActivity extends Activity {
         getmDbHandler().open();
         setContentView(R.layout.game_activity);
 
+        healing = findViewById(R.id.progress_healing);
+        health = findViewById(R.id.progress_health);
+        invisibility = findViewById(R.id.progress_invisibility);
+        telepathy = findViewById(R.id.progress_telepathy);
+
+        //Checking if the value of progress bars is max
+        if(SessionHistory.progressHealth >= 100)
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressHealing >= 100)
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressInvisibility >= 100)
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressTelepathy >= 100)
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+
+        //Updating the progress values
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
         // Find the ListView resource.
         ListView mainListView = (ListView) findViewById(R.id.mainListView);
         questionTextView = (TextView) findViewById(R.id.questionView);
@@ -88,7 +112,7 @@ public class GameActivity extends Activity {
         answers = new ArrayList<>();
         npcImageView = findViewById(R.id.askerImageView);
         scene = getmDbHandler().getScenario();
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId()-1]));
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[scene.getId() - 1]));
         goToMap = (Button) findViewById(R.id.continueButtonGoesToMap);
         SessionHistory.currScenePoints = 0;
         ImageView eyeImageView = (ImageView) findViewById(R.id.eye_view);
@@ -159,7 +183,7 @@ public class GameActivity extends Activity {
             goToMap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(SessionHistory.currScenePoints != 0) {
+                    if (SessionHistory.currScenePoints != 0) {
                         gotToMapDialogue();
                         SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                         goToMap.setClickable(false);
@@ -167,7 +191,7 @@ public class GameActivity extends Activity {
                                 .setReplayedScenario(scene.getScenarioName());
                         goToMap.setAlpha((float) 0.0);
                     } else {
-                        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                         finish();
                         startActivity(intent);
                     }
@@ -186,31 +210,83 @@ public class GameActivity extends Activity {
                             SessionHistory.currQID = answers.get(position)
                                     .getNextQuestionID();
                             updatePoints(position);
+                            updateProgressBars(position);
                             updateQA();
                         } else if (answers.get(position).getNextQuestionID() == -1) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-1);
                         } else if (answers.get(position).getNextQuestionID() == -2) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-2);
-                        } else if (answers.get(position).getNextQuestionID() == -3){
+                        } else if (answers.get(position).getNextQuestionID() == -3) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-3);
-                        }
-                        else {
+                        } else {
                             if (SessionHistory.currSessionID == -1) {
                                 // Check to make sure all scenes are completed
                                 SessionHistory.currSessionID = 1;
                             }
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(0);
                         }
                     }
                 });
+
+        health.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if(SessionHistory.progressHealth >= 100) {
+                   showDialog("Health");
+                   SessionHistory.progressHealth = 0;
+                   health.setProgress(0);
+                   health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+               }
+            }
+        });
+
+        healing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(SessionHistory.progressHealing >= 100) {
+                    showDialog("Healing");
+                    SessionHistory.progressHealing = 0;
+                    healing.setProgress(0);
+                    healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+                }
+            }
+        });
+
+        invisibility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(SessionHistory.progressInvisibility >= 100) {
+                    showDialog("Invisibility");
+                    SessionHistory.progressInvisibility= 0;
+                    invisibility.setProgress(0);
+                    invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+                }
+            }
+        });
+
+        telepathy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(SessionHistory.progressTelepathy >= 100) {
+                    showDialog("Telepathy");
+                    SessionHistory.progressTelepathy = 0;
+                    telepathy.setProgress(0);
+                    telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+                }
+            }
+        });
     }
 
     /**
@@ -226,8 +302,72 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Updates the progress bars according to points given for the chosen answer
+     * Healing & Health decrease if points for the chosen answer is 1 which reflects a bad choice
+     * Invisibility & Telepathy continuously increase by different amounts depending on the quality of chosen answer
+     *
+     * @param position the current question user is on
+     */
+    private void updateProgressBars(int position) {
+        //get the points for the chosen answer
+        int points = answers.get(position).getPoints();
+
+        if (points == 1) {
+            SessionHistory.progressHealing -= (points * 2);
+            SessionHistory.progressHealth -= (points * 4);
+        } else {
+            SessionHistory.progressHealing += (points * 2);
+            SessionHistory.progressHealth += (points * 2);
+        }
+        SessionHistory.progressInvisibility += (points * 2);
+        SessionHistory.progressTelepathy += (points * 4);
+
+        if (SessionHistory.progressHealth >= 100) {
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressHealing >= 100) {
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressInvisibility >= 100) {
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressTelepathy >= 100) {
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
+    }
+
+    /**
+     * Used to show dialog box when a progress bar reaches it's maximum value
+     *
+     * @param progress the progress bar whose maximum value is reached
+     */
+    public void showDialog(String progress) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+        builder.setTitle("Congratulations!")
+                .setMessage("You have reached maximum value for " + progress + " and has earned 5 extra karma points");
+        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                SessionHistory.totalPoints += 5;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
+    }
+
+    /**
      * Finish, replay, or go to another scenario as needed. Updates the
      * question and answer if the last scenario has not yet been reached.
+     *
      * @param type coding scheme for .csv files, -1 means minesweeper game, 0 means scenario completion
      */
     private void updateScenario(int type) {
@@ -245,7 +385,7 @@ public class GameActivity extends Activity {
                 public void onClick(View v) {
                     // Incase the user move back to map in between a running
                     // Scenario.
-                    if(SessionHistory.currScenePoints != 0) {
+                    if (SessionHistory.currScenePoints != 0) {
                         gotToMapDialogue();
                         SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                         goToMap.setClickable(false);
@@ -314,8 +454,8 @@ public class GameActivity extends Activity {
      * Goes back to the map when user presses back button
      */
     @Override
-    public void onBackPressed(){
-        if(SessionHistory.currScenePoints != 0) {
+    public void onBackPressed() {
+        if (SessionHistory.currScenePoints != 0) {
             // clears the activities that were created after the found instance of the required activity
             gotToMapDialogue();
         } else {
@@ -326,7 +466,7 @@ public class GameActivity extends Activity {
         }
     }
 
-    public void gotToMapDialogue(){
+    public void gotToMapDialogue() {
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setTitle(context.getResources().getString(R.string.start_title_message))
                 .setMessage(getResources().getString(R.string.game_to_map_message));
