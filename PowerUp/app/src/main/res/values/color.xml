@@ -13,4 +13,5 @@
     <color name="wrong_answer">#FF6969</color>
     <color name="score_text">#6EBFE1</color>
     <color name="current_scenario_text">#4C8BAA</color>
+    <color name="powerup_button_border">#1CA5AC</color>
 </resources>
