@@ -75,6 +75,19 @@ public class SaveTheBloodGameActivity extends Activity {
 
     //Setting up the initial state of elements
     public void initializeViews() {
+        boolean calledByTutorial = getIntent().
+                getBooleanExtra(PowerUpUtils.CALLED_BY, false);
+        if(!calledByTutorial){
+            SaveTheBloodSessionManager sessionManager = new SaveTheBloodSessionManager(this);
+            score = sessionManager.getCurrScore();
+            millisLeft = sessionManager.getTimeLeft();
+            count = sessionManager.getCurrRound();
+            correctAnswer = sessionManager.getCorrectAnswer();
+            wrongAnswer = sessionManager.getWrongAnswer();
+            progress = sessionManager.getCurrentProgress();
+            txtScore.setText(""+score);
+            roundCount = count + 1;
+            }
         progressBar.setProgress(progress);
         countDownTimer.start();
         txtSituation.setText(PowerUpUtils.TXT_QUES_ANS_SAVE_BLOOD[count][0]);

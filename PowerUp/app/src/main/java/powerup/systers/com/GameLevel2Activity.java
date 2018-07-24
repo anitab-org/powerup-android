@@ -38,6 +38,8 @@ import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusTutorials;
 import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodTutorialActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
@@ -89,6 +91,10 @@ public class GameLevel2Activity extends Activity {
 
         if(new KillTheVirusSessionManager(this).isKillTheVirusOpened()){
             startActivity(new Intent(GameLevel2Activity.this, KillTheVirusGame.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+        }
+        if(new SaveTheBloodSessionManager(this).isSaveBloodOpened()){
+            startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodGameActivity.class));
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
 
@@ -266,6 +272,7 @@ public class GameLevel2Activity extends Activity {
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             } else if (type == -11) {
                 startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodTutorialActivity.class));
+                new SaveTheBloodSessionManager(this).saveSaveBloodOpenedStatus(true);
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             }
         }
