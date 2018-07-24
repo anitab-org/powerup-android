@@ -89,4 +89,46 @@
     <string name="marcello_Text">Marcello</string>
     <string name="score_text_zero">Score: 0</string>
     <string name="cancel">Cancel</string>
+    <string name="pregame_setup_title">FAMILY! \n\nIn this step you can choose\nand customize your family members!</string>
+    <string name="elder_sister">SISTER</string>
+    <string name="friend">FRIEND</string>
+    <string name="doctor">DOCTOR</string>
+    <string name="teacher">TEACHER</string>
+    <string name="npc_label">Sister</string>
+    <string name="mother">Mother</string>
+    <string name="father">Father</string>
+    <string name="sister">Sister</string>
+    <string name="brother">Brother</string>
+    <string name="none">None</string>
+    <string name="guardian">Guardian</string>
+    <string name="required">Required</string>
+    <string name="choose_member">Choose one character!</string>
+    <string name="pregame_warning_message">To proceed in the game you need to choose atleast one character</string>
+    <string name="time">Time: </string>
+    <string name="txt_zero">00</string>
+    <string name="memory_label">Does the tile on the left match the tile that appeared before it?</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="tutorial_1">Shoot the viruses with the syringe!</string>
+    <string name="tutorial_2">The color of the syringe should match with the color of the virus otherwise you loose!</string>
+    <string name="tutorial_3">Try to kill as many viruses as possible before the time runs out!</string>
+    <string name="score_kill_the_virus">kill the virus score</string>
+    <string name="memory_tutorial_1">Memorize and match the tile on the left with the tile that appeared one tile before it</string>
+    <string name="memory_tutorial_2">Press yes or no depending upon the answer</string>
+    <string name="memory_tutorial_3">Try to get maximum number of correct answers before the time runs out!</string>
+    <string name="txt_three_zero">30</string>
+    <string name="lives_label">Lives:</string>
+    <string name="txt_3">3</string>
+    <string name="save_the_blood_label">Presented Situation 1</string>
+    <string name="txt_answer_correct">Answer = Correct</string>
+    <string name="txt_answer_wrong">Answer = Wrong</string>
+    <string name="txt_answer_neutral">Answer = Neutral</string>
+    <string name="hs_eyes">hs_eyes</string>
+    <string name="hs_skin">hs_skin</string>
+    <string name="hs_dress_avatar">hs_dress_avatar</string>
+    <string name="hs_hair">hs_hair</string>
+    <string name="hs_acc">hs_acc</string>
+    <string name="save_blood_tutorial_1">Choose the answers that you think might fit the situation!</string>
+    <string name="save_blood_tutorial_2">Every correct answer will increase the level of blood!</string>
+    <string name="save_blood_tutorial_3">Try to choose all the correct options before the time runs out!</string>
 </resources>
