@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="kill_virus_colors">
+        <item>#BA55D3</item>
+        <item>#228B22</item>
+        <item>#FF1493</item>
+        <item>#000000</item>
+    </array>
+</resources>
