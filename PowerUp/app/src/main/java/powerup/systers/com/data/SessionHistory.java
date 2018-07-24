@@ -2,7 +2,7 @@
  * @desc sets up the default avatar features and scenario points upon beginning the app.
  */
 
-package powerup.systers.com.datamodel;
+package powerup.systers.com.data;
 
 public class SessionHistory {
     public static int currQID = 1;
