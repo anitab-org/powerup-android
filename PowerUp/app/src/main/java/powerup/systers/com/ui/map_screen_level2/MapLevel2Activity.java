@@ -33,7 +33,7 @@ import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
-public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMapView{
+public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMapLevel2View{
 
     private DataSource dataSource;
     private MapLevel2Presenter presenter;

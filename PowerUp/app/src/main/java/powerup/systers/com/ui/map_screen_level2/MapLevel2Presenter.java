@@ -7,12 +7,12 @@ import powerup.systers.com.data.entities.Scenario;
 import powerup.systers.com.ui.map_screen.MapContract;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Contract;
 
-public class MapLevel2Presenter implements MapLevel2Contract.IMapPresenter {
+public class MapLevel2Presenter implements MapLevel2Contract.IMapLevel2Presenter {
 
     private DataSource dataSource;
-    private MapContract.IMapView view;
+    private MapLevel2Contract.IMapLevel2View view;
 
-    public MapLevel2Presenter(DataSource dataSource, MapContract.IMapView view) {
+    public MapLevel2Presenter(DataSource dataSource, MapLevel2Contract.IMapLevel2View view) {
         this.dataSource = dataSource;
         this.view = view;
     }

@@ -355,4 +355,11 @@ public class PowerUpUtils {
     };
 
     public static String[] HS_CLOTHES_POINTS_TEXTS = {"5", "5", "5", "5", "10", "10", "10", "10" };
+
+    public static final String questionCSV = "Question.csv";
+    public static final String answerCSV = "Answer.csv";
+    public static final String scenarioCSV = "Scenario.csv";
+    public static final String clothesCSV = "Clothes.csv";
+    public static final String accessoriesCSV = "Accessories.csv";
+    public static final String hairCSV = "Hair.csv";
 }
