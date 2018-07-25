@@ -28,14 +28,8 @@ import powerup.systers.com.ui.StartActivity;
 import powerup.systers.com.ui.store_screen.StoreActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.IDataSource;
-import powerup.systers.com.minesweeper.MinesweeperGameActivity;
-import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.utils.InjectionClass;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.utils.PowerUpUtils;
-import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
-import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
 public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMapLevel2View{
 
