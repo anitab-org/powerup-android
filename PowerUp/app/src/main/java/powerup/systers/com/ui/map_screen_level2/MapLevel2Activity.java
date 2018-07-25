@@ -21,8 +21,8 @@ import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
-import powerup.systers.com.ui.game_activity.GameActivity;
 import powerup.systers.com.R;
+import powerup.systers.com.ui.game_activity_level2.GameLevel2Activity;
 import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.ui.StartActivity;
 import powerup.systers.com.ui.store_screen.StoreActivity;
@@ -130,12 +130,12 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
         public void onClick(View v) {
             final ImageView scenarioChooser = (ImageView) v;
             if (v.isEnabled()) {
-                // checks whether has been already completed & then open GameActivity if setSessionId returns true
+                // checks whether has been already completed & then open GameLevel2Activity if setSessionId returns true
                 dataSource.setSessionId(getScenarioName(scenarioChooser.getId()), new IDataSource.LoadBooleanCallback() {
                     @Override
                     public void onResultLoaded(boolean value) {
                         if (value) {
-                            startActivityForResult(new Intent(MapLevel2Activity.this, GameActivity.class), 0);
+                            startActivityForResult(new Intent(MapLevel2Activity.this, GameLevel2Activity.class), 0);
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                         } else if(new KillTheVirusSessionManager(MapLevel2Activity.this).isKillTheVirusOpened()){
                             startActivity(new Intent(MapLevel2Activity.this, KillTheVirusGame.class));
