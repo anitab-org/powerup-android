@@ -2,7 +2,7 @@
  * @desc sets up the map screen.
  */
 
-package powerup.systers.com.ui.map_screen;
+package powerup.systers.com.ui.map_screen_level2;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -33,10 +33,10 @@ import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
-public class MapActivity extends Activity implements MapContract.IMapView{
+public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMapView{
 
     private DataSource dataSource;
-    private MapPresenter presenter;
+    private MapLevel2Presenter presenter;
     @BindView(R.id.school_building)
     ImageView schoolBuilding;
     @BindView(R.id.hospital_building)
@@ -74,8 +74,8 @@ public class MapActivity extends Activity implements MapContract.IMapView{
         //setup for activity
         init();
 
-        // initialize presneter
-        presenter = new MapPresenter(dataSource, this);
+        // initialize presenter
+        presenter = new MapLevel2Presenter(dataSource, this);
 
         //changes the Map building's greyscale color and locks according to the scenarios completions
         presenter.checkCompletion();
@@ -84,7 +84,7 @@ public class MapActivity extends Activity implements MapContract.IMapView{
     // open StoreActivity on store click
     @OnClick(R.id.store)
     public void storeButtonListener(View view) {
-        startActivity(new Intent(MapActivity.this, StoreActivity.class));
+        startActivity(new Intent(MapLevel2Activity.this, StoreActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
@@ -92,7 +92,7 @@ public class MapActivity extends Activity implements MapContract.IMapView{
     @OnClick(R.id.home_button)
     public void homeButtonListener(View view) {
         finish();
-        startActivity(new Intent(MapActivity.this, StartActivity.class));
+        startActivity(new Intent(MapLevel2Activity.this, StartActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
@@ -117,7 +117,7 @@ public class MapActivity extends Activity implements MapContract.IMapView{
     public void onBackPressed() {
         // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
         // clears the activities that were created after the found instance of the required activity
-        startActivity(new Intent(MapActivity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        startActivity(new Intent(MapLevel2Activity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         finish();
     }
 
@@ -137,17 +137,17 @@ public class MapActivity extends Activity implements MapContract.IMapView{
                     @Override
                     public void onResultLoaded(boolean value) {
                         if (value) {
-                            startActivityForResult(new Intent(MapActivity.this, GameActivity.class), 0);
+                            startActivityForResult(new Intent(MapLevel2Activity.this, GameActivity.class), 0);
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                        } else if (new MinesweeperSessionManager(MapActivity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
-                            startActivity(new Intent(MapActivity.this, MinesweeperGameActivity.class));
+                        } else if (new MinesweeperSessionManager(MapLevel2Activity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
+                            startActivity(new Intent(MapLevel2Activity.this, MinesweeperGameActivity.class));
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                        } else if (new SinkToSwimSessionManager(MapActivity.this).isSinkToSwimOpened()) {
-                            startActivity(new Intent(MapActivity.this, SinkToSwimGame.class));
-                        } else if (new VocabMatchSessionManager(MapActivity.this).isVocabMatchOpened()) {
-                            startActivity(new Intent(MapActivity.this, VocabMatchGameActivity.class));
+                        } else if (new SinkToSwimSessionManager(MapLevel2Activity.this).isSinkToSwimOpened()) {
+                            startActivity(new Intent(MapLevel2Activity.this, SinkToSwimGame.class));
+                        } else if (new VocabMatchSessionManager(MapLevel2Activity.this).isVocabMatchOpened()) {
+                            startActivity(new Intent(MapLevel2Activity.this, VocabMatchGameActivity.class));
                         } else {
-                            Intent intent = new Intent(MapActivity.this, ScenarioOverActivity.class);
+                            Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverActivity.class);
                             intent.putExtra(PowerUpUtils.SOURCE, PowerUpUtils.MAP);
                             intent.putExtra(PowerUpUtils.SCENARIO_NAME, getScenarioName(scenarioChooser.getId()));
                             startActivityForResult(intent, 0);
