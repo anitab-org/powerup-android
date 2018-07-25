@@ -29,8 +29,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import powerup.systers.com.R;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
 import powerup.systers.com.kill_the_virus_game.KillTheVirusTutorials;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodTutorialActivity;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
@@ -155,15 +157,13 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
 
     // if any game was left incomplete, open respective gameactivity
     private void checkGameIncomplete() {
-        if (new MinesweeperSessionManager(this).isMinesweeperOpened()) {
-            startActivity(new Intent(GameLevel2Activity.this, MinesweeperGameActivity.class));
+        if(new KillTheVirusSessionManager(this).isKillTheVirusOpened()){
+            startActivity(new Intent(GameLevel2Activity.this, KillTheVirusGame.class));
             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
-        if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
-            startActivity(new Intent(GameLevel2Activity.this, SinkToSwimGame.class));
-        }
-        if(new VocabMatchSessionManager(this).isVocabMatchOpened()) {
-            startActivity(new Intent(GameLevel2Activity.this, VocabMatchGameActivity.class));
+        if(new SaveTheBloodSessionManager(this).isSaveBloodOpened()){
+            startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodGameActivity.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
     }
 
