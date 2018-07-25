@@ -78,7 +78,7 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
         SessionHistory.sceneHospitalIsReplayed = false;
         SessionHistory.sceneLibraryIsReplayed = false;
         // starting map activity
-        startActivityForResult(new Intent(FinalAvatarActivity.this, MapLevel2Activity.class), 0);
+        startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 

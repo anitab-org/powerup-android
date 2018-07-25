@@ -41,17 +41,9 @@ import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.entities.Answer;
 import powerup.systers.com.data.entities.Scenario;
-import powerup.systers.com.minesweeper.MinesweeperGameActivity;
-import powerup.systers.com.minesweeper.MinesweeperSessionManager;
-import powerup.systers.com.minesweeper.MinesweeperTutorials;
 import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
-import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
-import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
-import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")

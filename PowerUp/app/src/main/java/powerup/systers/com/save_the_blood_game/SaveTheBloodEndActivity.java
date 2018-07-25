@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
+import powerup.systers.com.ui.scenario_over_screen_level2.ScenarioOverLevel2Activity;
 import powerup.systers.com.utils.PowerUpUtils;
 
 public class SaveTheBloodEndActivity extends Activity {
@@ -34,10 +35,10 @@ public class SaveTheBloodEndActivity extends Activity {
 
     @OnClick(R.id.btn_continue_save_blood)
     public void clickContinue(){
-//        Intent intent = new Intent(SaveTheBloodEndActivity.this, ScenarioOverLevel2Activity.class);
-//        intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
-//        startActivity(intent);
-//        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+        Intent intent = new Intent(SaveTheBloodEndActivity.this, ScenarioOverLevel2Activity.class);
+        intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
+        startActivity(intent);
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
     public void updateViews(){
