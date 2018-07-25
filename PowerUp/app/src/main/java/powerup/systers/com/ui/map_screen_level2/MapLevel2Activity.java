@@ -17,7 +17,10 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusGame;
+import powerup.systers.com.kill_the_virus_game.KillTheVirusSessionManager;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
+import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 import powerup.systers.com.ui.game_activity.GameActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
@@ -30,6 +33,7 @@ import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
+import powerup.systers.com.utils.PowerUpUtils;
 import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
@@ -139,13 +143,12 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
                         if (value) {
                             startActivityForResult(new Intent(MapLevel2Activity.this, GameActivity.class), 0);
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                        } else if (new MinesweeperSessionManager(MapLevel2Activity.this).isMinesweeperOpened()) { //if minesweeper game was left incomplete
-                            startActivity(new Intent(MapLevel2Activity.this, MinesweeperGameActivity.class));
+                        } else if(new KillTheVirusSessionManager(MapLevel2Activity.this).isKillTheVirusOpened()){
+                            startActivity(new Intent(MapLevel2Activity.this, KillTheVirusGame.class));
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                        } else if (new SinkToSwimSessionManager(MapLevel2Activity.this).isSinkToSwimOpened()) {
-                            startActivity(new Intent(MapLevel2Activity.this, SinkToSwimGame.class));
-                        } else if (new VocabMatchSessionManager(MapLevel2Activity.this).isVocabMatchOpened()) {
-                            startActivity(new Intent(MapLevel2Activity.this, VocabMatchGameActivity.class));
+                        } else if(new SaveTheBloodSessionManager(MapLevel2Activity.this).isSaveBloodOpened()){
+                            startActivity(new Intent(MapLevel2Activity.this, SaveTheBloodGameActivity.class));
+                            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                         } else {
                             Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverActivity.class);
                             intent.putExtra(PowerUpUtils.SOURCE, PowerUpUtils.MAP);
@@ -163,16 +166,15 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
     private String getScenarioName(int id) {
         switch (id) {
             case R.id.school:
-                return "School";
+                return "School Level 2";
             case R.id.library:
-                return "Library";
+                return "Library Level 2";
             case R.id.house:
-                return "Home";
+                return "Home Level 2";
             case R.id.hospital:
-                return "Hospital";
-
+                return "Hospital Level 2";
             default:
-                return "Home";
+                return "Home Level 2";
         }
     }
 

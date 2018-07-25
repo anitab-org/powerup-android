@@ -19,26 +19,26 @@ public class MapLevel2Presenter implements MapLevel2Contract.IMapLevel2Presenter
 
     @Override
     public void checkCompletion() {
-        dataSource.getScenarioFromId(4, new IDataSource.LoadScenarioCallBack() {
+        dataSource.getScenarioFromId(8, new IDataSource.LoadScenarioCallBack() {
             @Override
             public void onScenarioLoaded(Scenario scenario) {
-                if ((scenario.getCompleted() == 1) || SessionHistory.sceneHomeIsReplayed) {
+                if ((scenario.getCompleted() == 1) || SessionHistory.sceneHomeLevel2IsReplayed) {
                     view.setSchool();
                 }
             }
         });
-        dataSource.getScenarioFromId(5, new IDataSource.LoadScenarioCallBack() {
+        dataSource.getScenarioFromId(9, new IDataSource.LoadScenarioCallBack() {
             @Override
             public void onScenarioLoaded(Scenario scenario) {
-                if ((scenario.getCompleted() == 1) || SessionHistory.sceneSchoolIsReplayed) {
+                if ((scenario.getCompleted() == 1) || SessionHistory.sceneSchoolLevel2IsReplayed) {
                     view.setHospital();
                 }
             }
         });
-        dataSource.getScenarioFromId(6, new IDataSource.LoadScenarioCallBack() {
+        dataSource.getScenarioFromId(10, new IDataSource.LoadScenarioCallBack() {
             @Override
             public void onScenarioLoaded(Scenario scenario) {
-                if ((scenario.getCompleted() == 1) || SessionHistory.sceneHospitalIsReplayed) {
+                if ((scenario.getCompleted() == 1) || SessionHistory.sceneHospitalLevel2IsReplayed) {
                     view.setLibrary();
                 }
             }
