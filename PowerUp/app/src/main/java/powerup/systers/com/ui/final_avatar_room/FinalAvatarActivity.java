@@ -17,6 +17,7 @@ import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.ui.avatar_room.AvatarRoomActivity;
+import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
 
 public class FinalAvatarActivity extends Activity implements FinalAvatarRoomContract.IAvatarRoomView{
@@ -77,7 +78,7 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
         SessionHistory.sceneHospitalIsReplayed = false;
         SessionHistory.sceneLibraryIsReplayed = false;
         // starting map activity
-        startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
+        startActivityForResult(new Intent(FinalAvatarActivity.this, MapLevel2Activity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 

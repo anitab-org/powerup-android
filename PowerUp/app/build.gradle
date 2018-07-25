@@ -27,6 +27,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.jUnitVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     testImplementation "org.robolectric:robolectric:$rootProject.robolectricVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"

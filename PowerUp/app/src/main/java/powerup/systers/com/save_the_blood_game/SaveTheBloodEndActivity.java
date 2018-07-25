@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
 public class SaveTheBloodEndActivity extends Activity {
 

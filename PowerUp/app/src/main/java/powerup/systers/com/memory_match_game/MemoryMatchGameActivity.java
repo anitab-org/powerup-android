@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.data.SessionHistory;
-import powerup.systers.com.powerup.PowerUpUtils;
 import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.utils.PowerUpUtils;
 
 public class MemoryMatchGameActivity extends Activity {
 
