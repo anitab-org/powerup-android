@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -65,6 +67,14 @@ public class GameLevel2Activity extends Activity {
     public ImageView hairImageView;
     @BindView(R.id.dress_view)
     public ImageView clothImageView;
+    @BindView(R.id.progress_health)
+    public ProgressBar health;
+    @BindView(R.id.progress_healing)
+    public ProgressBar healing;
+    @BindView(R.id.progress_invisibility)
+    public ProgressBar invisibility;
+    @BindView(R.id.progress_telepathy)
+    public ProgressBar telepathy;
     @Nullable
     @BindView(R.id.acc_view)
     public ImageView accessoryImageView;
@@ -106,6 +116,22 @@ public class GameLevel2Activity extends Activity {
         SessionHistory.currScenePoints = 0;
 
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
+
+        //Updating the progress values
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
+        //Checking if the value of progress bars is max
+        if(SessionHistory.progressHealth >= 100)
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressHealing >= 100)
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressInvisibility >= 100)
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressTelepathy >= 100)
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
 
         String eyeImageName = getResources().getString(R.string.hs_eyes);
         eyeImageName = eyeImageName + getmDbHandler().getAvatarEye();
@@ -181,17 +207,21 @@ public class GameLevel2Activity extends Activity {
                             SessionHistory.currQID = answers.get(position)
                                     .getNextQuestionID();
                             updatePoints(position);
+                            updateProgressBars(position);
                             updateQA();
                         } else if (answers.get(position).getNextQuestionID() == -8) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-8);
                         } else if (answers.get(position).getNextQuestionID() == -10) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-10);
                         } else if (answers.get(position).getNextQuestionID() == -11) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(-11);
                         }
@@ -201,11 +231,52 @@ public class GameLevel2Activity extends Activity {
                                 SessionHistory.currSessionID = 8;
                             }
                             updatePoints(position);
+                            updateProgressBars(position);
                             getmDbHandler().setCompletedScenario(scene.getId());
                             updateScenario(0);
                         }
                     }
                 });
+    }
+
+    @OnClick(R.id.progress_health)
+    public void clickHealth(){
+        if(SessionHistory.progressHealth >= 100) {
+            showDialog("Health");
+            SessionHistory.progressHealth = 0;
+            health.setProgress(0);
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_healing)
+    public void clickHealing(){
+        if(SessionHistory.progressHealing >= 100) {
+            showDialog("Healing");
+            SessionHistory.progressHealing = 0;
+            healing.setProgress(0);
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_telepathy)
+    public void clickTelepathy(){
+        if(SessionHistory.progressTelepathy >= 100) {
+            showDialog("Telepathy");
+            SessionHistory.progressTelepathy = 0;
+            telepathy.setProgress(0);
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_invisibility)
+    public void clickInvisibility(){
+        if(SessionHistory.progressInvisibility >= 100) {
+            showDialog("Invisibility");
+            SessionHistory.progressInvisibility= 0;
+            invisibility.setProgress(0);
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
     }
 
     @OnClick(R.id.continueButtonGoesToMap)
@@ -234,6 +305,68 @@ public class GameLevel2Activity extends Activity {
         SessionHistory.currScenePoints += answers.get(position).getPoints();
         // Update Total Points
         SessionHistory.totalPoints += answers.get(position).getPoints();
+    }
+
+    /**
+     * Updates the progress bars according to points given for the chosen answer
+     * Healing & Health decrease if points for the chosen answer is 1 which reflects a bad choice
+     * Invisibility & Telepathy continuously increase by different amounts depending on the quality of chosen answer
+     * @param position the current question user is on
+     */
+    private void updateProgressBars(int position){
+        //get the points for the chosen answer
+        int points = answers.get(position).getPoints();
+
+        if(points == 1) {
+            SessionHistory.progressHealing -= (points * 2);
+            SessionHistory.progressHealth-= (points * 4);
+        }
+        else {
+            SessionHistory.progressHealing += (points * 2);
+            SessionHistory.progressHealth += (points*20);
+        }
+        SessionHistory.progressInvisibility += (points*2);
+        SessionHistory.progressTelepathy += (points*4);
+
+        if(SessionHistory.progressHealth >= 100) {
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressHealing >= 100) {
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressInvisibility >= 100) {
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressTelepathy >= 100) {
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
+    }
+
+    /**
+     * Used to show dialog box when a progress bar reaches it's maximum value
+     * @param progress the progress bar whose maximum value is reached
+     */
+    public void showDialog(String progress){
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameLevel2Activity.this);
+        builder.setTitle("Congratulations!")
+                .setMessage("You have reached maximum value for " + progress + " and has earned 5 extra karma points");
+        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                SessionHistory.totalPoints+=5;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
     }
 
     /**
