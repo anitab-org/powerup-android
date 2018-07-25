@@ -9,7 +9,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
-import powerup.systers.com.ScenarioOverLevel2Activity;
 import powerup.systers.com.ui.StartActivity;
 import powerup.systers.com.ui.StartActivity;
 
@@ -28,9 +27,9 @@ public class KillTheVirusEndActivity extends Activity {
 
     @OnClick(R.id.btn_continue_memory)
     public void clickContinue() {
-        new KillTheVirusSessionManager(this).saveKillTheVirusOpenedStatus(false);
-        startActivity(new Intent(KillTheVirusEndActivity.this, ScenarioOverLevel2Activity.class));
-        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+//        new KillTheVirusSessionManager(this).saveKillTheVirusOpenedStatus(false);
+//        startActivity(new Intent(KillTheVirusEndActivity.this, ScenarioOverLevel2Activity.class));
+//        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
     private void updateScore() {
