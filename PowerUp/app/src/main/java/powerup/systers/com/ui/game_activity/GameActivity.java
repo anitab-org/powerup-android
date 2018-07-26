@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,10 +31,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
 import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
 import powerup.systers.com.memory_match_game.MemoryMatchTutorialActivity;
+import powerup.systers.com.ui.game_activity_level2.GameLevel2Activity;
 import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.SessionHistory;
@@ -74,6 +78,14 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     ImageView hairAvatar;
     @BindView(R.id.accessory_view)
     ImageView accessoryImageView;
+    @BindView(R.id.progress_health)
+    public ProgressBar health;
+    @BindView(R.id.progress_healing)
+    public ProgressBar healing;
+    @BindView(R.id.progress_invisibility)
+    public ProgressBar invisibility;
+    @BindView(R.id.progress_telepathy)
+    public ProgressBar telepathy;
 
     public GameActivity() {
         gameActivityInstance = this;
@@ -106,6 +118,22 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         // sets the movement method for handling arrow key movement
         questionTextView.setMovementMethod(new ScrollingMovementMethod());
 
+        //Updating the progress values
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
+        //Checking if the value of progress bars is max
+        if(SessionHistory.progressHealth >= 100)
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressHealing >= 100)
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressInvisibility >= 100)
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        if(SessionHistory.progressTelepathy >= 100)
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+
         // Update Scene
         updateScenario(0);
         updateQA();
@@ -122,17 +150,21 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
                             SessionHistory.currQID = answers.get(position)
                                     .getNextQuestionID();
                             updatePoints(position);
+                            updateProgressBars(position);
                             updateQA();
                         } else if (answers.get(position).getNextQuestionID() == -1) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-1);
                         } else if (answers.get(position).getNextQuestionID() == -2) {
                             updatePoints(position);
+                            updateProgressBars(position);
                             dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-2);
                         } else if (answers.get(position).getNextQuestionID() == -3){
                             updatePoints(position);
+                            updateProgressBars(position);
                             dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(-3);
                         }
@@ -142,11 +174,52 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
                                 SessionHistory.currSessionID = 1;
                             }
                             updatePoints(position);
+                            updateProgressBars(position);
                             dataSource.setCompletedScenario(scene.getScenarioId());
                             updateScenario(0);
                         }
                     }
                 });
+    }
+
+    @OnClick(R.id.progress_health)
+    public void clickHealth(){
+        if(SessionHistory.progressHealth >= 100) {
+            showDialog("Health");
+            SessionHistory.progressHealth = 0;
+            health.setProgress(0);
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_healing)
+    public void clickHealing(){
+        if(SessionHistory.progressHealing >= 100) {
+            showDialog("Healing");
+            SessionHistory.progressHealing = 0;
+            healing.setProgress(0);
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_telepathy)
+    public void clickTelepathy(){
+        if(SessionHistory.progressTelepathy >= 100) {
+            showDialog("Telepathy");
+            SessionHistory.progressTelepathy = 0;
+            telepathy.setProgress(0);
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
+    }
+
+    @OnClick(R.id.progress_invisibility)
+    public void clickInvisibility(){
+        if(SessionHistory.progressInvisibility >= 100) {
+            showDialog("Invisibility");
+            SessionHistory.progressInvisibility= 0;
+            invisibility.setProgress(0);
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.powerup_dark_blue)));
+        }
     }
 
     // if any game was left incomplete, open respective gameactivity
@@ -188,6 +261,68 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         SessionHistory.currScenePoints += answers.get(position).getAnswerPoints();
         // Update Total Points
         SessionHistory.totalPoints += answers.get(position).getAnswerPoints();
+    }
+
+    /**
+     * Updates the progress bars according to points given for the chosen answer
+     * Healing & Health decrease if points for the chosen answer is 1 which reflects a bad choice
+     * Invisibility & Telepathy continuously increase by different amounts depending on the quality of chosen answer
+     * @param position the current question user is on
+     */
+    private void updateProgressBars(int position){
+        //get the points for the chosen answer
+        int points = answers.get(position).getAnswerPoints();
+
+        if(points == 1) {
+            SessionHistory.progressHealing -= (points * 2);
+            SessionHistory.progressHealth-= (points * 4);
+        }
+        else {
+            SessionHistory.progressHealing += (points * 2);
+            SessionHistory.progressHealth += (points*2);
+        }
+        SessionHistory.progressInvisibility += (points*2);
+        SessionHistory.progressTelepathy += (points*4);
+
+        if(SessionHistory.progressHealth >= 100) {
+            health.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressHealing >= 100) {
+            healing.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressInvisibility >= 100) {
+            invisibility.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        if (SessionHistory.progressTelepathy >= 100) {
+            telepathy.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.correct_answer)));
+        }
+        health.setProgress(SessionHistory.progressHealth);
+        healing.setProgress(SessionHistory.progressHealing);
+        invisibility.setProgress(SessionHistory.progressInvisibility);
+        telepathy.setProgress(SessionHistory.progressTelepathy);
+
+    }
+
+    /**
+     * Used to show dialog box when a progress bar reaches it's maximum value
+     * @param progress the progress bar whose maximum value is reached
+     */
+    public void showDialog(String progress){
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+        builder.setTitle("Congratulations!")
+                .setMessage("You have reached maximum value for " + progress + " and has earned 5 extra karma points");
+        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                SessionHistory.totalPoints+=5;
+            }
+        });
+        AlertDialog dialog = builder.create();
+        ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+        drawable.setAlpha(200);
+        dialog.getWindow().setBackgroundDrawable(drawable);
+        dialog.show();
     }
 
     /**

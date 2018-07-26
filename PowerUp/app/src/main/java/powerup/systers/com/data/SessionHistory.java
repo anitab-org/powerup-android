@@ -41,4 +41,8 @@ public class SessionHistory {
     public static int selectedChild1 = 0;
     public static int selectedChild2 = 0;
     public static int selectedValue = 0;
+    public static int progressHealth = 0;
+    public static int progressHealing = 0;
+    public static int progressInvisibility = 0;
+    public static int progressTelepathy = 0;
 }
