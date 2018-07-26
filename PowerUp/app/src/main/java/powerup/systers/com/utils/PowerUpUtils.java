@@ -118,6 +118,8 @@ public class PowerUpUtils {
             R.drawable.dress49
     };
     public static final String[] CLOTHES_POINTS_TEXTS = {"5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10", "5", "5", "10", "10", "10"};
+
+    // list of all accessory drawables available in store
     public static final int[] ACCESSORIES_IMAGES = {
             R.drawable.acc1,
             R.drawable.acc2,
@@ -154,6 +156,7 @@ public class PowerUpUtils {
             R.drawable.acc33,
             R.drawable.acc34,
             R.drawable.acc35};
+
     public static final String[] ACCESSORIES_POINTS_TEXTS = {"5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10", "10", "5", "5", "10"};
 
 

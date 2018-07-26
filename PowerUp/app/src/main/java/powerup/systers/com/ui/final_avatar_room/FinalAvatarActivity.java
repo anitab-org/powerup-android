@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.data.SessionHistory;
-import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.pregame_setup.PreGameSetupInitialActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.ui.avatar_room.AvatarRoomActivity;
@@ -92,7 +92,7 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
         SessionHistory.progressHealing = 0;
         SessionHistory.progressHealth = 0;
         // starting map activity
-        startActivityForResult(new Intent(FinalAvatarActivity.this, MapActivity.class), 0);
+        startActivityForResult(new Intent(FinalAvatarActivity.this, PreGameSetupInitialActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 

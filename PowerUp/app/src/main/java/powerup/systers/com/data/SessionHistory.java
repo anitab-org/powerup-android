@@ -14,11 +14,6 @@ public class SessionHistory {
     public static int clothTotalNo = 49;
     public static int hairTotalNo = 17;
     public static int skinTotalNo = 16;
-    public static int glassesTotalNo = 3;
-    public static int bagTotalNo = 3;
-    public static int hatTotalNo = 4;
-    public static int necklaceTotalNo = 4;
-    public static int accessoryTotalNo = 4;
     public static boolean sceneHomeIsReplayed = false;
     public static boolean sceneSchoolIsReplayed = false;
     public static boolean sceneHospitalIsReplayed = false;

@@ -6,7 +6,7 @@
 
     <stroke
         android:width="5dp"
-        android:color="@color/powerup_button_border" />
+        android:color="#ff0000" />
     <padding
         android:bottom="@dimen/btn_padding"
         android:left="@dimen/btn_padding"
