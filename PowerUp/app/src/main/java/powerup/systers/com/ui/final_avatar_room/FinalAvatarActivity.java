@@ -17,7 +17,6 @@ import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.ui.avatar_room.AvatarRoomActivity;
-import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
 
 public class FinalAvatarActivity extends Activity implements FinalAvatarRoomContract.IAvatarRoomView{

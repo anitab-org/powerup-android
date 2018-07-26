@@ -11,8 +11,6 @@ import powerup.systers.com.data.IDataSource;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.entities.Answer;
 import powerup.systers.com.data.entities.Scenario;
-import powerup.systers.com.ui.game_activity.GameScreenContract;
-import powerup.systers.com.ui.game_activity_level2.GameScreenLevel2Contract;
 
 public class GameScreenLevel2Presenter implements GameScreenLevel2Contract.IGameScreenLevel2Presenter {
     private GameScreenLevel2Contract.IGameScreenLevel2View view;

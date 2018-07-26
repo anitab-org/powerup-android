@@ -24,7 +24,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
-import powerup.systers.com.ui.StartActivity;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 import powerup.systers.com.utils.PowerUpUtils;

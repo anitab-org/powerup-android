@@ -51,24 +51,24 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     private StoreLevel2Presenter presenter;
 
     @BindView(R.id.karma_points)
-    TextView karmaPoints;
+    private TextView karmaPoints;
     //avatar views
     @BindView(R.id.eye_view)
-    ImageView eyeAvatar;
+    private ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    ImageView skinAvatar;
+    private ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    ImageView clothAvatar;
+    private ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    ImageView hairAvatar;
+    private ImageView hairAvatar;
     @BindView(R.id.acc_view)
-    ImageView accessoryImageView;
+    private ImageView accessoryImageView;
     @BindView(R.id.left_arrow)
-    ImageView leftArrow;
+    private ImageView leftArrow;
     @BindView(R.id.right_arrow)
-    ImageView rightArrow;
+    private ImageView rightArrow;
     @BindView(R.id.accessories_button)
-    ImageView accessoriesButton;
+    private ImageView accessoriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,8 +166,8 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
 
     class GridAdapter extends BaseAdapter {
 
-        List<StoreItem> storeItems;
-        Context context;
+        private List<StoreItem> storeItems;
+        private Context context;
 
         GridAdapter(Context context, List<StoreItem> list) {
             this.context = context;
@@ -195,8 +195,8 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
         }
 
         class ViewHolder {
-            ImageView itemImage;
-            TextView itemPoints;
+            private ImageView itemImage;
+            private TextView itemPoints;
 
             ViewHolder(View view) {
                 itemImage = view.findViewById(R.id.item_image);
@@ -366,6 +366,9 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                         dataSource.setPurchasedAccessories(index);
                         dataSource.setCurrentAccessoriesValue(index);
                         presenter.calculateAccessoryValue(index);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Invalid store type index");
                 }
                 adapter.refresh(adapter.storeItems); // will update change the background if any is not available
                 showSuccessPurchaseDialog();

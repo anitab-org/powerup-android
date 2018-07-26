@@ -4,8 +4,6 @@ import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.IDataSource;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.entities.Scenario;
-import powerup.systers.com.ui.map_screen.MapContract;
-import powerup.systers.com.ui.map_screen_level2.MapLevel2Contract;
 
 public class MapLevel2Presenter implements MapLevel2Contract.IMapLevel2Presenter {
 
