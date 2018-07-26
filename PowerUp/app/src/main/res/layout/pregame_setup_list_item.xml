@@ -1,0 +1,28 @@
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/already_bought_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:focusable="false"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/item_npc"
+        android:layout_width="@dimen/width_list_item"
+        android:layout_height="@dimen/height_list_item"
+        android:layout_marginBottom="@dimen/margin_list_item"
+        android:src="@drawable/guardian1"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+     <ImageView
+        android:id="@+id/green_tick"
+        android:layout_width="@dimen/tick_size"
+        android:layout_height="@dimen/tick_size"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/store_tick"/>
+
+
+</android.support.constraint.ConstraintLayout>
