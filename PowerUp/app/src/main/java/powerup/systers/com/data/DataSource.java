@@ -116,9 +116,10 @@ public class DataSource implements IDataSource {
                         if(scenario.getCompleted() == 1) {
                             callback.onResultLoaded(false);
                         }
+                        else
+                            callback.onResultLoaded(true);
                         SessionHistory.currSessionID = scenario.getScenarioId();
                         SessionHistory.currQID = scenario.getFirstQuestionID();
-                        callback.onResultLoaded(true);
                     }
                 });
             }
