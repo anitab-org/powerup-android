@@ -223,6 +223,8 @@ public class ScenarioOverActivity extends AppCompatActivity implements ScenarioO
     @Override
     public void setCurrentScenario(Scenario scenario) {
         scene = scenario;
+        if(scene != null)
+            SessionHistory.currQID = scene.getFirstQuestionID();
     }
 
     @Override
