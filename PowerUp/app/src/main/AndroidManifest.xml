@@ -176,6 +176,12 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".ui.store_screen_level2.StoreLevel2Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".ui.SplashActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
