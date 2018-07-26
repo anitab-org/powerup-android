@@ -26,7 +26,7 @@ public class StoreLevel2Presenter implements StoreLevel2Contract.IStoreLevel2Pre
 
     @Override
     public void calculateEyeValue(int value) {
-        String eyeImageName = context.getResources().getString(R.string.eye);
+        String eyeImageName = context.getResources().getString(R.string.hs_eyes);
         eyeImageName = eyeImageName + value;
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -41,7 +41,7 @@ public class StoreLevel2Presenter implements StoreLevel2Contract.IStoreLevel2Pre
 
     @Override
     public void calculateHairValue(int value) {
-        String hairImageName = context.getResources().getString(R.string.hair);
+        String hairImageName = context.getResources().getString(R.string.hs_hair);
         hairImageName = hairImageName + value;
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -56,7 +56,7 @@ public class StoreLevel2Presenter implements StoreLevel2Contract.IStoreLevel2Pre
 
     @Override
     public void calculateSkinValue(int value) {
-        String skinmageName = context.getResources().getString(R.string.skin);
+        String skinmageName = context.getResources().getString(R.string.hs_skin);
         skinmageName = skinmageName + value;
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -71,7 +71,7 @@ public class StoreLevel2Presenter implements StoreLevel2Contract.IStoreLevel2Pre
 
     @Override
     public void calculateClothValue(int value) {
-        String clothImageName = context.getResources().getString(R.string.cloth);
+        String clothImageName = context.getResources().getString(R.string.hs_dress_avatar);
         clothImageName = clothImageName + value;
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;
@@ -87,7 +87,7 @@ public class StoreLevel2Presenter implements StoreLevel2Contract.IStoreLevel2Pre
     @Override
     public void calculateAccessoryValue(int value) {
         if(value > 0) {
-            String accessoryImageName = context.getResources().getString(R.string.accessories);
+            String accessoryImageName = context.getResources().getString(R.string.hs_acc);
             accessoryImageName = accessoryImageName + value;
             R.drawable ourRID = new R.drawable();
             java.lang.reflect.Field photoNameField;

@@ -23,11 +23,11 @@ import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 import powerup.systers.com.R;
 import powerup.systers.com.ui.game_activity_level2.GameLevel2Activity;
-import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.ui.StartActivity;
-import powerup.systers.com.ui.store_screen.StoreActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.IDataSource;
+import powerup.systers.com.ui.scenario_over_screen_level2.ScenarioOverLevel2Activity;
+import powerup.systers.com.ui.store_screen_level2.StoreLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 
@@ -79,10 +79,10 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
         presenter.checkCompletion();
     }
 
-    // open StoreActivity on store click
+    // open StoreLevel2Activity on store click
     @OnClick(R.id.store)
     public void storeButtonListener(View view) {
-        startActivity(new Intent(MapLevel2Activity.this, StoreActivity.class));
+        startActivity(new Intent(MapLevel2Activity.this, StoreLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
@@ -144,7 +144,7 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
                             startActivity(new Intent(MapLevel2Activity.this, SaveTheBloodGameActivity.class));
                             overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                         } else {
-                            Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverActivity.class);
+                            Intent intent = new Intent(MapLevel2Activity.this, ScenarioOverLevel2Activity.class);
                             intent.putExtra(PowerUpUtils.SOURCE, PowerUpUtils.MAP);
                             intent.putExtra(PowerUpUtils.SCENARIO_NAME, getScenarioName(scenarioChooser.getId()));
                             startActivityForResult(intent, 0);

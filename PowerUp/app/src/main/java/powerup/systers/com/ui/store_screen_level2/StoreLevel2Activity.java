@@ -234,8 +234,6 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                         final int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == 0) { //hair
                             //Todo understand here again
-                            dataSource.setCurrentHairValue(index);
-                            presenter.calculateHairValue(index);
                             dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -251,8 +249,6 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                             });
 
                         } else if (storeItemTypeindex == 1) { //clothes
-                            dataSource.setCurrentClothValue(index);
-                            presenter.calculateClothValue(index);
                             dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -267,8 +263,6 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                                 }
                             });
                         } else if (storeItemTypeindex == 2) { //accessories
-                            dataSource.setCurrentAccessoriesValue(index);
-                            presenter.calculateAccessoryValue(index);
                             dataSource.getPurchasedAccessories(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -359,16 +353,19 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
                 switch (storeItemTypeindex) {
                     case PowerUpUtils.TYPE_HAIR:
-                        dataSource.setPurchasedHair(index);
                         dataSource.setCurrentHairValue(index);
+                        presenter.calculateHairValue(index);
+                        dataSource.setPurchasedHair(index);
                         break;
                     case PowerUpUtils.TYPE_CLOTHES:
                         dataSource.setPurchasedClothes(index);
                         dataSource.setCurrentClothValue(index);
+                        presenter.calculateClothValue(index);
                         break;
                     case PowerUpUtils.TYPE_ACCESSORIES:
                         dataSource.setPurchasedAccessories(index);
                         dataSource.setCurrentAccessoriesValue(index);
+                        presenter.calculateAccessoryValue(index);
                 }
                 adapter.refresh(adapter.storeItems); // will update change the background if any is not available
                 showSuccessPurchaseDialog();

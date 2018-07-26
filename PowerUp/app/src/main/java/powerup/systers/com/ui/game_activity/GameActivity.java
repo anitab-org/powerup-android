@@ -30,6 +30,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import powerup.systers.com.R;
+import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
+import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
+import powerup.systers.com.memory_match_game.MemoryMatchTutorialActivity;
 import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.SessionHistory;
@@ -44,9 +47,6 @@ import powerup.systers.com.utils.PowerUpUtils;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimGame;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials;
-import powerup.systers.com.vocab_match_game.VocabMatchGameActivity;
-import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
-import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
 
 @SuppressLint("NewApi")
 public class GameActivity extends Activity implements GameScreenContract.IGameScreenView{
@@ -157,9 +157,11 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         }
         if(new SinkToSwimSessionManager(this).isSinkToSwimOpened()) {
             startActivity(new Intent(GameActivity.this, SinkToSwimGame.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
-        if(new VocabMatchSessionManager(this).isVocabMatchOpened()) {
-            startActivity(new Intent(GameActivity.this, VocabMatchGameActivity.class));
+        if(new MemoryMatchSessionManager(this).isMemoryMatchOpened()){
+            startActivity(new Intent(GameActivity.this, MemoryMatchGameActivity.class));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         }
     }
 
@@ -219,8 +221,8 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
                     startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else if (type == -3) {
-                    new VocabMatchSessionManager(this).saveVocabMatchOpenedStatus(true);
-                    startActivity(new Intent(GameActivity.this, VocabMatchTutorials.class));
+                    new MemoryMatchSessionManager(this).saveMemoryMatchOpenedStatus(true);
+                    startActivity(new Intent(GameActivity.this, MemoryMatchTutorialActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
 

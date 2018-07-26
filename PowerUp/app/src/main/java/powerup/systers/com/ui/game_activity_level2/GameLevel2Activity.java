@@ -318,7 +318,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
                         dataSource.setReplayedScenario(scene.getScenarioName());
                         goToMap.setAlpha((float) 0.0);
                     } else {
-                        Intent intent = new Intent(GameLevel2Activity.this, MapActivity.class);
+                        Intent intent = new Intent(GameLevel2Activity.this, MapLevel2Activity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivityForResult(intent, 0);
                         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
