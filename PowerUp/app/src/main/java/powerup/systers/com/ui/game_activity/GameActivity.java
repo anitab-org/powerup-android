@@ -36,7 +36,6 @@ import powerup.systers.com.R;
 import powerup.systers.com.memory_match_game.MemoryMatchGameActivity;
 import powerup.systers.com.memory_match_game.MemoryMatchSessionManager;
 import powerup.systers.com.memory_match_game.MemoryMatchTutorialActivity;
-import powerup.systers.com.ui.game_activity_level2.GameLevel2Activity;
 import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.SessionHistory;
