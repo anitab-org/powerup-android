@@ -50,22 +50,22 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     private StoreLevel2Presenter presenter;
 
     @BindView(R.id.karma_points)
-    private TextView karmaPoints;
+    public TextView karmaPoints;
     //avatar views
     @BindView(R.id.eye_view)
-    private ImageView eyeAvatar;
+    public ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    private ImageView skinAvatar;
+    public ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    private ImageView clothAvatar;
+    public ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    private ImageView hairAvatar;
+    public ImageView hairAvatar;
     @BindView(R.id.acc_view)
-    private ImageView accessoryImageView;
+    public ImageView accessoryImageView;
     @BindView(R.id.left_arrow)
-    private ImageView leftArrow;
+    public ImageView leftArrow;
     @BindView(R.id.right_arrow)
-    private ImageView rightArrow;
+    public ImageView rightArrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     }
 
     @OnClick(R.id.left_arrow)
-    private void clickLeftArrow(){
+    public void clickLeftArrow(){
         currentPage--;
         setArrows();
         if (currentPage * MAX_ELEMENTS_PER_SCREEN < allDataSet.get(storeItemTypeindex).size()) {
@@ -95,7 +95,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     }
 
     @OnClick(R.id.right_arrow)
-    private void clickRightArrow(){
+    public void clickRightArrow(){
         currentPage++;
         setArrows();
         if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {

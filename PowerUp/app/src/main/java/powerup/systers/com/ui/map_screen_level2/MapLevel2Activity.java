@@ -35,21 +35,21 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
 
     private DataSource dataSource;
     @BindView(R.id.school_building)
-    private ImageView schoolBuilding;
+    public ImageView schoolBuilding;
     @BindView(R.id.hospital_building)
-    private ImageView hospitalBuilding;
+    public ImageView hospitalBuilding;
     @BindView(R.id.library_building)
-    private ImageView libraryBuilding;
+    public ImageView libraryBuilding;
     @BindView(R.id.school)
-    private ImageView school;
+    public ImageView school;
     @BindView(R.id.house)
-    private ImageView house;
+    public ImageView house;
     @BindView(R.id.hospital)
-    private ImageView hospital;
+    public ImageView hospital;
     @BindView(R.id.library)
-    private ImageView library;
+    public ImageView library;
     @BindView(R.id.home_button)
-    private Button homeButton;
+    public Button homeButton;
     /**
      * Called when the activity is first created.
      */
