@@ -37,6 +37,7 @@
         android:background="@drawable/map_button"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:onClick="backToMapListener"
 
         />
 
