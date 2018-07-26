@@ -35,10 +35,8 @@ import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.entities.Scenario;
 import powerup.systers.com.data.SessionHistory;
-import powerup.systers.com.ui.game_activity.GameActivity;
-import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.game_activity_level2.GameLevel2Activity;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
-import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 
@@ -91,12 +89,12 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new GameActivity().gameActivityInstance.finish();
+                new GameLevel2Activity().gameActivityInstance.finish();
                 if (getIntent().getBooleanExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, false)) {
                     startActivity(new Intent(ScenarioOverLevel2Activity.this, GameOverActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
-                    startActivity(new Intent(ScenarioOverLevel2Activity.this, GameActivity.class));
+                    startActivity(new Intent(ScenarioOverLevel2Activity.this, GameLevel2Activity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
             }
@@ -112,11 +110,11 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
         presenter.loadScenario();
     }
 
-    // open MapActivity on map button click
+    // open MapLevel2Activity on map button click
     @OnClick(R.id.mapButton)
     public void mapButtonListener (View view) {
         finish();
-        startActivity(new Intent(ScenarioOverLevel2Activity.this, MapActivity.class));
+        startActivity(new Intent(ScenarioOverLevel2Activity.this, MapLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
 
@@ -158,7 +156,7 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
         dataSource.resetCompleted(SessionHistory.currSessionID);
         dataSource.resetReplayed(SessionHistory.currSessionID);
         scenarioOverActivityInstance.finish();
-        startActivity(new Intent(ScenarioOverLevel2Activity.this, GameActivity.class));
+        startActivity(new Intent(ScenarioOverLevel2Activity.this, GameLevel2Activity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
     }
     /**
@@ -225,6 +223,8 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
     @Override
     public void setCurrentScenario(Scenario scenario) {
         scene = scenario;
+        if(scene != null)
+            SessionHistory.currQID = scene.getFirstQuestionID();
     }
 
     @Override

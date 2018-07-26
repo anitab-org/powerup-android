@@ -15,6 +15,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,12 +37,12 @@ import powerup.systers.com.save_the_blood_game.SaveTheBloodGameActivity;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodSessionManager;
 import powerup.systers.com.save_the_blood_game.SaveTheBloodTutorialActivity;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
-import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.entities.Answer;
 import powerup.systers.com.data.entities.Scenario;
 import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.scenario_over_screen_level2.ScenarioOverLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 import powerup.systers.com.vocab_match_game.VocabMatchTutorials;
@@ -79,7 +80,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        new ScenarioOverActivity(this).saveActivityOpenedStatus(false);
+        new ScenarioOverLevel2Activity(this).saveActivityOpenedStatus(false);
         context = GameLevel2Activity.this;
 
         checkGameIncomplete();
@@ -190,8 +191,8 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
      * @param type coding scheme for .csv files, -1 means minesweeper game, 0 means scenario completion
      */
     private void updateScenario(int type) {
-        if (ScenarioOverActivity.scenarioActivityDone == 1)
-            new ScenarioOverActivity().scenarioOverActivityInstance.finish();
+        if (ScenarioOverLevel2Activity.scenarioActivityDone == 1)
+            new ScenarioOverLevel2Activity().scenarioOverActivityInstance.finish();
         if (scene != null) {
             presenter.getPreviousScene(scene.getScenarioId());
         }
@@ -202,7 +203,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
             SessionHistory.prevSessionID = scene.getScenarioId();
             SessionHistory.currSessionID = scene.getNextScenarioID();
             if (type == 0) {
-                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverActivity.class);
+                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class);
                 intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
                 startActivity(intent);
                 overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
@@ -353,7 +354,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
 
     @Override
     public void setScenarioBackground(int id) {
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id]));
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id - 4]));
     }
 
     @Override
