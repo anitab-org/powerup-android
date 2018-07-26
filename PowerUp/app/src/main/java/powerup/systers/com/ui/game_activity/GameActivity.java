@@ -16,7 +16,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -498,7 +497,6 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     @Override
     public void setScenarioBackground(int id) {
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id]));
-        Log.v(" Game Activity ", "ID + " + id);
     }
 
     @Override
