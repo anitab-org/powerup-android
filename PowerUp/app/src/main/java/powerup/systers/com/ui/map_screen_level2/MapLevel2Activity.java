@@ -34,7 +34,6 @@ import powerup.systers.com.utils.PowerUpUtils;
 public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMapLevel2View{
 
     private DataSource dataSource;
-    private MapLevel2Presenter presenter;
     @BindView(R.id.school_building)
     private ImageView schoolBuilding;
     @BindView(R.id.hospital_building)
@@ -72,7 +71,7 @@ public class MapLevel2Activity extends Activity implements MapLevel2Contract.IMa
         init();
 
         // initialize presenter
-        presenter = new MapLevel2Presenter(dataSource, this);
+        MapLevel2Presenter presenter = new MapLevel2Presenter(dataSource, this);
 
         //changes the Map building's greyscale color and locks according to the scenarios completions
         presenter.checkCompletion();

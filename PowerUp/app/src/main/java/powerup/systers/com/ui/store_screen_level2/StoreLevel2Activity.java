@@ -40,13 +40,12 @@ import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
 public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel2Contract.IStoreLevel2View {
 
 
-    GridView gridView;
+    private GridView gridView;
     public int storeItemTypeindex = 0;
     public int currentPage = 0;
-    int screenWidth, screenHeight;
+    private int screenWidth, screenHeight;
     private List<List<StoreItem>> allDataSet;
     private powerup.systers.com.ui.store_screen_level2.StoreLevel2Activity.GridAdapter adapter;
-
     private DataSource dataSource;
     private StoreLevel2Presenter presenter;
 
@@ -67,8 +66,6 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     private ImageView leftArrow;
     @BindView(R.id.right_arrow)
     private ImageView rightArrow;
-    @BindView(R.id.accessories_button)
-    private ImageView accessoriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,41 +74,35 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
         ButterKnife.bind(this);
 
         init();
-
         gridView = findViewById(R.id.grid_view);
         //adapter = new powerup.systers.com.ui.store_screen.StoreLevel2Activity.GridAdapter(this, allDataSet.get(0).subList(0, MAX_ELEMENTS_PER_SCREEN));
         adapter = new GridAdapter(this, allDataSet.get(0).subList(0, MAX_ELEMENTS_PER_SCREEN));
         gridView.setAdapter(adapter);
         setArrows();
+    }
 
-        //Todo improve in next small PR
-        leftArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPage--;
-                setArrows();
-                if (currentPage * MAX_ELEMENTS_PER_SCREEN < allDataSet.get(storeItemTypeindex).size()) {
-                    if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
-                    } else {
-                        adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
-                    }
-                }
+    @OnClick(R.id.left_arrow)
+    private void clickLeftArrow(){
+        currentPage--;
+        setArrows();
+        if (currentPage * MAX_ELEMENTS_PER_SCREEN < allDataSet.get(storeItemTypeindex).size()) {
+            if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
+            } else {
+                adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
             }
-        });
+        }
+    }
 
-        rightArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPage++;
-                setArrows();
-                if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
-                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
-                } else {
-                    adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
-                }
-            }
-        });
+    @OnClick(R.id.right_arrow)
+    private void clickRightArrow(){
+        currentPage++;
+        setArrows();
+        if (allDataSet.get(storeItemTypeindex).size() >= currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN) {
+            adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, currentPage * MAX_ELEMENTS_PER_SCREEN + MAX_ELEMENTS_PER_SCREEN));
+        } else {
+            adapter.refresh(allDataSet.get(storeItemTypeindex).subList(currentPage * MAX_ELEMENTS_PER_SCREEN, allDataSet.get(storeItemTypeindex).size()));
+        }
     }
 
     private void init() {
