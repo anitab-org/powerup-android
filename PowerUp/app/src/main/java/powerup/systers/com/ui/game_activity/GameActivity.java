@@ -498,6 +498,7 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     @Override
     public void setScenarioBackground(int id) {
         findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id]));
+        Log.v(" Game Activity ", "ID + " + id);
     }
 
     @Override
