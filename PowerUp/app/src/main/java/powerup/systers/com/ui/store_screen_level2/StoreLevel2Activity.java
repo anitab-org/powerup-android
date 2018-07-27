@@ -40,7 +40,6 @@ import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
 public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel2Contract.IStoreLevel2View {
 
 
-    private GridView gridView;
     public int storeItemTypeindex = 0;
     public int currentPage = 0;
     private int screenWidth, screenHeight;
@@ -74,7 +73,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
         ButterKnife.bind(this);
 
         init();
-        gridView = findViewById(R.id.grid_view);
+        GridView gridView = findViewById(R.id.grid_view);
         //adapter = new powerup.systers.com.ui.store_screen.StoreLevel2Activity.GridAdapter(this, allDataSet.get(0).subList(0, MAX_ELEMENTS_PER_SCREEN));
         adapter = new GridAdapter(this, allDataSet.get(0).subList(0, MAX_ELEMENTS_PER_SCREEN));
         gridView.setAdapter(adapter);
