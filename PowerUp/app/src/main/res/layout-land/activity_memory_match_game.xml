@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vocab_bg">
+
+    <ImageView
+        android:id="@+id/img_tile_1"
+        android:layout_width="@dimen/memory_tile_size"
+        android:layout_height="@dimen/memory_tile_size"
+        android:src="@drawable/yellow_star"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+
+    <ImageView
+        android:id="@+id/img_tile_2"
+        android:layout_width="@dimen/memory_tile_size"
+        android:layout_height="@dimen/memory_tile_size"
+        android:src="@drawable/yellow_star"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+
+    <ImageView
+        android:id="@+id/img_score"
+        android:layout_width="@dimen/score_label_size"
+        android:layout_height="@dimen/score_label_size"
+        android:src="@drawable/vocab_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_score_memory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_zero"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_score"
+        app:layout_constraintEnd_toEndOf="@+id/img_score"
+        app:layout_constraintHorizontal_bias="0.30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/txt_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/time"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txt_time_memory"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_time_memory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/txt_three_zero"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_label_memory"
+        android:layout_width="@dimen/memory_label_width"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/memory_label"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txt_time_label"
+        app:layout_constraintStart_toEndOf="@+id/img_score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_bg"
+        android:text="@string/yes"
+        android:textColor="@color/powerup_dark_blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/btn_bg"
+        android:text="@string/no"
+        android:textColor="@color/powerup_dark_blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_start"
+        android:layout_width="@dimen/start_width_memory"
+        android:layout_height="@dimen/start_height_memory"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:src="@drawable/start_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

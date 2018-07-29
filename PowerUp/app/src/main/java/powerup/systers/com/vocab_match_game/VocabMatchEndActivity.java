@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.ui.scenario_over_screen.ScenarioOverActivity;
+import powerup.systers.com.ui.scenario_over_screen_level2.ScenarioOverLevel2Activity;
 import powerup.systers.com.utils.PowerUpUtils;
 
 public class VocabMatchEndActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class VocabMatchEndActivity extends AppCompatActivity {
 
     public void continuePressed(View view){
         VocabMatchSessionManager session = new VocabMatchSessionManager(this);
-        Intent intent = new Intent(VocabMatchEndActivity.this, ScenarioOverActivity.class);
+        Intent intent = new Intent(VocabMatchEndActivity.this, ScenarioOverLevel2Activity.class);
         session.saveVocabMatchOpenedStatus(false);
         finish();
         startActivity(intent);

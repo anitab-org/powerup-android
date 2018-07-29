@@ -1,5 +1,7 @@
 package powerup.systers.com.ui.map_screen;
 
+import android.util.Log;
+
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.IDataSource;
 import powerup.systers.com.data.SessionHistory;
@@ -20,6 +22,7 @@ public class MapPresenter implements MapContract.IMapPresenter {
         dataSource.getScenarioFromId(4, new IDataSource.LoadScenarioCallBack() {
             @Override
             public void onScenarioLoaded(Scenario scenario) {
+                Log.v("MAP ACTIVITY:: ", " " + scenario);
                 if ((scenario.getCompleted() == 1) || SessionHistory.sceneHomeIsReplayed) {
                     view.setSchool();
                 }

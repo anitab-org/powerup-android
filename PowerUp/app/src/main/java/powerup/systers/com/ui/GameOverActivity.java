@@ -15,6 +15,7 @@ import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 
 public class GameOverActivity extends Activity {
 
@@ -32,7 +33,7 @@ public class GameOverActivity extends Activity {
     @OnClick(R.id.ContinueButtonMap)
     public void backToMapListener(View view) {
         Intent intent = new Intent(GameOverActivity.this,
-                MapActivity.class);
+                MapLevel2Activity.class);
         finish();
         startActivityForResult(intent, 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);

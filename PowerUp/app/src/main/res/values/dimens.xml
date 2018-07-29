@@ -11,6 +11,7 @@
     <dimen name="bg_width">172dp</dimen>
     <dimen name="bg_height">50dp</dimen>
     <dimen name="item_offset">8dp</dimen>
+    <dimen name="txt_size">20sp</dimen>
     <dimen name="npc_txt_size">20sp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="arrow_size">30dp</dimen>
@@ -25,5 +26,34 @@
     <dimen name="bg_width_small">70dp</dimen>
     <dimen name="bg_height_small">78dp</dimen>
     <dimen name="req_txt_size">15sp</dimen>
+    <dimen name="virus_size">70dp</dimen>
+    <dimen name="radius">115dp</dimen>
+    <dimen name="score_label_size">90dp</dimen>
+    <dimen name="margin_top">40dp</dimen>
+    <dimen name="arrow_width">80dp</dimen>
+    <dimen name="arrow_height">20dp</dimen>
+    <dimen name="txt_size_large">25sp</dimen>
+    <dimen name="score_text_size_large">45sp</dimen>
+    <dimen name="continue_width">220dp</dimen>
+    <dimen name="continue_height">95dp</dimen>
+    <dimen name="memory_score_txt_size">40sp</dimen>
+    <dimen name="continue_width_memory">100dp</dimen>
+    <dimen name="continue_height_memory">230dp</dimen>
+    <dimen name="memory_tile_size">120dp</dimen>
+    <dimen name="memory_label_width">401dp</dimen>
+    <dimen name="btn_margin_bottom">24dp</dimen>
+    <dimen name="tutorial_text_size">22sp</dimen>
+    <dimen name="tutorial_1_width">150dp</dimen>
+    <dimen name="tutorial_2_width">255dp</dimen>
+    <dimen name="tutorial_3_width">265dp</dimen>
+    <dimen name="tutorial_3_margin">32dp</dimen>
+    <dimen name="start_width_memory">130dp</dimen>
+    <dimen name="start_height_memory">70dp</dimen>
+    <dimen name="memory_tutorial_1_width">250dp</dimen>
+    <dimen name="memory_tutorial_2_width">178dp</dimen>
+    <dimen name="memory_tutorial_3_width">220dp</dimen>
+    <dimen name="save_blood_box_width">175dp</dimen>
+    <dimen name="save_blood_box_height">115dp</dimen>
+    <dimen name="option_width">90dp</dimen>
+    <dimen name="avatar_height_level2">270dp</dimen>
 </resources>
-

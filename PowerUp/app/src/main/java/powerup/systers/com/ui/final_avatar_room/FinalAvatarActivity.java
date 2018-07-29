@@ -86,6 +86,10 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
         SessionHistory.selectedAdult2 = 0;
         SessionHistory.selectedChild1 = 0;
         SessionHistory.selectedChild2 = 0;
+        SessionHistory.progressTelepathy = 0;
+        SessionHistory.progressInvisibility = 0;
+        SessionHistory.progressHealing = 0;
+        SessionHistory.progressHealth = 0;
         // starting map activity
         startActivityForResult(new Intent(FinalAvatarActivity.this, PreGameSetupInitialActivity.class), 0);
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
