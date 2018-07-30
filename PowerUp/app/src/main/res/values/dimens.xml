@@ -56,4 +56,12 @@
     <dimen name="save_blood_box_height">115dp</dimen>
     <dimen name="option_width">90dp</dimen>
     <dimen name="avatar_height_level2">270dp</dimen>
+    <dimen name="character_width">185dp</dimen>
+    <dimen name="character_height">200dp</dimen>
+    <dimen name="margin_chracter1_left">32dp</dimen>
+    <dimen name="margin_character2_right">68dp</dimen>
+    <dimen name="msg_width">185dp</dimen>
+    <dimen name="margin_right_txt_msg1">88dp</dimen>
+    <dimen name="margin_top_txt_msg1">36dp</dimen>
+    <dimen name="margin_right_txt_msg2">125dp</dimen>
 </resources>

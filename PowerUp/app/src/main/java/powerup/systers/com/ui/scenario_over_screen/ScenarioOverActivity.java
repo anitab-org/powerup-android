@@ -30,11 +30,11 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import powerup.systers.com.ui.GameOverActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
 import powerup.systers.com.data.entities.Scenario;
 import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.ui.Level2TransitionActivity;
 import powerup.systers.com.ui.game_activity.GameActivity;
 import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.utils.InjectionClass;
@@ -91,7 +91,7 @@ public class ScenarioOverActivity extends AppCompatActivity implements ScenarioO
             public void onClick(View v) {
                 new GameActivity().gameActivityInstance.finish();
                 if (getIntent().getBooleanExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, false)) {
-                    startActivity(new Intent(ScenarioOverActivity.this, GameOverActivity.class));
+                    startActivity(new Intent(ScenarioOverActivity.this, Level2TransitionActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
                     startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
