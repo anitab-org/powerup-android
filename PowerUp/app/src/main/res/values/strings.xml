@@ -131,4 +131,6 @@
     <string name="save_blood_tutorial_1">Choose the answers that you think might fit the situation!</string>
     <string name="save_blood_tutorial_2">Every correct answer will increase the level of blood!</string>
     <string name="save_blood_tutorial_3">Try to choose all the correct options before the time runs out!</string>
+    <string name="msg1_level_complete">Happy Birthday! You have completed the middle school level!</string>
+    <string name="msg2_level_complete">Congratulations! Let\'s now proceed to high school.</string>
 </resources>
