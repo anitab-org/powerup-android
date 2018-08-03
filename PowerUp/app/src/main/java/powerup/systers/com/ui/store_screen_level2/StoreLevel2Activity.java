@@ -35,6 +35,9 @@ import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 
 import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_ACCESSORIES;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_CLOTHES;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_HAIR;
 
 
 public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel2Contract.IStoreLevel2View {
@@ -123,7 +126,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     @OnClick(R.id.hair_button)
     public void hairButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 0;
+        storeItemTypeindex = TYPE_HAIR;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -131,7 +134,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     @OnClick(R.id.clothes_button)
     public void clothesButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 1;
+        storeItemTypeindex = TYPE_CLOTHES;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -139,7 +142,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     @OnClick(R.id.accessories_button)
     public void accessoriesButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 2;
+        storeItemTypeindex = TYPE_ACCESSORIES;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -222,7 +225,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
 
                         final TextView itemPoints = v.findViewById(R.id.item_points);
                         final int index = calculatePosition(position)+1;
-                        if (storeItemTypeindex == 0) { //hair
+                        if (storeItemTypeindex == TYPE_HAIR) { //hair
                             //Todo understand here again
                             dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
@@ -238,7 +241,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                                 }
                             });
 
-                        } else if (storeItemTypeindex == 1) { //clothes
+                        } else if (storeItemTypeindex == TYPE_CLOTHES) { //clothes
                             dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -252,7 +255,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                                     }
                                 }
                             });
-                        } else if (storeItemTypeindex == 2) { //accessories
+                        } else if (storeItemTypeindex == TYPE_ACCESSORIES) { //accessories
                             dataSource.getPurchasedAccessories(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -304,7 +307,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
     private int getSelectedItemId(){
         final int[] returnValue = new int[1];
         switch (storeItemTypeindex) {
-            case 0: //hair
+            case TYPE_HAIR: //hair
                 dataSource.getAvatarHair(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
@@ -312,7 +315,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                     }
                 });
                 return returnValue[0];
-            case 1: //cloth
+            case TYPE_CLOTHES: //cloth
                 dataSource.getAvatarCloth(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
@@ -320,7 +323,7 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                     }
                 });
                 return returnValue[0];
-            case 2:
+            case TYPE_ACCESSORIES:
                 dataSource.getAvatarAccessory(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
