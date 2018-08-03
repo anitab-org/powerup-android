@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -48,7 +49,7 @@ public class MemoryMatchGameActivity extends Activity {
     public int position, positionCount = -1, score;
     private Animation translateTile;
     private CountDownTimer countDownTimer;
-    public boolean calledFromActivity = true;
+    public boolean calledFromActivity = true, correctAns = true;
     private long millisLeft = 30000;
 
     @SuppressLint("ResourceType")
@@ -155,6 +156,16 @@ public class MemoryMatchGameActivity extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 position = random.nextInt(8);
+                if(correctAns)
+                    imgTile2.setImageResource(R.drawable.green_star);
+                else
+                    imgTile2.setImageResource(R.drawable.red_star);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imgTile2.setImageResource(R.drawable.yellow_star);
+                    }
+                }, 500);
                 imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
                 updateArray(position);
                 btnYes.setEnabled(true);
@@ -176,6 +187,7 @@ public class MemoryMatchGameActivity extends Activity {
         //increasing the score
         score = score + 1;
         correctAnswer+=1;
+        correctAns = true;
     }
 
     /**
@@ -184,6 +196,7 @@ public class MemoryMatchGameActivity extends Activity {
     public void wrongAnswer() {
         Log.v("MemoryMatchGameActivity", "Wrong Answer");
         wrongAnswer+=1;
+        correctAns = false;
     }
 
     /**
