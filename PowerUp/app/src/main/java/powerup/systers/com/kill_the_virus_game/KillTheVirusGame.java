@@ -134,6 +134,8 @@ public class KillTheVirusGame extends Activity {
                 gameEnd(score);
             }
         }.start();
+        startService(new Intent(this, KillTheVirusSound.class)
+                .putExtra("SOUND_TYPE", 0));
     }
 
     /**
@@ -281,6 +283,7 @@ public class KillTheVirusGame extends Activity {
         countDownTimer.cancel();
         countDownTimer = null;
         sessionManager.saveData(score,millisLeft ,lives, duration);
+        stopService(new Intent(KillTheVirusGame.this, KillTheVirusSound.class));
         super.onPause();
     }
 
