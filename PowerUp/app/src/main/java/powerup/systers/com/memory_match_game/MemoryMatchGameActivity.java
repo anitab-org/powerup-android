@@ -49,7 +49,7 @@ public class MemoryMatchGameActivity extends Activity {
     public int position, positionCount = -1, score;
     private Animation translateTile;
     private CountDownTimer countDownTimer;
-    public boolean calledFromActivity = true, correctAns = true;
+    public boolean calledFromActivity = true, correctAns = true, buttonClick = false;;
     private long millisLeft = 30000;
 
     @SuppressLint("ResourceType")
@@ -121,6 +121,7 @@ public class MemoryMatchGameActivity extends Activity {
 
     @OnClick(R.id.btn_yes)
     public void clickYes() {
+        buttonClick = true;
         if (arrayTile.get(positionCount).equals(arrayTile.get(positionCount - 1)))
             correctAnswer();
         else
@@ -131,6 +132,7 @@ public class MemoryMatchGameActivity extends Activity {
 
     @OnClick(R.id.btn_no)
     public void clickNo() {
+        buttonClick = true;
         if (!arrayTile.get(positionCount).equals(arrayTile.get(positionCount - 1)))
             correctAnswer();
         else
@@ -156,18 +158,24 @@ public class MemoryMatchGameActivity extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 position = random.nextInt(8);
-                if(correctAns)
+                if(correctAns && buttonClick) {
                     imgTile2.setImageResource(R.drawable.green_star);
-                else
-                    imgTile2.setImageResource(R.drawable.red_star);
+                    playSound(MemoryMatchSound.TYPE_CORRECT);
+                }
+                else {
+                    if(buttonClick) {
+                        imgTile2.setImageResource(R.drawable.red_star);
+                        playSound(MemoryMatchSound.TYPE_INCORRECT);
+                    }
+                }
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         imgTile2.setImageResource(R.drawable.yellow_star);
                     }
                 }, 500);
-                imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
                 updateArray(position);
+                imgTile1.setImageResource(PowerUpUtils.MEMORY_GAME_TILE[position]);
                 btnYes.setEnabled(true);
                 btnNo.setEnabled(true);
             }
@@ -225,6 +233,12 @@ public class MemoryMatchGameActivity extends Activity {
         positionCount = positionCount + 1;
         arrayTile.add(value);
         Log.v("MemoryMatchGameActivity", " Value stored at " + positionCount + " is " + arrayTile.get(positionCount));
+    }
+
+    private void playSound(int sound) {
+        Intent intent = new Intent(this, MemoryMatchSound.class)
+                .putExtra(MemoryMatchSound.SOUND_TYPE_EXTRA, sound);
+        startService(intent);
     }
 
     @Override

@@ -219,6 +219,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <service android:name=".ui.MinesweeperSound" />
         <service android:name=".sink_to_swim_game.SinkToSwimSound"/>
+        <service android:name=".memory_match_game.MemoryMatchSound"/>
         <activity
             android:name=".ui.pregame_setup.PregameSetupActivity"
             android:configChanges="orientation|keyboardHidden"
