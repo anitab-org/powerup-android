@@ -35,6 +35,9 @@ import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.utils.PowerUpUtils;
 
 import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_ACCESSORIES;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_CLOTHES;
+import static powerup.systers.com.utils.PowerUpUtils.TYPE_HAIR;
 
 
 public class StoreActivity extends AppCompatActivity implements IStoreView{
@@ -133,7 +136,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     @OnClick(R.id.hair_button)
     public void hairButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 0;
+        storeItemTypeindex = TYPE_HAIR;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -141,7 +144,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     @OnClick(R.id.clothes_button)
     public void clothesButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 1;
+        storeItemTypeindex = TYPE_CLOTHES;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -149,7 +152,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     @OnClick(R.id.accessories_button)
     public void accessoriesButtonListener (View view) {
         currentPage = 0;
-        storeItemTypeindex = 2;
+        storeItemTypeindex = TYPE_ACCESSORIES;
         adapter.refresh(allDataSet.get(storeItemTypeindex).subList(0, MAX_ELEMENTS_PER_SCREEN));
         setArrows();
     }
@@ -231,7 +234,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
 
                         final TextView itemPoints = v.findViewById(R.id.item_points);
                         final int index = calculatePosition(position)+1;
-                        if (storeItemTypeindex == 0) { //hair
+                        if (storeItemTypeindex == TYPE_HAIR) { //hair
                             //Todo understand here again
                             dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
@@ -246,7 +249,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                                     }
                                 }
                             });
-                            
+
                         } else if (storeItemTypeindex == 1) { //clothes
                             dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
@@ -313,7 +316,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     private int getSelectedItemId(){
         final int[] returnValue = new int[1];
         switch (storeItemTypeindex) {
-            case 0: //hair
+            case TYPE_HAIR: //hair
                 dataSource.getAvatarHair(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
@@ -321,7 +324,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                     }
                 });
                 return returnValue[0];
-            case 1: //cloth
+            case TYPE_CLOTHES: //cloth
                 dataSource.getAvatarCloth(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
@@ -329,7 +332,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                     }
                 });
                 return returnValue[0];
-            case 2:
+            case TYPE_ACCESSORIES:
                 dataSource.getAvatarAccessory(new IDataSource.LoadIntegerCallback() {
                     @Override
                     public void onResultLoaded(int value) {
@@ -351,17 +354,17 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                 SessionHistory.totalPoints -= cost;
                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
                 switch (storeItemTypeindex) {
-                    case PowerUpUtils.TYPE_HAIR:
+                    case TYPE_HAIR:
                         dataSource.setCurrentHairValue(index);
                         presenter.calculateHairValue(index);
                         dataSource.setPurchasedHair(index);
                         break;
-                    case PowerUpUtils.TYPE_CLOTHES:
+                    case TYPE_CLOTHES:
                         dataSource.setPurchasedClothes(index);
                         dataSource.setCurrentClothValue(index);
                         presenter.calculateClothValue(index);
                         break;
-                    case PowerUpUtils.TYPE_ACCESSORIES:
+                    case TYPE_ACCESSORIES:
                         dataSource.setPurchasedAccessories(index);
                         dataSource.setCurrentAccessoriesValue(index);
                         presenter.calculateAccessoryValue(index);
@@ -398,21 +401,21 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     public int getPurchasedStatus(int index) {
         final int[] returnValue = new int[1];
         switch(storeItemTypeindex) {
-            case 0: dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
+            case TYPE_HAIR: dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
                 @Override
                 public void onResultLoaded(int value) {
                     returnValue[0] = value;
                 }
             }); // hair
                 return returnValue[0];
-            case 1: dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
+            case TYPE_CLOTHES: dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
                 @Override
                 public void onResultLoaded(int value) {
                     returnValue[0] = value;
                 }
             }); // clothes
                 return returnValue[0];
-            case 2: dataSource.getPurchasedAccessories(index, new IDataSource.LoadIntegerCallback() {
+            case TYPE_ACCESSORIES: dataSource.getPurchasedAccessories(index, new IDataSource.LoadIntegerCallback() {
                 @Override
                 public void onResultLoaded(int value) {
                     returnValue[0] = value;
