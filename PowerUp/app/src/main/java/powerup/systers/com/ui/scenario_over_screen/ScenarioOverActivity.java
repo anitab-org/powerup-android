@@ -91,6 +91,7 @@ public class ScenarioOverActivity extends AppCompatActivity implements ScenarioO
             public void onClick(View v) {
                 new GameActivity().gameActivityInstance.finish();
                 if (getIntent().getBooleanExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, false)) {
+                    SessionHistory.level1Completed = true;
                     startActivity(new Intent(ScenarioOverActivity.this, Level2TransitionActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
