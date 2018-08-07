@@ -441,7 +441,7 @@ public class DataSource implements IDataSource {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                final int value = hairDao.getPurchasedHair(id);
+                final int value = accessoryDao.getPurchasedAccessories(id);
                 appExecutors.mainThread().execute(new Runnable() {
                     @Override
                     public void run() {
