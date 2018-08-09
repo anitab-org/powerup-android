@@ -29,6 +29,7 @@ import powerup.systers.com.minesweeper.MinesweeperSessionManager;
 import powerup.systers.com.sink_to_swim_game.SinkToSwimSessionManager;
 import powerup.systers.com.ui.avatar_room.AvatarRoomActivity;
 import powerup.systers.com.ui.map_screen.MapActivity;
+import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
 import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 
@@ -57,8 +58,8 @@ public class StartActivity extends Activity {
 
         // populate database if it's first run of application
         if (hasPreviouslyStarted) {
-             populateDatabase();
-             dataSource.setFirstTime(false);
+            populateDatabase();
+            dataSource.setFirstTime(false);
         }
     }
 
@@ -122,28 +123,32 @@ public class StartActivity extends Activity {
 
     @OnClick(R.id.startButtonMain)
     public void startButtonListener(View view) {
-            if (dataSource.checkPreviouslyCustomized()) {
-                // load map activity if shared preferences return true
+        // load map activity if shared preferences return true
+        if (dataSource.checkPreviouslyCustomized()) {
+            //load Level 2 if Level 2 is complete
+            if (SessionHistory.level1Completed)
+                startActivity(new Intent(context, MapLevel2Activity.class));
+            else
                 startActivity(new Intent(context, MapActivity.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else {
-                // create dialog to use new game button instead & dismiss dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
-                builder.setTitle(context.getResources().getString(R.string.start_title_message_load))
-                        .setMessage(getResources().getString(R.string.start_dialog_message_load));
-                builder.setPositiveButton(getString(R.string.start_confirm_message_load),
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+        } else {
+            // create dialog to use new game button instead & dismiss dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
+            builder.setTitle(context.getResources().getString(R.string.start_title_message_load))
+                    .setMessage(getResources().getString(R.string.start_dialog_message_load));
+            builder.setPositiveButton(getString(R.string.start_confirm_message_load),
                     new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
 
-                AlertDialog dialog = builder.create();
-                ColorDrawable drawable = new ColorDrawable(Color.WHITE);
-                drawable.setAlpha(200);
-                dialog.getWindow().setBackgroundDrawable(drawable);
-                dialog.show();
-            }
+            AlertDialog dialog = builder.create();
+            ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+            drawable.setAlpha(200);
+            dialog.getWindow().setBackgroundDrawable(drawable);
+            dialog.show();
+        }
     }
 
     private void populateDatabase() {

@@ -325,7 +325,6 @@ public class PowerUpUtils {
     };
     public static volatile boolean sPauseTest = true;
 
-
     public static String TXT_QUES_ANS_SAVE_BLOOD[][] = { {"Presented Situation 1", "Answer = Correct", "Answer = Correct", "Answer = Wrong", "Answer = Wrong","Answer = Neutral","Answer = Neutral"},
             {"Presented Situation 2", "Answer = Wrong", "Answer = Correct", "Answer = Neutral", "Answer = Wrong","Answer = Correct","Answer = Neutral"},
             {"Presented Situation 3", "Answer = Neutral", "Answer = Neutral", "Answer = Correct", "Answer = Correct","Answer = Wrong","Answer = Wrong"},
