@@ -236,8 +236,6 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                         final int index = calculatePosition(position)+1;
                         if (storeItemTypeindex == TYPE_HAIR) { //hair
                             //Todo understand here again
-                            dataSource.setCurrentHairValue(index);
-                            presenter.calculateHairValue(index);
                             dataSource.getPurchasedHair(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -251,10 +249,8 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                                     }
                                 }
                             });
-                            
-                        } else if (storeItemTypeindex == TYPE_CLOTHES) { //clothes
-                            dataSource.setCurrentClothValue(index);
-                            presenter.calculateClothValue(index);
+
+                        } else if (storeItemTypeindex == 1) { //clothes
                             dataSource.getPurchasedClothes(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -268,9 +264,7 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                                     }
                                 }
                             });
-                        } else if (storeItemTypeindex == TYPE_ACCESSORIES) { //accessories
-                            dataSource.setCurrentAccessoriesValue(index);
-                            presenter.calculateAccessoryValue(index);
+                        } else if (storeItemTypeindex == 2) { //accessories
                             dataSource.getPurchasedAccessories(index, new IDataSource.LoadIntegerCallback() {
                                 @Override
                                 public void onResultLoaded(int value) {
@@ -361,16 +355,19 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
                 switch (storeItemTypeindex) {
                     case TYPE_HAIR:
-                        dataSource.setPurchasedHair(index);
                         dataSource.setCurrentHairValue(index);
+                        presenter.calculateHairValue(index);
+                        dataSource.setPurchasedHair(index);
                         break;
                     case TYPE_CLOTHES:
                         dataSource.setPurchasedClothes(index);
                         dataSource.setCurrentClothValue(index);
+                        presenter.calculateClothValue(index);
                         break;
                     case TYPE_ACCESSORIES:
                         dataSource.setPurchasedAccessories(index);
                         dataSource.setCurrentAccessoriesValue(index);
+                        presenter.calculateAccessoryValue(index);
                 }
                 adapter.refresh(adapter.storeItems); // will update change the background if any is not available
                 showSuccessPurchaseDialog();
