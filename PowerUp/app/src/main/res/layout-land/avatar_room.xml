@@ -30,6 +30,7 @@
                 android:layout_marginRight="@dimen/selection_margin_small"
                 android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
+                android:layout_gravity="center"
                 android:src="@drawable/arrow_left" />
 
             <TextView
@@ -48,18 +49,20 @@
                 android:layout_marginRight="@dimen/selection_margin_wide"
                 android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/eyes_left"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/selection_margin_wide"
-                android:layout_marginStart="@dimen/selection_margin_wide"
-                android:layout_marginRight="@dimen/selection_margin_small"
                 android:layout_marginEnd="@dimen/selection_margin_small"
+                android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_wide"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_left" />
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,7 +80,8 @@
                 android:layout_marginRight="@dimen/selection_margin_wide"
                 android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/clothes_left"
@@ -88,7 +92,8 @@
                 android:layout_marginRight="@dimen/selection_margin_small"
                 android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_left" />
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,7 +111,8 @@
                 android:layout_marginRight="@dimen/selection_margin_wide"
                 android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/hair_left"
@@ -117,7 +123,8 @@
                 android:layout_marginRight="@dimen/selection_margin_small"
                 android:layout_marginEnd="@dimen/selection_margin_small"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_left" />
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,7 +142,8 @@
                 android:layout_marginRight="@dimen/selection_margin_wide"
                 android:layout_marginEnd="@dimen/selection_margin_wide"
                 android:layout_weight="1"
-                android:src="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
