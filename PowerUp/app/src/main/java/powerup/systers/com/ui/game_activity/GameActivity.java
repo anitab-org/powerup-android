@@ -333,35 +333,11 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         if (ScenarioOverActivity.scenarioActivityDone == 1)
             new ScenarioOverActivity().scenarioOverActivityInstance.finish();
         if (scene != null) {
-            presenter.getPreviousScene(scene.getScenarioId());
+            presenter.getPreviousScene(scene.getScenarioId(), type);
         }
-        presenter.loadScenarioFromDatabase();
-
-        // If completed check if it is last scene
-        if (prevScene != null && prevScene.getCompleted() == 1) {
-                SessionHistory.prevSessionID = scene.getScenarioId();
-                SessionHistory.currSessionID = scene.getNextScenarioID();
-                if (type == 0) {
-                    Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
-                    intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
-                    startActivity(intent);
-                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                } else if (type == -1) {
-                    new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
-                    startActivity(new Intent(GameActivity.this, MinesweeperTutorials.class));
-                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                } else if (type == -2) {
-                    new SinkToSwimSessionManager(this).saveSinkToSwimOpenedStatus(true);
-                    startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
-                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                } else if (type == -3) {
-                    new MemoryMatchSessionManager(this).saveMemoryMatchOpenedStatus(true);
-                    startActivity(new Intent(GameActivity.this, MemoryMatchTutorialActivity.class));
-                    overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-                }
-
+        else {
+            switchScreens(type);
         }
-
     }
 
     /**
@@ -380,14 +356,14 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
         if(SessionHistory.currScenePoints != 0) {
             // clears the activities that were created after the found instance of the required activity
             gotToMapDialogue();
-            } else {
+        } else {
             // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
             // clears the activities that were created after the found instance of the required activity
             startActivity(new Intent(GameActivity.this, MapActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             finish();
-            }
+        }
     }
-    
+
     public void gotToMapDialogue(){
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setTitle(context.getResources().getString(R.string.start_title_message))
@@ -514,8 +490,36 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     }
 
     @Override
-    public void setPrevScene(Scenario scenario) {
+    public void setPrevScene(Scenario scenario, int type) {
         prevScene = scenario;
+        switchScreens(type);
     }
 
+    private void switchScreens(int type) {
+        presenter.loadScenarioFromDatabase();
+        // If completed check if it is last scene
+        if (prevScene != null && prevScene.getCompleted() == 1) {
+            SessionHistory.prevSessionID = scene.getScenarioId();
+            SessionHistory.currSessionID = scene.getNextScenarioID();
+            if (type == 0) {
+                Intent intent = new Intent(GameActivity.this, ScenarioOverActivity.class);
+                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
+                startActivity(intent);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -1) {
+                new MinesweeperSessionManager(this).saveMinesweeperOpenedStatus(true); //marks minesweeper game as opened and incompleted
+                startActivity(new Intent(GameActivity.this, MinesweeperTutorials.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -2) {
+                new SinkToSwimSessionManager(this).saveSinkToSwimOpenedStatus(true);
+                startActivity(new Intent(GameActivity.this, SinkToSwimTutorials.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -3) {
+                new MemoryMatchSessionManager(this).saveMemoryMatchOpenedStatus(true);
+                startActivity(new Intent(GameActivity.this, MemoryMatchTutorialActivity.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            }
+
+        }
+    }
 }

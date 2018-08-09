@@ -134,14 +134,12 @@ public class GameScreenLevel2Presenter implements GameScreenLevel2Contract.IGame
     }
 
     @Override
-    public void getPreviousScene(int id) {
+    public void getPreviousScene(int id, final int type) {
         source.getScenarioFromId(id, new IDataSource.LoadScenarioCallBack() {
             @Override
             public void onScenarioLoaded(Scenario scenario) {
-                view.setPrevScene(scenario);
+                view.setPrevScene(scenario, type);
             }
         });
     }
-
-
 }
