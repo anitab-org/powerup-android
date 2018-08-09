@@ -15,7 +15,7 @@ public interface GameScreenLevel2Contract {
         void setScenarioBackground(int id);
         void updateQuestion(String question);
         void updateAnswer(List<Answer> dataList);
-        void setPrevScene(Scenario scenario);
+        void setPrevScene(Scenario scenario, int type);
     }
 
     interface IGameScreenLevel2Presenter {
@@ -27,7 +27,7 @@ public interface GameScreenLevel2Contract {
         void getScenarioBackground();
         void loadQuestion();
         void loadAnswer();
-        void getPreviousScene(int id);
+        void getPreviousScene(int id, int type);
         void loadScenarioFromDatabase();
     }
 }

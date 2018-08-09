@@ -326,31 +326,10 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
         if (ScenarioOverLevel2Activity.scenarioActivityDone == 1)
             new ScenarioOverLevel2Activity().scenarioOverActivityInstance.finish();
         if (scene != null) {
-            presenter.getPreviousScene(scene.getScenarioId());
+            presenter.getPreviousScene(scene.getScenarioId(), type);
         }
-        presenter.loadScenarioFromDatabase();
-
-        // If completed check if it is last scene
-        if (prevScene != null && prevScene.getCompleted() == 1) {
-            SessionHistory.prevSessionID = scene.getScenarioId();
-            SessionHistory.currSessionID = scene.getNextScenarioID();
-            if (type == 0) {
-                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class);
-                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
-                startActivity(intent);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -8) {
-                new KillTheVirusSessionManager(this).saveKillTheVirusOpenedStatus(true);
-                startActivity(new Intent(GameLevel2Activity.this, KillTheVirusTutorials.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -10) {
-                startActivity(new Intent(GameLevel2Activity.this, VocabMatchTutorials.class));
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            } else if (type == -11) {
-                startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodTutorialActivity.class));
-                new SaveTheBloodSessionManager(this).saveSaveBloodOpenedStatus(true);
-                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
-            }
+        else {
+            switchScreens(type);
         }
     }
 
@@ -504,8 +483,35 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
     }
 
     @Override
-    public void setPrevScene(Scenario scenario) {
+    public void setPrevScene(Scenario scenario, int type) {
         prevScene = scenario;
+        switchScreens(type);
+    }
+
+    private void switchScreens(int type) {
+        presenter.loadScenarioFromDatabase();
+        // If completed check if it is last scene
+        if (prevScene != null && prevScene.getCompleted() == 1) {
+            SessionHistory.prevSessionID = scene.getScenarioId();
+            SessionHistory.currSessionID = scene.getNextScenarioID();
+            if (type == 0) {
+                Intent intent = new Intent(GameLevel2Activity.this, ScenarioOverLevel2Activity.class);
+                intent.putExtra(String.valueOf(R.string.scene), prevScene.getScenarioName());
+                startActivity(intent);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -8) {
+                new KillTheVirusSessionManager(this).saveKillTheVirusOpenedStatus(true);
+                startActivity(new Intent(GameLevel2Activity.this, KillTheVirusTutorials.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -10) {
+                startActivity(new Intent(GameLevel2Activity.this, VocabMatchTutorials.class));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            } else if (type == -11) {
+                startActivity(new Intent(GameLevel2Activity.this, SaveTheBloodTutorialActivity.class));
+                new SaveTheBloodSessionManager(this).saveSaveBloodOpenedStatus(true);
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+            }
+        }
     }
 
 }
