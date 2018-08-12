@@ -35,6 +35,7 @@ public class SaveTheBloodEndActivity extends Activity {
 
     @OnClick(R.id.btn_continue_save_blood)
     public void clickContinue(){
+        new SaveTheBloodSessionManager(this).saveSaveBloodOpenedStatus(false);
         Intent intent = new Intent(SaveTheBloodEndActivity.this, ScenarioOverLevel2Activity.class);
         intent.putExtra(PowerUpUtils.IS_FINAL_SCENARIO_EXTRA, true);
         startActivity(intent);

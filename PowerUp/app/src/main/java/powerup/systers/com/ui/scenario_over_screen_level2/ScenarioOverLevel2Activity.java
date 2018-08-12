@@ -124,19 +124,19 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
             String scenario = getIntent().getStringExtra(PowerUpUtils.SCENARIO_NAME);
             int id;
             switch (scenario) {
-                case "Home":
+                case "Home Level 2":
                     id = 4;
                     SessionHistory.sceneHomeIsReplayed = true;
                     break;
-                case "School":
+                case "School Level 2":
                     id = 5;
                     SessionHistory.sceneSchoolIsReplayed = true;
                     break;
-                case "Hospital":
+                case "Hospital Level 2":
                     id = 6;
                     SessionHistory.sceneHospitalIsReplayed = true;
                     break;
-                case "Library":
+                case "Library Level 2":
                     id = 7;
                     SessionHistory.sceneLibraryIsReplayed = true;
                     break;
