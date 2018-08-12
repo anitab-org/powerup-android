@@ -59,7 +59,7 @@ public class PowerUpUtils {
             {"Round 3 Pro 1 ", "Round 3 Pro 2", "Round 3 Con 1"}};
     public static final String[][] SWIM_SINK_QUESTION_ANSWERS = {{"Test Ques 1: \n Answer=F", "F"}, {"Test Ques 2: \n Answer=T", "T"}, {"Test Ques 3: \n Answer=T", "T"}, {"Test Ques 4: \n Answer=F", "F"}, {"Test Ques 5: \n Answer=F", "F"}};
     public static final int[] SWIM_TUTS = {R.drawable.swim_tut1, R.drawable.swim_tut2, R.drawable.swim_tut3};
-    public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background, R.drawable.background, R.drawable.background, R.drawable.home_bg, R.drawable.classroom, R.drawable.hospital_bg, R.drawable.library};
+    public static final int[] SCENARIO_BACKGROUNDS = {R.drawable.background, R.drawable.background, R.drawable.background, R.drawable.home_bg, R.drawable.classroom, R.drawable.hospital_bg, R.drawable.library, R.drawable.home_bg, R.drawable.classroom, R.drawable.hospital_bg, R.drawable.library};
     public static final int[] VOCAB_TILES_IMAGES = {R.drawable.vocab_tile1, R.drawable.vocab_tile2, R.drawable.vocab_tile3, R.drawable.vocab_cramping_tile, R.drawable.vocab_deo_tile, R.drawable.vocab_depression_tile, R.drawable.vocab_fat, R.drawable.vocab_skinny, R.drawable.vocab_tampon};
     public static final String[] VOCAB_MATCHES_BOARDS_TEXTS = {"Periods", "Pimples", "Bra", "Cramping", "Deo", "Depression", "Fat", "Skinny", "Tampon"};
     public static final int[] VOCAB_MATCH_TUTS = {R.drawable.vocab_tut1, R.drawable.vocab_tut2};

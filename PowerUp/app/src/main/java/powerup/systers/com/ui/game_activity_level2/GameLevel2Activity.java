@@ -465,7 +465,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
 
     @Override
     public void setScenarioBackground(int id) {
-        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id - 4]));
+        findViewById(R.id.root).setBackground(getResources().getDrawable(PowerUpUtils.SCENARIO_BACKGROUNDS[id]));
     }
 
     @Override
