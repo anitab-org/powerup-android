@@ -95,6 +95,8 @@ public class ScenarioOverActivity extends AppCompatActivity implements ScenarioO
                     startActivity(new Intent(ScenarioOverActivity.this, Level2TransitionActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
+                    if(scene != null)
+                        SessionHistory.currQID = scene.getFirstQuestionID();
                     startActivity(new Intent(ScenarioOverActivity.this, GameActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
@@ -224,8 +226,6 @@ public class ScenarioOverActivity extends AppCompatActivity implements ScenarioO
     @Override
     public void setCurrentScenario(Scenario scenario) {
         scene = scenario;
-        if(scene != null)
-            SessionHistory.currQID = scene.getFirstQuestionID();
     }
 
     @Override

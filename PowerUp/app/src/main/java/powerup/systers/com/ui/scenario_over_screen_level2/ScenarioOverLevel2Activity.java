@@ -94,6 +94,8 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
                     startActivity(new Intent(ScenarioOverLevel2Activity.this, GameOverActivity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 } else {
+                    if(scene != null)
+                        SessionHistory.currQID = scene.getFirstQuestionID();
                     startActivity(new Intent(ScenarioOverLevel2Activity.this, GameLevel2Activity.class));
                     overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 }
@@ -125,23 +127,23 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
             int id;
             switch (scenario) {
                 case "Home Level 2":
-                    id = 4;
+                    id = 8;
                     SessionHistory.sceneHomeIsReplayed = true;
                     break;
                 case "School Level 2":
-                    id = 5;
+                    id = 9;
                     SessionHistory.sceneSchoolIsReplayed = true;
                     break;
                 case "Hospital Level 2":
-                    id = 6;
+                    id = 10;
                     SessionHistory.sceneHospitalIsReplayed = true;
                     break;
                 case "Library Level 2":
-                    id = 7;
+                    id = 11;
                     SessionHistory.sceneLibraryIsReplayed = true;
                     break;
                 default:
-                    id = 4;
+                    id = 8;
                     break;
             }
             SessionHistory.currSessionID = id;
@@ -223,8 +225,6 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
     @Override
     public void setCurrentScenario(Scenario scenario) {
         scene = scenario;
-        if(scene != null)
-            SessionHistory.currQID = scene.getFirstQuestionID();
     }
 
     @Override
