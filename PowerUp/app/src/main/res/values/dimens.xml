@@ -63,4 +63,6 @@
     <dimen name="margin_right_txt_msg1">88dp</dimen>
     <dimen name="margin_top_txt_msg1">36dp</dimen>
     <dimen name="margin_right_txt_msg2">125dp</dimen>
+    <dimen name="btn_padding">4dp</dimen>
+    <dimen name="btn_radius">3dp</dimen>
 </resources>
