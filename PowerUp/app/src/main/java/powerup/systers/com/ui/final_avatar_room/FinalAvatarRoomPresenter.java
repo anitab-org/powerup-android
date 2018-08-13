@@ -9,12 +9,10 @@ import powerup.systers.com.data.DataSource;
 public class FinalAvatarRoomPresenter implements FinalAvatarRoomContract.IAvatarRoomPresenter{
 
     private FinalAvatarRoomContract.IAvatarRoomView view;
-    private DataSource source;
     private Context context;
 
     public FinalAvatarRoomPresenter(FinalAvatarRoomContract.IAvatarRoomView view, DataSource source, Context context) {
         this.view = view;
-        this.source = source;
         this.context = context;
     }
 

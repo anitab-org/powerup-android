@@ -54,6 +54,7 @@ public class CSVReader {
                         case 5: list.add((T) new Accessory(Integer.valueOf(row[0]), row[1], Integer.valueOf(row[2]), 0));
                                 break;
                         default: Log.e(TAG, "Invalid file type");
+                                break;
                     }
                 }
             }

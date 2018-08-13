@@ -30,7 +30,6 @@ import powerup.systers.com.data.IDataSource;
 import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.StoreItem;
 import powerup.systers.com.ui.map_screen.MapActivity;
-import powerup.systers.com.ui.store_screen.StoreContract.IStoreView;
 import powerup.systers.com.utils.InjectionClass;
 
 import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
@@ -39,7 +38,7 @@ import static powerup.systers.com.utils.PowerUpUtils.TYPE_CLOTHES;
 import static powerup.systers.com.utils.PowerUpUtils.TYPE_HAIR;
 
 
-public class StoreActivity extends AppCompatActivity implements IStoreView{
+public class StoreActivity extends AppCompatActivity implements StoreContract.IStoreView {
 
 
     GridView gridView;

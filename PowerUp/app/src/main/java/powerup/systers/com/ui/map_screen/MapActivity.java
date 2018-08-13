@@ -36,7 +36,6 @@ import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 public class MapActivity extends Activity implements MapContract.IMapView{
 
     private DataSource dataSource;
-    private MapPresenter presenter;
     @BindView(R.id.school_building)
     public ImageView schoolBuilding;
     @BindView(R.id.hospital_building)
@@ -74,7 +73,7 @@ public class MapActivity extends Activity implements MapContract.IMapView{
         init();
 
         // initialize presneter
-        presenter = new MapPresenter(dataSource, this);
+        MapPresenter presenter = new MapPresenter(dataSource, this);
 
         //changes the Map building's greyscale color and locks according to the scenarios completions
         presenter.checkCompletion();

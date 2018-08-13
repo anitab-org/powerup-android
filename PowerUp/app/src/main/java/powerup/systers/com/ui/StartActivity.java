@@ -36,7 +36,7 @@ import powerup.systers.com.vocab_match_game.VocabMatchSessionManager;
 public class StartActivity extends Activity {
 
     @BindView(R.id.startButtonMain)
-    Button startButton;
+    public Button startButton;
 
     private boolean hasPreviouslyStarted;
     private Context context;

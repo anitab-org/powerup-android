@@ -32,7 +32,6 @@ import powerup.systers.com.data.SessionHistory;
 import powerup.systers.com.data.StoreItem;
 import powerup.systers.com.ui.map_screen_level2.MapLevel2Activity;
 import powerup.systers.com.utils.InjectionClass;
-import powerup.systers.com.utils.PowerUpUtils;
 
 import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
 import static powerup.systers.com.utils.PowerUpUtils.TYPE_ACCESSORIES;
@@ -41,7 +40,6 @@ import static powerup.systers.com.utils.PowerUpUtils.TYPE_HAIR;
 
 
 public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel2Contract.IStoreLevel2View {
-
 
     public int storeItemTypeindex = 0;
     public int currentPage = 0;

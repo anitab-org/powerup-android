@@ -37,7 +37,7 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
     public ImageView backButton;
     private FinalAvatarRoomPresenter presenter;
 
-    int eye, skin, hair, cloth;
+    private int eye, skin, hair, cloth;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

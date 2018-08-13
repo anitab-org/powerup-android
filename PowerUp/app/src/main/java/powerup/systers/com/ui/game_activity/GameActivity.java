@@ -62,7 +62,6 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     private TextView scenarioNameTextView;
     private Button goToMap;
     private ArrayAdapter<String> listAdapter;
-    private static boolean isStateChanged = false;
     private Context context;
     private GameScreenPresenter presenter;
     //avatar views
@@ -100,7 +99,7 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
 
         //Todo Give reason
         if (savedInstanceState != null) {
-            isStateChanged = true;
+            boolean isStateChanged = true;
         }
         super.onCreate(savedInstanceState);
 
@@ -345,7 +344,7 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
      */
     private void updateQA() {
         presenter.loadQuestion();
-        presenter.loadAnswer();;
+        presenter.loadAnswer();
     }
 
     /**
