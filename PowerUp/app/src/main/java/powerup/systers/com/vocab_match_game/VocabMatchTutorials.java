@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import powerup.systers.com.MapActivity;
+import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.utils.PowerUpUtils;
 
 public class VocabMatchTutorials extends AppCompatActivity {
 

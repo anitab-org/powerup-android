@@ -20,10 +20,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import powerup.systers.com.MapActivity;
+import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.R;
-import powerup.systers.com.datamodel.SessionHistory;
-import powerup.systers.com.powerup.PowerUpUtils;
+import powerup.systers.com.data.SessionHistory;
+import powerup.systers.com.utils.PowerUpUtils;
+
 
 /**
  * Created by sachinaggarwal on 7/07/17.
@@ -49,6 +50,8 @@ public class SinkToSwimGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sink_to_swim_game);
+
+        // init views
         boat = (ImageView) findViewById(R.id.boat);
         trueOption = (Button) findViewById(R.id.true_option);
         skipOption = (Button) findViewById(R.id.skip_option);

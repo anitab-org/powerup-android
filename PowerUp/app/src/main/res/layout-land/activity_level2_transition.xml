@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/transition_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/gamemap" />
+
+    <ImageView
+        android:id="@+id/character_1"
+        android:layout_width="@dimen/character_width"
+        android:layout_height="@dimen/character_height"
+        android:layout_marginLeft="@dimen/margin_chracter1_left"
+        android:layout_marginStart="@dimen/margin_chracter1_left"
+        android:src="@drawable/character_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/character_2"
+        android:layout_width="@dimen/character_width"
+        android:layout_height="@dimen/character_height"
+        android:layout_marginEnd="@dimen/margin_character2_right"
+        android:layout_marginRight="@dimen/margin_character2_right"
+        android:src="@drawable/character_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_msg_1"
+        android:layout_width="@dimen/msg_width"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_right_txt_msg1"
+        android:layout_marginStart="@dimen/margin_right_txt_msg1"
+        android:layout_marginTop="@dimen/margin_top_txt_msg1"
+        android:text="@string/msg1_level_complete"
+        android:textColor="@color/powerup_black"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/character_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_msg_2"
+        android:layout_width="@dimen/msg_width"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_right_txt_msg2"
+        android:layout_marginRight="@dimen/margin_right_txt_msg2"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/msg2_level_complete"
+        android:textColor="@color/powerup_black"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17000002" />
+
+</android.support.constraint.ConstraintLayout>

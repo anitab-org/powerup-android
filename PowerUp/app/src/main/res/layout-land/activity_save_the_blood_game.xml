@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vocab_bg">
+
+    <ImageView
+        android:id="@+id/img_option_1"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_4"
+        app:layout_constraintEnd_toStartOf="@+id/img_option_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <ImageView
+        android:id="@+id/img_option_3"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_option_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <ImageView
+        android:id="@+id/img_option_4"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img_option_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/img_option_6"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_option_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/img_option_2"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <ImageView
+        android:id="@+id/img_option_5"
+        android:layout_width="@dimen/save_blood_box_width"
+        android:layout_height="@dimen/save_blood_box_height"
+        android:src="@drawable/left_conversation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/img_score_save"
+        android:layout_width="@dimen/score_label_size"
+        android:layout_height="@dimen/score_label_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/vocab_score" />
+
+    <TextView
+        android:id="@+id/txt_time_label_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/time"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txt_time_save"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_time_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txt_zero"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_score_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/txt_zero"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/img_score"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <TextView
+        android:id="@+id/txt_save_blood_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/save_the_blood_label"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txt_time_label_save"
+        app:layout_constraintStart_toStartOf="@+id/txt_score_save"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_option_6"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_correct"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_6"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_6"
+        app:layout_constraintStart_toStartOf="@+id/img_option_6"
+        app:layout_constraintTop_toTopOf="@+id/img_option_6" />
+
+    <TextView
+        android:id="@+id/txt_option_5"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_wrong"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_5"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_5"
+        app:layout_constraintStart_toStartOf="@+id/img_option_5"
+        app:layout_constraintTop_toTopOf="@+id/img_option_5" />
+
+    <TextView
+        android:id="@+id/txt_option_4"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_neutral"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_4"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_4"
+        app:layout_constraintStart_toStartOf="@+id/img_option_4"
+        app:layout_constraintTop_toTopOf="@+id/img_option_4" />
+
+    <TextView
+        android:id="@+id/txt_option_3"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_correct"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_3"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_3"
+        app:layout_constraintStart_toStartOf="@+id/img_option_3"
+        app:layout_constraintTop_toTopOf="@+id/img_option_3" />
+
+    <TextView
+        android:id="@+id/txt_option_2"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_wrong"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_2"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_2"
+        app:layout_constraintStart_toStartOf="@+id/img_option_2"
+        app:layout_constraintTop_toTopOf="@+id/img_option_2" />
+
+    <TextView
+        android:id="@+id/txt_option_1"
+        android:layout_width="@dimen/option_width"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_answer_neutral"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_option_1"
+        app:layout_constraintEnd_toEndOf="@+id/img_option_1"
+        app:layout_constraintStart_toStartOf="@+id/img_option_1"
+        app:layout_constraintTop_toTopOf="@+id/img_option_1" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleY="5"
+        android:progress="@integer/half_progress"/>
+
+
+</android.support.constraint.ConstraintLayout>
