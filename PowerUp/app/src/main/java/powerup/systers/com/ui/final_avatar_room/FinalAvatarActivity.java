@@ -23,18 +23,18 @@ public class FinalAvatarActivity extends Activity implements FinalAvatarRoomCont
     private DataSource dataSource;
 
     @BindView(R.id.eye_view)
-    ImageView eyeAvatar;
+    public ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    ImageView skinAvatar;
+    public ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    ImageView clothAvatar;
+    public ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    ImageView hairAvatar;
+    public ImageView hairAvatar;
     //initialize continue & back button
     @BindView(R.id.continueButtonFinal)
-    ImageView continueButton;
+    public ImageView continueButton;
     @BindView(R.id.backButtonFinal)
-    ImageView backButton;
+    public ImageView backButton;
     private FinalAvatarRoomPresenter presenter;
 
     int eye, skin, hair, cloth;

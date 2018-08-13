@@ -16,11 +16,11 @@ public class AboutActivity extends Activity {
     private boolean isAboutHelpingOpen = false;
 
     @BindView(R.id.about_the_game)
-    TextView aboutGameSection;
+    public TextView aboutGameSection;
     @BindView(R.id.about_the_urgency)
-    TextView aboutUrgencySection;
+    public TextView aboutUrgencySection;
     @BindView(R.id.about_helping_by)
-    TextView aboutHelpingSection;
+    public TextView aboutHelpingSection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

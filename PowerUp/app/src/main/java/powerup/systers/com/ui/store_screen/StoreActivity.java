@@ -32,7 +32,6 @@ import powerup.systers.com.data.StoreItem;
 import powerup.systers.com.ui.map_screen.MapActivity;
 import powerup.systers.com.ui.store_screen.StoreContract.IStoreView;
 import powerup.systers.com.utils.InjectionClass;
-import powerup.systers.com.utils.PowerUpUtils;
 
 import static powerup.systers.com.utils.PowerUpUtils.MAX_ELEMENTS_PER_SCREEN;
 import static powerup.systers.com.utils.PowerUpUtils.TYPE_ACCESSORIES;
@@ -54,32 +53,30 @@ public class StoreActivity extends AppCompatActivity implements IStoreView{
     private StorePresenter presenter;
 
     @BindView(R.id.karma_points)
-    TextView karmaPoints;
+    public TextView karmaPoints;
     //avatar views
     @BindView(R.id.eye_view)
-    ImageView eyeAvatar;
+    public ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    ImageView skinAvatar;
+    public ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    ImageView clothAvatar;
+    public ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    ImageView hairAvatar;
+    public ImageView hairAvatar;
     @BindView(R.id.acc_view)
-    ImageView accessoryImageView;
-
+    public ImageView accessoryImageView;
     @BindView(R.id.left_arrow)
-    ImageView leftArrow;
+    public ImageView leftArrow;
     @BindView(R.id.right_arrow)
-    ImageView rightArrow;
+    public ImageView rightArrow;
     @BindView(R.id.accessories_button)
-    ImageView accessoriesButton;
+    public ImageView accessoriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         ButterKnife.bind(this);
-
         init();
 
         gridView = findViewById(R.id.grid_view);

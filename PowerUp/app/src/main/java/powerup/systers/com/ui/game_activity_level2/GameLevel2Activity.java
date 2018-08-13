@@ -66,15 +66,15 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
     private GameScreenLevel2Presenter presenter;
     //avatar views
     @BindView(R.id.eye_view)
-    ImageView eyeAvatar;
+    public ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    ImageView skinAvatar;
+    public ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    ImageView clothAvatar;
+    public ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    ImageView hairAvatar;
+    public ImageView hairAvatar;
     @BindView(R.id.accessory_view)
-    ImageView accessoryImageView;
+    public ImageView accessoryImageView;
     @BindView(R.id.progress_health)
     public ProgressBar health;
     @BindView(R.id.progress_healing)

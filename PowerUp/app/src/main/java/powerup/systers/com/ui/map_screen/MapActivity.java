@@ -38,22 +38,21 @@ public class MapActivity extends Activity implements MapContract.IMapView{
     private DataSource dataSource;
     private MapPresenter presenter;
     @BindView(R.id.school_building)
-    ImageView schoolBuilding;
+    public ImageView schoolBuilding;
     @BindView(R.id.hospital_building)
-    ImageView hospitalBuilding;
+    public ImageView hospitalBuilding;
     @BindView(R.id.library_building)
-    ImageView libraryBuilding;
-
+    public ImageView libraryBuilding;
     @BindView(R.id.school)
-    ImageView school;
+    public ImageView school;
     @BindView(R.id.house)
-    ImageView house;
+    public ImageView house;
     @BindView(R.id.hospital)
-    ImageView hospital;
+    public ImageView hospital;
     @BindView(R.id.library)
-    ImageView library;
+    public ImageView library;
     @BindView(R.id.home_button)
-    Button homeButton;
+    public Button homeButton;
     /**
      * Called when the activity is first created.
      */

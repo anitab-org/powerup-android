@@ -345,17 +345,17 @@ public class StoreLevel2Activity extends AppCompatActivity implements StoreLevel
                 SessionHistory.totalPoints -= cost;
                 karmaPoints.setText(String.valueOf(SessionHistory.totalPoints));
                 switch (storeItemTypeindex) {
-                    case PowerUpUtils.TYPE_HAIR:
+                    case TYPE_HAIR:
                         dataSource.setCurrentHairValue(index);
                         presenter.calculateHairValue(index);
                         dataSource.setPurchasedHair(index);
                         break;
-                    case PowerUpUtils.TYPE_CLOTHES:
+                    case TYPE_CLOTHES:
                         dataSource.setPurchasedClothes(index);
                         dataSource.setCurrentClothValue(index);
                         presenter.calculateClothValue(index);
                         break;
-                    case PowerUpUtils.TYPE_ACCESSORIES:
+                    case TYPE_ACCESSORIES:
                         dataSource.setPurchasedAccessories(index);
                         dataSource.setCurrentAccessoriesValue(index);
                         presenter.calculateAccessoryValue(index);

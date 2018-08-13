@@ -10,7 +10,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import powerup.systers.com.R;
 import powerup.systers.com.ui.StartActivity;
-import powerup.systers.com.ui.StartActivity;
 import powerup.systers.com.ui.scenario_over_screen_level2.ScenarioOverLevel2Activity;
 
 public class KillTheVirusEndActivity extends Activity {

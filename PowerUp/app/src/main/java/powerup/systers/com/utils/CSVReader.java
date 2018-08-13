@@ -20,7 +20,6 @@ public class CSVReader {
     private Context context;
     private String line;
     private String csvSplitBy = ",";
-    private String[] row;
     private String TAG = "CSVReader";
     public CSVReader(Context context) {
         this.context = context;
@@ -37,7 +36,7 @@ public class CSVReader {
         try{
             br =  new BufferedReader(new InputStreamReader(context.getAssets().open(filename)));
             while ((line = br.readLine()) != null) {
-                row = line.split(csvSplitBy);
+                String[] row = line.split(csvSplitBy);
                 if(row.length > 0) {
                     switch (type) {
                         case 0: list.add((T) new Question(Integer.valueOf(row[0]), Integer.valueOf(row[1]), row[2]));

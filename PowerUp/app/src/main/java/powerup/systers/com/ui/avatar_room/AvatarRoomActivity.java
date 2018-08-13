@@ -23,16 +23,15 @@ import powerup.systers.com.utils.InjectionClass;
 public class AvatarRoomActivity extends Activity implements AvatarRoomContract.IAvatarRoomView {
     //avatar views
     @BindView(R.id.eye_view)
-    ImageView eyeAvatar;
+    public ImageView eyeAvatar;
     @BindView(R.id.skin_view)
-    ImageView skinAvatar;
+    public ImageView skinAvatar;
     @BindView(R.id.dress_view)
-    ImageView clothAvatar;
+    public ImageView clothAvatar;
     @BindView(R.id.hair_view)
-    ImageView hairAvatar;
-
+    public ImageView hairAvatar;
     @BindView(R.id.continueButtonAvatar)
-    ImageView continueButton;
+    public ImageView continueButton;
 
     private int eye;
     private int hair;
