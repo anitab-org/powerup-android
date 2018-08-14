@@ -338,7 +338,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
      */
     private void updateQA() {
         presenter.loadQuestion();
-        presenter.loadAnswer();;
+        presenter.loadAnswer();
     }
 
     /**
