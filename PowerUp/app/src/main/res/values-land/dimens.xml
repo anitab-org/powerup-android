@@ -250,4 +250,14 @@
     <dimen name="game_convo_padding_top">10dp</dimen>
     <dimen name="game_convo_padding_bottom">10dp</dimen>
     <dimen name="scenario_name_marginLeft">8dp</dimen>
+    <dimen name="btn_arrow">35dp</dimen>
+    <dimen name="margin_btn_arrow">8dp</dimen>
+    <dimen name="margin_grid_view">8dp</dimen>
+    <dimen name="margin_txt_npc">8dp</dimen>
+    <dimen name="size_txt_npc">30sp</dimen>
+    <dimen name="spacing_grid_view">10dp</dimen>
+    <dimen name="size_npc">100dp</dimen>
+    <dimen name="left_margin_arrow">24dp</dimen>
+    <dimen name="start_width_memory">130dp</dimen>
+    <dimen name="start_height_memory">70dp</dimen>
 </resources>
