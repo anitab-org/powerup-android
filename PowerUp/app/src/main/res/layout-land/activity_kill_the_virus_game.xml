@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_kill"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vocab_bg">
+
+
+    <ImageView
+        android:id="@+id/img_center"
+        android:layout_width="@dimen/banner_height"
+        android:layout_height="@dimen/banner_height"
+        android:alpha="0"
+        android:src="@drawable/home_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_virus_1"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_1"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_2"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_2"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_3"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_3"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="90"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_4"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_4"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="135"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_5"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_1"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="180"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_6"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_2"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="225"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_7"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_3"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="270"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_virus_8"
+        android:layout_width="@dimen/virus_size"
+        android:layout_height="@dimen/virus_size"
+        android:src="@drawable/virus_4"
+        app:layout_constraintCircle="@+id/img_center"
+        app:layout_constraintCircleAngle="315"
+        app:layout_constraintCircleRadius="@dimen/radius" />
+
+    <ImageView
+        android:id="@+id/img_score"
+        android:layout_width="@dimen/score_label_size"
+        android:layout_height="@dimen/score_label_size"
+        android:src="@drawable/vocab_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_zero"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_score"
+        app:layout_constraintEnd_toEndOf="@+id/img_score"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/img_score"
+        app:layout_constraintTop_toTopOf="@+id/img_score"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <View
+        android:id="@+id/img_syringe"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:background="@drawable/arrow_kill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/time"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:text="@string/txt_zero"
+        android:textSize="@dimen/txt_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/time_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time_label"
+        app:layout_constraintTop_toTopOf="@+id/time_label" />
+
+    <TextView
+        android:id="@+id/txt_lives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_small"
+        android:text="@string/txt_3"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_lives_label" />
+
+
+    <TextView
+        android:id="@+id/txt_lives_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_small"
+        android:text="@string/lives_label"
+        android:textColor="@color/powerup_dark_blue"
+        android:textSize="@dimen/txt_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

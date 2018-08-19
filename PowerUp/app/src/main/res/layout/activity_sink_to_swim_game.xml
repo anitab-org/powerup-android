@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/swim_game_wave1" />
+
+    <ImageView
+        android:id="@+id/boat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/swim_game_boat" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/swim_game_wave2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="fitXY"
+            android:src="@drawable/swim_game_gauge" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="13"
+            android:orientation="vertical"
+            android:scaleType="fitXY">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="19"
+                android:background="@drawable/swim_game_box"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3.4"
+                    android:gravity="center"
+                    android:textSize="@dimen/swim_score_textSize" />
+
+                <TextView
+                    android:id="@+id/questionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/swim_game_paddingLeft"
+                    android:paddingStart="@dimen/swim_game_paddingLeft"
+                    android:paddingRight="@dimen/swim_game_paddingRight"
+                    android:paddingEnd="@dimen/swim_game_paddingRight"
+                    android:textSize="@dimen/question_textSize" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:paddingLeft="@dimen/swim_game_paddingLeft"
+                    android:paddingStart="@dimen/swim_game_paddingLeft"
+                    android:paddingRight="@dimen/swim_game_paddingRight"
+                    android:paddingEnd="@dimen/swim_game_paddingRight">
+
+                    <Button
+                        android:id="@+id/true_option"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:alpha="0"
+                        android:onClick="answerChosen"
+                        android:text="T"
+                        android:textSize="@dimen/swim_button_textSize" />
+
+                    <Button
+                        android:id="@+id/skip_option"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:alpha="0"
+                        android:onClick="answerChosen"
+                        android:text="Q"
+                        android:textSize="@dimen/swim_button_textSize" />
+
+                    <Button
+                        android:id="@+id/false_option"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:alpha="0"
+                        android:onClick="answerChosen"
+                        android:text="F"
+                        android:textSize="@dimen/swim_button_textSize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/swim_score"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center|top"
+                android:text="@string/score_text_zero"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/question_textSize"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/pointer"
+        android:layout_width="@dimen/pointer_width"
+        android:layout_height="@dimen/pointer_height"
+        android:src="@drawable/swim_game_pointer" />
+
+</FrameLayout>

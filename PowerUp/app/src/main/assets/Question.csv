@@ -4,31 +4,90 @@
 4,1,Let’s go inside the house then!
 5,1,No
 6,1,I don’t have enough for a condom. We will be fine!
-7,1,What’s up? We just got here!2
-8,1,Let’s go back to my place2
-9,1,"You know if we head to my place we are having sex"2
-10,1,"Oh okay."2
-11,1,Let’s go inside the house then!2
-12,1,No2
-13,1,I don’t have enough for a condom. We will be fine!2
-14,1,What’s up? We just got here!2
-15,1,Let’s go back to my place3
-16,1,"You know if we head to my place we are having sex"3
-17,1,"Oh okay."3
-18,1,Let’s go inside the house then!3
-19,1,No3
-20,1,I don’t have enough for a condom. We will be fine!3
-21,1,What’s up? We just got here!3
-22,1,Let’s go back to my place4
-23,1,"You know if we head to my place we are having sex"4
-24,1,"Oh okay."4
-25,1,Let’s go inside the house then!4
-26,1,No4
-27,1,I don’t have enough for a condom. We will be fine!4
-28,1,What’s up? We just got here!4
+7,1,What’s up? We just got here!
+8,1,Let’s go back to my place
+9,1,"You know if we head to my place we are having sex"
+10,1,"Oh okay."
+11,1,Let’s go inside the house then!
+12,1,No
+13,1,I don’t have enough for a condom. We will be fine!
+14,1,What’s up? We just got here!
+15,1,Let’s go back to my place
+16,1,"You know if we head to my place we are having sex"
+17,1,"Oh okay."
+18,1,Let’s go inside the house then!
+19,1,No
+20,1,I don’t have enough for a condom. We will be fine!
+21,1,What’s up? We just got here!
+22,1,Let’s go back to my place
+23,1,"You know if we head to my place we are having sex"
+24,1,"Oh okay."
+25,1,Let’s go inside the house then!
+26,1,No
+27,1,I don’t have enough for a condom. We will be fine!
+28,1,What’s up? We just got here!
 29,1,Hey "Main Avatar" can I borrow your phone to play some games?
 30,1, I'm sorry :(. I lost it. But I promise I'll give your phone back in a minute.
 31,1,Ha! I knew it. I'm just gonna download a few of my fav apps...
 32,1,My phone was my baby too til I dropped it last week. Pleasee just for an hour?
 33,1,Geez. Never ask me for homework help in Math class again then. Bye.
 34,1,Alright alright. I just had to try. See you in Math class "Main Avatar".
+35,6,Hi..I am Dr.Bulma. Are you comfortable in private or should I call your mother in?
+36,6,Please tell me about your recent health changes or anything unusual ?
+37,6,Mother is giving wrong information or missing something !!
+38,6,Doctor starts physical checkup including private parts
+39,6,Dr. Bulma: Please take reports. Do you have any questions ?
+40,6,Mother enters..Doctor asks about your recent health changes or anything unusual?
+41,7,Ohh!! Something's wrong.. I am feeling weird
+42,7,Am I sick? Umm..what should I do about this?
+43,7,Am I sick? Umm..what should I do about this?
+44,7,Am I sick? Umm..what should I do about this?
+45,7,Oops!! I am getting more sick
+46,7,Mom: Honey..It's normal at your age..Let's go for health checkup
+47,7,You find some medicines for your problem on internet
+48,7,Umm..Which friend should I listen to?
+49,4,Uncle Mathew touches you inappropriately
+50,4,Uncle Mathew molests you this time. It happened..how shocking it may seem.
+51,4,Uncle Mathew molests you this time. It's good you were careful
+52,4,You were molested. What will you do next ?
+53,4,You were molested again by Mathew. What will you do?
+54,4,Your parents called police.
+55,4,Which friend advice will you take?
+56,4,Mathew started exploiting you sexually
+8001,8,Ques 1
+8002,8,Ques 2
+8003,8,Ques 3
+8004,8,Ques 4
+8005,8,Ques 5
+8006,8,Ques 6
+8007,8,Ques 7
+8008,8,Ques 8
+8009,8,Ques 9
+8010,8,Ques 10
+8011,8,Ques 11
+8012,8,Ques 12
+8013,8,Ques 13
+8014,8,Ques 14
+8015,8,Ques 15
+8016,8,Ques 16
+8017,8,Ques 17
+8018,8,Ques 18
+8019,8,Ques 19
+9001,9,Ques 1
+9002,9,Ques 3
+9003,9,Ques 2
+9004,9,Ques 4
+9005,9,Ques 5
+9006,9,Ques 6
+10001,10,Ques 1
+10002,10,Ques 2
+10003,10,Ques 3
+10004,10,Ques 4
+10005,10,Ques 5
+11001,11,Ques 1
+11002,11,Ques 2
+11003,11,Ques 3
+11004,11,new
+11005,11,Ques 5
+11006,11,Ques 6
+11007,11,Ques 7

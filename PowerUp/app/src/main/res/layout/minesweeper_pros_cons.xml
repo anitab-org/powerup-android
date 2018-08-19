@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/minesweeper_pros_cons" />
+
+    <ImageView
+        android:id="@+id/continue_button"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:alpha="1"
+        android:background="@drawable/continue_button"
+        android:clickable="false"
+        android:onClick="continuePressedProsAndCons"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/continue_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/pros_cons_paddingRight"
+        android:paddingEnd="@dimen/pros_cons_paddingRight">
+
+        <TextView
+            android:id="@+id/pro_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="14"
+            android:gravity="bottom"
+            android:text="=> Better Success Rate "
+            android:textColor="@color/powerup_blue_green"
+            android:textSize="@dimen/pros_cons_textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pro_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="14"
+            android:gravity="top"
+            android:paddingTop="@dimen/pros_cons_paddingTop"
+            android:text="=> Cheapest Contraceptive"
+            android:textColor="@color/powerup_blue_green"
+            android:textSize="@dimen/pros_cons_textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/con_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="bottom"
+            android:text="=> No protection against STDs"
+            android:textColor="@color/cons_text"
+            android:textSize="@dimen/pros_cons_textSize"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

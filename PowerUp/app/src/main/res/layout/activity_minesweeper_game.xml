@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context="powerup.systers.com.minesweeper.MinesweeperGameActivity">
+
+    <ImageView
+        android:id="@+id/mine_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/minesweeper_condom_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/adjustable"
+            android:layout_height="match_parent"
+            android:layout_weight="4"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/adjustable"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/adjustable"
+                android:layout_weight="1"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/board"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/adjustable"
+                android:layout_weight="5.5"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/adjustable"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView0"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/adjustable"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/adjustable"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/adjustable"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/adjustable"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+
+                    <ImageView
+                        android:id="@+id/imageView24"
+                        android:layout_width="@dimen/adjustable"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="openMine"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/yellow_star" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/adjustable"
+                android:layout_weight="1"></LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/adjustable"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/adjustable"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/minesweeper_score"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/adjustable"
+                android:layout_gravity="end"
+                android:layout_weight="1.5"
+                android:paddingRight="@dimen/score_padding_right"
+                android:paddingEnd="@dimen/score_padding_right"
+                android:text="Score: 0"
+                android:textColor="@color/score_color"
+                android:textSize="@dimen/score_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/adjustable"
+                android:layout_weight="20" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    />
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/banner_height"
+        android:layout_gravity="center_vertical"
+        android:alpha="0"
+        android:scaleType="fitXY"
+        android:src="@drawable/failure_banner" />
+
+    <ImageView
+        android:id="@+id/continue_button"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:alpha="0"
+        android:background="@drawable/continue_button"
+        android:clickable="false"
+        android:onClick="continuePressed"
+        android:scaleType="fitXY" />
+
+</FrameLayout>

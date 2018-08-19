@@ -2,235 +2,216 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/dressing_room"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayoutAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/linearLayout5">
-
-        <ImageView
-            android:id="@+id/faceView"
-            android:layout_width="@dimen/face_view_width"
-            android:layout_height="@dimen/face_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/face1" />
-
-        <ImageView
-            android:id="@+id/eyeView"
-            android:layout_width="@dimen/eye_view_width"
-            android:layout_height="@dimen/eye_view_height"
-            android:layout_alignBottom="@id/faceView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/eye_view_margin_bottom"
-            android:src="@drawable/eye1" />
-
-        <ImageView
-            android:id="@+id/hairView"
-            android:layout_width="@dimen/hair_view_width"
-            android:layout_height="@dimen/hair_view_height"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hair1" />
-
-        <ImageView
-            android:id="@+id/clothView"
-            android:layout_width="@dimen/cloth_view_width"
-            android:layout_height="@dimen/cloth_view_height"
-            android:layout_alignTop="@+id/eyeView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cloth1" />
-    </RelativeLayout>
-
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_toRightOf="@+id/relativeLayoutAvatar"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="@dimen/linear_layout_width_landscape"
-            android:layout_height="@dimen/linear_layout_height"
-            android:background="@drawable/round_rect_purple_shape"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/skin_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
+                android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_left" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/avatar_room_eye"
-                android:textColor="@color/powerup_black" />
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Skin"
+                android:textSize="@dimen/selection_text_size" />
 
             <ImageView
-                android:id="@+id/eyes"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/avatar_room_height"
-                android:src="@drawable/eye1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/skin_right"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
+                android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
-                <ImageButton
-                    android:id="@+id/eyeLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
-
-                <ImageButton
-                    android:id="@+id/eyeRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="@dimen/linear_layout_width_landscape"
-            android:layout_height="@dimen/linear_layout_height"
-            android:layout_marginLeft="@dimen/linear_layout_margin_left"
-            android:background="@drawable/round_rect_pink_shape"
-            android:gravity="center"
-            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/eyes_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/selection_margin_small"
+                android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_wide"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/avatar_room_hair"
-                android:textColor="@color/powerup_black" />
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Eyes"
+                android:textSize="@dimen/selection_text_size" />
 
             <ImageView
-                android:id="@+id/hair"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/avatar_room_height"
-                android:src="@drawable/hair1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/eyes_right"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
+                android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
-                <ImageButton
-                    android:id="@+id/hairLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
-
-                <ImageButton
-                    android:id="@+id/hairRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="@dimen/linear_layout_width_landscape"
-            android:layout_height="@dimen/linear_layout_height"
-            android:layout_marginLeft="@dimen/linear_layout_margin_left"
-            android:background="@drawable/round_rect_yellow_shape"
-            android:gravity="center"
-            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/clothes_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
+                android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/avatar_room_face"
-                android:textColor="@color/powerup_black" />
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Clothes"
+                android:textSize="@dimen/selection_text_size" />
 
             <ImageView
-                android:id="@+id/face"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/avatar_room_height"
-                android:src="@drawable/face1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/clothes_right"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
+                android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
 
-                <ImageButton
-                    android:id="@+id/faceLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
-
-                <ImageButton
-                    android:id="@+id/faceRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="@dimen/linear_layout_width_landscape"
-            android:layout_height="@dimen/linear_layout_height"
-            android:layout_marginLeft="@dimen/linear_layout_margin_left"
-            android:background="@drawable/round_rect_blue_shape"
-            android:gravity="center"
-            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/hair_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/selection_margin_wide"
+                android:layout_marginStart="@dimen/selection_margin_wide"
+                android:layout_marginRight="@dimen/selection_margin_small"
+                android:layout_marginEnd="@dimen/selection_margin_small"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_left"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/avatar_room_cloth"
-                android:textColor="@color/powerup_black" />
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Hair"
+                android:textSize="@dimen/selection_text_size" />
 
             <ImageView
-                android:id="@+id/clothes"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/avatar_room_height"
-                android:src="@drawable/cloth1" />
+                android:id="@+id/hair_right"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/selection_margin_small"
+                android:layout_marginStart="@dimen/selection_margin_small"
+                android:layout_marginRight="@dimen/selection_margin_wide"
+                android:layout_marginEnd="@dimen/selection_margin_wide"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_right"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.3"></LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/clotheLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_18dp" />
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                <ImageButton
-                    android:id="@+id/clotheRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_keyboard_arrow_right_white_18dp" />
+                <ImageView
+                    android:id="@+id/skin_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/skin1"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:id="@+id/dress_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dress_avatar1" />
+
+                <ImageView
+                    android:id="@+id/hair_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hair1"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:id="@+id/eye_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/eyes1"
+                    android:scaleType="fitXY"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.3">
+
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
-
-    <Button
+    <ImageView
         android:id="@+id/continueButtonAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/relativeLayoutAvatar"
-        android:layout_alignEnd="@+id/linearLayout5"
-        android:layout_alignRight="@+id/linearLayout5"
-        android:background="@drawable/endingscreen6" />
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:alpha="0.9"
+        android:background="@drawable/continue_button"
+        android:scaleType="fitXY" />
 
 </RelativeLayout>
