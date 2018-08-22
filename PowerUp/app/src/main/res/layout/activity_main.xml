@@ -2,49 +2,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:gravity="center"
+    android:background="@drawable/start_screen_background"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.powerup.MainActivity">
+    tools:context="powerup.systers.com.ui.StartActivity">
 
-    <TextView
-        android:id="@+id/powerupTextView"
-        android:layout_width="@dimen/powerup_width"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="@string/powerup"
-        android:textAlignment="center"
-        android:textSize="@dimen/powerup_size"
-        android:typeface="serif" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="@dimen/powerup_icon_width"
-        android:layout_height="@dimen/powerup_icon_height"
-        android:src="@drawable/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/startButtonMain"
-        android:layout_width="@dimen/start_button_width"
-        android:layout_height="@dimen/start_button_height"
-        android:background="@drawable/buttons" />
-
-    <ImageButton
-        android:id="@+id/newUserButtonFirstPage"
-        android:layout_width="@dimen/new_user_button_width"
-        android:layout_height="@dimen/new_user_button_height"
-        android:background="@drawable/new_user" />
-
-    <ImageButton
+    <Button
+        android:layout_weight="0.8"
         android:id="@+id/aboutButtonMain"
         android:layout_width="@dimen/about_button_width"
-        android:layout_height="@dimen/about_button_height"
-        android:background="@drawable/aboutbutton" />
+        android:layout_height="0dp"
+        android:alpha="0"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.6"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/newUserButtonFirstPage"
+            android:layout_width="@dimen/new_user_button_width"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:alpha="0"/>
+        <Button
+            android:id="@+id/startButtonMain"
+            android:layout_width="@dimen/start_button_width"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:alpha="0"/>
+
+
+    </LinearLayout>
 </LinearLayout>
+

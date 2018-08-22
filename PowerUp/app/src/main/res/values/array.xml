@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="kill_virus_colors">
+        <item>#BA55D3</item>
+        <item>#228B22</item>
+        <item>#FF1493</item>
+        <item>#000000</item>
+    </array>
+ 
+    <string-array name="pregame_array_1">
+        <item>Mother</item>
+        <item>Father</item>
+        <item>Guardian</item>
+    </string-array>
+
+    <string-array name="pregame_array_2">
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Guardian</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="pregame_array_3">
+        <item>Brothers</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="pregame_array_4">
+        <item>Sisters</item>
+        <item>None</item>
+    </string-array>
+</resources>

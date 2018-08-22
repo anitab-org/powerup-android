@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/store"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_weight="0.1"
+            android:id="@+id/karma_star"
+            android:layout_width="@dimen/karma_star_width"
+            android:layout_height="@dimen/karma_star_height"
+            android:src="@drawable/karma" />
+
+        <TextView
+            android:id="@+id/karma_points"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/karma_star_height"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/powerup_black"
+            android:textSize="@dimen/karma_points_textSize" />
+        <ImageView
+            android:id="@+id/hair_button"
+            android:layout_marginLeft="@dimen/hair_button_marginLeft"
+            android:layout_marginStart="@dimen/hair_button_marginLeft"
+            android:layout_weight="1.7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/hair_store_button"/>
+        <ImageView
+            android:id="@+id/clothes_button"
+            android:layout_weight="2.1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/clothes_store_button"/>
+        <ImageView
+            android:id="@+id/accessories_button"
+            android:layout_marginRight="@dimen/hair_button_marginLeft"
+            android:layout_marginEnd="@dimen/hair_button_marginLeft"
+            android:layout_weight="2.8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/accessories_store_button"/>
+        <Button
+            android:id="@+id/map_button"
+            android:layout_width="@dimen/home_button_height"
+            android:layout_height="@dimen/home_button_height"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/home_button" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/skin_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/dress_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/hair_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/eye_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/acc_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/left_arrow"
+                android:layout_width="@dimen/home_button_height"
+                android:layout_height="@dimen/home_button_height"
+                android:src="@drawable/arrow_left"
+                />
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:numColumns="3"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp">
+
+        </GridView>
+
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="@dimen/home_button_height"
+                android:layout_height="@dimen/home_button_height"
+                android:src="@drawable/arrow_right"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

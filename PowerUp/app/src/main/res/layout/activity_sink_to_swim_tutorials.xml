@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="powerup.systers.com.sink_to_swim_game.SinkToSwimTutorials">
+
+    <ImageView
+        android:id="@+id/tut"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/swim_tut1" />
+
+    <ImageView
+        android:id="@+id/start_button"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/start_height"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:alpha="0.9"
+        android:background="@drawable/start_button"
+        android:clickable="false"
+        android:onClick="startPressed"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

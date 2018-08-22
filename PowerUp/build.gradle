@@ -3,10 +3,11 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url 'https://maven.google.com' }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-
+        classpath 'com.android.tools.build:gradle:3.1.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,6 +15,29 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         jcenter()
     }
+}
+
+ext {
+    // Sdk and tools
+    minSdkVersion = 18
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+
+    // App dependencies
+    supportLibraryVersion = '27.1.1'
+    roundProgressBarVersion = '2.0.3'
+
+    jUnitVersion = '4.12'
+    mockitoVersion = '2.8.47'
+    robolectricVersion = '3.3.1'
+    runnerVersion = '1.0.1'
+    rulesVersion = '0.5'
+    espressoVersion = '3.0.1'
+    roomVersion = "1.1.1"
+    butterKnifeVersion = "8.8.1"
+    constraintLayoutVersion = '1.1.2'
 }

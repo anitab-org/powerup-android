@@ -1,7 +1,11 @@
-1,PowerUpDemoContent,1,Friend,1,29,2
+1,Store,1,Friend,1,29,2
 2,Sex,1,Boyfriend,1,1,3
 3,Love,1,Boyfriend,1,8,4
-4,House,1,Boyfriend,1,15,5
-5,Boyfriend,1,Boyfriend,1,1,6
-6,Hospital,1,Boyfriend,1,1,7
-7,School,1,Boyfriend,1,1,-1
+4,Home,1,Uncle,1,49,5
+5,School,1,Boyfriend,1,15,6
+6,Hospital,1,Doctor,1,35,7
+7,Library,1,People,1,41,-1
+8,Home Level 2,1,NPC 1,1,8001,9
+9,School Level 2,1,NPC 2,1,9001,10
+10,Hospital Level 2,1,NPC 3,1,10001,11
+11,Library Level 2,1,NPC 4,1,11001,-1

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/plain_background">
+
+    <ImageView
+        android:id="@+id/karma_star"
+        android:layout_width="@dimen/karma_star_width"
+        android:layout_height="@dimen/karma_star_height"
+        android:src="@drawable/karma"/>
+    <TextView
+        android:id="@+id/karmaPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/karma_star_height"
+        android:layout_toRightOf="@id/karma_star"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="@dimen/karma_points_textSize"
+        android:textColor="@color/powerup_black"/>
+    <TextView
+        android:id="@+id/completed_game_textView"
+        android:layout_width="@dimen/completed_scene_text_land_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/completed_scene_text_land_margin_top"
+        android:ems="10"
+        android:text="@string/completed_game"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/game_text_size" />
+
+    <Button
+        android:id="@+id/ContinueButtonMap"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:background="@drawable/map_button"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="backToMapListener"/>
+
+</RelativeLayout>
