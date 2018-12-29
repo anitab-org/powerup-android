@@ -35,7 +35,7 @@ public class ProsConsTests {
     ProsAndConsActivity activity;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         activity = Robolectric.buildActivity(ProsAndConsActivity.class)
                 .create()
                 .resume()
@@ -43,7 +43,7 @@ public class ProsConsTests {
     }
 
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void shouldNotBeNull() {
         assertNotNull(activity);
     }
 

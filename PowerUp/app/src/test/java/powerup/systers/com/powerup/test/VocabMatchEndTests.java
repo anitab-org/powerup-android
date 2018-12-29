@@ -71,7 +71,7 @@ public class VocabMatchEndTests {
     }
 
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void shouldNotBeNull() {
 
         createWithIntent(12);
 

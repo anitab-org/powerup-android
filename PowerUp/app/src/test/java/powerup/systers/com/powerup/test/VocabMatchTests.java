@@ -33,12 +33,12 @@ public class VocabMatchTests {
     VocabMatchGameActivity activity;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         activity = Robolectric.setupActivity(VocabMatchGameActivity.class);
     }
 
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void shouldNotBeNull() {
 
         assertNotNull(activity);
     }

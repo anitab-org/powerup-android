@@ -43,7 +43,7 @@ public class MinesweeperGameTests {
 
     // Initial setup for running Robolectric test, this function is called before starting each test
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         activity = Robolectric.buildActivity(MinesweeperGameActivity.class)
                 .create()
                 .resume()
@@ -52,14 +52,14 @@ public class MinesweeperGameTests {
 
     // Tests if activity instance is not null
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void shouldNotBeNull() {
         assertNotNull(activity);
     }
 
 
     // Checks if the continue button launches ProsAndConsActivity
     @Test
-    public void continueButtonShouldLaunchProsAndCons() throws Exception {
+    public void continueButtonShouldLaunchProsAndCons() {
         Class ProsAndCons = ProsAndConsActivity.class;
         Intent expectedIntent = new Intent(activity, ProsAndCons);
 
@@ -72,7 +72,7 @@ public class MinesweeperGameTests {
 
     // Verifies that cons' column has a red banner
     @Test
-    public void showsCorrectRedBanner() throws Exception {
+    public void showsCorrectRedBanner() {
         int type = PowerUpUtils.RED_BANNER;
         ImageView imageView = (ImageView) activity.findViewById(R.id.banner);
         int expected = R.drawable.failure_banner;
@@ -85,7 +85,7 @@ public class MinesweeperGameTests {
 
     // Verifies that pros' column has a green column
     @Test
-    public void showsCorrectGreenBanner() throws Exception {
+    public void showsCorrectGreenBanner() {
         int type = PowerUpUtils.GREEN_BANNER;
         ImageView imageView = (ImageView) activity.findViewById(R.id.banner);
         int expected = R.drawable.success_banner;
@@ -98,7 +98,7 @@ public class MinesweeperGameTests {
 
     // Test if success banner is displayed
     @Test
-    public void minesDisabledAfterBannerAppearance1() throws Exception {
+    public void minesDisabledAfterBannerAppearance1() {
         int type = PowerUpUtils.GREEN_BANNER;
 
         activity.showBanner(type);
@@ -109,7 +109,7 @@ public class MinesweeperGameTests {
 
     // Test if failure banner is displayed
     @Test
-    public void minesDisabledAfterBannerAppearance2() throws Exception {
+    public void minesDisabledAfterBannerAppearance2() {
         int type = PowerUpUtils.RED_BANNER;
 
         activity.showBanner(type);
@@ -120,7 +120,7 @@ public class MinesweeperGameTests {
 
     // Checks if score gets updated in TextView
     @Test
-    public void scoreGetsUpdated() throws Exception {
+    public void scoreGetsUpdated() {
         int sampleScore = 3;
         activity.score = sampleScore;
         int expectedScore = 4;
@@ -134,7 +134,7 @@ public class MinesweeperGameTests {
 
     // Checks if the number of chances decrease by one on opening a green mine
     @Test
-    public void chacesNumberDecrementsCorrectly() throws Exception {
+    public void chacesNumberDecrementsCorrectly() {
         int sampleChancesLeft = 3;
         activity.numSelectionsLeft = sampleChancesLeft;
         int expectedChances = 2;
@@ -146,7 +146,7 @@ public class MinesweeperGameTests {
 
     // Tests if all mines are enabled on game start
     @Test
-    public void minesEnabledOnGameStart() throws Exception {
+    public void minesEnabledOnGameStart(){
         activity.setUpGame();
 
         for (int id : PowerUpUtils.minesViews)
@@ -156,7 +156,7 @@ public class MinesweeperGameTests {
     // Tests if the mines get greyed out after they have been clicked
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Test
-    public void greyOutMines() throws Exception {
+    public void greyOutMines() {
         activity.setUpGame();
         ImageView greenMineImageView = (ImageView) activity.findViewById(R.id.imageView5);
         activity.mines.remove(PowerUpUtils.ID_REFERENCE + 5);
@@ -173,7 +173,7 @@ public class MinesweeperGameTests {
 
     // Tests if continue button is hidden on game start
     @Test
-    public void continueHiddenOnRoundStart() throws Exception {
+    public void continueHiddenOnRoundStart() {
         ImageView continueButton = (ImageView) activity.findViewById(R.id.continue_button);
         float expectedAplha = 0f;
 
@@ -185,7 +185,7 @@ public class MinesweeperGameTests {
 
     // Tests if banner if hidden on game start
     @Test
-    public void bannerHiddenOnRoundStart() throws Exception {
+    public void bannerHiddenOnRoundStart() {
         ImageView banner = (ImageView) activity.findViewById(R.id.banner);
         float expectedAplha = 0f;
 
@@ -196,7 +196,7 @@ public class MinesweeperGameTests {
 
     // Tests if continue button is not clickable on game start
     @Test
-    public void continueButtonNotClickableOnGameStart() throws Exception {
+    public void continueButtonNotClickableOnGameStart() {
         ImageView continueButton = (ImageView) activity.findViewById(R.id.continue_button);
 
         activity.setUpGame();

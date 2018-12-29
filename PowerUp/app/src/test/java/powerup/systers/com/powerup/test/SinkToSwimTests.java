@@ -32,12 +32,12 @@ public class SinkToSwimTests {
     SinkToSwimGame activity;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         activity = Robolectric.setupActivity(SinkToSwimGame.class);
     }
 
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void shouldNotBeNull() {
         assertNotNull(activity);
     }
 

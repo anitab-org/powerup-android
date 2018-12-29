@@ -39,7 +39,7 @@ public class MapActivityTests {
     private DatabaseHandler databaseHandler;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         controller = Robolectric.buildActivity(MapActivity.class);
         activity = controller.get();
 
