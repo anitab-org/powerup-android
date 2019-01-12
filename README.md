@@ -6,20 +6,16 @@ PowerUp is a female empowerment educational mobile game app that will allow youn
 and self-esteem by navigating the life of their avatar!
 
 ## Setup for Developers
-1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS. If you are using Android Studio 3.0 use these resources(https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html / https://developer.android.com/studio/releases/gradle-plugin.html) 
+1. Make sure you have downloaded the latest version of [Android Studio](https://developer.android.com/sdk/index.html). It works on Linux, Windows and Mac. Download the correct version for your OS.
 2. Go to [the project repo](https://github.com/systers/powerup-android/) and fork it by clicking "Fork" 
 3. If you are working on Windows, download [Git Bash for Windows](https://git-for-windows.github.io/) to get a full Unix bash with Git functionality
 4. Clone the repo to your desktop `git clone https://github.com/YOUR_USERNAME/powerup-android.git`
-5. Initialize Git. `git init`
-6. Open the project with Android Studio 
-7. Fetch the latest version of code from branch "develop".
+5. Open the project with Android Studio 
+6. Fetch the latest version of code from branch "[develop](https://github.com/systers/powerup-android/tree/develop/PowerUp)".
+7. Build a 'Powerup' application which is inside the base directory.
 
 ## Configure remotes
 When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:
-
-1. Open terminal or git bash in your local repository and set up the origin:
-
-   `git remote add origin https://github.com/YOUR_USERNAME/powerup-android.git`
 
 1. Set the `upstream`:
 
@@ -39,13 +35,12 @@ When a repository is cloned, it has a default remote called `origin` that points
 
    `git fetch upstream`
 
-   `git merge upstream/master`
+   `git rebase upstream/develop`
 
    This will give you an exact copy of the current remote, make sure you don't have any local changes.
 
 ## Contributing and developing a feature
-1. Make sure you are in the master branch `git checkout master`
-1. Sync your copy `git pull`
+1. Make sure you are in the develop branch `git checkout develop`
 1. Create a new branch with a meaningful name `git checkout -b branch_name`
 1. Develop your feature on Android Studio and run it using the emulator or connecting your own Android device
 1. Clean your project from Android Studio `Build/Clean project`
@@ -62,7 +57,7 @@ When a repository is cloned, it has a default remote called `origin` that points
 
 ## Documentation of PowerUp (Android)
 Here's the link to the official documentation:
-[Visit Documentation!](http://chetnagsocpowerupandroid.blogspot.in/2015/05/database-design.html)
+[Visit Documentation!](https://github.com/systers/powerup-android/wiki#overview)
 
 ## Coding Guidelines
 1. Don't use magic numbers or hard-coded strings. Put them in dimens.xml or strings.xml

@@ -1,6 +1,6 @@
 # Contributing Guidelines
 * You can join our [slack channel](http://systers.io/slack-systers-opensource/).  Each active repo has its own channel to direct questions to (for example #powerup or #portal).  
-* Remember that this is an inclusive community, committed to creating a safe, positive environment.  See the full [Code of Conduct](http://www.systers.io/code-of-conduct.html).
+* Remember that this is an inclusive community, committed to creating a safe, positive environment.  See the full [Code of Conduct](https://github.com/systers/powerup-android/blob/develop/code_of_conduct.md).
 ## General Guidelines
 * If you’re just getting started work on an issue labeled “First Timers Only” in any project. Additional resources are available on our [website](http://www.systers.io).
 * In an active repository (not an archived one), choose an open issue from the issue list, claim it in the comments, and a maintainer will assign it to you.  
