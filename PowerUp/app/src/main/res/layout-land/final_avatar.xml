@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dressing_room"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/powerup_dark_blue"
+            android:text="This is your final avatar! Press continue to start your Journey..."
+            android:textSize="@dimen/final_scene_text_size" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.3"></LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/skin_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/skin1"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:id="@+id/dress_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dress_avatar1" />
+
+                <ImageView
+                    android:id="@+id/hair_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hair1"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:id="@+id/eye_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/eyes1"
+                    android:scaleType="fitXY"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.3"></LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/continueButtonFinal"
+        android:layout_width="@dimen/continue_width"
+        android:layout_height="@dimen/continue_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/continue_marginBottom"
+        android:alpha="0.9"
+        android:background="@drawable/continue_button"
+        android:scaleType="fitXY" />
+    <ImageView
+        android:id="@+id/backButtonFinal"
+        android:layout_width="@dimen/back_width"
+        android:layout_height="@dimen/back_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="@dimen/back_marginBottom"
+        android:alpha="0.9"
+        android:background="@drawable/back_button"
+        android:scaleType="fitXY" />
+</RelativeLayout>
