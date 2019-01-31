@@ -13,7 +13,7 @@
         -->
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar.FullScreen">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
@@ -23,4 +23,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    // makes the complete app full screen hense applied to application tag in AndroidManifest
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
