@@ -23,7 +23,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/powerup_dark_blue"
-            android:text="This is your final avatar! Press continue to start your Journey..."
+            android:text="@string/final_avatar_message"
             android:textSize="@dimen/final_scene_text_size" />
     </LinearLayout>
         <LinearLayout

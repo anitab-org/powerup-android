@@ -356,7 +356,7 @@
                 android:layout_weight="1.5"
                 android:paddingRight="@dimen/score_padding_right"
                 android:paddingEnd="@dimen/score_padding_right"
-                android:text="Score: 0"
+                android:text="@string/score0"
                 android:textColor="@color/score_color"
                 android:textSize="@dimen/score_text_size"
                 android:textStyle="bold" />

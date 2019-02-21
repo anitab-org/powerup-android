@@ -10,7 +10,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/vocab_score"
-        android:text="0"
+        android:text="@string/zero"
         android:gravity="center"
         android:textSize="25sp"
         android:textStyle="bold"/>
@@ -58,7 +58,7 @@
                android:layout_height="0dp"
                android:layout_weight="1"
                android:background="@drawable/vocab_clipboard_yellow"
-               android:text="Pimples"
+               android:text="@string/pimples"
                android:gravity="center"
                />
             <powerup.systers.com.vocab_match_game.VocabBoardTextView
@@ -67,7 +67,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/vocab_clipboard_yellow"
-                android:text="Bra"
+                android:text="@string/bra"
                 android:gravity="center"/>
             <powerup.systers.com.vocab_match_game.VocabBoardTextView
                 android:id="@+id/tv3"
@@ -75,7 +75,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/vocab_clipboard_yellow"
-                android:text="Periods"
+                android:text="@string/periods"
                 android:gravity="center"/>
         </LinearLayout>
     </LinearLayout>

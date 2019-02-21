@@ -27,7 +27,7 @@
     <string name="eye">"eyes"</string>
     <string name="hair">"hair"</string>
     <string name="cloth">"dress_avatar"</string>
-    <string name="skin">"skin"</string>
+    <string name="lowercase_skin">"skin"</string>
     <string name="face">"face"</string>
     <string name="accessory">"accessory"</string>
     <string name="accessories">"acc_avatar"</string>
@@ -133,4 +133,20 @@
     <string name="save_blood_tutorial_3">Try to choose all the correct options before the time runs out!</string>
     <string name="msg1_level_complete">Happy Birthday! You have completed the middle school level!</string>
     <string name="msg2_level_complete">Congratulations! Let\'s now proceed to high school.</string>
+    <string name="f">F</string>
+    <string name="score0">Score: 0</string>
+    <string name="zero">0</string>
+    <string name="t">T</string>
+    <string name="q">Q</string>
+    <string name="pimples">Pimples</string>
+    <string name="bra">Bra</string>
+    <string name="periods">Periods</string>
+    <string name="skin">Skin</string>
+    <string name="eyes">Eyes</string>
+    <string name="clothes">Clothes</string>
+    <string name="final_avatar_message">This is your final avatar! Press continue to start your Journey...</string>
+    <string name="better_success_rate"><![CDATA[=> Better Success Rate]]></string>
+    <string name="cheapest_contraceptive"><![CDATA[=> Cheapest Contraceptive]]></string>
+    <string name="no_protection_against_stds"><![CDATA[=> No protection against STDs]]></string>
+    <string name="str_5">5</string>
 </resources>

@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Skin"
+                android:text="@string/skin"
                 android:textSize="@dimen/selection_text_size" />
 
             <ImageView
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Eyes"
+                android:text="@string/eyes"
                 android:textSize="@dimen/selection_text_size" />
 
             <ImageView
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Clothes"
+                android:text="@string/clothes"
                 android:textSize="@dimen/selection_text_size" />
 
             <ImageView
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Hair"
+                android:text="@string/hair"
                 android:textSize="@dimen/selection_text_size" />
 
             <ImageView

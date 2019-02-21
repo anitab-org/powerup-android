@@ -15,7 +15,7 @@
         android:layout_height="@dimen/karma_star_height"
         android:layout_toRightOf="@id/karma_star"
         android:gravity="center"
-        android:text="0"
+        android:text="@string/zero"
         android:textSize="@dimen/karma_points_textSize"
         android:textColor="@color/powerup_black"/>
     <TextView

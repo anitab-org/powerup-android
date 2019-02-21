@@ -55,7 +55,7 @@ public class GameScreenPresenter implements GameScreenContract.IGameScreenPresen
 
     @Override
     public void calculateSkinValue(int value) {
-        String skinmageName = context.getResources().getString(R.string.skin);
+        String skinmageName = context.getResources().getString(R.string.lowercase_skin);
         skinmageName = skinmageName + value;
         R.drawable ourRID = new R.drawable();
         java.lang.reflect.Field photoNameField;

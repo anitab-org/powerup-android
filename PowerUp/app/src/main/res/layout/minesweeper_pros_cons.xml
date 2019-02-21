@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="14"
             android:gravity="bottom"
-            android:text="=> Better Success Rate "
+            android:text="@string/better_success_rate"
             android:textColor="@color/powerup_blue_green"
             android:textSize="@dimen/pros_cons_textSize"
             android:textStyle="bold" />
@@ -51,7 +51,7 @@
             android:layout_weight="14"
             android:gravity="top"
             android:paddingTop="@dimen/pros_cons_paddingTop"
-            android:text="=> Cheapest Contraceptive"
+            android:text="@string/cheapest_contraceptive"
             android:textColor="@color/powerup_blue_green"
             android:textSize="@dimen/pros_cons_textSize"
             android:textStyle="bold" />
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:gravity="bottom"
-            android:text="=> No protection against STDs"
+            android:text="@string/no_protection_against_stds"
             android:textColor="@color/cons_text"
             android:textSize="@dimen/pros_cons_textSize"
             android:textStyle="bold" />
