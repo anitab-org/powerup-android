@@ -8,7 +8,7 @@ package powerup.systers.com.data.entities;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "Scenario")
+@Entity
 public class Scenario {
 
     @PrimaryKey
