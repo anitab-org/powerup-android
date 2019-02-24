@@ -52,6 +52,9 @@ public class MemoryMatchGameActivity extends Activity {
     public boolean calledFromActivity = true, correctAns = true, buttonClick = false;;
     private long millisLeft = 30000;
 
+    //Variable to see if game has paused and restarted
+    private static boolean restart=false;
+
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +63,7 @@ public class MemoryMatchGameActivity extends Activity {
         ButterKnife.bind(this);
         translateTile = AnimationUtils.loadAnimation(this, R.animator.translate_tile);
         random = new Random();
+        restart=false;
         initializeView();
     }
 
@@ -67,7 +71,7 @@ public class MemoryMatchGameActivity extends Activity {
         arrayTile = new ArrayList<>();
         boolean calledByTutorialActivity = getIntent().getBooleanExtra(PowerUpUtils.CALLED_BY, false);
 
-        if(!calledByTutorialActivity){
+        if(!calledByTutorialActivity || restart) {
             MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
             score = sessionManager.getCurrScore();
             millisLeft = sessionManager.getTimeLeft();
@@ -101,7 +105,7 @@ public class MemoryMatchGameActivity extends Activity {
                 gameEnd();
             }
         };
-        if(!calledByTutorialActivity)
+        if(!calledByTutorialActivity || restart)
             countDownTimer.start();
     }
 
@@ -255,5 +259,12 @@ public class MemoryMatchGameActivity extends Activity {
         super.onBackPressed();
         startActivity(new Intent(MemoryMatchGameActivity.this, MapActivity.class));
         overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
+    }
+
+    public void onRestart() {
+        super.onRestart();
+        //Set Restart value to true once game paused and resumed
+        restart=true;
+        initializeView();
     }
 }
