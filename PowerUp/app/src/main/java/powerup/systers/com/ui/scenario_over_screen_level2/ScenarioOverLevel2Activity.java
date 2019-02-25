@@ -167,6 +167,7 @@ public class ScenarioOverLevel2Activity extends AppCompatActivity implements Sce
         // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
         // clears the activities that were created after the found instance of the required activity
         startActivity(new Intent(ScenarioOverLevel2Activity.this, MapLevel2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
         finish();
     }
 
