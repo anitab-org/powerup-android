@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Travis build triggered on a forked repository
-if [ "$TRAVIS_REPO_SLUG" != "systers/powerup-android" ]; then
+if [ "$TRAVIS_REPO_SLUG" != "anitab-org/powerup-android" ]; then
     echo "Not the original repo. Skip apk upload."
     exit 0
 fi
@@ -29,7 +29,7 @@ if [ "$TRAVIS_BRANCH" == "develop" ]; then
     git init
 
     # Copy generated apk into the new repo
-    cp $HOME/build/systers/powerup-android/PowerUp/app/build/outputs/apk/debug/app-debug.apk $HOME/apk/
+    cp $HOME/build/anitab-org/powerup-android/PowerUp/app/build/outputs/apk/debug/app-debug.apk $HOME/apk/
     
     # Add and commit the new apk
     git add -f app-debug.apk
@@ -39,7 +39,7 @@ if [ "$TRAVIS_BRANCH" == "develop" ]; then
     git branch -m apk
 
     # Pushing the apk branch to the original repo
-    git push https://m-murad:$GITHUB_API_KEY@github.com/systers/powerup-android apk -fq> /dev/null
+    git push https://m-murad:$GITHUB_API_KEY@github.com/anitab-org/powerup-android apk -fq> /dev/null
     if [ $? -eq 0 ]; then
         echo "Apk push successful."
     else
