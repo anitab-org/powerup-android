@@ -353,6 +353,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
             // The flag FLAG_ACTIVITY_CLEAR_TOP checks if an instance of the activity is present and it
             // clears the activities that were created after the found instance of the required activity
             startActivity(new Intent(GameLevel2Activity.this, MapLevel2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
             finish();
         }
     }
@@ -364,6 +365,7 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
         builder.setPositiveButton(getString(R.string.game_confirm_message), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 startActivity(new Intent(GameLevel2Activity.this, MapLevel2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                overridePendingTransition(R.animator.fade_in_custom, R.animator.fade_out_custom);
                 SessionHistory.totalPoints -= SessionHistory.currScenePoints;
                 finish();
                 dataSource.setReplayedScenario(scene.getScenarioName());
