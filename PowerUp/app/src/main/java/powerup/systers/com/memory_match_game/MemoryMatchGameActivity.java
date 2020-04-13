@@ -52,6 +52,7 @@ public class MemoryMatchGameActivity extends Activity {
     public boolean calledFromActivity = true, correctAns = true, buttonClick = false;;
     private long millisLeft = 30000;
 
+    private String TAG = "TAG";
     //Variable to see if game has paused and restarted
     private static boolean restart=false;
 
@@ -250,7 +251,13 @@ public class MemoryMatchGameActivity extends Activity {
         MemoryMatchSessionManager sessionManager = new MemoryMatchSessionManager(this);
         countDownTimer.cancel();
         countDownTimer = null;
-        sessionManager.saveData(score, millisLeft, arrayTile.get(positionCount), arrayTile.get(positionCount - 1) , correctAnswer, wrongAnswer);
+        try {
+            sessionManager.saveData(score, millisLeft, arrayTile.get(positionCount), arrayTile.get(positionCount - 1), correctAnswer, wrongAnswer);
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            Log.d(TAG,e.toString());
+        }
         super.onPause();
     }
 
