@@ -8,12 +8,14 @@ package powerup.systers.com.ui.avatar_room;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTouch;
 import powerup.systers.com.ui.final_avatar_room.FinalAvatarActivity;
 import powerup.systers.com.R;
 import powerup.systers.com.data.DataSource;
@@ -156,6 +158,19 @@ public class AvatarRoomActivity extends Activity implements AvatarRoomContract.I
                 % SessionHistory.clothTotalNo + 1;
         presenter.calculateClothValue(cloth);
     }
+
+    @OnTouch({R.id.hair_left,R.id.hair_right,R.id.eyes_left,R.id.eyes_right,R.id.clothes_left,R.id.clothes_right,R.id.skin_left,R.id.skin_right})
+    public boolean onArrowTouchListener(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == MotionEvent.ACTION_MOVE){
+            view.setAlpha(0f);
+            return true;
+        }
+        else {
+            view.setAlpha(1f);
+            return true;
+        }
+    }
+
 
     @Override
     public void updateAvatarEye(int eye) {
