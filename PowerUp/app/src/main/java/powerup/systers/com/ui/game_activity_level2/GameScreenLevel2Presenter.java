@@ -82,13 +82,31 @@ public class GameScreenLevel2Presenter implements GameScreenLevel2Contract.IGame
             Log.e("GameLevel2Presenter", "Error due to :" + clothImageName);
         }
     }
+    @Override
+    public void calculateAccessoryValue(int value) {
+        if(value > 0) {
+            String accessoryImageName = context.getResources().getString(R.string.accessories);
+            accessoryImageName = accessoryImageName + value;
+            R.drawable ourRID = new R.drawable();
+            java.lang.reflect.Field photoNameField;
+            try {
+                photoNameField = ourRID.getClass().getField(accessoryImageName);
+                view.updateAvatarAccessory(photoNameField.getInt(ourRID));
+            } catch (NoSuchFieldException | IllegalAccessException
+                    | IllegalArgumentException error) {
+                Log.e("StorePresenter", "Error due to :" + accessoryImageName);
+            }
+        }
 
+    }
     @Override
     public void setValues() {
         calculateEyeValue(source.getCurrentEyeValue());
         calculateClothValue(source.getCurrentClothValue());
         calculateHairValue(source.getCurrentHairValue());
         calculateSkinValue(source.getCurrentSkinValue());
+        calculateAccessoryValue(source.getCurrentAccessoriesValue());
+
     }
 
     @Override
