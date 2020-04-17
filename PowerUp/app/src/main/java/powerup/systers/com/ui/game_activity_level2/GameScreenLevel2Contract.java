@@ -11,6 +11,7 @@ public interface GameScreenLevel2Contract {
         void updateAvatarCloth(int cloth);
         void updateAvatarHair(int hair);
         void updateAvatarSkin(int skin);
+        void updateAvatarAccessory(int accessory);
         void updateScenarioFromDatabase(Scenario scenario);
         void setScenarioBackground(int id);
         void updateQuestion(String question);
@@ -23,6 +24,7 @@ public interface GameScreenLevel2Contract {
         void calculateHairValue(int value);
         void calculateSkinValue(int value);
         void calculateClothValue(int value);
+        void calculateAccessoryValue(int value);
         void setValues();
         void getScenarioBackground();
         void loadQuestion();

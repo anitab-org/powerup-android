@@ -417,6 +417,11 @@ public class GameActivity extends Activity implements GameScreenContract.IGameSc
     }
 
     @Override
+    public void updateAvatarAccessory(int accessory) {
+        accessoryImageView.setImageResource(accessory);
+    }
+
+    @Override
     public void updateScenarioFromDatabase(Scenario scenario) {
         scene = scenario;
 

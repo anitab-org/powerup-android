@@ -412,6 +412,11 @@ public class GameLevel2Activity extends Activity implements GameScreenLevel2Cont
     }
 
     @Override
+    public void updateAvatarAccessory(int accessory) {
+        accessoryImageView.setImageResource(accessory);
+    }
+
+    @Override
     public void updateScenarioFromDatabase(Scenario scenario) {
         scene = scenario;
 
